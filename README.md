@@ -1,2 +1,2 @@
 # grc-paper-project-coffee-shop
-building out
+building out paper projects for GRC learning
