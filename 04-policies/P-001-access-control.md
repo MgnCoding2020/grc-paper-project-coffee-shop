@@ -1,8 +1,13 @@
-Access Management Policy
-(Last Updated February 2026)
+                                              Access Management Policy
+                                              (Last Updated February 2026)
+Company:
+Burn and Churn Coffee
+Context:
+Systems: Tost POS (devices, admin portal), Google Workspace, company tablets, staff network equipment.
+
 
 ###Purpose###
-Our Access Management Policy aims to establish a comprehensive framework for controlling and managing user access to our organization's systems, applications, and data resources. This policy aims to provide clear guidelines and procedures for granting, reviewing, and revoking access privileges, ensuring that users have the appropriate level of access based on their roles and responsibilities. This policy seeks to minimize the risk of unauthorized access, data breaches, and insider threats by implementing effective access management practices. By implementing strong authentication mechanisms, role-based access controls, and regular access reviews, we strive to ensure that only authorized individuals can access sensitive information, protect the confidentiality and integrity of our systems and data, and comply with regulatory requirements. By prioritizing access management, we strengthen our overall cybersecurity posture, safeguard against unauthorized access, and maintain the trust and confidence of our stakeholders.
+Our Access Management Policy aims to establish a comprehensive framework for controlling and managing user access to our organization's systems, such as devices contected to our Toast POS system, tablets utilized for inventory, our Google Workspaces, and the network equipment. to minimize the risk of unauthorized access, data breaches, and insider threats by implementing effective access management practices. By implementing strong authentication mechanisms, role-based access controls, and regular access reviews, we strive to ensure that only authorized individuals can access sensitive information, protect the confidentiality and integrity of our systems and data, and comply with regulatory requirements. By providing Access Management we help strengthen our security posture and safeguard against unauthorized access. 
 
 ###Scope###
 The Access Management Policy applies to all our organization's employees, contractors, and stakeholders. It encompasses managing and controlling user access privileges to systems, applications, and data resources within our IT infrastructure. This policy covers all accounts and credentials to authenticate and authorize individuals' access. It sets forth guidelines for user provisioning, role-based access control, and segregation of duties to ensure appropriate access levels are granted based on job responsibilities and the principle of least privilege. The policy defines user account creation, modification, and termination procedures, as well as password management, session management, and access revocation. It also outlines the responsibilities of individuals involved in access management processes, including system administrators, IT managers, and access administrators. Compliance with this policy is mandatory for all individuals within the organization, and any deviations or exceptions require approval from the designated authority responsible for access management and cybersecurity governance.
