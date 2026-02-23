@@ -1,9 +1,13 @@
-                                              Access Management Policy
-                                              (Last Updated February 2026)
-Company:
+                                Access Management Policy
+                              (Last Updated February 2026)
 Burn and Churn Coffee
-Context:
-Systems: Tost POS (devices, admin portal), Google Workspace, company tablets, staff network equipment.
+Company Context
+This policy applies to the following systems:
+    •  Toast POS devices and administrative portal
+    •  Google Workspace email and administrative console
+    •  Company-issued tablets used for inventory and order processing
+    •  Staff netowrking infrastructure (router, firewall, Wi-Fi access points)
+Guest Wi-Fi access is not governed by user identity controls but is subject to network configuration and monitoring controls. 
 
 
 ###Purpose###
