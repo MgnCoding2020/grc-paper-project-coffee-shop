@@ -73,5 +73,8 @@ Administrative logging shall remain enabled on network equipment where technical
 Logs shall be reviewed during scheduled access reviews or following suspected security incidents.
 
 ###Policy Sanctions###
-Non-compliance with this policy may result in disciplinary action in line with our corporation's human resources procedures. Consequences may range from mandatory refresher training and written warnings to temporary suspension of remote access privileges and, in severe cases, termination of employment or contractual obligations. Individuals could be subject to legal consequences under applicable laws if violations involve illegal activities. These sanctions emphasize the critical importance of cybersecurity, the individual's role in protecting our digital assets, and the potential risks associated with policy violations. Enforcement will be consistent and impartial, with the severity of the action corresponding directly to the seriousness of the breach.
+Failure to comply with the policy may result in disciplinary action, up to and including termination of employment or contractual relationship. 
+Violations may also result in the suspension of system access privileges while investigations are conducted.
+Where applicable, violations involving illegal activity may be referred to appropriate authorities.
+All enforcement actions shall be applied consisyently and in accordance with company management procedures. 
 
