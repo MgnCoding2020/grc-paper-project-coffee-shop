@@ -24,7 +24,21 @@ This policy establishes requirements for:
   
 
 ###Scope###
-The Access Management Policy applies to all our organization's employees, contractors, and stakeholders. It encompasses managing and controlling user access privileges to systems, applications, and data resources within our IT infrastructure. This policy covers all accounts and credentials to authenticate and authorize individuals' access. It sets forth guidelines for user provisioning, role-based access control, and segregation of duties to ensure appropriate access levels are granted based on job responsibilities and the principle of least privilege. The policy defines user account creation, modification, and termination procedures, as well as password management, session management, and access revocation. It also outlines the responsibilities of individuals involved in access management processes, including system administrators, IT managers, and access administrators. Compliance with this policy is mandatory for all individuals within the organization, and any deviations or exceptions require approval from the designated authority responsible for access management and cybersecurity governance.
+This policy applies to: 
+  •  All employees
+  •  Store Managers
+  •  The business owner
+  •  Any third-party IT support vendors
+This policy governs:
+  •  User accounts in Toast POS
+  •  Google Workspace accounts
+  •  Administrative access to network equipment
+  •  Authentication and authorization mechanisms used by company tablets
+  •  Password and credential management
+Compliance with this policy is mandatory.
+
+Exceptions must be approved by the business owner.
+
 
 ###Safeguards###
 To achieve the organization's overall mission, and the purpose of this cybersecurity policy, the organization shall: 
