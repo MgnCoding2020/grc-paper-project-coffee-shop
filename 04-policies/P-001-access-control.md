@@ -3,15 +3,25 @@
 Burn and Churn Coffee
 Company Context
 This policy applies to the following systems:
-    •  Toast POS devices and administrative portal
-    •  Google Workspace email and administrative console
-    •  Company-issued tablets used for inventory and order processing
-    •  Staff netowrking infrastructure (router, firewall, Wi-Fi access points)
+  •  Toast POS devices and administrative portal
+  •  Google Workspace email and administrative console
+  •  Company-issued tablets used for inventory and order processing
+  •  Staff netowrking infrastructure (router, firewall, Wi-Fi access points)
 Guest Wi-Fi access is not governed by user identity controls but is subject to network configuration and monitoring controls. 
 
-
 ###Purpose###
-Our Access Management Policy aims to establish a comprehensive framework for controlling and managing user access to our organization's systems, such as devices contected to our Toast POS system, tablets utilized for inventory, our Google Workspaces, and the network equipment. to minimize the risk of unauthorized access, data breaches, and insider threats by implementing effective access management practices. By implementing strong authentication mechanisms, role-based access controls, and regular access reviews, we strive to ensure that only authorized individuals can access sensitive information, protect the confidentiality and integrity of our systems and data, and comply with regulatory requirements. By providing Access Management we help strengthen our security posture and safeguard against unauthorized access. 
+
+The purpose of this policy is to ensure that access to company systems and data is granted, managed, and revoked in a controlled and secure manner. 
+
+Burn and Churn Coffee will limit system access to authorized personnel based on job responsibilities. Access privileges will follow the principles of least privilege and separation of duties to reduce the risk of unauthorized access, fraud, data exposure, or operational disruption. 
+
+This policy establishes requirements for: 
+  •  User account creation
+  •  Role assignment
+  •  Access reviews
+  •  Access revocation
+  •  Monitoring of access changes
+  
 
 ###Scope###
 The Access Management Policy applies to all our organization's employees, contractors, and stakeholders. It encompasses managing and controlling user access privileges to systems, applications, and data resources within our IT infrastructure. This policy covers all accounts and credentials to authenticate and authorize individuals' access. It sets forth guidelines for user provisioning, role-based access control, and segregation of duties to ensure appropriate access levels are granted based on job responsibilities and the principle of least privilege. The policy defines user account creation, modification, and termination procedures, as well as password management, session management, and access revocation. It also outlines the responsibilities of individuals involved in access management processes, including system administrators, IT managers, and access administrators. Compliance with this policy is mandatory for all individuals within the organization, and any deviations or exceptions require approval from the designated authority responsible for access management and cybersecurity governance.
