@@ -58,7 +58,6 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
   •  **Privileged Account:** An account with administrative capabilities (e.g., admin console access, ability to create users, change permissions, or modify-security settings).
   •  **Joiner/Mover/Leaver:** A user who is newly hired (joiner), changes roles (mover), or leaves the company (leaver).
 
-
 **5. Safeguards**
 
 **5.1 Role Definitions and Access Model**
@@ -115,40 +114,24 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
   **1.** Administrative actions affecting access (user creation, role changes, group membership shanges) shall be logged where supported.
   **2.** Administrative logging shall remain enabled on network equipment where technically feasible. If logging is not feasible, the Business Owner shall document the limitation and implement compensating controls (e.g., stricter access restrictions, more frequent reviews).
   **3.** Logs shall be reviewed during quarterly access reviews and following suspected security incidents.
-To achieve the organization's overall mission, and the purpose of this cybersecurity policy, the organization shall: 
-The organization shall define and document user roles for all systems in the scope, including Toast POS, Google Workspace, company tablets, and network infrastructure.
-Roles shall be assigned based on job responsibilities. 
-The organization shall implement separation of duties where feasible to prevent unauthorized or fraudulent activity.
-Administrative privileges shall be restricted to the Owner and authorized management personnel only.
 
-The organization shall maintain documented records of user access and role assignments within:
-  •  "Toast POS administrative portal"
-  •  "Google Workspace administrative console"
-  •  "Network equipment administrative interfaces"
-Access permissions shall be based on documented roles and the principle of least privilege.
-Access to administrative interfaces shall be limited to authorized personnel.
-AM-07: Not applicable. The organization does not maintain internal software development repositories.
+**6. Exceptions**
+Exceptions to this policy must:
+  • Be approved by the Business Owner in writing
+  • Include a business justification
+  • Include a business expiration date
+  • Include a defined expiration date
+  • Include compensating controls where needed
+  • Be retained for audit purposes
 
-Company-issued tablets shall utilize device-level encryption where supported.
-All administrative access to Toast POS, Google Workspace, and network equipment shall occur over encrypted connections (HTTPS/TLS).
-The organization relies on vendor-managed encryption controls for hosted SaaS systems such as Toast POS and Google Workspace.
+**7. Enforcement and Sanctions**
+Failure to comply with this policy may result in disciplinary action up to and including termination of employment or contractual relationship. Violations may also result in suspension of system access while an investigation is conducted.
 
-The organization shall conduct quarterly access reviews of: 
-  •  "Toast POS user accounts and role assignments"
-  •  "Google Workspace accounts and administrative roles"
-  •  "Network equipment administrative access"
-Access reviews shall verify that:
-  •  "Former employees no longer retain access"
-  •  "Access privileges remain appropriate to job responsibilities"
-Documentation of access reviews shall be retained for audit purposes. 
+Enforcement actions shall be applied consistently and in accordance with company management procedures. Suspected violations shall be reported to the Business Owner or Store Manager.
 
-Admnistrative changes to user roles, permissions, and groups memberships within Toast POS and Google Workspace shall be logged where supported.
-Administrative logging shall remain enabled on network equipment where technically feasible.
-Logs shall be reviewed during scheduled access reviews or following suspected security incidents.
-
-###Policy Sanctions###
-Failure to comply with the policy may result in disciplinary action, up to and including termination of employment or contractual relationship. 
-Violations may also result in the suspension of system access privileges while investigations are conducted.
-Where applicable, violations involving illegal activity may be referred to appropriate authorities.
-All enforcement actions shall be applied consisyently and in accordance with company management procedures. 
-
+**8. Related Documents**
+  • Network/Wireless Security Policy
+  • Acceptable Use Policy
+  • Incident Response Plan / Playbook
+  • Onboarding and Offboarding Procedure
+  • Asset Inventory
