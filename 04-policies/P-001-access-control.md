@@ -1,26 +1,38 @@
-                                Access Management Policy
-                              (Last Updated February 2026)
+Access Management Policy                              
 Burn and Churn Coffee
-Company Context
-This policy applies to the following systems:
-  •  Toast POS devices and administrative portal
-  •  Google Workspace email and administrative console
-  •  Company-issued tablets used for inventory and order processing
-  •  Staff netowrking infrastructure (router, firewall, Wi-Fi access points)
-Guest Wi-Fi access is not governed by user identity controls but is subject to network configuration and monitoring controls. 
 
-###Purpose###
+Document Control
+  •  **Policy Owned:** Business Owner
+  •  **Approved By:** Business Owner
+  •  **Effective Date:** 2026-02-01
+  •  **Last Reviewed/Updated:** 2026-02-23
+  •  **Review Frequency:** Annual (or upon significant change to systems or roles)
+  •  **Version:** 1.1
+    
 
-The purpose of this policy is to ensure that access to company systems and data is granted, managed, and revoked in a controlled and secure manner. 
+**Company Context**
+Burn and Churn Coffee uses a small set of cloud and on-site systems to operate daily business functions and store business and customer information. This polic applies to the following system and business and administrative interfaces:
+  •  **Toast POS** (point-of-sale devices and administrative portal)
+  •  **Google Workspace** (email, share drive content and admin console)
+  •  **Company-issued tablets** used for inventory, order, and business operations
+  •  **Staff netowrking infrastructure** (router, firewall, Wi-Fi access points, and any network management interfaces)
+**Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **Network/Wireless Security Policy.**
 
-Burn and Churn Coffee will limit system access to authorized personnel based on job responsibilities. Access privileges will follow the principles of least privilege and separation of duties to reduce the risk of unauthorized access, fraud, data exposure, or operational disruption. 
+###**Purpose**###
+
+The purpose of this policy is to ensure that access to Burn and Churn Coffee systems and data is authorized, appropriate, and managed throughout the user lifecycle (joiner, mover, leaver). 
+
+Burn and Churn Coffee will limit access to systems and data to authorized individuals based on job responsibilities, using the principles of least privliege and separation of duties to reduce the risk of unauthorized access, fraud, data exposure, or operational disruption. 
 
 This policy establishes requirements for: 
-  •  User account creation
-  •  Role assignment
-  •  Access reviews
-  •  Access revocation
-  •  Monitoring of access changes
+  •  Account provisioning and approval
+  •  Role assignment and changes
+  •  Authentication and credential management
+  •  Privileged (administrative) access
+  •  Third-party/vendor access
+  •  Periodic access reviews
+  •  Access revocation and termination handling
+  •  Logging of access and administrative changes
   
 
 ###Scope###
