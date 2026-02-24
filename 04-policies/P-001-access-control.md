@@ -59,7 +59,62 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
   •  **Joiner/Mover/Leaver:** A user who is newly hired (joiner), changes roles (mover), or leaves the company (leaver).
 
 
-###Safeguards###
+**5. Safeguards**
+
+**5.1 Role Definitions and Access Model**
+  **1.** Burn and Churn Coffee shall define and maintain documented user roles for systems within scope (Toast POS, Google Workspace, tablets, and network infrastucture).
+  **2.** Roles shall be assigned based on job responsibilities and shall follow least privilege.
+  **3.** Separation of duties shall be implemented where feasible, especially for high-risk actions (e.g., refunds, pay/HR access, admin changes).
+  **4.** Administrative privileges shall be limited to the Business Owner and explicitly authorized management personnel.
+**5.2 Account Provisioning (joiners)**
+  **1.** All user accounts shall be uniquely assigned to an individual (no shared accounts), unless a documented exception is approved by the Business Owner.
+  **2.** Access shall be provisioned only after documented approval by the user's manager or the Business Owner.
+  **3.** New accounts shall be assigned the minimum required role(s) for the individual's job duties.
+  **4.** Provisioning actions shall be recorded in a retrievable format (e.g., email approval, ticket, or access request form).
+**5.3 Access Changes (Movers)**
+  **1.** When a user changes roles or job responsibilities, access rights shall be reviewed and updated to match the new role.
+  **2.** Role and permission changes shall be completed within **3 business days** of the role change being approved or effective (whichever is sooner).
+  **3.** Access that is no longer required shall be removed as part of the change.
+**5.4 Access Revocation (Leavers)**
+  **1.** When employment ends, access to Google Workspace, Toast POS, and network administrative interfaces shall be disabled or removed **no later than 24 hours** after separation.
+  **2.** For involuntary or high-risk terminations, access shall be disabled **immediately upon notification** of termination or at the time of termination, whichever is earlier.
+  **3.** Company-issued devices shall be recovered where feasible. If devices are not recovered promptly, accounts associated with the device shall be disabled and remote wipe shall be performed where supported.
+**5.5 Authentication and Credential Requirements**
+  **1.** Passwords shall be kept confidential and shall not be shared between individuals.
+  **2.** Multi-factor authentication (MFA) shall be enabled for:
+      • All Google Workspace administrative accounts (required)
+      • All Google Workspace user accounts where supported and feasible (strongly recommended; required if handling sensitive business data)
+  **3.** Privileged accounts shall use stronger authentication than standard accounts where possible (e.g., MFA enforced, separate admin accounts).
+**5.6 Privileged (Administrative) Access Controls**
+  **1.** Privileged access shall be restricted to designated personnel and approval by the Business Owner.
+  **2.** Privileged access shall be used only for administrative tasks and not for routine daily operations where feasible.
+  **3.** Privileged access shall be reviewed during quaterly access reviews.
+  **4.** Administrative changes (user creation, permission changes, group membership changes) shall be logged where supported.
+**5.7 Third-Party / Vendor Access**
+  **1.** Third-party vendors shall be granted access only when required for business purpose and only with Business Owner approval.
+  **2.** Vendor access shall be:
+      • Assigned to named individuals (no generic vendor accounts) where supported
+      • Limited to least privilege
+      • Time-bound whenever feasible (access removed after work is completed)
+  **3.** Vendor access shall be reviewed during quarterly access reviews and removed when no longer required.
+**5.8 Secure Access and Encryption**
+  **1.** Administrative access to Toast POS, Google Workspace, and network equipment shall occur over encrypted connections (HTTPS/TLS) whenever available.
+  **2.** Company-issued tablets shall use device-level encryption where supported.
+  **3.** For hosted SaaS systems (Toast POS, Google Workspace), Burn and Churn Coffee relies on vendor-managed encryption controls for data in transit and at rest.
+**5.9 Access Reviews (Quarterly)**
+  **1.** Burn and Churn Coffee shall perform access reviews **quarterly** for:
+      • Toast POS user accounts and roles
+      • Google Workspace accounts, groups, and administrative roles
+      • Network equipment administrative accounts
+  **2.** Access reviews shall verify:
+      • Former employees do not retain access
+      • Privileged access is limited and appropriate
+      • Role assignments match current job responsibilities
+  **3.** Reviews results shall be documented and retained for at least **one year**.
+**5.10 Logging and Monitoring of Access Changes**
+  **1.** Administrative actions affecting access (user creation, role changes, group membership shanges) shall be logged where supported.
+  **2.** Administrative logging shall remain enabled on network equipment where technically feasible. If logging is not feasible, the Business Owner shall document the limitation and implement compensating controls (e.g., stricter access restrictions, more frequent reviews).
+  **3.** Logs shall be reviewed during quarterly access reviews and following suspected security incidents.
 To achieve the organization's overall mission, and the purpose of this cybersecurity policy, the organization shall: 
 The organization shall define and document user roles for all systems in the scope, including Toast POS, Google Workspace, company tablets, and network infrastructure.
 Roles shall be assigned based on job responsibilities. 
