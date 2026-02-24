@@ -10,7 +10,7 @@ Document Control
   •  **Version:** 1.1
     
 
-**Company Context**
+**1. Company Context**
 Burn and Churn Coffee uses a small set of cloud and on-site systems to operate daily business functions and store business and customer information. This polic applies to the following system and business and administrative interfaces:
   •  **Toast POS** (point-of-sale devices and administrative portal)
   •  **Google Workspace** (email, share drive content and admin console)
@@ -18,7 +18,7 @@ Burn and Churn Coffee uses a small set of cloud and on-site systems to operate d
   •  **Staff netowrking infrastructure** (router, firewall, Wi-Fi access points, and any network management interfaces)
 **Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **Network/Wireless Security Policy.**
 
-###**Purpose**###
+**2. Purpose**
 
 The purpose of this policy is to ensure that access to Burn and Churn Coffee systems and data is authorized, appropriate, and managed throughout the user lifecycle (joiner, mover, leaver). 
 
@@ -35,21 +35,28 @@ This policy establishes requirements for:
   •  Logging of access and administrative changes
   
 
-###Scope###
-This policy applies to: 
-  •  All employees
+**3. Scope**
+  
+**3.1 People In Scope**
+This policy applies to:
+  •  All employees (full-time and part-time)
   •  Store Managers
-  •  The business owner
-  •  Any third-party IT support vendors
-This policy governs:
-  •  User accounts in Toast POS
-  •  Google Workspace accounts
-  •  Administrative access to network equipment
-  •  Authentication and authorization mechanisms used by company tablets
-  •  Password and credential management
-Compliance with this policy is mandatory.
-
-Exceptions must be approved by the business owner.
+  •  The Business Owner
+  •  Authorized third-party IT support vendors who access company systems
+**3.2 Systems and Access Types In Scope**
+This policy governs logical access (accounts, permissions, and authentication) to:
+  •  Toast POS user accounts and roles
+  •  Google Workspace accounts and administrative roles
+  •  Administrative access to network equipment and Wi-fi management interfaces
+  •  Authentication and authorization mechanisms used by company-issues tablets
+  •  Company credentials (password, MFA methods, admin accounts)
+**3.3 Compliance**
+Compliance with this policy is mandatory. Exceptions require documents approval by the Business Owner and must include a defined expiration date and compensating controls where applicable.
+**4. Definitions**
+  •  **Least Privilege:** Users receive only the access needed to perform their assigned job duties.
+  •  **Separation of Duties:** Critical tasks are devided so no single person can complete a high-risk action alone (where feasible).
+  •  **Privileged Account:** An account with administrative capabilities (e.g., admin console access, ability to create users, change permissions, or modify-security settings).
+  •  **Joiner/Mover/Leaver:** A user who is newly hired (joiner), changes roles (mover), or leaves the company (leaver).
 
 
 ###Safeguards###
