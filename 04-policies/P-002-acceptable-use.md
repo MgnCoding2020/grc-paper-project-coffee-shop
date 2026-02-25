@@ -2,52 +2,55 @@
 Burn and Churn Coffee
 -------------------------------------------
 **Document Control**
-  • **Policy Owner:** Business Owner 
-  • **Approved By:** Busines Owner
-  • **Effective Date:** 2026-02-01
-  • **Last Reviewed / Updated:** 2026-02-25
-  • **review Frequency:** Annual
-  • **Version:** 1.1
+  - **Policy Owner:** Business Owner
+  - **Approved By:** Busines Owner
+  - **Effective Date:** 2026-02-01
+  - **Last Reviewed / Updated:** 2026-02-25
+  - **review Frequency:** Annual
+  - **Version:** 1.1
 
 ---------------------------------------------
-**1.Purpose**
+**1. Purpose**
+
 This Acceptable Use Policy (AUP) defines the permitted and prohibited uses of Burn and Churn Coffee systems, devices, applications, and network resources.
 
 The purpose of this policy is to:
-  • Protect business operations
-  • Safeguard customer payment and business information
-  • Reduce the risk of fraud, data loss, malware, and system disruption
-  • Establish clear behavioral and security expectations for system users
+  - Protect business operations
+  - Safeguard customer payment and business information
+  - Reduce the risk of fraud, data loss, malware, and system disruption
+  - Establish clear behavioral and security expectations for system users
 
 ----------------------------------------------
 
 **2. Scope**
+
 **2.1 Individuals Covered**
 This policy applies to:
-  • The Business Owned
-  • Store Manager
-  • Clerks and other employees
-  • Authorized third-party personnel (e.g., IT vendors)
+  - The Business Owned
+  - Store Manager
+  - Clerks and other employees
+  - Authorized third-party personnel (e.g., IT vendors)
+    
 **2.2 Systems and Resources Covered**
 This policy applies to the use of:
-  • Toast POS systems and administrative portal
-  • Google Workspace (email, Drive, admin console)
-  • Company-issued tablets and computing devices
-  • Staff Wi-Fi network
-  • Network infrastructure and administrative interfaces
-  • Any system or account provided by Burn and Churn Coffee
+  - Toast POS systems and administrative portal
+  - Google Workspace (email, Drive, admin console)
+  - Company-issued tablets and computing devices
+  - Staff Wi-Fi network
+  - Network infrastructure and administrative interfaces
+  - Any system or account provided by Burn and Churn Coffee
 This policy applies whether access occurs on-site or remotely.
 
 -----------------------------------------------
 
 **3. General Acceptable Use Requirements**
 All users shall:
-  **1.** Use company systems and devices solely for legitimate business purposes.
-  **2.** Use only their individually assigned accounts and credentials.
-  **3.** Protect login credentials and authentication factors (passwords, MFA devices) from disclosure.
-  **4.** Lock or log out of devices when not in use.
-  **5.** Immediately report suspected security incidents, suspicious activity, lost devices, or potential data exposure to the Store Manager or Business Owner.
-  **6.** Comply with all related company policies, including the Access Management Policy and Network Security Policy.
+  *  Use company systems and devices solely for legitimate business purposes.
+  *  Use only their individually assigned accounts and credentials.
+  *  Protect login credentials and authentication factors (passwords, MFA devices) from disclosure.
+  *  Lock or log out of devices when not in use.
+  *  Immediately report suspected security incidents, suspicious activity, lost devices, or potential data exposure to the Store Manager or Business Owner.
+  *  Comply with all related company policies, including the Access Management Policy and Network Security Policy.
   
 -------------------------------------------------
 
@@ -66,14 +69,14 @@ The following activities are strictly prohibited:
 
 **5. Company-Owned Devices Use (COBO Devices)**
 Company-owned devices, including tablets and administrative systems, shall:
-  **1.** Be used exclusively for business-related purposes.
-  **2.** Only run pre-approved and pre-installed applications.
-  **3.** Maintain configured security settings, including passcodes and encryption where supported.
-  **4.** Remain free of unauthorized modifications or configuration changes.
+  - Be used exclusively for business-related purposes.
+  - Only run pre-approved and pre-installed applications.
+  - Maintain configured security settings, including passcodes and encryption where supported.
+  - Remain free of unauthorized modifications or configuration changes.
 Employees shall not:
-  • Alter device security settings
-  • Remove required security controls
-  • Use devices for personal entertainment, social media, personal banking, or unrelated activities
+  - Alter device security settings
+  - Remove required security controls
+  - Use devices for personal entertainment, social media, personal banking, or unrelated activities
 Loss or theft of company-owned devices must be reported immediately.
 
 ------------------------------------------------------
@@ -82,9 +85,9 @@ Loss or theft of company-owned devices must be reported immediately.
 Personal devices may connect only to the designated staff Wi-Fi network.
 
 When connected to company networks, personal devices shall:
-  **1.** Not be used to access illegal, malicious, or inappropriate content.
-  **2.** Do not attempt to access restricted systems or network management interfaces.
-  **3.** Do not host unauthorized services or create wireless hotspots connected to the company network.
+  - Not be used to access illegal, malicious, or inappropriate content.
+  - Do not attempt to access restricted systems or network management interfaces.
+  - Do not host unauthorized services or create wireless hotspots connected to the company network.
 Employees wishing to access non-work-related websites must use the designated guest Wi-Fi network or their personal data.
 
 Burn and Churn Coffee reserves the right to restrict or block personal devices that pose a security risk. 
@@ -93,10 +96,10 @@ Burn and Churn Coffee reserves the right to restrict or block personal devices t
 
 **7. Email and Phishing Awareness**
 Because email-based fraud and phishing are common threats, employees shall: 
-  **1.** Exercise caution when interacting with email messages.
-  **2.** Do not open suspicious attachments or click suspicious links.
-  **3.** Verify unexpected financial or sensitive requests directly with the requester before responding.
-  **4.** Immediately report suspicious emails to the Store Manager or Business Owner.
+  - Exercise caution when interacting with email messages.
+  - Do not open suspicious attachments or click suspicious links.
+  - Verify unexpected financial or sensitive requests directly with the requester before responding.
+  - Immediately report suspicious emails to the Store Manager or Business Owner.
 
 -------------------------------------------------------------
   
@@ -104,18 +107,18 @@ Because email-based fraud and phishing are common threats, employees shall:
 Access to payroll, financial data, administrative systems, and other sensitive business information is restricted to authorized personnel only (Business Owner and the Store Manager, unless otherwise approved).
 
 Users shall:
-  • Access sensitive information only when required for their job duties.
-  • Do not copy, share, or transmit sensitive data without authorization.
-  • Do not store sensitive business data on personal devices.
+  - Access sensitive information only when required for their job duties.
+  - Do not copy, share, or transmit sensitive data without authorization.
+  - Do not store sensitive business data on personal devices.
 Unauthorized access attempts may result in disciplinary action.
 
 ---------------------------------------------------------------
 
 **9. Monitoring and Privacy Notice**
 Burn and Churn Coffee reserves the right to monitor the use of company-owned systems, accounts, and networks to:
-  • Ensure compliance with company policies
-  • Investigate suspected misconduct or security incidents
-  • Protect business operations and customer information
+  - Ensure compliance with company policies
+  - Investigate suspected misconduct or security incidents
+  - Protect business operations and customer information
 
 Users should not expect personal privacy when using company-owned systems or company accounts.
 Monitoring activity will be conducted in accordance with applicable laws and business requirements.
