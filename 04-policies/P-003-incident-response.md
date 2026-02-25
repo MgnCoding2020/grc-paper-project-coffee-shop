@@ -42,3 +42,48 @@ Examples include:
   - Vendor-reported compromised impacting company systems
 
 -----------------------------------------------------------
+
+## 4. **Roles and Responsibbilities
+
+### **Business Owner**
+  - Overall authority during high-severity incidents
+  - Approves major containment and communication decisions
+  - Determines whether external notification is required
+### **Store Manager**
+  - Primary incident response coordinator
+  - Receives incident reports from employees
+  - Initiates containment actions
+  - Escalates high-severity incidents to Business Owner
+### **Shift Leader**
+  - Assists with immediate response actions
+  - Supports operational continuity during incidents
+### **Employees**
+  - Immediately report suspected incidents
+  - Follow guidance during response efforts
+  - Do not attempt unauthorized remediation
+### **IT Vendor (if applicable)
+  - Provides technical support during containment and recovery
+  - Assists with forensic or system remediation tasks
+
+--------------------------------------------------------------
+
+## 5. **Incident Severity Classification**
+Incidents shall be categorized based on business impact
+### **Low**
+  - Limited operation impact
+  - No confirmed data exposure
+### **Medium**
+  - Temporary system disruption
+  - Suspicious activity requiring investigation
+  - Potential unauthorized access
+### High
+  - Confirmed data breach
+  - Compromised of administrative account
+  - Financial fraud
+  - Extended outage affecting sales operations
+
+High-severity incidents must be escalated immediately to the Business Owner.
+
+---------------------------------------------------------------
+
+
