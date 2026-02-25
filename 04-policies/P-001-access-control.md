@@ -9,6 +9,7 @@ Document Control
   •  **Review Frequency:** Annual (or upon significant change to systems or roles)
   •  **Version:** 1.1
     
+--------------------------------------------------------------
 
 **1. Company Context**
 Burn and Churn Coffee uses a small set of cloud and on-site systems to operate daily business functions and store business and customer information. This policy applies to the following system and business and administrative interfaces:
@@ -17,6 +18,8 @@ Burn and Churn Coffee uses a small set of cloud and on-site systems to operate d
   •  **Company-issued tablets** used for inventory, order, and business operations
   •  **Staff networking infrastructure** (router, firewall, Wi-Fi access points, and any network management interfaces)
 **Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **Network/Wireless Security Policy.**
+
+------------------------------------------------------------
 
 **2. Purpose**
 
@@ -34,6 +37,7 @@ This policy establishes requirements for:
   •  Access revocation and termination handling
   •  Logging of access and administrative changes
   
+-----------------------------------------------------------------
 
 **3. Scope**
   
@@ -52,12 +56,16 @@ This policy governs logical access (accounts, permissions, and authentication) t
   •  Company credentials (password, MFA methods, admin accounts)
 **3.3 Compliance**
 Compliance with this policy is mandatory. Exceptions require documents approval by the Business Owner and must include a defined expiration date and compensating controls where applicable.
+
+--------------------------------------------------------------
+
 **4. Definitions**
   •  **Least Privilege:** Users receive only the access needed to perform their assigned job duties.
   •  **Separation of Duties:** Critical tasks are divided so no single person can complete a high-risk action alone (where feasible).
   •  **Privileged Account:** An account with administrative capabilities (e.g., admin console access, ability to create users, change permissions, or modify-security settings).
   •  **Joiner/Mover/Leaver:** A user who is newly hired (joiner), changes roles (mover), or leaves the company (leaver).
 
+--------------------------------------------------------------------
 **5. Safeguards**
 
 **5.1 Role Definitions and Access Model**
