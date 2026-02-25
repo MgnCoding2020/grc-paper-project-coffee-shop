@@ -43,7 +43,7 @@ Examples include:
 
 -----------------------------------------------------------
 
-## 4. **Roles and Responsibbilities
+## 4. **Roles and Responsibbilities**
 
 ### **Business Owner**
   - Overall authority during high-severity incidents
