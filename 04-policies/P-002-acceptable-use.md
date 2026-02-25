@@ -79,21 +79,56 @@ Loss or theft of company-owned devices must be reported immediately.
 ------------------------------------------------------
 
 **6. Bring Your Own Device (BYOD) and Network Use**
-Personal devices connected to the staff Wi-Wif network shall:
-  • Not be used to access restricted or inappropriate content.
-  • Comply with company network usage expectations.
-If you want to access non-work-related websites, please use the guest Wi-Fi network. 
+Personal devices may connect only to the designated staff Wi-Fi network.
+
+When connected to company networks, personal devices shall:
+  **1.** Not be used to access illegal, malicious, or inappropriate content.
+  **2.** Do not attempt to access restricted systems or network management interfaces.
+  **3.** Do not host unauthorized services or create wireless hotspots connected to the company network.
+Employees wishing to access non-work-related websites must use the designated guest Wi-Fi network or their personal data.
+
+Burn and Churn Coffee reserves the right to restrict or block personal devices that pose a security risk. 
+
+---------------------------------------------------------
+
 **7. Email and Phishing Awareness**
-Employees shall: 
-  • Exercise caution when interacting with email messages.
-  • Do not open suspicious attachments or click suspicious links.
-  • Report suspicious emails immediately to the Store Manager or Business Owner. 
-**8. Access to Sensitive Information**
-Access to payroll and other sensitive administrative information shall be restricted to authorized personnel only (Business Owner and the Store Manager).
-Unauthorized access attempts may result in disciplinary action. 
+Because email-based fraud and phishing are common threats, employees shall: 
+  **1.** Exercise caution when interacting with email messages.
+  **2.** Do not open suspicious attachments or click suspicious links.
+  **3.** Verify unexpected financial or sensitive requests directly with the requester before responding.
+  **4.** Immediately report suspicious emails to the Store Manager or Business Owner.
+
+-------------------------------------------------------------
+  
+**8. Protection of Sensitive Information**
+Access to payroll, financial data, administrative systems, and other sensitive business information is restricted to authorized personnel only (Business Owner and the Store Manager, unless otherwise approved).
+
+Users shall:
+  • Access sensitive information only when required for their job duties.
+  • Do not copy, share, or transmit sensitive data without authorization.
+  • Do not store sensitive business data on personal devices.
+Unauthorized access attempts may result in disciplinary action.
+
+---------------------------------------------------------------
+
 **9. Monitoring and Privacy Notice**
-Burn and Churn Coffee reserves the right to monitor the use of company-owned systems and networks to ensure compliance with company policies and to protect business operations.
-Users should not expect privacy when using company-owned systems.
+Burn and Churn Coffee reserves the right to monitor the use of company-owned systems, accounts, and networks to:
+  • Ensure compliance with company policies
+  • Investigate suspected misconduct or security incidents
+  • Protect business operations and customer information
+
+Users should not expect personal privacy when using company-owned systems or company accounts.
+Monitoring activity will be conducted in accordance with applicable laws and business requirements.
+
+------------------------------------------------------------------------
 **10. Enforcement** 
-Violation of this policy may result in disciplinary action, up to and including termination of employment or contractual relationship
+Violations of this policy may result in disciplinary action, up to and including termination of employment or contractual relationship.
+System access may be suspended during the investigation of suspected violations.
+Illegal activities may be referred to the appropriate authorities.
+
+----------------------------------------------------------
+**11. Acknowledgment**
+All users must acknowledge that they have read, understand, and agree to comply with this Acceptable Use Policy prior to receiving access to company systems.
+
+Acknowledgments shall be retained for documentation purposes.
 
