@@ -61,7 +61,7 @@ Examples include:
   - Immediately report suspected incidents
   - Follow guidance during response efforts
   - Do not attempt unauthorized remediation
-### **IT Vendor (if applicable)
+### **IT Vendor (if applicable)**
   - Provides technical support during containment and recovery
   - Assists with forensic or system remediation tasks
 
