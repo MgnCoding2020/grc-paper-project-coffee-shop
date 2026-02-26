@@ -86,4 +86,77 @@ High-severity incidents must be escalated immediately to the Business Owner.
 
 ---------------------------------------------------------------
 
+## 6. **Incident Response Lifecycle**
+Burn and Churn Coffee follows the structured lifecycle below:
+### 6.1 **Preparation**
+  - Maintain updated contact information for key personnel and vendors
+  - Ensure logging and access controls are enabled
+  - Conduct periodic tabletop exercises
+### 6.2 **Identification**
+  - Detect and report suspicious activity
+  - Determine whether the event qualifies as an incident
+  - Classify severity
+### 6.3 **Containment**
+  - Disable compromised accounts
+  - Disconnect affected devices from the network
+  - Preserve relevant logs and evidence
+### 6.4 **Eradication**
+  - Remove malware
+  - Reset passwords
+  - Correct misconfigurations
+  - Apply patches if applicable
+### 6.5 **Recovery**
+  - Restore systems to operational state
+  - Validate that controls are functioning
+  - Monitor for recurring suspicious activity
+### 6.6 **Leassons Learned**
+  - Conduct review following medium or high incidents
+  - Identify root cause
+  - Document financial or operational impact
+  - Implement corrective actions
+
+--------------------------------------------------------------
+
+## 7. **Reporting and Escalation**
+All suspected security incidents must be reported immediately to the Store Manager or Business Owner.
+
+High-severity incidents must be escalated immediately to the Business Owner.
+
+Failure to report known incidents may result in disciplinary action.
+
+-----------------------------------------------------------------
+
+## 8. **Documentation Requirements**
+For each incident, the following shall be documented:
+  - Date and time detected
+  - Individual reporting
+  - Description of the event
+  - Systems affected
+  - Severity classification
+  - Action taken
+  - Final resolution
+  - Estimated business impact (if applicable)
+
+Incident documentation shall be retained for at least one year.
+
+--------------------------------------------------------------------------
+
+## 9. **External Notification**
+External notification (e.g., customers, payment processors, vendors, or regulatory authorities) shall be made when required by applicable laws, contractual obligations, or vendor agreements.
+
+The Business Owner is responsible for approving external communications.
+
+---------------------------------------------------------------------------
+
+## 10. **Post-Incident Improvement**
+Following medium or high-severity incidents:
+  - Controls shall be evaluated for effectiveness
+  - Policies and procedures shall be updated if necessary
+  - Additional training may be conducted where appropriate
+
+---------------------------------------------------------------------------
+
+## 11. **Enforcement**
+Failure to comply with this policy may result in disciplinary action in accordance with company management procedures.
+
 
