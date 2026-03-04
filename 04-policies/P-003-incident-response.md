@@ -14,7 +14,7 @@ Burn and Churn Coffee
 ------------------------------------------------------
 
 ## 1. Purpose
-The purpose of this Incident Response Policy is to establish a structured and consistent approach for identifying, responding to, and recovering from cybersecurity incidents affecting Burn and Churn Coffee system, devices, and business operations.
+The purpose of this Incident Response Policy is to establish a structured and consistent approach for identifying, responding to, and recovering from cybersecurity incidents affecting Burn and Churn Coffee systems, devices, and business operations.
 
 Effective incident response helps the organization:
   - Minimize operational disruption
@@ -197,7 +197,8 @@ Incident documentation shall be retained for **at least one year** for operation
 --------------------------------------------------------------------------
 
 ## 9. External Notification
-External notifications may be required depending on the nature of the incident.
+External notifications shall be made when required by applicable law, contractual obligations, or payment processor 
+requirements.
 Possible notification recipients include:
   - Payment processors
   - Vendors
