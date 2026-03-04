@@ -40,7 +40,39 @@ The program applies to all individuals interacting with company systems, includi
 
 ----
 
-## 4. Security Governance Structure
+## 4. System Architecture 
+flowchart LR
+  %% Users
+  C[Customer] -->|Pays with card| POS[Toast POS Terminal]
+  E[Employee / Manager] -->|Admin access| GW[Google Workspace]
+  E -->|Uses| TAB[Company Tablet]
+
+  %% Networks
+  subgraph Store["Burn and Churn Coffee - Store"]
+    R[Router / Firewall]
+    POS --- R
+    TAB --- R
+    GUEST[Guest Wi-Fi Network]
+    STAFF[Staff Network]
+    R --> GUEST
+    R --> STAFF
+  end
+
+  %% Guest Internet Flow
+  C -->|Connects| GUEST
+  GUEST -->|Internet access| NET[(Internet)]
+
+  %% Staff Internet Flow
+  STAFF --> NET
+
+  %% External Services
+  POS -->|Transaction data| TOAST[(Toast Cloud Services)]
+  TOAST -->|Card payment processing| PAY[(Payment Processor / Card Networks)]
+  GW --> NET
+
+----
+
+## 5. Security Governance Structure
 Security responsibilities are distributed according to the organization's size and structure.
 ### Business Owner
 The **Business Owner** is responsible for overall cybersecurity governance, including:
@@ -62,7 +94,7 @@ Employees are responsible for:
 
 ---
 
-## 5. Security Program Components
+## 6. Security Program Components
 The Burn and Churn Coffee security program includes several key governance components.
 ### Policies
 Security policies define expectations for system us and security practices.
@@ -85,7 +117,7 @@ Evidence supporting security controls in documented in the **Evidence Matrix** a
 
 ---
 
-## 6. Framework Alignment
+## 7. Framework Alignment
 The Burn and Churn Coffee security program aligns primarily with **NIST SP 800-53 control families**.
 
 Examples include:
@@ -99,7 +131,7 @@ Where applicable, the program also incorporates security practices relevant to *
 
 ---
 
-## 7. Continuous Improvement
+## 8. Continuous Improvement
 The security program is reviewed periodically to ensure it remains effective and appropriate for the organization's operational environment.
 
 Reviews may occur:
@@ -112,7 +144,7 @@ Improvements may include policy updates, new controls, or additional employee tr
 
 ---
 
-## 8. Related Documentation
+## 9. Related Documentation
 This charter supports the following governance artifacts within the security program:
   - Risk Register
   - Control Matrix
