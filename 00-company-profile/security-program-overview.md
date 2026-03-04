@@ -41,6 +41,7 @@ The program applies to all individuals interacting with company systems, includi
 ----
 
 ## 4. System Architecture 
+```mermaid
 flowchart LR
   %% Users
   C[Customer] -->|Pays with card| POS[Toast POS Terminal]
@@ -69,6 +70,7 @@ flowchart LR
   POS -->|Transaction data| TOAST[(Toast Cloud Services)]
   TOAST -->|Card payment processing| PAY[(Payment Processor / Card Networks)]
   GW --> NET
+```
 
 ----
 
