@@ -77,12 +77,12 @@ Managers may assist in maintaining appropriate data handling practices within st
 ------
 ## Relationship to Other Security Documents
 This document supports the following security program components:
-  - Asset Inventory
-  - Risk Register
-  - Access Management Policy
-  - Acceptable Use Policy
-  - Incident Response Policy
-  - Control Matrix
+  - [Asset Inventory](../01-asset-inventory/assets.md)
+  - [Access Management Policy](../04-policies/P-001-access-management.md)
+  - [Incident Response Policy](../04-policies/P-003-incident-response.md)
+  - [Risk Register](../02-risk-management/risk-register.md)
+  - [Acceptable Use Policy](../04-policies/P-002-acceptable-use.md)
+  - [Control Matrix](../03-controls/contorl-matrix.md)
 
 -------
 
