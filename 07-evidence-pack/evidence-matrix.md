@@ -15,20 +15,21 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 ---
 
 
-| Control ID | Control Description | Policy Source | Evidence Type | Example Evidence Artifact |
-|---|---|---|---|---|
-| AC-2 | User accounts are provisioned and removed according to role-based access control principles | Access Management Policy | Access review documentation | Quarterly Access Review Checklist |
-| IA-2 | Multi-factor authentication is required for administrative and sensitive accounts | Access Management Policy | System configuration evidence | Screenshot of Google Workspace MFA settings |
-| AC-6 | Privileged access is restricted to authorized personnel | Access Management Policy | Role assignment documentation | Admin account list review |
-| AT-2 | Employees receive guidance on recognizing phishing and suspicious activity | Acceptable Use Policy | Employee training documentation | Security Training Acknowledgement Form |
-| AU-2 | Security events such as account changes and login activity are logged | Access Management Policy | System activity logs | Authentication or audit logs |
-| IR-4 | Security incidents are managed using a defined incident response lifecycle | Incident Response Policy | Incident documentation | Incident Report Template |
-| IR-6 | Security incidents are reviewed to identify improvements | Incident Response Policy | Post-incident review documentation | Incident Lessons Learned Record |
-| CM-7 | Systems are configured to allow only approved functionality and applications | Acceptable Use Policy | Device configuration review | Device Configuration Checklist |
-| SI-3 | Systems are protected against malware and unauthorized software installation | Acceptable Use Policy | Device protection verification | Approved Applications List |
-| PE-3 | Physical access to POS terminals and network devices is restricted | Payment Card Data Protection Policy | Physical inspection documentation | POS Device Inspection Checklist |
-| SA-9 | Third-party vendors providing services meet security expectations | Payment Card Data Protection Policy | Vendor security documentation | Vendor Security Responsibility Summary |
-| CP-2 | Incident and operational response planning supports recovery activities | Incident Response Policy | Incident response documentation | Incident Response Playbook |
+| Control ID | Evidence Description | Source Document | Implementation Status | POA&M Reference |
+|-----------|---------------------|----------------|----------------------|-----------------|
+| AC-2 | User account review records | Access Management Policy | Partial | POAM-001 |
+| IA-2 | MFA configuration in Google Workspace | Access Management Policy | Not Implemented | POAM-002 |
+| AT-2 | Employee training acknowledgement | Acceptable Use Policy | Partial | POAM-008 |
+| AU-2 | System activity logging practices | Access Management Policy | Partial | POAM-005 |
+| IR-4 | Incident response procedures | Incident Response Policy | Partial | POAM-007 |
+| CM-7 | Device configuration standards | Acceptable Use Policy | Partial | POAM-009 |
+| MP-7 | Device management practices | Access Management Policy | Partial | POAM-009 |
+| PE-3 | Store supervision procedures | Payment Card Data Protection Policy | Partial | POAM-010 |
+| SI-7 | Security monitoring practices | Incident Response Policy | Partial | POAM-004 |
+| CP-2 | Incident handling procedures | Incident Response Policy | Partial | POAM-006 |
+| AC-6 | Role assignment documentation | Access Management Policy | Partial | POAM-001 |
+| SA-9 | Vendor security documentation | Payment Card Data Protection Policy | Implemented | N/A |
+| SI-3 | Device protection controls | Acceptable Use Policy | Partial | POAM-004 |
 
 ---
 
@@ -64,3 +65,11 @@ These artifacts may be stored within the **examples** directory under the eviden
   - Acceptable Use Policy
   - Incident Response Policy
   - Payment Card Data Protection Policy
+
+-----
+
+## Plan of Action & Milestones (POA&M)
+
+Gaps identified in evidence and implementation are tracked in the POA&M:
+
+[View POA&M](./poam/poam.md)
