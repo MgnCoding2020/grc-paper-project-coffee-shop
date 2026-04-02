@@ -116,6 +116,12 @@ Security controls are documented in the **Control Matrix**, which aligns control
 Security incidents are managed in accordance with the **Incident Response Policy** and associated playbooks.
 ### Evidence and Documentation
 Evidence supporting security controls in documented in the **Evidence Matrix** and associated artifacts.
+### Remediation and Tracking (POA&M)
+Identified control gaps and security weaknesses are tracked in the Plan of Action & Milestones (POA&M).
+
+The POA&M provides a structured approach for remediation, including assigned responsibilities, timelines, and validation of corrective actions.
+
+→ See: ../07-evidence-pack/poam/poam.md
 
 ---
 
