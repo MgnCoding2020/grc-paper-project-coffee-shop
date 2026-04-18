@@ -140,6 +140,22 @@ Each control includes:
 
 ---
 
+## Control Traceability
+
+This project demonstrates end-to-end traceability across the GRC lifecycle:
+
+Risk → Control → Evidence → Validation → Remediation
+
+- Risks are defined in the Risk Register
+- Controls are mapped using NIST SP 800-53 families
+- Evidence artifacts support each control
+- Python scripts simulate control validation
+- Gaps are tracked through the POA&M
+
+This structure reflects a simplified but realistic GRC program model used in small business environments.
+
+---
+
 ## 📑 Policies & Procedures
 
 The project includes formal documentation such as:
