@@ -1,0 +1,4 @@
+date,device,inspected_by,status,notes
+2026-02-01,POS Terminal,Manager,OK,No tampering observed
+2026-02-01,Tablet 1,Manager,OK,No issues
+2026-02-01,Tablet 2,Manager,Issue,Loose casing observed
