@@ -1,170 +1,250 @@
-# GRC Paper Project – Coffee Shop Security Program
+# ☕ GRC Security Program Simulation – Coffee Shop Environment
 
-## Overview
+## 📌 Overview
 
-This repository contains a mock Governance, Risk, and Compliance (GRC) security program designed for a small, single-location coffee shop called **Burn and Churn Coffee**.
+This project simulates the design and implementation of a **Governance, Risk, and Compliance (GRC) security program** for a small coffee shop handling **payment card data** and basic IT operations.
 
-The purpose of this project is to demonstrate how foundational cybersecurity governance artifacts can be developed for a small business environment that processes payment card transactions and relies on common cloud services.
+The goal of this project is to demonstrate how a real-world organization can:
 
-The project simulates a realistic security program, including:
+* Identify and manage cybersecurity risks
+* Implement security controls aligned to **NIST SP 800-53**
+* Incorporate **PCI DSS concepts** for cardholder data protection
+* Establish policies, procedures, and incident response capabilities
+* Prepare for audit readiness through documentation and evidence collection
 
-- security policies
-- risk management documentation
-- control mapping
-- incident response planning
-- payment card protection practices
-
-The business environment assumes a **family-owned coffee shop operating one retail location** that uses **Toast POS for payment processing and Google Workspace for email and collaboration**.
-
-This project is intended as a **learning and portfolio exercise for entry-level GRC roles**.
+This repository reflects a **full security lifecycle**, from asset identification to continuous monitoring.
 
 ---
 
-# Project Objectives
+## 🏢 Business Scenario
 
-The goals of this project are to:
+The organization is a small coffee shop with:
 
-- Practice developing **security governance documentation**
-- Understand how **risk registers connect to controls and policies**
-- Demonstrate familiarity with **NIST control families**
-- Incorporate **PCI DSS concepts relevant to retail payment environments**
-- Build realistic documentation that reflects how **small businesses implement security programs**
+* A **Point-of-Sale (POS) system** processing payment card transactions
+* Employee workstations for daily operations
+* A basic internal network with internet connectivity
+* Third-party vendors (POS provider, payment processor)
 
----
+### Key Risks:
 
-# Environment Assumptions
-
-The simulated business environment includes:
-
-- Single retail coffee shop location
-- Toast POS payment processing system
-- Google Workspace for email and administrative services
-- Company-issued tablets for operational use
-- Staff Wi-Fi network and basic network infrastructure
-- Limited IT staff, with most security responsibilities handled by the Business Owner and Store Manager
-
-The organization **does not store payment card data locally** and relies on its payment processor (Toast) for PCI-compliant payment handling.
+* Unauthorized access to POS systems
+* Exposure of cardholder data
+* Lack of centralized monitoring and logging
+* Weak vendor security oversight
 
 ---
 
-# Framework Alignment
+## 🎯 Objectives
 
-The documentation in this repository aligns primarily with:
+This project was designed to:
 
-**NIST SP 800-53 control families**
-
-Examples include:
-
-- AC – Access Control  
-- IA – Identification & Authentication  
-- IR – Incident Response  
-- AU – Audit & Accountability  
-- SI – System & Information Integrity  
-- CM – Configuration Management  
-
-Where applicable, certain controls reference **PCI DSS security concepts** relevant to retail merchants processing payment card transactions.
-
-This project does **not implement the full PCI DSS framework**, but demonstrates how PCI considerations may appear in a small merchant security program.
+* Simulate a **risk-based security program**
+* Apply structured controls from **NIST SP 800-53**
+* Introduce **PCI DSS-aligned safeguards** for payment environments
+* Demonstrate **audit-ready documentation practices**
+* Showcase both **technical and governance capabilities**
 
 ---
 
-# How to Use This Repository
+## 🧱 Security Framework Alignment
 
-Readers can navigate the project in the following order:
+This project aligns with:
 
-1. **00-company-profile/**
-   - Understand the business environment and program scope
+* NIST SP 800-53
 
-2. **02-risk-management/**
-   - Review identified risks and continuous monitoring approach
+  * Access Control (AC)
+  * Identification & Authentication (IA)
+  * Incident Response (IR)
+  * System & Communications Protection (SC)
+  * Risk Assessment (RA)
 
-3. **03-controls/**
-   - See how risks are mapped to security controls
+* PCI DSS (Conceptual Alignment)
 
-4. **04-policies/** and **05-procedures/**
-   - Review governance documentation and operational processes
-
-5. **06-incident-playbooks/**
-   - Understand how incidents are handled
-
-6. **07-evidence-pack/**
-   - Review evidence of control implementation and POA&M tracking
-
-This flow reflects how a security program is assessed and reviewed in practice.
+  * Cardholder data protection
+  * Network segmentation concepts
+  * Access control enforcement
+  * Logging and monitoring
 
 ---
 
-# Security Program Components
+## 🗂️ Project Structure
 
-The repository demonstrates several key GRC artifacts commonly used in security governance programs:
-
-### Policies
-Define security expectations and governance requirements.
-
-### Risk Register
-Identifies and tracks cybersecurity risks affecting the organization.
-
-### Control Matrix
-Maps risks to implemented controls and governance policies.
-
-### Incident Response Planning
-Defines procedures for identifying, containing, and recovering from security incidents.
-
-### Payment Card Security
-Demonstrates merchant-level controls for protecting payment processing systems.
+```
+00-company-profile/
+01-asset-inventory/
+02-risk-management/
+03-controls/
+04-policies/
+05-procedures/
+06-incident-playbooks/
+07-evidence-pack/
+08-vendor-risk-management/
+```
 
 ---
 
-# GRC Lifecycle and Traceability
+## 🔍 System Boundary & Architecture
 
-This project is structured to demonstrate how key GRC components connect in practice.
+The environment includes:
 
-The security program follows a continuous lifecycle:
+* POS system connected to payment processor
+* Internal business network
+* Employee endpoints
+* External vendor integrations
 
-Risk → Control → Evidence → POA&M → Remediation
+### Security Boundary Includes:
 
-- Risks are identified and tracked in the **Risk Register**
-- Controls are defined and mapped in the **Control Matrix**
-- Evidence supporting control implementation is documented in the **Evidence Matrix**
-- Control gaps and deficiencies are tracked in the **POA&M**
-- Continuous monitoring activities support ongoing risk management and program improvement
+* Systems storing or transmitting cardholder data
+* Authentication systems controlling access
+* Logging and monitoring mechanisms
 
-This structure is intended to reflect how real-world GRC programs maintain traceability and accountability across security activities.
-
-# Intended Audience
-
-This project is designed for:
-
-- cybersecurity hiring managers
-- GRC teams evaluating entry-level candidates
-- individuals learning governance and compliance fundamentals
-- students building cybersecurity documentation portfolios
-----
-
-# Reusability and Extension
-
-This repository is designed to serve as a foundational GRC framework that can be extended into additional projects and labs.
-
-Future implementations may reuse components from this repository, including:
-
-- Policies and control mappings for vendor risk assessments
-- Evidence and POA&M structures for audit simulations
-- Risk management approaches for system-specific evaluations
-
-This approach reflects how organizations build and evolve security programs over time rather than starting from scratch for each initiative.
+> 📌 *Detailed diagrams and data flows are included in the architecture section.*
 
 ---
 
-# Disclaimer
+## ⚠️ Risk Management Approach
 
-This project is a **simulated security program created for educational purposes**.
+A structured risk management process was implemented:
 
-The documentation is not intended to represent a production-ready compliance program or serve as legal or regulatory guidance.
+1. Asset Identification
+2. Threat & Vulnerability Mapping
+3. Risk Scoring (Likelihood × Impact)
+4. Control Implementation
+5. Residual Risk Evaluation
+
+### Sample Risks:
+
+* Weak authentication controls on POS systems
+* Lack of network segmentation
+* Insufficient logging and monitoring
+* Third-party vendor exposure
 
 ---
 
-# Author
+## 🛡️ Control Implementation
 
-Created as part of a personal learning initiative to develop practical experience with Governance, Risk, and Compliance (GRC) security documentation.
+Controls were designed and mapped to **NIST SP 800-53 families**, including:
+
+* **AC-2** – Account Management
+* **IA-2** – Multi-Factor Authentication
+* **IR-4** – Incident Handling
+* **AU-6** – Log Review
+* **SC-7** – Boundary Protection
+
+Each control includes:
+
+* Control description
+* Implementation details
+* Associated risks
+* Evidence requirements
+
+---
+
+## 📑 Policies & Procedures
+
+The project includes formal documentation such as:
+
+* Access Control Policy
+* Incident Response Policy
+* Data Protection Policy
+* Vendor Risk Management Policy
+
+Supporting procedures define:
+
+* User provisioning/deprovisioning
+* Log review processes
+* Incident escalation workflows
+
+---
+
+## 🚨 Incident Response Capability
+
+An incident response framework was developed including:
+
+* Defined incident categories
+* Escalation procedures
+* Response playbooks
+* Logging and documentation templates
+
+Example scenarios:
+
+* Unauthorized access attempt
+* POS compromise
+* Suspicious network activity
+
+---
+
+## 📦 Evidence & Audit Readiness
+
+An evidence pack was created to simulate audit validation:
+
+* MFA status tracking (CSV)
+* Access review scripts
+* Incident logs
+* Control validation artifacts
+
+This demonstrates how controls can be **verified during an audit**.
+
+---
+
+## 🤝 Vendor Risk Management
+
+A third-party risk process was implemented including:
+
+* Vendor intake questionnaire
+* Risk scoring methodology
+* Due diligence checklist
+* Ongoing monitoring considerations
+
+---
+
+## 📊 Continuous Monitoring & Metrics
+
+Basic monitoring concepts were introduced:
+
+* Periodic access reviews
+* Log review processes
+* Control validation tracking
+
+Future enhancements may include:
+
+* KPI dashboards
+* Automated monitoring scripts
+* Risk trend analysis
+
+---
+
+## 🚀 Key Skills Demonstrated
+
+* GRC program development
+* Risk assessment and analysis
+* Control implementation and mapping
+* Policy and procedure development
+* Incident response planning
+* Audit evidence preparation
+* Vendor risk management
+* Basic technical security validation
+
+---
+
+## 📈 Future Enhancements
+
+* Network and data flow diagrams
+* Expanded control mapping (full NIST coverage)
+* SIEM/logging simulation
+* Compliance crosswalk (NIST ↔ PCI DSS)
+* Automated compliance tracking
+
+---
+
+## 📌 Disclaimer
+
+This project is a **simulation for educational and portfolio purposes only** and does not represent a production environment.
+
+---
+
+## 👤 Author
+
+Created as part of a cybersecurity portfolio focused on **GRC, Risk, and Security Operations roles**.
 
 ---
