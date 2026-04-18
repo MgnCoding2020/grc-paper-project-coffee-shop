@@ -7,13 +7,17 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 
 ## POA&M Table
 
-| Weakness ID | Control ID | Description | Risk | Corrective Action | Milestones | Owner | Due Date | Status |
-|------------|-----------|------------|------|------------------|-----------|------|----------|--------|
-| POAM-001 | AC-2 | No account lifecycle management | High | Implement account disable policy | Define policy → Configure system → Audit accounts | IT Manager | 45 days | Open |
-| POAM-002 | IA-2 | No MFA for admin access | High | Enforce MFA | Select tool → Configure → Train users | IT Security | 30 days | Open |
-| POAM-003 | SC-7 | No network segmentation | High | Segment guest Wi-Fi | Configure VLAN → Apply firewall rules → Test | Network Admin | 60 days | Open |
-| POAM-004 | SI-2 | No patch management process | High | Implement patching schedule | Inventory → Schedule → Automate | IT Manager | 30 days | In Progress |
-| POAM-005 | AU-2 | Logging not enabled | Moderate | Enable logging | Configure logs → Centralize → Review | IT Security | 45 days | Open |
+
+| POA&M ID | Control ID | Weakness Description | Planned Remediation | Owner | Priority | Status |
+|----------|-----------|----------------------|---------------------|--------|----------|--------|
+| POAM-001 | IA-2 | MFA not enabled for all users | Enforce MFA for all employee accounts | IT Admin | High | Open |
+| POAM-002 | AT-2 | No formal security awareness training | Implement annual security training program | Manager | High | Open |
+| POAM-003 | AU-6 | Log review inconsistent, open incidents remain | Establish weekly log review process | IT Admin | Medium | Open |
+| POAM-004 | PE-3 | No formal physical inspection process | Implement monthly device inspection checklist | Store Manager | Medium | Open |
+| POAM-005 | CP-2 | No documented outage or backup plan | Create basic contingency and recovery plan | Owner | High | Open |
+| POAM-006 | SA-9 | Vendor review not formally documented | Establish vendor assessment checklist and review cadence | Owner | Medium | Open |
+| POAM-007 | SI-3 | Malware protection not validated across devices | Deploy and verify endpoint protection on all systems | IT Admin | High | Open |
+| POAM-008 | SI-7 | No monitoring for unauthorized changes | Implement basic file/system change monitoring | IT Admin | Medium | Open |
 
 ---
 
