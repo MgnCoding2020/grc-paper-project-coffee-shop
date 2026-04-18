@@ -1,7 +1,0 @@
-Username,System,Role,Access Level,Last Login,Review Status,Reviewer,Review Date
-manager@coffeeco.com,Google Workspace,Admin,Privileged,2026-03-20,Approved,Owner,2026-03-25
-manager@coffeeco.com,Toast POS,Admin,Privileged,2026-03-20,Approved,Owner,2026-03-25
-barista1@coffeeco.com,Google Workspace,User,Standard,2026-03-22,Approved,Manager,2026-03-25
-barista1@coffeeco.com,Toast POS,Cashier,Standard,2026-03-22,Approved,Manager,2026-03-25
-barista2@coffeeco.com,Google Workspace,User,Standard,2026-01-15,Review Required,Manager,2026-03-25
-barista2@coffeeco.com,Toast POS,Cashier,Standard,2026-01-15,Review Required,Manager,2026-03-25
