@@ -13,21 +13,19 @@ Each control references the policy or procedure responsible for implementing the
 -----
 ## Control Matrix
 
-| Risk ID | Control ID | Control Description                                                                        | NIST Family                              | PCI DSS Mapping | Policy / Control Source             | Evidence                                                       | Implementation Status | POA&M ID |
-| ------- | ---------- | ------------------------------------------------------------------------------------------ | ---------------------------------------- | --------------- | ----------------------------------- | -------------------------------------------------------------- | --------------------- | -------- |
-| R-01    | AC-2       | User accounts are provisioned, reviewed, and removed based on role-based access principles | AC – Access Control                      | Req 7           | Access Management Policy            | access_review_check.py, user-access-review.csv                 | Implemented           | N/A      |
-| R-01    | IA-2       | Multi-factor authentication is required and validated for user accounts                    | IA – Identification & Authentication     | Req 8           | Access Management Policy            | mfa_review_check.py, mfa-status.csv                            | Implemented           | N/A      |
-| R-01    | AT-2       | Employees receive training on phishing and security awareness                              | AT – Awareness & Training                | Req 12.6        | Acceptable Use Policy               | Training acknowledgement records                               | Partial               | POAM-008 |
-| R-02    | AU-2       | Security events such as login activity and transactions are logged and reviewed            | AU – Audit & Accountability              | Req 10          | Access Management Policy            | incident_log_review_check.py, incident-log.md                  | Implemented           | N/A      |
-| R-02    | IR-4       | Security incidents are managed using a defined response lifecycle                          | IR – Incident Response                   | Req 12.10       | Incident Response Policy            | incident_log_review_check.py, incident-log.md                  | Implemented           | N/A      |
-| R-03    | CM-7       | Systems are configured to allow only necessary applications and functionality              | CM – Configuration Management            | Req 2           | Acceptable Use Policy               | Device configuration documentation                             | Partial               | POAM-009 |
-| R-03    | MP-7       | Portable devices are protected against loss or theft                                       | MP – Media Protection                    | Req 9           | Access Management Policy            | Device handling procedures, incident-log.md                    | Partial               | POAM-009 |
-| R-04    | PE-3       | Physical access to POS systems is restricted to authorized personnel                       | PE – Physical & Environmental Protection | Req 9           | Payment Card Data Protection Policy | Physical security procedures, incident-log.md                  | Partial               | POAM-010 |
-| R-04    | SI-7       | Systems are monitored for unauthorized modifications                                       | SI – System & Information Integrity      | Req 11          | Incident Response Policy            | incident_log_review_check.py                                   | Partial               | POAM-004 |
-| R-05    | CP-2       | Incident and outage response planning supports operational continuity                      | CP – Contingency Planning                | Req 12          | Incident Response Policy            | incident_log_review_check.py, incident-log.md                  | Partial               | POAM-006 |
-| R-06    | AC-6       | Privileged access is restricted and periodically reviewed                                  | AC – Access Control                      | Req 7           | Access Management Policy            | privileged_access_review_check.py, user-access-review.csv      | Implemented           | N/A      |
-| R-07    | SA-9       | Third-party service providers maintain required security controls                          | SA – System & Services Acquisition       | Req 12.8        | Payment Card Data Protection Policy | Vendor assessment documentation                                | Implemented           | N/A      |
-| R-08    | SI-3       | Systems are protected against malware and unauthorized software                            | SI – System & Information Integrity      | Req 5           | Acceptable Use Policy               | Device configuration restrictions, policy enforcement evidence | Partial               | POAM-004 |
+| Risk ID | Control ID | Control Description | NIST Family | PCI DSS Mapping | Implementation Status | Evidence ID | POA&M ID |
+|--------|-----------|---------------------|------------|------------------|----------------------|-------------|----------|
+| R-01 | IA-2 | Multi-factor authentication for all user accounts | IA | Req. 8 | Partially Implemented | E-02 | POAM-001 |
+| R-01 | AT-2 | Security awareness and phishing training | AT | Req. 12.6 | Not Implemented | E-06 | POAM-002 |
+| R-02 | AC-2 | Account management for POS and business systems | AC | Req. 7 | Implemented | E-01 | - |
+| R-02 | AU-6 | Log review for suspicious POS activity | AU | Req. 10 | Partially Implemented | E-04 | POAM-003 |
+| R-03 | PE-3 | Physical access control for devices and POS terminals | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
+| R-04 | SC-7 | Network segmentation between POS and internal network | SC | Req. 1 | Implemented | E-05 | - |
+| R-05 | CP-2 | Basic contingency planning for network outages | CP | Req. 12 | Not Implemented | E-08 | POAM-005 |
+| R-06 | AC-6 | Least privilege and privileged account review | AC | Req. 7 | Implemented | E-03 | - |
+| R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
+| R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
+| R-08 | SI-7 | Monitoring for unauthorized changes | SI | Req. 11 | Not Implemented | E-11 | POAM-008 |
 
 
 ## Control Review Process
