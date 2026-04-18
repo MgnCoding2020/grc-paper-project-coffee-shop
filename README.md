@@ -78,7 +78,7 @@ This project aligns with:
 05-procedures/
 06-incident-playbooks/
 07-evidence-pack/
-08-vendor-risk-management/
+08-architecture/
 ```
 
 ---
