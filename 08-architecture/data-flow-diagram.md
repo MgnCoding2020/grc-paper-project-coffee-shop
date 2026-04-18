@@ -91,6 +91,25 @@ This diagram demonstrates how sensitive data is:
 
 ---
 
+## Data Flow Summary
+
+Payment transactions follow this general flow:
+
+1. Customer presents payment card at POS terminal
+2. POS system encrypts transaction data
+3. Data is transmitted over the network to the payment processor
+4. Authorization response is returned to the POS
+
+Key considerations:
+
+- Cardholder data is not stored by internal business systems
+- Network segmentation separates POS traffic from internal systems and guest Wi-Fi
+- Administrative access to systems occurs through controlled user accounts
+
+This model reflects a simplified small business payment environment with minimal data retention and reliance on third-party processing.
+
+---
+
 ## ⚠️ Note
 
 This is a simplified representation for portfolio and educational purposes.
