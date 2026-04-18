@@ -1,3 +1,6 @@
+## 📊 Diagram
+
+![System Architecture](system-architecture.png)
 # 🧠 System Architecture Diagram
 
 ## 📌 Overview
