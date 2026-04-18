@@ -78,13 +78,19 @@ The environment consists of:
 
 ---
 
-## 🧱 Security Boundaries
+## 🧱 System Boundary Overview
 
-The architecture enforces:
+This environment represents a small coffee shop with a limited technology footprint. The system boundary includes:
 
-* Network segmentation between POS and internal systems
-* Controlled communication with external entities
-* Logical separation of sensitive data environments
+- Toast POS system used for payment processing
+- Business Wi-Fi network (segmented from POS network)
+- Employee devices (tablets, office workstation)
+- Cloud services (Google Workspace, Toast backend services)
+- Network infrastructure (router/firewall)
+
+Payment card data is captured at the POS and transmitted securely to the payment processor. The business does not intentionally store cardholder data locally.
+
+The POS network is logically segmented from the internal business network to reduce exposure risk.
 
 ---
 
