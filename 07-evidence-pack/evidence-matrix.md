@@ -17,15 +17,15 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 
 | Evidence ID | Control ID | Evidence Description | Source | Validation Method | Status |
 |------------|-----------|----------------------|--------|------------------|--------|
-| E-01 | AC-2 | User account access review CSV | Internal system export | Python script (access_review_check.py) | Valid |
-| E-02 | IA-2 | MFA status report | Google Workspace export | Python script (mfa_review_check.py) | Partial (missing users) |
+| E-01 | AC-2 | User account access review (artifacts/access/user-access-review.csv) | Internal system export | Python script (access_review_check.py) | Valid |
+| E-02 | IA-2 | MFA status report (artifacts/access/mfa-status.csv)) | Google Workspace export | Python script (mfa_review_check.py) | Partial (missing users) |
 | E-03 | AC-6 | Privileged account review report | Admin role listing | Python script (privileged_access_review_check.py) | Valid |
-| E-04 | AU-6 | Incident log review CSV | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
-| E-05 | SC-7 | Network segmentation summary | Network configuration doc | Manual review | Valid |
+| E-04 | AU-6 | Incident log review CSV (artifacts/monitoring/incident-log.md) | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
+| E-05 | SC-7 | Network segmentation summary (artifacts/network/network-segmentation.md) | Network configuration doc | Manual review | Valid |
 | E-06 | AT-2 | Security awareness training records | HR/training records | Manual review | Missing |
-| E-07 | PE-3 | Physical inspection checklist | Store inspection log | Manual review | Partial |
+| E-07 | PE-3 | Physical inspection checklist (artifacts/physical/physical-inspection-checklist.csv) | Store inspection log | Manual review | Partial |
 | E-08 | CP-2 | Backup / outage response documentation | Internal documentation | Manual review | Missing |
-| E-09 | SA-9 | Vendor assessment checklist (Toast POS) | Vendor review doc | Manual review | Partial |
+| E-09 | SA-9 | Vendor assessment checklist (artifacts/vendor/vendor-assessment-summary.md) (Toast POS) | Vendor review doc | Manual review | Partial |
 | E-10 | SI-3 | Antivirus / endpoint protection status | Device reports | Manual review | Partial |
 | E-11 | SI-7 | Change monitoring / integrity logs | System logs | Manual review | Missing |
 
