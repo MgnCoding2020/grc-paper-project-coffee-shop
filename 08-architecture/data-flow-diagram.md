@@ -8,7 +8,7 @@ This diagram illustrates how **cardholder data flows** through the coffee shop e
 
 ## 📊 Diagram
 
-
+![Data Flow Diagram](data-flow-diagram.png)
 
 ---
 
