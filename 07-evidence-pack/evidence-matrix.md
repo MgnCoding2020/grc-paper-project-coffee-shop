@@ -13,23 +13,21 @@ Evidence artifacts may include system configuration screenshots, access review d
 Example evidence artifacts and templates may be maintained in the **examples** directory within this repository.
 
 ---
+## Evidence Matrix
 
-
-| Control ID | Evidence Description | Source Document | Implementation Status | POA&M Reference |
-|-----------|---------------------|----------------|----------------------|-----------------|
-| AC-2 | User account review records | Access Management Policy | Partial | POAM-001 |
-| IA-2 | MFA configuration in Google Workspace | Access Management Policy | Not Implemented | POAM-002 |
-| AT-2 | Employee training acknowledgement | Acceptable Use Policy | Partial | POAM-008 |
-| AU-2 | System activity logging practices | Access Management Policy | Partial | POAM-005 |
-| IR-4 | Incident response procedures | Incident Response Policy | Partial | POAM-007 |
-| CM-7 | Device configuration standards | Acceptable Use Policy | Partial | POAM-009 |
-| MP-7 | Device management practices | Access Management Policy | Partial | POAM-009 |
-| PE-3 | Store supervision procedures | Payment Card Data Protection Policy | Partial | POAM-010 |
-| SI-7 | Security monitoring practices | Incident Response Policy | Partial | POAM-004 |
-| CP-2 | Incident handling procedures | Incident Response Policy | Partial | POAM-006 |
-| AC-6 | Role assignment documentation | Access Management Policy | Partial | POAM-001 |
-| SA-9 | Vendor security documentation | Payment Card Data Protection Policy | Implemented | N/A |
-| SI-3 | Device protection controls | Acceptable Use Policy | Partial | POAM-004 |
+| Evidence ID | Control ID | Evidence Description | Source | Validation Method | Status |
+|------------|-----------|----------------------|--------|------------------|--------|
+| E-01 | AC-2 | User account access review CSV | Internal system export | Python script (access_review_check.py) | Valid |
+| E-02 | IA-2 | MFA status report | Google Workspace export | Python script (mfa_review_check.py) | Partial (missing users) |
+| E-03 | AC-6 | Privileged account review report | Admin role listing | Python script (privileged_access_review_check.py) | Valid |
+| E-04 | AU-6 | Incident log review CSV | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
+| E-05 | SC-7 | Network segmentation summary | Network configuration doc | Manual review | Valid |
+| E-06 | AT-2 | Security awareness training records | HR/training records | Manual review | Missing |
+| E-07 | PE-3 | Physical inspection checklist | Store inspection log | Manual review | Partial |
+| E-08 | CP-2 | Backup / outage response documentation | Internal documentation | Manual review | Missing |
+| E-09 | SA-9 | Vendor assessment checklist (Toast POS) | Vendor review doc | Manual review | Partial |
+| E-10 | SI-3 | Antivirus / endpoint protection status | Device reports | Manual review | Partial |
+| E-11 | SI-7 | Change monitoring / integrity logs | System logs | Manual review | Missing |
 
 ---
 
