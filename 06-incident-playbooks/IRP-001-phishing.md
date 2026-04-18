@@ -1,168 +1,167 @@
-# Phishing Incident Playbook
+# IRP-001: Phishing Incident Response Playbook  
 Burn and Churn Coffee
 
-----
+---
 
 ## Document Control
+**Playbook Owner:** Business Owner  
+**Approved By:** Business Owner  
+**Effective Date:** March 2026  
+**Review Frequency:** Annual or following a phishing-related incident  
+**Version:** 1.1  
 
-**Playbook Owner:** Business Owner | 
-**Approved By:** Business Owner | 
-**Effective Date:** March 2026 | 
-**Review Frequency:** Annual or following a phishing-related incident | 
-**Version:** 1.0 
-
-----
+---
 
 ## 1. Purpose
 This playbook provides operational guidance for responding to suspected or confirmed phishing incidents affecting Burn and Churn Coffee systems and personnel.
 
-Phishing attacks attempt to trick employees into revealing credentials, downloading malware, or performing unauthorized actions such as fraudulent transactions.
-This playbook ensures phishing incidents are handled consistently, contained quickly, and properly documented.
+Phishing attacks attempt to trick employees into revealing credentials, downloading malware, or performing unauthorized actions. This playbook ensures phishing incidents are handled consistently, contained quickly, and properly documented.
 
 ---
 
 ## 2. Scope
-This playbook applies to phishing incidents affecting the following systems:
-  - Google Workspace email accounts
-  - Toast POS administrative access
-  - Company-issued tablets
-  - Store network accounts
+This playbook applies to phishing incidents affecting:
 
-All employees, managers, and authorized IT support vendors must follow this playbook when responding to suspected phishing activity.
+- Google Workspace email accounts  
+- Toast POS administrative access  
+- Company-issued tablets  
+- Store network accounts  
 
------
+All employees, managers, and authorized IT support vendors must follow this playbook.
+
+---
 
 ## 3. Indicators of a Phishing Incident
-Phishing incidents may be suspected when one or more of the following indicators are observed:
-  - Suspicious email requesting login credentials or sensitive information
-  - Unexpected password reset requests
-  - Emails containing suspicious links or attachments
-  - Employee reports clicking on a suspicious link
-  - Unusual login alerts or unfamiliar login locations
-  - Reports of fraudulent account activity
+Phishing incidents may be suspected when:
 
-Employees should report suspicious messages immediately to the **Store Manager or Business Owner**.
+- Suspicious emails request credentials or sensitive information  
+- Unexpected password reset requests occur  
+- Emails contain suspicious links or attachments  
+- Employees report clicking a suspicious link  
+- Unusual login alerts or unfamiliar locations are detected  
+- Fraudulent or unexpected account activity is observed  
 
-----
+Employees must report suspicious messages immediately.
 
-## 4. Roles and Responsibilities
+---
+
+## 4. Severity Classification
+
+- **Low:** Suspicious email with no interaction  
+- **Medium:** Link clicked or attachment opened, no confirmed compromise  
+- **High:** Credentials entered, confirmed unauthorized access, or system impact  
+
+Severity determines escalation and response urgency.
+
+---
+
+## 5. Roles and Responsibilities
+
 ### Business Owner
-Responsible for overall incident oversight and escalation decisions, including:
-  - Approving containment actions
-  - Coordinating with vendors if required
-  - Determining whether external notifications are necessary
+- Oversees incident response and escalation decisions  
+- Coordinates with external vendors if required  
+- Approves external communication  
+
 ### Store Manager
-Serves as the primary incident response coordinator and is responsible for:
-  - Receiving incident reports from employees
-  - Conducting initial investigation
-  - Initiating containment steps
-  - Escalating incidents to the Business Owner when necessary
+- Serves as incident response coordinator  
+- Conducts initial assessment  
+- Initiates containment actions  
+- Escalates as needed  
+
 ### Employees
-Employees must:
-  - Report suspicious emails immediately
-  - Avoid interacting with suspicious links or attachments
-  - Follow the response instructions provided by management
+- Report suspicious messages immediately  
+- Avoid interacting with suspicious content  
+- Follow response instructions  
+
 ### IT Vendor
-If technical assistance is required, authorized IT vendors may assist with:
-  - Account investigation
-  - Log reviews
-  - Security remediation actions
+- Assists with technical investigation and remediation  
 
 ---
 
-## 5. Response Procedure
+## 6. Response Procedure
+
 ### Step 1: Detection and Reporting
-1. Employee identifies a suspicious email or message.
-2. Employee reports the message to the Store Manager or Business Owner.
-3. The message should not be replied to or interacted with further.
+- Employee identifies suspicious message  
+- Reports to Store Manager or Business Owner  
+- Do not interact further with the message  
 
----
 ### Step 2: Initial Assessment
-The Store Manager or **Business Owner** should determine:
-  - Whether the email appears malicious
-  - Whether the employee clicked a link or downloaded an attachment
-  - Whether credentials may have been entered into a malicious website
+- Determine if email is malicious  
+- Confirm if link was clicked or credentials entered  
+- Identify impacted accounts  
 
-If credentials may have been exposed, proceed immediately to containment actions. 
-
----
 ### Step 3: Containment
-Containment actions may include:
-  - Reset the affected user's password immediately
-  - Enable or enforce multi-factor authentication (MFA)
-  - Revoke active login sessions for the affected account
-  - Block or delete the phishing email from other employee mailboxes if possible
-  - Temporarily disable the affected account if compromise is suspected
+- Reset affected passwords immediately  
+- Enforce or enable MFA  
+- Revoke active sessions  
+- Remove phishing email from inboxes if possible  
+- Disable account if compromise is suspected  
 
----
 ### Step 4: Investigation
-Management or IT support should review available logs and system information, including:
-  - Recent login activity in Google Workspace
-  - Account activity and changes
-  - Any unusual administrative actions
-  - Any suspicious transaction in Toast POS
+- Review login activity in Google Workspace  
+- Identify suspicious account behavior  
+- Review POS or administrative access activity  
 
-If unauthorized actions occurred, escalate the incident to the **Business Owner**.
-
----
 ### Step 5: Eradication and Remediation
-Remediation steps may include:
-  - Removing malicious emails from affected inboxes
-  - Blocking known malicious domains or senders
-  - Updating email filtering settings where possible
-  - Providing additional guidance or reminders to employees about phishing risks
+- Remove malicious emails  
+- Block malicious senders/domains  
+- Reinforce phishing awareness with staff  
 
----
 ### Step 6: Recovery
-Recovery activities include:
-  - Confirming that compromised accounts are secured
-  - Restoring normal account access
-  - Monitoring accounts for suspicious activity for a period following the incident
+- Restore secure account access  
+- Monitor for continued suspicious activity  
+- Confirm systems are functioning normally  
 
 ---
 
-## 6. Communication
-Internal communication regarding the incident should be limited to:
-  - Business Owner
-  - Store Manager
-  - Employees involved in the incident
-  - Authorized IT support vendors
+## 7. Communication
+Internal communication is limited to:
+- Business Owner  
+- Store Manager  
+- Affected employees  
+- Authorized IT vendors  
 
-External communication must be approved by the **Business Owner** before being shared with vendors, customers, or third parties.
-
----
-## 7. Documentation
-The following information should be documented for phishing incidents:
-  - Date and time the phishing attempt was reported
-  - Employee who reported the incident
-  - Description of the phishing message
-  - Whether any links or attachments were accessed
-  - Actions taken to contain the incident
-  - System or accounts affected
-  - Final resolution and remediation actions
-
-Documentation should be stored  with other incident response records.
+External communication requires Business Owner approval.
 
 ---
 
-## 8. Lessons Learned
-Following confirmed phishing incidents, management should review:
-  - How the phishing attempt occurred
-  - Whether existing controls were effective
-  - Whether additional employee awareness training is required
-  - Whether policy or control updates are necessary
+## 8. Documentation
+All phishing incidents must be recorded in:
 
-Improvements should be incorporated into the security program where appropriate.
+- artifacts/monitoring/incident-log.md  
 
-----
-## 9. Related Documents
-  - Incident Response Policy (IRP)
-  - Access Management Policy (Formerly ACP)
-  - Acceptable Use Policy (AUP)
-  - Risk Register
-  - Control Matrix
+Include:
+- Date/time of incident  
+- Reporting employee  
+- Description of phishing attempt  
+- Actions taken  
+- Systems/accounts affected  
+- Resolution  
 
-----
+---
 
+## 9. Lessons Learned
+After an incident, review:
 
-    
+- Effectiveness of current controls  
+- Need for additional training (AT-2)  
+- Potential improvements to detection and response  
+
+---
+
+## 10. Related Controls
+
+- IA-2 (Authentication)  
+- AT-2 (Security Awareness Training)  
+- AC-2 (Account Management)  
+- AU-6 (Log Review)  
+
+---
+
+## 11. Related Documents
+
+- Incident Response Policy  
+- Access Control Policy  
+- Acceptable Use Policy  
+- Risk Register  
+- Control Matrix  
