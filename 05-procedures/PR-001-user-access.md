@@ -31,7 +31,7 @@ Systems covered by this procedure include, but are not limited to:
 
 ### System Administrator
   - Creates, modifies, and removes system accounts
-  - Maintain access control configurations
+  - Maintains access control configurations
   - Documents account provisioning activities
 
 ### Supervisors / Managers
