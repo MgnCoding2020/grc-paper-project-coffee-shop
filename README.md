@@ -13,6 +13,7 @@ The goal of this project is to demonstrate how a real-world organization can:
 * Prepare for audit readiness through documentation and evidence collection
 
 This repository reflects a **full security lifecycle**, from asset identification to continuous monitoring.
+This project is structured to demonstrate a complete GRC lifecycle, connecting risk identification, control implementation, evidence validation, and remediation tracking within a cohesive security program.
 
 ---
 
@@ -125,11 +126,11 @@ A structured risk management process was implemented:
 
 Controls were designed and mapped to **NIST SP 800-53 families**, including:
 
-* **AC-2** – Account Management
-* **IA-2** – Multi-Factor Authentication
-* **IR-4** – Incident Handling
-* **AU-6** – Log Review
-* **SC-7** – Boundary Protection
+* **AC-2** – Account Management  
+* **AC-6** – Least Privilege  
+* **IA-2** – Multi-Factor Authentication  
+* **AU-6** – Log Review  
+* **SC-7** – Network Segmentation  
 
 Each control includes:
 
@@ -199,7 +200,7 @@ An evidence pack was created to simulate audit validation:
 * Incident logs
 * Control validation artifacts
 
-This demonstrates how controls can be **verified during an audit**.
+This demonstrates how controls can be validated and assessed in an audit-like scenario using structured evidence and repeatable review processes.
 
 ---
 
@@ -216,7 +217,7 @@ A third-party risk process was implemented including:
 
 ## 📊 Continuous Monitoring & Metrics
 
-Basic monitoring concepts were introduced:
+Continuous monitoring concepts were implemented using periodic reviews, log analysis, and control validation activities:
 
 * Periodic access reviews
 * Log review processes
