@@ -98,24 +98,30 @@ Employees are responsible for:
 
 ## 6. Security Program Components
 The Burn and Churn Coffee security program includes several key governance components.
+
 ### Policies
-Security policies define expectations for system us and security practices.
+Security policies define expectations for system use and security practices.
 
 Examples include:
-  - Access Management Policy
-  - Acceptable Use Policy
-  - Incident Response Policy
-  - Payment Card Data Protection Policy
+- Access Management Policy  
+- Acceptable Use Policy  
+- Incident Response Policy  
+- Payment Card Data Protection Policy  
+
 ### Risk Management
-Cybersecurity risks are tracked and evaluated using the organization's Risk Register.
+Cybersecurity risks are tracked and evaluated using the Risk Register.
 
 Risks are periodically reviewed to determine mitigation strategies.
+
 ### Control Management
-Security controls are documented in the **Control Matrix**, which aligns controls with recognized security frameworks.
+Security controls are documented in the Control Matrix, which aligns controls with recognized security frameworks.
+
 ### Incident Response
-Security incidents are managed in accordance with the **Incident Response Policy** and associated playbooks.
+Security incidents are managed in accordance with the Incident Response Policy and associated playbooks.
+
 ### Evidence and Documentation
-Evidence supporting security controls in documented in the **Evidence Matrix** and associated artifacts.
+Evidence supporting security controls is documented in the Evidence Matrix and associated artifacts.
+
 ### Remediation and Tracking (POA&M)
 Identified control gaps and security weaknesses are tracked in the Plan of Action & Milestones (POA&M).
 
@@ -125,8 +131,45 @@ The POA&M provides a structured approach for remediation, including assigned res
 
 ---
 
+## 6.1 Security Program Workflow
+
+The Burn and Churn Coffee security program follows a structured lifecycle that connects risk identification, control implementation, validation, and remediation.
+
+The workflow is as follows:
+
+1. **Risk Identification**
+   - Risks are identified and documented in the Risk Register
+   - Each risk is evaluated based on likelihood and impact
+
+2. **Control Mapping**
+   - Risks are mapped to security controls within the Control Matrix
+   - Controls are aligned to NIST SP 800-53 control families
+
+3. **Evidence Collection**
+   - Evidence artifacts are collected to support control implementation
+   - Evidence is documented and tracked in the Evidence Matrix
+
+4. **Control Validation**
+   - Controls are validated through evidence review and supporting scripts
+   - Validation helps determine whether controls are fully implemented, partially implemented, or missing
+
+5. **Gap Identification**
+   - Any control deficiencies or inconsistencies are identified during validation
+
+6. **Remediation Tracking**
+   - Identified gaps are documented in the POA&M
+   - Remediation actions are assigned, tracked, and reviewed
+
+7. **Continuous Monitoring**
+   - Logs, access reviews, and operational procedures support ongoing monitoring
+   - Incident response playbooks provide structured handling of security events
+
+This lifecycle ensures traceability across all security program components and supports continuous improvement of the organization's security posture.
+
+---
+
 ## 7. Framework Alignment
-The Burn and Churn Coffee security program aligns primarily with **NIST SP 800-53 control families**.
+The Burn and Churn Coffee security program aligns primarily with NIST SP 800-53 control families and uses these controls to structure risk mitigation and validation activities.
 
 Examples include:
   - Access Control (AC)
