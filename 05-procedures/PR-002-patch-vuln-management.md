@@ -63,7 +63,7 @@ Updates addressing critical security vulnerabilities should be prioritized.
 ------
 
 ## 6. Patch Deployment
-patches and updates should be applied according to the following general guidelines:
+Patches and updates should be applied according to the following general guidelines:
 ### 6.1 Critical Security Updates
   - Applied as soon as reasonably possible
   - Preferably within 7 days of availability
@@ -106,7 +106,7 @@ These records serve as evidence that patch management activities are performed.
 
 -------
 
-## 9. Exception handling
+## 9. Exception Handling
 In some cases, updates may be delayed due to operational concerns or system compatibility issues.
 
 When updates are delayed:
