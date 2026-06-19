@@ -1,8 +1,8 @@
-# ☕ GRC Security Program Simulation – Coffee Shop Environment
+# ☕ GRC Security Program Simulation – Burn and Churn Coffee
 
 ## 📌 Overview
 
-This project simulates the design and implementation of a **Governance, Risk, and Compliance (GRC) security program** for a small coffee shop handling **payment card data** and basic IT operations.
+This project simulates the design and implementation of a **Governance, Risk, and Compliance (GRC) security program** for Burn and Churn Coffee handling **payment card data** and basic IT operations.
 
 The goal of this project is to demonstrate how a real-world organization can:
 
@@ -19,7 +19,7 @@ This project is structured to demonstrate a complete GRC lifecycle, connecting r
 
 ## 🏢 Business Scenario
 
-The organization is a small coffee shop with:
+Burn and Churn Coffee is a small coffee shop with:
 
 * A **Point-of-Sale (POS) system** processing payment card transactions
 * Employee workstations for daily operations
