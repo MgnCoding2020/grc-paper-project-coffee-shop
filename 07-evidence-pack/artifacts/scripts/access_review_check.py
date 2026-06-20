@@ -1,11 +1,12 @@
 import csv
 from datetime import datetime
+from pathlib import Path
 
-FILE_PATH = "../user-access-review.csv"
-INACTIVITY_THRESHOLD_DAYS = 30
+# Anchor the path to this script's location so it runs from any directory
+FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-review.csv"
+PRIVILEGED_ACCESS_LEVELS = {"Privileged", "Admin"}
 
-def check_inactive_accounts():
-    today = datetime.today()
+def review_privileged_access():
     flagged_accounts = []
 
     try:
@@ -13,46 +14,52 @@ def check_inactive_accounts():
             reader = csv.DictReader(file)
 
             for row in reader:
-                last_login_str = row["Last Login"]
                 username = row["Username"]
                 system = row["System"]
-                access = row["Access Level"]
+                role = row["Role"]
+                access_level = row["Access Level"]
                 review_status = row["Review Status"]
+                reviewer = row["Reviewer"]
+                review_date = row["Review Date"]
 
-                try:
-                    last_login = datetime.strptime(last_login_str, "%Y-%m-%d")
-                    days_inactive = (today - last_login).days
+                if access_level in PRIVILEGED_ACCESS_LEVELS or role.lower() == "admin":
+                    try:
+                        datetime.strptime(review_date, "%Y-%m-%d")
+                    except ValueError:
+                        print(f"[ERROR] Invalid review date for user: {username}")
+                        review_date = "Invalid Date"
 
-                    if days_inactive > INACTIVITY_THRESHOLD_DAYS or review_status.lower() == "review required":
+                    if review_status.lower() != "approved":
                         flagged_accounts.append({
                             "Username": username,
                             "System": system,
-                            "Days Inactive": days_inactive,
-                            "Access Level": access,
-                            "Review Status": review_status
+                            "Role": role,
+                            "Access Level": access_level,
+                            "Review Status": review_status,
+                            "Reviewer": reviewer,
+                            "Review Date": review_date
                         })
-
-                except ValueError:
-                    print(f"[ERROR] Invalid date format for user: {username}")
 
     except FileNotFoundError:
         print(f"[ERROR] File not found: {FILE_PATH}")
         return
 
-    print("\n=== Access Review Report ===\n")
+    print("\n=== Privileged Access Review Report ===\n")
 
     if not flagged_accounts:
-        print("No inactive or review-required accounts found.")
+        print("All privileged accounts are currently approved.")
     else:
         for acct in flagged_accounts:
             print(f"User: {acct['Username']}")
             print(f"System: {acct['System']}")
-            print(f"Days Inactive: {acct['Days Inactive']}")
+            print(f"Role: {acct['Role']}")
             print(f"Access Level: {acct['Access Level']}")
             print(f"Review Status: {acct['Review Status']}")
+            print(f"Reviewer: {acct['Reviewer']}")
+            print(f"Review Date: {acct['Review Date']}")
             print("-" * 40)
 
     print("\nReview Complete.\n")
 
 if __name__ == "__main__":
-    check_inactive_accounts()
+    review_privileged_access()
