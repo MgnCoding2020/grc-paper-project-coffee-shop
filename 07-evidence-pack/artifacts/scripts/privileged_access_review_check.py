@@ -1,7 +1,9 @@
 import csv
 from datetime import datetime
+from pathlib import Path
 
-FILE_PATH = "../user-access-review.csv"
+# Anchor the path to this script's location so it runs from any directory
+FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-review.csv"
 PRIVILEGED_ACCESS_LEVELS = {"Privileged", "Admin"}
 
 def review_privileged_access():
