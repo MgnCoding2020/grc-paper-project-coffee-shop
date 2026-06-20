@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This project simulates the design and implementation of a **Governance, Risk, and Compliance (GRC) security program** for Burn and Churn Coffee handling **payment card data** and basic IT operations.
+This project simulates the design and implementation of a **Governance, Risk, and Compliance (GRC) security program** for **Burn and Churn Coffee**, a small coffee shop handling **payment card data** and basic IT operations.
 
 The goal of this project is to demonstrate how a real-world organization can:
 
@@ -12,19 +12,18 @@ The goal of this project is to demonstrate how a real-world organization can:
 * Establish policies, procedures, and incident response capabilities
 * Prepare for audit readiness through documentation and evidence collection
 
-This repository reflects a **full security lifecycle**, from asset identification to continuous monitoring.
-This project is structured to demonstrate a complete GRC lifecycle, connecting risk identification, control implementation, evidence validation, and remediation tracking within a cohesive security program.
+This repository reflects a **full security lifecycle** — connecting risk identification, control implementation, evidence validation, and remediation tracking within a cohesive GRC program, from asset identification through continuous monitoring.
 
 ---
 
 ## 🏢 Business Scenario
 
-Burn and Churn Coffee is a small coffee shop with:
+**Burn and Churn Coffee** is a small coffee shop with:
 
 * A **Point-of-Sale (POS) system** processing payment card transactions
 * Employee workstations for daily operations
 * A basic internal network with internet connectivity
-* Third-party vendors (POS provider, payment processor)
+* Third-party vendors (**Toast POS** as the point-of-sale provider, plus the payment processor)
 
 ### Key Risks:
 
@@ -51,35 +50,42 @@ This project was designed to:
 
 This project aligns with:
 
-* NIST SP 800-53
+* **NIST SP 800-53** — control families implemented in the [control matrix](03-controls/control-matrix.md):
 
   * Access Control (AC)
+  * Awareness & Training (AT)
+  * Audit & Accountability (AU)
+  * Contingency Planning (CP)
   * Identification & Authentication (IA)
-  * Incident Response (IR)
+  * Physical & Environmental Protection (PE)
+  * System & Services Acquisition (SA)
   * System & Communications Protection (SC)
-  * Risk Assessment (RA)
+  * System & Information Integrity (SI)
 
-* PCI DSS (Conceptual Alignment)
+* **PCI DSS** (Conceptual Alignment)
 
   * Cardholder data protection
   * Network segmentation concepts
   * Access control enforcement
   * Logging and monitoring
 
+A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md) maps each implemented control to its PCI DSS v4.0.1 requirement and identifies coverage gaps that feed the POA&M.
+
 ---
 
 ## 🗂️ Project Structure
 
 ```
-00-company-profile/
-01-asset-inventory/
-02-risk-management/
-03-controls/
-04-policies/
-05-procedures/
-06-incident-playbooks/
-07-evidence-pack/
-08-architecture/
+.
+├── 00-company-profile/      # Business profile, assessment scope, glossary, program overview
+├── 01-asset-inventory/      # Asset register, data classification, asset lifecycle & review
+├── 02-risk-management/      # Risk register, continuous monitoring, vendor risk management
+├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
+├── 04-policies/             # P-001–P-004 governance policies
+├── 05-procedures/           # PR-001–PR-004 operational procedures
+├── 06-incident-playbooks/   # IRP-001–IRP-004 incident response playbooks
+├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
+└── 08-architecture/         # System architecture and data-flow diagrams
 ```
 
 ---
@@ -99,7 +105,7 @@ The environment includes:
 * Authentication systems controlling access
 * Logging and monitoring mechanisms
 
-> 📌 *Detailed diagrams and data flows are included in the architecture section.*
+> 📌 *Detailed diagrams and data flows are included in the [architecture section](08-architecture/).*
 
 ---
 
@@ -113,24 +119,26 @@ A structured risk management process was implemented:
 4. Control Implementation
 5. Residual Risk Evaluation
 
-### Sample Risks:
+### Sample Risks (from the [risk register](02-risk-management/risk-register.md)):
 
-* Weak authentication controls on POS systems
-* Lack of network segmentation
-* Insufficient logging and monitoring
-* Third-party vendor exposure
+* **R-01** – Phishing leading to account compromise
+* **R-02** – Unauthorized POS transactions or misuse
+* **R-04** – Network-based attack due to poor segmentation
+* **R-07** – Vendor compromise or service disruption (Toast POS)
 
 ---
 
 ## 🛡️ Control Implementation
 
-Controls were designed and mapped to **NIST SP 800-53 families**, including:
+Controls were designed and mapped to **NIST SP 800-53 families** and, where relevant, **PCI DSS requirements**. A representative sample:
 
-* **AC-2** – Account Management  
-* **AC-6** – Least Privilege  
-* **IA-2** – Multi-Factor Authentication  
-* **AU-6** – Log Review  
-* **SC-7** – Network Segmentation  
+* **IA-2** – Multi-Factor Authentication (PCI Req. 8)
+* **AC-2** – Account Management (PCI Req. 7)
+* **AC-6** – Least Privilege (PCI Req. 7)
+* **AU-6** – Log Review (PCI Req. 10)
+* **SC-7** – Network Segmentation (PCI Req. 1)
+
+The full set of 11 controls, with implementation status and PCI mappings, is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
@@ -159,18 +167,19 @@ This structure reflects a simplified but realistic GRC program model used in sma
 
 ## 📑 Policies & Procedures
 
-The project includes formal documentation such as:
+The project includes formal governance **policies**:
 
-* Access Control Policy
-* Incident Response Policy
-* Data Protection Policy
-* Vendor Risk Management Policy
+* Access Control Policy (P-001)
+* Acceptable Use Policy (P-002)
+* Incident Response Policy (P-003)
+* Payment Card Data Protection Policy (P-004)
 
-Supporting procedures define:
+And supporting operational **procedures**:
 
-* User provisioning/deprovisioning
-* Log review processes
-* Incident escalation workflows
+* User access provisioning/deprovisioning (PR-001)
+* Patch & vulnerability management (PR-002)
+* Quarterly access review (PR-003)
+* Log review (PR-004)
 
 ---
 
@@ -183,11 +192,12 @@ An incident response framework was developed including:
 * Response playbooks
 * Logging and documentation templates
 
-Example scenarios:
+Playbooks included:
 
-* Unauthorized access attempt
-* POS compromise
-* Suspicious network activity
+* Phishing (IRP-001)
+* Account compromise (IRP-002)
+* POS suspicious activity (IRP-003)
+* Lost or stolen device (IRP-004)
 
 ---
 
@@ -196,11 +206,23 @@ Example scenarios:
 An evidence pack was created to simulate audit validation:
 
 * MFA status tracking (CSV)
-* Access review scripts
-* Incident logs
+* Access review and privileged-access review scripts (Python)
+* Incident log review script (Python)
 * Control validation artifacts
 
 This demonstrates how controls can be validated and assessed in an audit-like scenario using structured evidence and repeatable review processes.
+
+**Running the validation scripts** (Python 3, no external dependencies):
+
+```bash
+cd 07-evidence-pack/artifacts/scripts
+python3 mfa_review_check.py
+python3 access_review_check.py
+python3 privileged_access_review_check.py
+python3 incident_log_review_check.py
+```
+
+Each script reads the relevant evidence artifact and prints a review report that flags exceptions — for example, accounts missing MFA, stale access reviews, or unresolved incidents. Example templates that support these artifacts are kept in [`07-evidence-pack/examples/`](07-evidence-pack/examples/).
 
 ---
 
@@ -246,11 +268,9 @@ Future enhancements may include:
 
 ## 📈 Future Enhancements
 
-* Network and data flow diagrams
-* Expanded control mapping (full NIST coverage)
-* SIEM/logging simulation
-* Compliance crosswalk (NIST ↔ PCI DSS)
-* Automated compliance tracking
+* Expanded control mapping (broader NIST 800-53 coverage)
+* SIEM / logging simulation
+* Automated compliance tracking and KPI dashboards
 
 ---
 
