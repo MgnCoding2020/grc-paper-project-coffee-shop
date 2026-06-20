@@ -1,6 +1,8 @@
 import re
+from pathlib import Path
 
-FILE_PATH = "../incident-log.md"
+# Anchor the path to this script's location so it runs from any directory
+FILE_PATH = Path(__file__).resolve().parent.parent / "monitoring" / "incident-log.md"
 
 def parse_incidents():
     try:
