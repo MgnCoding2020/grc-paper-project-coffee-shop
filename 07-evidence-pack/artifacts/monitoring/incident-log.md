@@ -4,7 +4,7 @@
 
 - Date: 2026-03-12
 - System: Google Workspace
-- User: manager@coffeeshop.com
+- User: manager@burnandchurncoffee.com
 - Description:
   A login attempt was detected from an unrecognized location.
 
@@ -22,7 +22,7 @@
 
 - Date: 2026-03-20
 - System: Toast POS
-- User: barista2@coffeeshop.com
+- User: barista2@burnandchurncoffee.com
 
 - Description:
   Account inactive for over 60 days but still active in system.
