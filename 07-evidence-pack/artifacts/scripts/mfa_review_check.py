@@ -1,67 +1,65 @@
 import csv
 from datetime import datetime
+from pathlib import Path
 
-FILE_PATH = "../mfa-status.csv"
-VERIFICATION_STALENESS_DAYS = 30
+# Anchor the path to this script's location so it runs from any directory
+FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-review.csv"
+PRIVILEGED_ACCESS_LEVELS = {"Privileged", "Admin"}
 
-def check_mfa_status():
-    today = datetime.today()
-    flagged_users = []
+def review_privileged_access():
+    flagged_accounts = []
 
     try:
         with open(FILE_PATH, newline='') as file:
             reader = csv.DictReader(file)
 
             for row in reader:
-                user = row["User"]
+                username = row["Username"]
                 system = row["System"]
-                mfa_enabled = row["MFA Enabled"]
-                mfa_method = row["MFA Method"]
-                last_verified = row["Last Verified"]
+                role = row["Role"]
+                access_level = row["Access Level"]
+                review_status = row["Review Status"]
+                reviewer = row["Reviewer"]
+                review_date = row["Review Date"]
 
-                stale_verification = False
-
-                if last_verified != "N/A":
+                if access_level in PRIVILEGED_ACCESS_LEVELS or role.lower() == "admin":
                     try:
-                        verified_date = datetime.strptime(last_verified, "%Y-%m-%d")
-                        days_since_verification = (today - verified_date).days
-                        stale_verification = days_since_verification > VERIFICATION_STALENESS_DAYS
+                        datetime.strptime(review_date, "%Y-%m-%d")
                     except ValueError:
-                        print(f"[ERROR] Invalid verification date for user: {user}")
-                        stale_verification = True
-                else:
-                    days_since_verification = "N/A"
-                    stale_verification = True
+                        print(f"[ERROR] Invalid review date for user: {username}")
+                        review_date = "Invalid Date"
 
-                if mfa_enabled.strip().lower() != "yes" or stale_verification:
-                    flagged_users.append({
-                        "User": user,
-                        "System": system,
-                        "MFA Enabled": mfa_enabled,
-                        "MFA Method": mfa_method,
-                        "Last Verified": last_verified,
-                        "Days Since Verification": days_since_verification
-                    })
+                    if review_status.lower() != "approved":
+                        flagged_accounts.append({
+                            "Username": username,
+                            "System": system,
+                            "Role": role,
+                            "Access Level": access_level,
+                            "Review Status": review_status,
+                            "Reviewer": reviewer,
+                            "Review Date": review_date
+                        })
 
     except FileNotFoundError:
         print(f"[ERROR] File not found: {FILE_PATH}")
         return
 
-    print("\n=== MFA Review Report ===\n")
+    print("\n=== Privileged Access Review Report ===\n")
 
-    if not flagged_users:
-        print("All reviewed accounts have MFA enabled and recently verified.")
+    if not flagged_accounts:
+        print("All privileged accounts are currently approved.")
     else:
-        for acct in flagged_users:
-            print(f"User: {acct['User']}")
+        for acct in flagged_accounts:
+            print(f"User: {acct['Username']}")
             print(f"System: {acct['System']}")
-            print(f"MFA Enabled: {acct['MFA Enabled']}")
-            print(f"MFA Method: {acct['MFA Method']}")
-            print(f"Last Verified: {acct['Last Verified']}")
-            print(f"Days Since Verification: {acct['Days Since Verification']}")
+            print(f"Role: {acct['Role']}")
+            print(f"Access Level: {acct['Access Level']}")
+            print(f"Review Status: {acct['Review Status']}")
+            print(f"Reviewer: {acct['Reviewer']}")
+            print(f"Review Date: {acct['Review Date']}")
             print("-" * 40)
 
     print("\nReview Complete.\n")
 
 if __name__ == "__main__":
-    check_mfa_status()
+    review_privileged_access()
