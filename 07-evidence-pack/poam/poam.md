@@ -18,6 +18,11 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 | POAM-006 | SA-9 | Vendor review not formally documented | Establish vendor assessment checklist and review cadence | Owner | Medium | Open |
 | POAM-007 | SI-3 | Malware protection not validated across devices | Deploy and verify endpoint protection on all systems | IT Admin | High | Open |
 | POAM-008 | SI-7 | No monitoring for unauthorized changes | Implement basic file/system change monitoring | IT Admin | Medium | Open |
+| POAM-009 | CM-6 | No documented secure-configuration baseline; vendor default credentials/settings not formally hardened | Define and apply secure configuration baselines for POS terminals and workstations | IT Admin | High | Open |
+| POAM-010 | SC-8 | Encryption of cardholder data in transit not documented or verified | Document and validate TLS/strong cryptography for data transmitted over open networks | IT Admin | High | Open |
+| POAM-011 | RA-5 | No vulnerability scanning or penetration testing performed | Establish quarterly vulnerability scanning (RA-5) and annual penetration testing (CA-8) | Owner | Medium | Open |
+| POAM-012 | SC-28 | Cardholder data-at-rest protection and storage scope not documented | Document data-at-rest handling and scope; apply protection or confirm scope reduction via Toast POS | Owner | Medium | Open |
+
 
 ---
 
