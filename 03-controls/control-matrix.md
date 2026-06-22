@@ -26,6 +26,10 @@ Each control references the policy or procedure responsible for implementing the
 | R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
 | R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
 | R-08 | SI-7 | Monitoring for unauthorized changes | SI | Req. 11 | Not Implemented | E-11 | POAM-008 |
+| R-09 | SC-8 | Encryption of cardholder data in transit (TLS) | SC | Req. 4 | Not Implemented | E-13 | POAM-010 |
+| R-09 | SC-28 | Protection of cardholder data at rest | SC | Req. 3 | Not Implemented | E-15 | POAM-012 |
+
+----
 
 
 ## Control Review Process
