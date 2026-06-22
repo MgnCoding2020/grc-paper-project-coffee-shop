@@ -41,6 +41,9 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-06 | Excessive privileges leading to misuse | High | Low | Medium | AC-6 | Low |
 | R-07 | Vendor compromise or service disruption (Toast POS) | High | Low | Medium | SA-9 | Medium |
 | R-08 | Malware infection on business systems | Medium | Medium | Medium | SI-3, SI-7 | Medium |
+| R-09 | Cardholder data exposure due to insufficient encryption in transit or at rest | High | Medium | High | SC-8, SC-28 | High |
+
+----
 
 ## Risk Review Process
 Risk listed in this register shall be reviewed:
