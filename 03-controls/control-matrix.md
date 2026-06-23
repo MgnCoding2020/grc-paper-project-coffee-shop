@@ -3,7 +3,7 @@ Burn and Churn Coffee
 
 ---
 
-## Overiew
+## Overview
 This control matrix identifies the security controls implemented by Burn and Churn Coffee to mitigate identified cybersecurity risks. 
 
 Controls are aligned primarily with **NIST SP 800-53 control families** and, where relevant, mapped to **PCI DSS requirements** applicable to payment card environments.
