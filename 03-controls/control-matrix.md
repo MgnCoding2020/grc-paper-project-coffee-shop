@@ -19,6 +19,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-01 | AT-2 | Security awareness and phishing training | AT | Req. 12.6 | Not Implemented | E-06 | POAM-002 |
 | R-02 | AC-2 | Account management for POS and business systems | AC | Req. 7 | Implemented | E-01 | - |
 | R-02 | AU-6 | Log review for suspicious POS activity | AU | Req. 10 | Partially Implemented | E-04 | POAM-003 |
+| R-02 | CM-6 | Secure configuration baselines for POS and workstations | CM | Req. 2 | Not Implemented | E-12 | POAM-009 |
 | R-03 | PE-3 | Physical access control for devices and POS terminals | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
 | R-04 | SC-7 | Network segmentation between POS and internal network | SC | Req. 1 | Implemented | E-05 | - |
 | R-05 | CP-2 | Basic contingency planning for network outages | CP | Req. 12 | Not Implemented | E-08 | POAM-005 |
@@ -26,6 +27,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
 | R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
 | R-08 | SI-7 | Monitoring for unauthorized changes | SI | Req. 11 | Not Implemented | E-11 | POAM-008 |
+| R-08 | RA-5 | Vulnerability scanning and penetration testing | RA | Req. 11 | Not Implemented | E-14 | POAM-011 |
 | R-09 | SC-8 | Encryption of cardholder data in transit (TLS) | SC | Req. 4 | Not Implemented | E-13 | POAM-010 |
 | R-09 | SC-28 | Protection of cardholder data at rest | SC | Req. 3 | Not Implemented | E-15 | POAM-012 |
 
