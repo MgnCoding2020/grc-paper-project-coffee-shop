@@ -28,6 +28,10 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-09 | SA-9 | Vendor assessment checklist (artifacts/vendor/vendor-assessment-summary.md) (Toast POS) | Vendor review doc | Manual review | Partial |
 | E-10 | SI-3 | Antivirus / endpoint protection status | Device reports | Manual review | Partial |
 | E-11 | SI-7 | Change monitoring / integrity logs | System logs | Manual review | Missing |
+| E-12 | CM-6 | Secure configuration baseline documentation | Configuration standard | Manual review | Missing |
+| E-13 | SC-8 | Encryption-in-transit (TLS) configuration evidence | Vendor/system config | Manual review | Missing |
+| E-14 | RA-5 | Vulnerability scan and penetration test reports | Scan tooling output | Manual review | Missing |
+| E-15 | SC-28 | Data-at-rest protection / storage scope documentation | Vendor/system config | Manual review | Missing |
 
 ---
 
