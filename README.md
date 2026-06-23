@@ -234,6 +234,7 @@ A third-party risk process was implemented including:
 * Risk scoring methodology
 * Due diligence checklist
 * Ongoing monitoring considerations
+* Vendors are tracked in the [vendor inventory](02-risk-management/vendor-risk-management/vendor-inventory.md). A full worked example — the assessment of Northwind Payroll Services — is executed in the companion [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab), with findings rolled up here under POAM-013 (SA-9).
 
 ---
 
