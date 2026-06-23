@@ -22,6 +22,7 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 | POAM-010 | SC-8 | Encryption of cardholder data in transit not documented or verified | Document and validate TLS/strong cryptography for data transmitted over open networks | IT Admin | High | Open |
 | POAM-011 | RA-5 | No vulnerability scanning or penetration testing performed | Establish quarterly vulnerability scanning (RA-5) and annual penetration testing (CA-8) | Owner | Medium | Open |
 | POAM-012 | SC-28 | Cardholder data-at-rest protection and storage scope not documented | Document data-at-rest handling and scope; apply protection or confirm scope reduction via Toast POS | Owner | Medium | Open |
+| POAM-013 | SA-9 | Northwind Payroll (V-002) vendor assessment identified open findings: MFA not enforced on vendor admin access, breach-notification SLA undefined, SOC 2 Type II not provided, data-retention policy undocumented | Remediate access and contractual findings before go-live; obtain SOC 2 Type II and documented data retention within 90 days; per-finding status tracked in the vendor risk lab | Owner | High | Open |
 
 
 ---
