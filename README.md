@@ -171,7 +171,7 @@ This structure reflects a simplified but realistic GRC program model used in sma
 
 The project includes formal governance **policies**:
 
-* Access Control Policy (P-001)
+* Access Management Policy (P-001)
 * Acceptable Use Policy (P-002)
 * Incident Response Policy (P-003)
 * Payment Card Data Protection Policy (P-004)
