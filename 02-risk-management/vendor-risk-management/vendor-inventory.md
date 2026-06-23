@@ -16,7 +16,7 @@ The inventory is the entry point for the vendor risk management process: each ve
 | Vendor ID | Vendor Name | Service Provided | Data Accessed / Processed | Inherent Risk Tier | Cardholder Data? | Assessment Status | Last Assessed | Assessment Reference | Owner |
 |-----------|-------------|------------------|---------------------------|--------------------|------------------|-------------------|---------------|----------------------|-------|
 | V-001 | Toast POS | Point-of-sale & payment processing | Cardholder / payment data | High | Yes | Not Started | - | Planned | Owner |
-| V-002 | Northwind Payroll Services | Cloud payroll & HR (SaaS) | Employee PII, payroll, tax, direct-deposit banking | High | No | In Progress | YYYY-MM-DD | Vendor Risk Assessment Lab (repo) | Owner |
+| V-002 | Northwind Payroll Services | Cloud payroll & HR (SaaS) | Employee PII, payroll, tax, direct-deposit banking | High | No | Complete | 2026-06-23 | Vendor Risk Assessment Lab (repo) | Owner |
 
 ---
 
