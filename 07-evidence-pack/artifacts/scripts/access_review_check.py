@@ -4,9 +4,12 @@ from pathlib import Path
 
 # Anchor the path to this script's location so it runs from any directory
 FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-review.csv"
-PRIVILEGED_ACCESS_LEVELS = {"Privileged", "Admin"}
 
-def review_privileged_access():
+# Accounts with no login activity for longer than this, relative to their
+# review date, are flagged as inactive regardless of review status.
+INACTIVITY_THRESHOLD_DAYS = 30
+
+def review_user_access():
     flagged_accounts = []
 
     try:
@@ -18,48 +21,62 @@ def review_privileged_access():
                 system = row["System"]
                 role = row["Role"]
                 access_level = row["Access Level"]
+                last_login = row["Last Login"]
                 review_status = row["Review Status"]
                 reviewer = row["Reviewer"]
                 review_date = row["Review Date"]
 
-                if access_level in PRIVILEGED_ACCESS_LEVELS or role.lower() == "admin":
-                    try:
-                        datetime.strptime(review_date, "%Y-%m-%d")
-                    except ValueError:
-                        print(f"[ERROR] Invalid review date for user: {username}")
-                        review_date = "Invalid Date"
+                reasons = []
 
-                    if review_status.lower() != "approved":
-                        flagged_accounts.append({
-                            "Username": username,
-                            "System": system,
-                            "Role": role,
-                            "Access Level": access_level,
-                            "Review Status": review_status,
-                            "Reviewer": reviewer,
-                            "Review Date": review_date
-                        })
+                if review_status.strip().lower() != "approved":
+                    reasons.append(f"Review status is '{review_status}'")
+
+                try:
+                    login_date = datetime.strptime(last_login, "%Y-%m-%d")
+                    reviewed_date = datetime.strptime(review_date, "%Y-%m-%d")
+                    days_inactive = (reviewed_date - login_date).days
+                    if days_inactive > INACTIVITY_THRESHOLD_DAYS:
+                        reasons.append(
+                            f"No login activity for {days_inactive} days prior to review"
+                        )
+                except ValueError:
+                    reasons.append("Invalid or missing Last Login / Review Date value")
+
+                if reasons:
+                    flagged_accounts.append({
+                        "Username": username,
+                        "System": system,
+                        "Role": role,
+                        "Access Level": access_level,
+                        "Last Login": last_login,
+                        "Review Status": review_status,
+                        "Reviewer": reviewer,
+                        "Review Date": review_date,
+                        "Reasons": "; ".join(reasons)
+                    })
 
     except FileNotFoundError:
         print(f"[ERROR] File not found: {FILE_PATH}")
         return
 
-    print("\n=== Privileged Access Review Report ===\n")
+    print("\n=== User Access Review Report ===\n")
 
     if not flagged_accounts:
-        print("All privileged accounts are currently approved.")
+        print("All user accounts are reviewed and active.")
     else:
         for acct in flagged_accounts:
             print(f"User: {acct['Username']}")
             print(f"System: {acct['System']}")
             print(f"Role: {acct['Role']}")
             print(f"Access Level: {acct['Access Level']}")
+            print(f"Last Login: {acct['Last Login']}")
             print(f"Review Status: {acct['Review Status']}")
             print(f"Reviewer: {acct['Reviewer']}")
             print(f"Review Date: {acct['Review Date']}")
+            print(f"Flag Reason(s): {acct['Reasons']}")
             print("-" * 40)
 
     print("\nReview Complete.\n")
 
 if __name__ == "__main__":
-    review_privileged_access()
+    review_user_access()
