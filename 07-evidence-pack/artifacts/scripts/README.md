@@ -130,4 +130,6 @@ These scripts are designed for **demonstration and portfolio purposes only**.
 
 They do not perform automated remediation and should be used alongside formal review and approval processes.
 
+`access_review_check.py`'s 30-day inactivity threshold is an illustrative assumption, not pulled from a real organization's policy — there's no live company here to calibrate it against. A real deployment should set it from the org's actual quarterly-review cadence instead of reusing this default.
+
 ---

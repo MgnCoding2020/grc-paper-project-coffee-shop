@@ -1,12 +1,10 @@
 import csv
-from datetime import datetime
 from pathlib import Path
 
 # Anchor the path to this script's location so it runs from any directory
-FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-review.csv"
-PRIVILEGED_ACCESS_LEVELS = {"Privileged", "Admin"}
+FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "mfa-status.csv"
 
-def review_privileged_access():
+def review_mfa_status():
     flagged_accounts = []
 
     try:
@@ -14,52 +12,50 @@ def review_privileged_access():
             reader = csv.DictReader(file)
 
             for row in reader:
-                username = row["Username"]
+                user = row["User"]
                 system = row["System"]
-                role = row["Role"]
-                access_level = row["Access Level"]
-                review_status = row["Review Status"]
-                reviewer = row["Reviewer"]
-                review_date = row["Review Date"]
+                mfa_enabled = row["MFA Enabled"]
+                mfa_method = row["MFA Method"]
+                last_verified = row["Last Verified"]
 
-                if access_level in PRIVILEGED_ACCESS_LEVELS or role.lower() == "admin":
-                    try:
-                        datetime.strptime(review_date, "%Y-%m-%d")
-                    except ValueError:
-                        print(f"[ERROR] Invalid review date for user: {username}")
-                        review_date = "Invalid Date"
-
-                    if review_status.lower() != "approved":
-                        flagged_accounts.append({
-                            "Username": username,
-                            "System": system,
-                            "Role": role,
-                            "Access Level": access_level,
-                            "Review Status": review_status,
-                            "Reviewer": reviewer,
-                            "Review Date": review_date
-                        })
+                if mfa_enabled.strip().lower() != "yes":
+                    flagged_accounts.append({
+                        "User": user,
+                        "System": system,
+                        "MFA Enabled": mfa_enabled,
+                        "MFA Method": mfa_method,
+                        "Last Verified": last_verified,
+                        "Reason": "MFA not enabled"
+                    })
+                elif last_verified.strip().upper() in ("N/A", ""):
+                    flagged_accounts.append({
+                        "User": user,
+                        "System": system,
+                        "MFA Enabled": mfa_enabled,
+                        "MFA Method": mfa_method,
+                        "Last Verified": last_verified,
+                        "Reason": "MFA enabled but verification date missing"
+                    })
 
     except FileNotFoundError:
         print(f"[ERROR] File not found: {FILE_PATH}")
         return
 
-    print("\n=== Privileged Access Review Report ===\n")
+    print("\n=== MFA Enforcement Review Report ===\n")
 
     if not flagged_accounts:
-        print("All privileged accounts are currently approved.")
+        print("All accounts have MFA enabled and verified.")
     else:
         for acct in flagged_accounts:
-            print(f"User: {acct['Username']}")
+            print(f"User: {acct['User']}")
             print(f"System: {acct['System']}")
-            print(f"Role: {acct['Role']}")
-            print(f"Access Level: {acct['Access Level']}")
-            print(f"Review Status: {acct['Review Status']}")
-            print(f"Reviewer: {acct['Reviewer']}")
-            print(f"Review Date: {acct['Review Date']}")
+            print(f"MFA Enabled: {acct['MFA Enabled']}")
+            print(f"MFA Method: {acct['MFA Method']}")
+            print(f"Last Verified: {acct['Last Verified']}")
+            print(f"Reason: {acct['Reason']}")
             print("-" * 40)
 
     print("\nReview Complete.\n")
 
 if __name__ == "__main__":
-    review_privileged_access()
+    review_mfa_status()
