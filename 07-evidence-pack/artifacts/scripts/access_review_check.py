@@ -7,6 +7,12 @@ FILE_PATH = Path(__file__).resolve().parent.parent / "access" / "user-access-rev
 
 # Accounts with no login activity for longer than this, relative to their
 # review date, are flagged as inactive regardless of review status.
+#
+# This number is an illustrative assumption, not derived from a real
+# company's access-review cadence -- this project has no live organization
+# to calibrate against. A real deployment should set this from the org's
+# actual quarterly-review policy (see PR-003-quarterly-access-review.md)
+# rather than reusing this default as-is.
 INACTIVITY_THRESHOLD_DAYS = 30
 
 def review_user_access():
