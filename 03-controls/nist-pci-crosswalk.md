@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps the program's **11 implemented controls** to their primary PCI DSS requirement(s).
+- **Part A** maps all **15 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 15: 3 Implemented, 5 Partially Implemented, 7 Not Implemented.
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -29,7 +29,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ---
 
-## Part A — Implemented NIST controls → PCI DSS
+## Part A — NIST controls → PCI DSS
 
 | NIST Control | Control Name | Risk ID | PCI DSS v4.0.1 Requirement | Impl. Status |
 |--------------|--------------|---------|----------------------------|--------------|
@@ -37,6 +37,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | AT-2 | Awareness & Training | R-01 | **Req. 12.6** – Security awareness program | Not Implemented |
 | AC-2 | Account Management | R-02 | **Req. 7 & 8** – Need-to-know access; user identification | Implemented |
 | AU-6 | Audit Record Review, Analysis & Reporting | R-02 | **Req. 10** – Log & monitor all access | Partially Implemented |
+| CM-6 | Configuration Settings | R-02 | **Req. 2** – Apply secure configurations to all system components | Not Implemented |
 | PE-3 | Physical Access Control | R-03 | **Req. 9** – Restrict physical access (9.5.1: POS device inspection) | Partially Implemented |
 | SC-7 | Boundary Protection | R-04 | **Req. 1** – Network security controls / segmentation | Implemented |
 | CP-2 | Contingency Plan | R-05 | **Req. 12.10** – Incident response / continuity (loose mapping\*) | Not Implemented |
@@ -44,6 +45,9 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | SA-9 | External System Services | R-07 | **Req. 12.8** – Manage service providers (Toast POS) | Partially Implemented |
 | SI-3 | Malicious Code Protection | R-08 | **Req. 5** – Protect from malicious software | Partially Implemented |
 | SI-7 | Software, Firmware & Information Integrity | R-08 | **Req. 11.5** – Change / intrusion detection | Not Implemented |
+| RA-5 | Vulnerability Monitoring & Scanning | R-08 | **Req. 11** – Test security of systems & networks regularly | Not Implemented |
+| SC-8 | Transmission Confidentiality & Integrity | R-09 | **Req. 4** – Protect cardholder data with strong cryptography in transit | Not Implemented |
+| SC-28 | Protection of Information at Rest | R-09 | **Req. 3** – Protect stored account data | Not Implemented |
 
 \* PCI DSS has limited business-continuity coverage; CP-2's nearest analog is the incident response
 plan under Req. 12.10. The mapping is directional, not one-to-one — a normal feature of crosswalks.
