@@ -50,7 +50,7 @@ This project was designed to:
 
 This project aligns with:
 
-* **NIST SP 800-53** — control families implemented in the [control matrix](03-controls/control-matrix.md):
+* **NIST SP 800-53** — control families covered by the [control matrix](03-controls/control-matrix.md):
 
   * Access Control (AC)
   * Awareness & Training (AT)
@@ -140,7 +140,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of 11 controls, with implementation status and PCI mappings, is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **15 controls across 11 families** — 3 Implemented, 5 Partially Implemented, 7 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
