@@ -32,6 +32,8 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-13 | SC-8 | Encryption-in-transit (TLS) configuration evidence | Vendor/system config | Manual review | Missing |
 | E-14 | RA-5 | Vulnerability scan and penetration test reports | Scan tooling output | Manual review | Missing |
 | E-15 | SC-28 | Data-at-rest protection / storage scope documentation | Vendor/system config | Manual review | Missing |
+| E-16 | CM-3, CM-4 | Change records and change register (09-change-management/) | Change records | Manual review against the change lifecycle | Partial (no change has completed a post-implementation review yet) |
+| E-17 | PS-4, PS-5 | Roster with employment status and dates (00-company-profile/org/people.csv) compared with system accounts | HR roster and access review | Consistency checker and quarterly access review | Partial (termination dates not recorded; IAM:F-001) |
 
 ---
 
