@@ -88,6 +88,9 @@ Evidence the CR-001 build will produce (see the build-day runbook in `CLAUDE.md`
 | IA-2 | Per-user MFA status and sign-in log details | Planned (2026-11-15) |
 | AU-2, AU-6 | Audit log export, verified returning records | Planned (2026-11-15) |
 | AC-2, AC-6 | Q4 2026 access review run against Entra ID | Planned (Q4 2026) |
+| AC-2, SA-9 | Vendor guest invited and added to `grp-bc-vendors` (CR-004 provisioning log) | Planned (after VRA-V002:F-02 closes) |
+| AC-6, AU-2 | Guest sign-in and payroll-export access; denied access to other folders | Planned (CR-004) |
+| AC-2, PS-4 | Guest removed at access end; failed sign-in afterwards (corrective-action exercise) | Planned (CR-004 + 90 days) |
 
 ---
 

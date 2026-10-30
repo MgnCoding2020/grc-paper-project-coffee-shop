@@ -55,6 +55,9 @@ SECRET_PATTERNS = {
     "IPv4 address": re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
     "access token (JWT)": re.compile(r"\beyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{10,}"),
     "Stripe API key": re.compile(r"\b(?:sk|rk|pk)_(?:live|test)_[A-Za-z0-9]{10,}"),
+    # Any address outside the fictional domain (and example domains) could be a real test mailbox
+    "email address outside the fictional domain": re.compile(
+        r"\b[\w.+-]+@(?!burnandchurncoffee\.com\b|example\.(?:com|org|net)\b)[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}\b"),
 }
 PERSONAL_DATA_PATTERNS = {
     "SSN-shaped number": re.compile(r"\b\d{3}-\d{2}-\d{4}\b"),
@@ -156,15 +159,18 @@ class Org:
         self.people = read_csv(org / "people.csv")
         self.systems = read_csv(org / "systems.csv")
         self.vendors = read_csv(org / "vendors.csv")
+        contacts = org / "vendor-contacts.csv"
+        self.contacts = read_csv(contacts) if contacts.exists() else []
         self.by_name = {p["display_name"]: p for p in self.people}
+        self.contact_names = {c["display_name"] for c in self.contacts}
         self.by_upn = {p["upn"].lower(): p for p in self.people}
         self.system_ids = {s["system_id"] for s in self.systems}
         self.vendor_ids = {v["vendor_id"] for v in self.vendors}
         self.vendor_names = [v["name"] for v in self.vendors]
 
     def is_vendor_name(self, name):
-        return any(name.lower() in v.lower() or v.lower().startswith(name.lower())
-                   for v in self.vendor_names)
+        return name in self.contact_names or any(
+            name.lower() in v.lower() or v.lower().startswith(name.lower()) for v in self.vendor_names)
 
     def store_headcount(self):
         return sum(1 for p in self.people
@@ -241,6 +247,13 @@ def check_systems_and_vendors(hub, iam, vra, org):
         findings.append(f"hub vendor-inventory.md: {vendor_id} is in vendors.csv but not in the inventory")
     for vendor_id in sorted(listed - org.vendor_ids):
         findings.append(f"hub vendor-inventory.md: {vendor_id} is not in vendors.csv")
+
+    # Vendor contacts (guest accounts): a real vendor, and time-bound once access is granted
+    for c in org.contacts:
+        if c["vendor_id"] not in org.vendor_ids:
+            findings.append(f"vendor-contacts.csv: {c['contact_id']} cites {c['vendor_id']}, not in vendors.csv")
+        if c["status"] in ("Approved", "Active") and not (c["access_start"] and c["access_end"]):
+            findings.append(f"vendor-contacts.csv: {c['contact_id']} is {c['status']} without access_start and access_end")
 
     for repo, root in [("hub", hub), ("IAM", iam), ("VRA", vra)]:
         if not root:

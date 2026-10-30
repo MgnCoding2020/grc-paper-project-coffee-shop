@@ -58,6 +58,7 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 | Incident response | **A** | R (store) | R (on shift) | R (technical) | I (report) |
 | Network and firewall administration | A | I | — | **R** | — |
 | Security training | A | **R** | R | C | Participate |
+| Vendor guest access (sponsor, grant, remove) | **A** (sponsor) | C | — | **R** | — |
 | Policy ownership and approval | **A/R** | C | — | C | I |
 
 ---
@@ -76,7 +77,7 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 | Everyday account | `first.last@burnandchurncoffee.com` | Every employee | No admin roles |
 | Admin account | `adm-first.last@burnandchurncoffee.com` | Owner, IT Technician | Least-privilege admin roles only; MFA required |
 | Break-glass account | `bg-admin-01`, `bg-admin-02` | Emergency use only | Excluded from MFA enforcement policies; credentials sealed with the Owner; every sign-in reviewed |
-| Vendor account | Named individual only | Approved vendor staff | No generic vendor accounts (P-001 §5.7) |
+| Vendor guest account | B2B guest, invited by email | Named vendor contacts in [vendor-contacts.csv](vendor-contacts.csv) | Member of `grp-bc-vendors` only; least privilege; time-bound (access_end); sponsored by the Owner; no generic vendor accounts (P-001 §5.7) |
 
 `burnandchurncoffee.com` is fictional. The live tenant uses its own domain, which is kept out of this repository.
 

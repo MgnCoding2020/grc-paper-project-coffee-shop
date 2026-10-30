@@ -10,7 +10,13 @@
       - creates each grp-bc-* security group listed in the roster (if missing)
       - adds the user to their groups (if not already a member)
 
-    Safe to run more than once: existing users, groups and memberships are skipped.
+    It also reads vendor-contacts.csv and, for each contact whose status is Approved or Active,
+    invites them as a B2B guest (if not already present) and adds them to their groups
+    (grp-bc-vendors). Contacts that are Planned or Removed are skipped. The guest's real email
+    address is read from .env (the key named in the contact's env_email_key column), never
+    from a tracked file.
+
+    Safe to run more than once: existing users, guests, groups and memberships are skipped.
 
     The fictional domain in people.csv (burnandchurncoffee.com) is swapped for the real
     tenant domain read from the git-ignored .env file at the hub root. Nothing tenant-specific
@@ -41,8 +47,9 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $HubRoot   = Resolve-Path (Join-Path $PSScriptRoot '..\..')
-$PeopleCsv = Join-Path $HubRoot '00-company-profile\org\people.csv'
-$EnvFile   = Join-Path $HubRoot '.env'
+$PeopleCsv   = Join-Path $HubRoot '00-company-profile\org\people.csv'
+$ContactsCsv = Join-Path $HubRoot '00-company-profile\org\vendor-contacts.csv'
+$EnvFile     = Join-Path $HubRoot '.env'
 $RawDir    = Join-Path $HubRoot '_raw'
 $Company   = 'Burn and Churn Coffee'
 $Stamp     = Get-Date -Format 'yyyy-MM-dd-HHmmss'
@@ -82,11 +89,16 @@ $realDomain = $envValues['ENTRA_TENANT_DOMAIN']
 # @() keeps these as arrays in PowerShell 5.1 even when only one row matches
 $people = @(Import-Csv $PeopleCsv | Where-Object { $_.employment_status -ne 'Terminated' })
 $skipped = @(Import-Csv $PeopleCsv | Where-Object { $_.employment_status -eq 'Terminated' })
-$groupNames = @($people | ForEach-Object { $_.groups -split ';' } | Where-Object { $_ } | Sort-Object -Unique)
+$allContacts = @(Import-Csv $ContactsCsv)
+$guests = @($allContacts | Where-Object { $_.status -in 'Approved', 'Active' })
+$waiting = @($allContacts | Where-Object { $_.status -notin 'Approved', 'Active' })
+$groupNames = @((@($people | ForEach-Object { $_.groups -split ';' }) + @($guests | ForEach-Object { $_.access_groups -split ';' })) |
+    Where-Object { $_ } | Sort-Object -Unique)
 
-Write-Host "Burn and Churn provisioning from people.csv"
-Write-Host ("  {0} people to provision, {1} terminated (skipped), {2} groups" -f $people.Count, $skipped.Count, $groupNames.Count)
+Write-Host "Burn and Churn provisioning from people.csv and vendor-contacts.csv"
+Write-Host ("  {0} people to provision, {1} terminated (skipped), {2} guests to invite, {3} groups" -f $people.Count, $skipped.Count, $guests.Count, $groupNames.Count)
 foreach ($p in $skipped) { Write-Host "  skip  $($p.display_name) (Terminated: no account is created)" }
+foreach ($c in $waiting) { Write-Host "  skip  $($c.contact_id) $($c.display_name) (vendor contact, status $($c.status): not invited)" }
 
 if ($DryRun) {
     Write-Host ""
@@ -95,18 +107,27 @@ if ($DryRun) {
     foreach ($p in $people) {
         Write-Host ("  user   {0,-16} {1,-14} {2}  -> {3}" -f $p.display_name, $p.role, $p.upn, $p.groups)
     }
+    foreach ($c in $guests) {
+        Write-Host ("  guest  {0} {1} ({2}), access {3} to {4}  -> {5}" -f $c.contact_id, $c.display_name, $c.vendor_id, $c.access_start, $c.access_end, $c.access_groups)
+    }
     Write-Host ""
-    Write-Host "Real UPNs use the tenant domain from .env; it is not printed here."
+    Write-Host "Real UPNs and guest email addresses come from .env; they are not printed here."
     return
 }
 
-foreach ($module in 'Microsoft.Graph.Authentication', 'Microsoft.Graph.Users', 'Microsoft.Graph.Groups') {
+$modules = 'Microsoft.Graph.Authentication', 'Microsoft.Graph.Users', 'Microsoft.Graph.Groups'
+$scopes = 'User.ReadWrite.All', 'Group.ReadWrite.All'
+if ($guests.Count) {
+    $modules += 'Microsoft.Graph.Identity.SignIns'
+    $scopes += 'User.Invite.All'
+}
+foreach ($module in $modules) {
     if (-not (Get-Module -ListAvailable $module)) {
         throw "Module $module is not installed. Run: Install-Module Microsoft.Graph -Scope CurrentUser"
     }
 }
 
-Connect-MgGraph -TenantId $envValues['ENTRA_TENANT_ID'] -Scopes 'User.ReadWrite.All', 'Group.ReadWrite.All' -NoWelcome
+Connect-MgGraph -TenantId $envValues['ENTRA_TENANT_ID'] -Scopes $scopes -NoWelcome
 New-Item -ItemType Directory -Force $RawDir | Out-Null
 $log = New-Object System.Collections.Generic.List[object]
 $passwords = New-Object System.Collections.Generic.List[object]
@@ -154,6 +175,30 @@ foreach ($p in $people) {
         } else {
             New-MgGroupMember -GroupId $groups[$name].Id -DirectoryObjectId $user.Id
             Write-Log 'added' $p.upn "to $name"
+        }
+    }
+}
+
+# Vendor guests (B2B invitations); logged by contact ID so the log never holds a real address
+foreach ($c in $guests) {
+    $email = $envValues[$c.env_email_key]
+    if (-not $email) { throw "$($c.env_email_key) is not set in .env (email for vendor contact $($c.contact_id))." }
+    $guest = Get-MgUser -Filter "mail eq '$email'" -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($guest) {
+        Write-Log 'exists' $c.contact_id "guest ($($c.display_name))"
+    } else {
+        $invite = New-MgInvitation -InvitedUserEmailAddress $email -InvitedUserDisplayName $c.display_name `
+            -InviteRedirectUrl 'https://myapps.microsoft.com' -SendInvitationMessage:$true
+        $guest = Get-MgUser -UserId $invite.InvitedUser.Id
+        Write-Log 'invited' $c.contact_id "guest ($($c.display_name), $($c.vendor_id); access $($c.access_start) to $($c.access_end))"
+    }
+    foreach ($name in ($c.access_groups -split ';' | Where-Object { $_ })) {
+        $members = Get-MgGroupMember -GroupId $groups[$name].Id -All | Select-Object -ExpandProperty Id
+        if ($members -contains $guest.Id) {
+            Write-Log 'exists' $c.contact_id "member of $name"
+        } else {
+            New-MgGroupMember -GroupId $groups[$name].Id -DirectoryObjectId $guest.Id
+            Write-Log 'added' $c.contact_id "to $name"
         }
     }
 }
