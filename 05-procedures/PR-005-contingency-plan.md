@@ -51,7 +51,7 @@ From Toast's own guidance (checked 2026-10-30):
   - Gift cards and loyalty redemptions don't work offline.
   - Reconnect as soon as possible: card authorizations can expire, and the longer a terminal stays offline, the larger the decline risk.
 
-**Never** write down card numbers or take manual card imprints as a fallback (Payment Card Data Protection Policy, P-004 §3). Cash is the fallback.
+**Never** write down card numbers or take manual card imprints as a fallback (Payment Card Data Protection Policy, P-004 §3). Cash, which the shop accepts every day, is the fallback.
 
 ---
 
@@ -61,7 +61,7 @@ From Toast's own guidance (checked 2026-10-30):
 |---|---|---|
 | Toast Offline Mode with a $50 limit | **Adopted** | Built in; no extra vendor; risk capped |
 | Cellular failover internet (backup router or Toast's cellular router service) | **Recommended; Owner to decide on cost** | Toast recommends cellular backup to avoid declined payments; keeps terminals online. Must connect through the store firewall so segmentation (P-005) still applies |
-| Cash only | **Adopted as the last fallback** | Always available; no card data risk |
+| Cash only | **Adopted as the last fallback** | Cash is accepted every day, so staff already know the till; always available; no card data risk |
 | A second card reader on a different payment processor | **Rejected for now** | Adds a second PCI service provider, contract and PCI DSS 12.8 obligations, and staff training, for a rare event |
 | Writing down card numbers or manual imprints | **Prohibited** | Stores cardholder data on paper (P-004 §3) |
 
