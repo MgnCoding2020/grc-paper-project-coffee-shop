@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **15 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 15: 3 Implemented, 5 Partially Implemented, 7 Not Implemented.
+- **Part A** maps all **15 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 15: 0 Implemented, 8 Partially Implemented, 7 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -35,13 +35,13 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 |--------------|--------------|---------|----------------------------|--------------|
 | IA-2 | Identification & Authentication (MFA) | R-01 | **Req. 8** – Identify & authenticate access (8.3.1: MFA for *all* CDE access) | Partially Implemented |
 | AT-2 | Awareness & Training | R-01 | **Req. 12.6** – Security awareness program | Not Implemented |
-| AC-2 | Account Management | R-02 | **Req. 7 & 8** – Need-to-know access; user identification | Implemented |
+| AC-2 | Account Management | R-02 | **Req. 7 & 8** – Need-to-know access; user identification | Partially Implemented |
 | AU-6 | Audit Record Review, Analysis & Reporting | R-02 | **Req. 10** – Log & monitor all access | Partially Implemented |
 | CM-6 | Configuration Settings | R-02 | **Req. 2** – Apply secure configurations to all system components | Not Implemented |
 | PE-3 | Physical Access Control | R-03 | **Req. 9** – Restrict physical access (9.5.1: POS device inspection) | Partially Implemented |
-| SC-7 | Boundary Protection | R-04 | **Req. 1** – Network security controls / segmentation | Implemented |
+| SC-7 | Boundary Protection | R-04 | **Req. 1** – Network security controls / segmentation | Partially Implemented |
 | CP-2 | Contingency Plan | R-05 | **Req. 12.10** – Incident response / continuity (loose mapping\*) | Not Implemented |
-| AC-6 | Least Privilege | R-06 | **Req. 7** – Need-to-know / least privilege | Implemented |
+| AC-6 | Least Privilege | R-06 | **Req. 7** – Need-to-know / least privilege | Partially Implemented |
 | SA-9 | External System Services | R-07 | **Req. 12.8** – Manage service providers (Toast POS) | Partially Implemented |
 | SI-3 | Malicious Code Protection | R-08 | **Req. 5** – Protect from malicious software | Partially Implemented |
 | SI-7 | Software, Firmware & Information Integrity | R-08 | **Req. 11.5** – Change / intrusion detection | Not Implemented |
@@ -58,13 +58,13 @@ plan under Req. 12.10. The mapping is directional, not one-to-one — a normal f
 
 | # | PCI DSS v4.0.1 Requirement | Mapped NIST Control(s) | Coverage |
 |---|----------------------------|------------------------|----------|
-| 1 | Install & maintain network security controls | SC-7 | ✅ Covered |
+| 1 | Install & maintain network security controls | SC-7 | ✅ Covered (partial impl) |
 | 2 | Apply secure configurations to all system components | *(none — CM-2 / CM-6 not implemented)* | ❌ Gap |
 | 3 | Protect stored account data | P-004 policy *(SC-28 not implemented)* | ⚠️ Partial / scope-dependent |
 | 4 | Protect cardholder data with strong cryptography in transit | *(none — SC-8 not implemented)* | ❌ Gap |
 | 5 | Protect all systems & networks from malicious software | SI-3 | ✅ Covered (partial impl) |
 | 6 | Develop & maintain secure systems & software | PR-002 procedure *(SI-2 not formalized)* | ⚠️ Partial |
-| 7 | Restrict access by business need-to-know | AC-2, AC-6 | ✅ Covered |
+| 7 | Restrict access by business need-to-know | AC-2, AC-6 | ✅ Covered (partial impl) |
 | 8 | Identify users & authenticate access | IA-2, AC-2 | ✅ Covered — MFA gap (POAM-001) |
 | 9 | Restrict physical access to cardholder data | PE-3 | ✅ Covered (partial impl) |
 | 10 | Log & monitor all access | AU-6 | ✅ Covered (partial impl) |
@@ -119,3 +119,11 @@ applicability decision is itself part of good scoping.
 This crosswalk is a **simulation for educational and portfolio purposes only**. Mappings are
 directional and simplified; an official PCI DSS assessment must be performed against the full
 standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |

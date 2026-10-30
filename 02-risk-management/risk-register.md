@@ -36,9 +36,9 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-01 | Phishing attack leading to account compromise | High | Medium | High | IA-2, AT-2 | Medium |
 | R-02 | Unauthorized POS transactions or misuse | High | Medium | High | AC-2, AU-6 | Medium |
 | R-03 | Theft or loss of POS/tablet devices | Medium | Medium | Medium | PE-3 | Medium |
-| R-04 | Network-based attack due to poor segmentation | High | Low | Medium | SC-7 | Low |
+| R-04 | Network-based attack due to poor segmentation | High | Low | Medium | SC-7 | Medium |
 | R-05 | Internet or network outage impacting operations | Medium | Medium | Medium | CP-2 | Medium |
-| R-06 | Excessive privileges leading to misuse | High | Low | Medium | AC-6 | Low |
+| R-06 | Excessive privileges leading to misuse | High | Low | Medium | AC-6 | Medium |
 | R-07 | Vendor compromise or service disruption (Toast POS) | High | Low | Medium | SA-9 | Medium |
 | R-08 | Malware infection on business systems | Medium | Medium | Medium | SI-3, SI-7 | Medium |
 | R-09 | Cardholder data exposure due to insufficient encryption in transit or at rest | High | Medium | High | SC-8, SC-28 | High |
@@ -64,3 +64,11 @@ During reviews, risk may be:
   - Acceptable Use Policy
   - Incident Response Policy
   - Payment Card Data Protection Policy
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
