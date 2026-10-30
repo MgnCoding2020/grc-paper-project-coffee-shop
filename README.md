@@ -68,6 +68,7 @@ This project aligns with:
 
   * Access Control (AC)
   * Awareness & Training (AT)
+  * Assessment, Authorization & Monitoring (CA)
   * Audit & Accountability (AU)
   * Configuration Management (CM)
   * Contingency Planning (CP)
@@ -157,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **19 controls across 12 families** — 0 Implemented, 11 Partially Implemented, 8 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **20 controls across 13 families** — 0 Implemented, 12 Partially Implemented, 8 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 

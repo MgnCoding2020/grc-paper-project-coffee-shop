@@ -96,6 +96,9 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-18 | Generic hub accounts hid conflicts with the IAM matrix | Hub PR #8 (mapping) and IAM PR #10 (Aiden Scott's MFA cell) | 2026-10-30 |
 | AL-20 | Vendor report kept `YYYY-MM-DD` and `[Name / Role]` placeholders | VRA PR #4: 2026-06-23, Olivia Carter (Owner); checker now flags unfilled placeholders | 2026-10-30 |
 | AL-22 | Northwind (V-002) inherent risk used a 4-factor qualitative scale, not the program's 6-factor numeric worksheet | **Accepted:** the dated Northwind score stays as recorded; V-003 onward use the worksheet, and the V-003 score notes the difference (VRA PR #5) | 2026-10-30 |
+| AL-23 | IAM Q1 record: summary lacked date and reviewer, said 14 employees; checklist unticked; remediation 7 months overdue with no updates | IAM PR #11: gaps filled from the program record, missing sign-off recorded as a gap, overdue status check with closure plans | 2026-10-30 |
+| AL-24 | Northwind listed as Active although its pre-go-live conditions (F-02, F-03) were open | Decision: not live. VRA PR #6 (status check) and this hub PR (status: onboarding pending) | 2026-10-30 |
+| AL-25 | POA&M claimed bi-weekly review; none was recorded, so stalls went unnoticed | Hub PR: POA&M review log, new control CA-5 with POAM-019, R-12, E-18 | 2026-10-30 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -448,6 +451,7 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | D-7 | Payroll vendor: keep Northwind or replace it | **Recommended: keep V-002 Northwind as a paper vendor.** A vendor assessment never needs access to the vendor's system (it's questionnaires, contracts and SOC reports), the assessment is complete and dated, and it's fictional so no real company is implied. The hands-on part is the shop's own side: timesheets and the payroll export in SharePoint/Excel. **Confirmed by Michael 2026-10-29** |
 | D-8 | SharePoint licence reactivation | Michael reactivates it in time for the account build (2026-11-15). Until then SYS-012 and SYS-014 stay `Planned` |
 | D-9 | Microsoft 365 Business Premium 30-day trial at build time | **Strong option, decide closer to 2026-11-15.** It adds P1 (Conditional Access, built report-only then enforced), Intune and Defender for Business for the trial window; when it ends, the fall-back to per-user MFA is recorded as a change record plus a POA&M item. Before starting: confirm the trial terms on Microsoft's page and what happens to policies when the trial lapses |
+| D-10 | Vendor guest account | **Decided 2026-10-30:** a named Northwind payroll contact as a B2B guest in `grp-bc-vendors`, with time-limited access to the payroll-export folder, under change CR-004, granted only after Northwind confirms MFA (VRA-V002:F-02). Tested end to end in the real tenant (invite, sign-in, file access, expiry, removal) with fictional test data; the guest's real test mailbox lives only in `.env` |
 
 ---
 
@@ -494,3 +498,5 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | 8 | 2026-10-30 | `tools/tenant/provision-users.ps1` added: builds users and `grp-bc-` groups from `people.csv` (dry-run verified; run on the CR-001 build day); `.env.example` added; checker also scans `.ps1` files |
 | 9 | 2026-10-30 | P2 marked done. P3 split: 3a now (CR-001, CR-003, change process, PS-4/PS-5/CM-3/CM-4, R-10/R-11, E-16/E-17, POAM-016/017); 3b (M365 rewrite of current-state docs) merges on the cutover date, because until then the company still runs Google Workspace. D-6 proposed (F1 for baristas) |
 | 10 | 2026-10-30 | Build-day runbook added (§7.5): ordered steps for the pilot and cutover, with the evidence each step produces |
+| 11 | 2026-10-30 | P5: vendor lab reorganised per vendor; V-003 Microsoft assessed before onboarding (POAM-018); AL-22 accepted |
+| 12 | 2026-10-30 | Story alignment review: AL-23 to AL-25 resolved. Q1 remediation stalled (found by this review; feeds CR-003's justification); Northwind not live; CA-5 added (20 controls, 13 families); D-10 vendor guest account decided |

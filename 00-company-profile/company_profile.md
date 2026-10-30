@@ -54,7 +54,7 @@ Key systems include:
   Accounting.
 
 - **Northwind Payroll Services**  
-  Payroll and HR (approved with conditions after a vendor risk assessment on 2026-06-23).
+  Payroll and HR (approved with conditions after a vendor risk assessment on 2026-06-23; onboarding pending until the vendor meets its pre-go-live conditions).
 
 - **Store Network Infrastructure**  
   Router, firewall, and Wi-Fi network supporting POS devices and employee systems.

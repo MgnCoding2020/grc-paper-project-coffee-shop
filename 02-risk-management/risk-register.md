@@ -44,6 +44,7 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-09 | Cardholder data exposure due to insufficient encryption in transit or at rest | High | Medium | High | SC-8, SC-28 | High |
 | R-10 | Former employees or vendors keep access after leaving, or staff keep access after changing roles | High | High | High | PS-4, PS-5, AC-2 | High |
 | R-11 | Unplanned or poorly controlled changes (such as the Microsoft 365 migration or the IT handover) disrupt operations or weaken security | Medium | Medium | Medium | CM-3, CM-4 | Medium |
+| R-12 | Known weaknesses stay open because remediation isn't tracked or reviewed | Medium | High | High | CA-5 | Medium |
 
 ----
 
@@ -75,3 +76,4 @@ During reviews, risk may be:
 |---|---|---|
 | 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
 | 2026-10-30 | Added R-10 (access kept after leaving or changing roles) and R-11 (uncontrolled change) | R-10 already happened (IAM:F-001, IAM:F-003); R-11 arises from CR-001 and CR-003 |
+| 2026-10-30 | Added R-12 (untracked remediation) | The alignment review found POAM-013 and POAM-014 stalled for months without a recorded review |

@@ -24,6 +24,7 @@ A dated history of the Burn and Churn Coffee security program: policies, reviews
 | 2026-03-31 to 2026-04-05 | Target dates for Q1 remediation | IAM remediation tracker |
 | 2026-06-23 | Northwind Payroll Services (V-002) assessed: approved with conditions; findings VRA-V002:F-01 to F-04, rolled up as POAM-013 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) |
 | 2026-10-29 | Internal program alignment review begins: cross-repository findings AL-01 onward; baseline tagged `v1-pre-alignment` | `CLAUDE.md` |
+| 2026-10-30 | Alignment review status checks: Q1 access findings overdue since April (POAM-014); Northwind onboarding paused with pre-go-live conditions open (POAM-013); no POA&M review recorded since creation (POAM-019, new control CA-5). All escalated to the Owner | [POA&M review log](../../07-evidence-pack/poam/poam.md) |
 | 2026-10-30 | Microsoft (V-003) assessed before onboarding: High inherent risk, approved with conditions; findings VRA-V003:F-01 to F-05, rolled up as POAM-018 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-003-microsoft) |
 | 2026-10-30 | Change-control process established; CR-001 and CR-003 raised and approved by the Owner | [Change register](../../09-change-management/README.md) |
 | 2026-11-15 | **Planned:** CR-001 migration from Google Workspace to Microsoft 365 (QuickBooks retired into an Excel workbook in SharePoint) | [CR-001](../../09-change-management/CR-001-google-workspace-to-microsoft-365.md) |

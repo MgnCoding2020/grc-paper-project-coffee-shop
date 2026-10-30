@@ -90,6 +90,7 @@ The Q4 2026 access review confirms that no vendor accounts remain, that the IT T
 | Date | Entry |
 |---|---|
 | 2026-10-30 | Raised and approved by the Owner. Scheduled for 2026-11-15. |
+| 2026-10-30 | Alignment review: Q1 findings assigned to the outsourced IT administrator (IAM:F-001, F-003, F-004) were found about seven months overdue with no updates. Added to the justification: remediation needs an in-house owner. |
 
 ---
 

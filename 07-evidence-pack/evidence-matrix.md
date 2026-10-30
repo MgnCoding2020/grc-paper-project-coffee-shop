@@ -34,6 +34,7 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-15 | SC-28 | Data-at-rest protection / storage scope documentation | Vendor/system config | Manual review | Missing |
 | E-16 | CM-3, CM-4 | Change records and change register (09-change-management/) | Change records | Manual review against the change lifecycle | Partial (no change has completed a post-implementation review yet) |
 | E-17 | PS-4, PS-5 | Roster with employment status and dates (00-company-profile/org/people.csv) compared with system accounts | HR roster and access review | Consistency checker and quarterly access review | Partial (termination dates not recorded; IAM:F-001) |
+| E-18 | CA-5 | POA&M review log (poam/poam.md) | POA&M | Manual review of review dates and outcomes | Partial (first recorded review 2026-10-30) |
 
 ---
 
@@ -89,3 +90,4 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
+| 2026-10-30 | E-18 added | New control CA-5 |
