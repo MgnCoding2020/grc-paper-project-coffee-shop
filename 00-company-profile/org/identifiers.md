@@ -25,7 +25,7 @@ Every risk, control, finding, POA&M item, change and piece of evidence in the Bu
 | Control | NIST SP 800-53 Rev. 5 ID | `AC-2`, `AC-2(7)` | [Control matrix](../../03-controls/control-matrix.md) |
 | Evidence | `E-##` | `E-02` | [Evidence matrix](../../07-evidence-pack/evidence-matrix.md) |
 | POA&M item | `POAM-###` | `POAM-013` | [POA&M](../../07-evidence-pack/poam/poam.md) (this repository only) |
-| Change record | `CR-###` | `CR-001` | `09-change-management/` (planned) |
+| Change record | `CR-###` | `CR-001` | [Change register](../../09-change-management/README.md) |
 | Incident | `INC-###` | `INC-001` | [Incident log](../../07-evidence-pack/artifacts/monitoring/incident-log.md) (current entries to be renumbered from "Incident 001/002") |
 | Person | `EMP-###` | `EMP-001` | [people.csv](people.csv) (vendor and break-glass accounts are not people) |
 | Vendor | `V-###` | `V-002` | [Vendor inventory](../../02-risk-management/vendor-risk-management/vendor-inventory.md) |

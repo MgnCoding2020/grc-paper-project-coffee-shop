@@ -30,6 +30,10 @@ Each control references the policy or procedure responsible for implementing the
 | R-08 | RA-5 | Vulnerability scanning and penetration testing | RA | Req. 11 | Not Implemented | E-14 | POAM-011 |
 | R-09 | SC-8 | Encryption of cardholder data in transit (TLS) | SC | Req. 4 | Not Implemented | E-13 | POAM-010 |
 | R-09 | SC-28 | Protection of cardholder data at rest | SC | Req. 3 | Not Implemented | E-15 | POAM-012 |
+| R-10 | PS-4 | Personnel termination: all access removed when employment ends | PS | Req. 8.2.5 | Partially Implemented | E-17 | POAM-016 |
+| R-10 | PS-5 | Personnel transfer: access reviewed and adjusted when a role changes | PS | Req. 7.2 | Not Implemented | E-17 | POAM-016 |
+| R-11 | CM-3 | Configuration change control: significant changes documented, approved and reviewed | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
+| R-11 | CM-4 | Impact analysis before significant changes | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
 
 ----
 
@@ -67,3 +71,4 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 | Date | Change | Reason |
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
+| 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
