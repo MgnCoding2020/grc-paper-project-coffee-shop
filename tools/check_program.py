@@ -45,7 +45,7 @@ SYSTEM_ALIASES = {
     "Microsoft Entra ID": "SYS-010",
 }
 
-SCANNED_SUFFIXES = {".md", ".csv", ".txt", ".py", ".json", ".yml", ".yaml"}
+SCANNED_SUFFIXES = {".md", ".csv", ".txt", ".py", ".ps1", ".json", ".yml", ".yaml", ".example"}
 STORE_ROLES = {"Owner", "Store Manager", "Shift Leader", "Barista"}
 
 SECRET_PATTERNS = {
@@ -418,7 +418,8 @@ def check_secrets(repos):
                 continue
             if path.suffix not in SCANNED_SUFFIXES or not path.exists():
                 continue
-            text = read_text(path)
+            # The all-zeros GUID is the placeholder used in .env.example
+            text = read_text(path).replace("00000000-0000-0000-0000-000000000000", "")
             for label, pattern in SECRET_PATTERNS.items():
                 if pattern.search(text):
                     findings.append(f"{where}: {label}")
