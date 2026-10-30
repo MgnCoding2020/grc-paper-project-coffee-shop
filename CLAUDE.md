@@ -100,6 +100,7 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-24 | Northwind listed as Active although its pre-go-live conditions (F-02, F-03) were open | Decision: not live. VRA PR #6 (status check) and this hub PR (status: onboarding pending) | 2026-10-30 |
 | AL-25 | POA&M claimed bi-weekly review; none was recorded, so stalls went unnoticed | Hub PR: POA&M review log, new control CA-5 with POAM-019, R-12, E-18 | 2026-10-30 |
 | AL-26 | P-001 and P-002 referenced documents that didn't exist (network policy, onboarding procedure, incident plan) | Network Security Policy P-005 written; P-001 and P-002 v1.2 point to P-005, PR-001, P-003 and the playbooks | 2026-10-30 |
+| AL-27 | Hub story review: PR-001 removal deadline ("last working day") contradicted P-001 §5.4 (24 hours), and POAM-016 misquoted it as "same day"; PR-003 lacked the sign-off the IAM copy requires; IRP-003 had no tamper steps although P-004 treats tampering as an incident; IRP-003/004 lacked document control; assessment scope omitted xtraCHEF and QuickBooks and contradicted the RACI | All aligned to the policies and RACI, with revision history on each document | 2026-10-30 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -252,7 +253,7 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
   - **When SharePoint is reactivated (D-8):** sites, lists, libraries, Excel for the web and the Purview audit log (180 days by default) become available. Confirm which plan includes Purview Audit (Standard) once the licence is chosen.
 - **Licensing on paper** (what the fictional company would buy): Microsoft 365 **Business Premium** for the Owner, Manager and Shift Leaders, and Microsoft 365 **F1/F3 frontline** licences for baristas. Business Premium includes Entra ID P1 (Conditional Access), Intune and Defender for Business; PIM needs P2, which Business Premium doesn't include. **Every price or licence claim must be checked against Microsoft's current pages when written, and dated.**
 - **Conditional Access baseline:** require MFA for all users; block legacy authentication; require phishing-resistant MFA for admins; exclude break-glass. Report-only first, then enforce, the same pattern as the Cyber Home Lab.
-- **Joiner/mover/leaver:** access requests are submitted on the intranet (People site, Access Requests list), approved by the Owner or Manager, and fulfilled by the IT Technician. Termination disables the account the same day (PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
+- **Joiner/mover/leaver:** access requests are submitted on the intranet (People site, Access Requests list), approved by the Owner or Manager, and fulfilled by the IT Technician. Termination disables accounts within 24 hours, immediately for involuntary terminations (P-001 §5.4; PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
 
 ### 5.3 Payments
 
@@ -484,6 +485,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 
 ### T2. Microsoft 365 cutover (CR-001, 2026-11-15; runbook §7.5)
 - [ ] Every runbook item in §7.5
+- [ ] PR-004: keep log-review records separate from the incident log; add the within-7-days export (Entra ID Free) and the Microsoft 365 audit log; IRP-004: remote lock or wipe through Intune if licensed
 - [ ] **3b rewrite** of current-state documents that still describe Google Workspace (AL-14): `assessment_scope.md`, `company_profile.md`, `glossary.md`, `security-program-overview.md`, `assets.md`, `data-classification.md`, `continuous-monitoring.md` (access review scope → Entra ID), `vendor-inventory.md`, `P-001`, `P-002`, `P-003`, `PR-001` to `PR-004`, `IRP-001`, `IRP-002`, `examples/*`, `system-architecture.md`, README business scenario. **Not** dated records (evidence CSVs, incident log, `CORRECTIONS.md`, change records)
 - [ ] Architecture diagrams (`08-architecture/*.png`): regenerate if they show Google Workspace
 - [ ] `systems.csv`: SYS-010 → Live; SYS-011/012/014 per licence; confirm or revise `retired_on` for SYS-002, SYS-003, SYS-005 (2026-11-15 if on schedule)
@@ -574,3 +576,4 @@ Changes we already know will be needed, grouped by the event that triggers them.
 | 11 | 2026-10-30 | P5: vendor lab reorganised per vendor; V-003 Microsoft assessed before onboarding (POAM-018); AL-22 accepted |
 | 12 | 2026-10-30 | Story alignment review: AL-23 to AL-25 resolved. Q1 remediation stalled (found by this review; feeds CR-003's justification); Northwind not live; CA-5 added (20 controls, 13 families); D-10 vendor guest account decided |
 | 13 | 2026-10-30 | Deferred-corrections register added (§13): every known future update grouped by trigger (hire, cutover, Vertex offboarding, SharePoint, trial, Northwind conditions, Q4 review, CR-004, Microsoft reports, recurring); rule 12; AL-26 (policies reference documents that don't exist) |
+| 14 | 2026-10-30 | Hub story-level review (procedures, playbooks, scope): AL-27 resolved; PR-004 and IRP-004 follow-ups added to register T2 |

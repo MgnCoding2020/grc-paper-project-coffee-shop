@@ -54,7 +54,7 @@ Systems covered by this procedure include, but are not limited to:
      - Required systems
      - Level of access required
   3. Management reviews and approves the request.
-  4. The system administrator creates the necessary accounts in applicable systems, such as:
+  4. The IT administrator creates the necessary accounts in applicable systems, such as:
      - Google Workspace
      - Toast POS
      - xtraCHEF
@@ -63,7 +63,7 @@ Systems covered by this procedure include, but are not limited to:
      - Strong password requirements
      - Multi-factor authentication, where supported
      - Least-privilege role assignments
-  6. The administrator documents account creation in the access tracking records.
+  6. The IT administrator documents account creation in the access tracking records.
 
 -----------
 
@@ -73,8 +73,8 @@ Access must be reviewed and updated when:
   - Additional responsibilities require expanded system access
   - Access to certain systems is no longer required
 
-Managers must submit a request to the system administrator to change access. 
-All access modifications must be approved before implementation. 
+Managers must submit a request to the IT administrator to change access. 
+All access modifications must be approved before implementation, and completed **within 3 business days** of the role change being approved or taking effect, whichever is sooner (P-001 §5.3). Access the new role no longer needs is removed as part of the same change.
 
 -------
 
@@ -82,19 +82,30 @@ All access modifications must be approved before implementation.
 When an employee or contractor leaves the organization, access must be removed promptly.
 
 The following steps must be completed:
-  1. The supervisor notifies the administrator of employee departure.
-  2. The administrator disables or removes the user accounts from all systems, including:
+  1. The supervisor notifies the IT administrator of employee departure.
+  2. The IT administrator disables or removes the user accounts from all systems, including:
      - Google Workspace
      - Toast POS
      - xtraCHEF
      - QuickBooks Online
      - Network access
+     - The employee's personal Toast POS PIN
   3. Any company devices assigned to the employee must be returned.
-  4.  Access removal activities must be documented in the access tracking records.
+  4. The staff Wi-Fi passphrase is changed if the employee knew it (Network Security Policy, P-005 §4).
+  5. Access removal activities must be documented in the access tracking records, with the employee's end date recorded in the staff roster (`people.csv`).
 
-Access removal should occur **no later than the employee's last working day**.
+Access must be disabled **no later than 24 hours after separation**, and **immediately** for involuntary or high-risk terminations (P-001 §5.4).
 
 -----
+
+## 6a. Vendor Access
+
+Vendor access follows P-001 §5.7: named individuals only, least privilege, time-bound.
+
+  1. Each vendor contact who needs access is listed in the vendor contacts register (`vendor-contacts.csv`) with a sponsor (the Owner) and an access end date.
+  2. Access is granted only through a change record (for example, CR-004) and only to the vendor group (`grp-bc-vendors`).
+  3. On or before the end date, the IT administrator removes the access, and the removal is recorded in the register.
+  4. Vendor access is checked in every quarterly access review (PR-003).
 
 ## 7. Emergency Access
 In limited situations, temporary administrative or elevated access may be required to resolve operational issues.
@@ -131,3 +142,11 @@ This procedure should be reviewed annually or when significant changes occur to 
 - [Risk Register](../02-risk-management/risk-register.md)
 - [Control Matrix](../03-controls/control-matrix.md)
 - [Evidence Matrix](../07-evidence-pack/evidence-matrix.md)
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Removal deadline aligned with P-001 §5.4 (24 hours; immediately for involuntary terminations), replacing "last working day"; 3-business-day deadline for role changes (P-001 §5.3); Toast PIN and staff Wi-Fi passphrase added to removal; vendor access section; role naming | Story-level alignment review found the procedure contradicted the policy (AL-27) |

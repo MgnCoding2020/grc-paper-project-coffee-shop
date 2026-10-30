@@ -37,7 +37,7 @@ Systems covered by this procedure include, but are not limited to:
 
 -------
 ## 4. Patch Identification
-The system administrator monitors vendor notifications and service dashboards for available updates.
+The IT administrator monitors vendor notifications and service dashboards for available updates.
 
 Patch and vulnerability information may come from:
   - Vendor security notifications
@@ -53,7 +53,7 @@ Examples include:
 
 --------
 ## 5. Patch Evaluation
-When updates become available, the system administrator reviews them to determine:
+When updates become available, the IT administrator reviews them to determine:
   - The severity of the vulnerability being addressed
   - Whether the update impacts system stability or functionality
   - Whether the update requires scheduling outside business hours

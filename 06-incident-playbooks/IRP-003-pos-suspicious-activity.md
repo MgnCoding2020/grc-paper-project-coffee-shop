@@ -1,4 +1,13 @@
-## IRP-003: POS Suspicious Activity / Transaction Anomaly
+# IRP-003: POS Suspicious Activity / Transaction Anomaly
+Burn and Churn Coffee
+
+## Document Control
+**Playbook Owner:** Business Owner | 
+**Approved By:** Business Owner | 
+**Document control added:** 2026-10-30 (original effective date not recorded) | 
+**Review Frequency:** Annual or following a POS-related incident | 
+**Version:** 1.1
+
 
 ### Purpose
 This playbook outlines the response process for suspected unauthorized or fraudulent activity involving the Point-of-Sale (POS) system.
@@ -10,6 +19,7 @@ Applies to:
 - Toast POS system
 - Payment transaction anomalies
 - Unauthorized refunds or transactions
+- Suspected tampering with POS terminals (Payment Card Data Protection Policy, P-004 §4)
 
 ---
 
@@ -18,6 +28,7 @@ Applies to:
 - Alerts from POS system or payment processor
 - Employee or customer reports
 - Log review findings (incident-log.md)
+- **Signs of terminal tampering:** unrecognised devices attached, broken or altered seals, unexpected prompts, or a failed monthly device inspection (P-004 §4, PCI DSS 9.5.1)
 
 ---
 
@@ -31,6 +42,7 @@ Applies to:
 #### 2. Containment
 - Disable or restrict affected user accounts (if applicable)
 - Temporarily suspend POS terminal if needed
+- **Suspected tampering:** stop using the terminal, don't unplug or open it, keep it secured, and contact Toast support (V-001) before it returns to service
 - Notify management immediately
 
 #### 3. Investigation
@@ -55,12 +67,13 @@ Applies to:
 
 ### Communication
 - Notify store owner/manager
-- Contact payment processor if fraud is confirmed
+- Contact Toast (payment service provider) if fraud or tampering is suspected or confirmed; external notifications are approved by the Owner (P-003 §9)
 - Document findings in incident log
 
 ---
 
 ### Documentation
+- Assign the next incident ID (`INC-###`) and a severity (P-003 §5)
 - Record all actions in:
   - artifacts/monitoring/incident-log.md
 - Retain logs for review
@@ -78,3 +91,11 @@ Applies to:
 - AC-2 (Account Management)
 - AU-6 (Log Review)
 - AC-6 (Least Privilege)
+
+---
+
+### Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Document control added; terminal tampering added to scope, detection and containment; Toast named as the contact; incident ID and severity step | P-004 treats suspected tampering as a security incident, but this playbook had no tamper steps (AL-27) |

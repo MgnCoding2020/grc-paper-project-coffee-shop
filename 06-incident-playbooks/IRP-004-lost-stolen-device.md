@@ -1,4 +1,13 @@
-## IRP-004: Lost or Stolen Device (Tablet / POS)
+# IRP-004: Lost or Stolen Device (Tablet / POS)
+Burn and Churn Coffee
+
+## Document Control
+**Playbook Owner:** Business Owner | 
+**Approved By:** Business Owner | 
+**Document control added:** 2026-10-30 (original effective date not recorded) | 
+**Review Frequency:** Annual or following a lost or stolen device incident | 
+**Version:** 1.1
+
 
 ### Purpose
 This playbook outlines the response process for lost or stolen business devices, including tablets and POS terminals.
@@ -59,6 +68,7 @@ Applies to:
 ---
 
 ### Documentation
+- Assign the next incident ID (`INC-###`) and a severity (P-003 §5)
 - Record in:
   - artifacts/monitoring/incident-log.md
   - artifacts/physical/physical-inspection-checklist.csv (if applicable)
@@ -76,3 +86,11 @@ Applies to:
 - PE-3 (Physical Access Control)
 - AC-2 (Account Management)
 - SI-3 (System Protection)
+
+---
+
+### Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Document control added; incident ID and severity step | Consistency with IRP-001 and IRP-002 (AL-27) |
