@@ -20,16 +20,18 @@ Because the business processes payment card transactions and stores limited oper
 
 ## Business Size
 
-Burn and Churn Coffee operates a single retail location with approximately 19 employees.
+Burn and Churn Coffee operates a single retail location with 20 active store staff.
 
 Organizational roles include:
 
 - 1 Business Owner
 - 1 Store Manager
 - 3 Shift Leaders
-- 14 Baristas and staff
+- 15 Baristas
 
-The organization also relies on two external IT vendors for technology support and POS system management.
+Named staff, roles and responsibilities are maintained in the [org directory](org/): [people.csv](org/people.csv) and [roles.md](org/roles.md).
+
+IT administration is currently performed by an external managed service provider, **Vertex IT Support**. A previous IT vendor, **NorthPeak Systems**, no longer has an active engagement. A part-time in-house IT Technician is planned to replace Vertex from 2026-11-15 (CR-003).
 
 ---
 
@@ -45,6 +47,15 @@ Key systems include:
 - **Google Workspace**  
   Used for company email, documents, and business communication.
 
+- **xtraCHEF**  
+  Inventory and invoice management (part of Toast).
+
+- **QuickBooks Online**  
+  Accounting.
+
+- **Northwind Payroll Services**  
+  Payroll and HR (approved with conditions after a vendor risk assessment on 2026-06-23).
+
 - **Store Network Infrastructure**  
   Router, firewall, and Wi-Fi network supporting POS devices and employee systems.
 
@@ -55,14 +66,16 @@ Key systems include:
 
 ## External Service Providers
 
-Burn and Churn Coffee relies on several third-party vendors:
+Burn and Churn Coffee relies on several third-party vendors, each with a stable ID in the [vendor inventory](../02-risk-management/vendor-risk-management/vendor-inventory.md):
 
-- Toast POS (point of sale platform)
-- Payment processors and card networks
-- Google Workspace (email and collaboration)
-- Internet service provider
+- Toast, Inc. (point of sale, payment processing and xtraCHEF), V-001
+- Northwind Payroll Services (payroll and HR), V-002
+- Vertex IT Support (IT managed services), V-004
+- Intuit (QuickBooks Online), V-006
+- Google (Workspace email and collaboration), V-007
+- Internet service provider, V-008
 
-These vendors introduce **third-party risk considerations** that must be evaluated as part of the security program.
+Card payments are processed through Toast, which connects to the card networks. These vendors introduce **third-party risk considerations** that must be evaluated as part of the security program.
 
 ---
 
@@ -77,3 +90,11 @@ Due to the nature of the business, key cybersecurity risks include:
 - Network misuse through guest Wi-Fi
 
 These risks are addressed through the organization's security governance program.
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Headcount corrected from about 19 to 20 active store staff (15 Baristas); IT vendors named; xtraCHEF, QuickBooks Online and Northwind Payroll added; vendors listed with their inventory IDs | Aligned with the canonical org data and the Q1 2026 access review (AL-03, AL-05) |

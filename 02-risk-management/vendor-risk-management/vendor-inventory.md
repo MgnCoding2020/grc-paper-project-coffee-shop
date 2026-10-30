@@ -13,10 +13,20 @@ The inventory is the entry point for the vendor risk management process: each ve
 
 ## Vendor Inventory
 
-| Vendor ID | Vendor Name | Service Provided | Data Accessed / Processed | Inherent Risk Tier | Cardholder Data? | Assessment Status | Last Assessed | Assessment Reference | Owner |
-|-----------|-------------|------------------|---------------------------|--------------------|------------------|-------------------|---------------|----------------------|-------|
-| V-001 | Toast POS | Point-of-sale & payment processing | Cardholder / payment data | High | Yes | Not Started | - | Planned | Owner |
-| V-002 | Northwind Payroll Services | Cloud payroll & HR (SaaS) | Employee PII, payroll, tax, direct-deposit banking | High | No | Complete | 2026-06-23 | Vendor Risk Assessment Lab (repo) | Owner |
+| Vendor ID | Vendor Name | Service Provided | Data Accessed / Processed | Inherent Risk Tier | Cardholder Data? | Assessment Status | Last Assessed | Assessment Reference | Owner | Status |
+|-----------|-------------|------------------|---------------------------|--------------------|------------------|-------------------|---------------|----------------------|-------|--------|
+| V-001 | Toast, Inc. (Toast POS, xtraCHEF) | Point-of-sale & payment processing; inventory | Cardholder / payment data; sales; inventory | High | Yes | Not Started | - | Planned | Owner | Active |
+| V-002 | Northwind Payroll Services | Cloud payroll & HR (SaaS) | Employee PII, payroll, tax, direct-deposit banking | High | No | Complete | 2026-06-23 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) (VRA-V002) | Owner | Active |
+| V-003 | Microsoft (Microsoft 365) | Identity, email, files, intranet | Employee accounts; business documents; email | Not scored | No | Planned | - | Planned (P5) | Owner | Planned (CR-001) |
+| V-004 | Vertex IT Support | IT managed services (privileged admin) | Admin access to Google Workspace and network equipment | High | No | Not Started | - | Offboarding record planned (CR-003) | Owner | Active; offboarding planned (CR-003) |
+| V-005 | NorthPeak Systems | Former IT support vendor | Network admin account (still enabled at Q1 review) | Not scored | No | Not Required | - | IAM:F-003 | Owner | Inactive |
+| V-006 | Intuit (QuickBooks Online) | Accounting software | Financial records | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
+| V-007 | Google (Workspace) | Email and collaboration | Employee accounts; business documents; email | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
+| V-008 | Internet service provider | Store internet connectivity | Network traffic in transit | Not scored | No | Not Started | - | - | Owner | Active |
+
+The machine-readable copy of this inventory is [vendors.csv](../../00-company-profile/org/vendors.csv); the two must match (the program's consistency checker verifies this).
+
+**Revision history:** 2026-10-30, V-003 to V-008 added and a Status column introduced, so every vendor named elsewhere in the program is inventoried (AL-05).
 
 ---
 

@@ -16,10 +16,11 @@ def parse_incidents():
     open_incidents = []
 
     for block in incident_blocks:
-        if "## Incident" not in block:
+        # Incidents use the program ID format (## INC-001 ...); older entries used "## Incident 001"
+        incident_id_match = re.search(r"## ((?:INC-\d+|Incident) .+)", block)
+        if not incident_id_match:
             continue
 
-        incident_id_match = re.search(r"## (Incident .+)", block)
         date_match = re.search(r"- Date:\s*(.+)", block)
         system_match = re.search(r"- System:\s*(.+)", block)
         user_match = re.search(r"- User:\s*(.+)", block)

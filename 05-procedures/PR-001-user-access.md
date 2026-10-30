@@ -29,7 +29,7 @@ Systems covered by this procedure include, but are not limited to:
   - Ensures employees only receive access required for their job duties
   - Reviews access during periodic access reviews
 
-### System Administrator
+### IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)
   - Creates, modifies, and removes system accounts
   - Maintains access control configurations
   - Documents account provisioning activities
@@ -125,7 +125,7 @@ This procedure should be reviewed annually or when significant changes occur to 
 ------------------
 
 ## 10. Related Documents
-- [Access Management Policy](../04-policies/P-001-access-management.md)
+- [Access Management Policy](../04-policies/P-001-access-control.md)
 - [Asset Inventory](../01-asset-inventory/assets.md)
 - [Data Classification Standard](../01-asset-inventory/data-classification.md)
 - [Risk Register](../02-risk-management/risk-register.md)

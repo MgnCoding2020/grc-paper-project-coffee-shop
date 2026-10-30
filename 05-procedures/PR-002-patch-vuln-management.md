@@ -27,7 +27,7 @@ Systems covered by this procedure include, but are not limited to:
 ### 3.1 Business Owner / Management
   - Ensures patching activities are performed regularly
   - Approves major system updates when operational impact may occur
-### 3.2 System Administrator
+### 3.2 IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)
   - Monitors vendor notifications and security advisories
   - Applies updates and patches to applicable systems
   - Maintains documentation of patching activities
@@ -126,5 +126,5 @@ This procedure should be reviewed annually or whenever significant changes occur
 - [Asset Inventory](../01-asset-inventory/assets.md)
 - [Risk Register](../02-risk-management/risk-register.md)
 - [Control Matrix](../03-controls/control-matrix.md)
-- [Incident Response Policy](../04-policies/P-004-incident-response.md)
+- [Incident Response Policy](../04-policies/P-003-incident-response.md)
 - [Evidence Matrix](../07-evidence-pack/evidence-matrix.md)

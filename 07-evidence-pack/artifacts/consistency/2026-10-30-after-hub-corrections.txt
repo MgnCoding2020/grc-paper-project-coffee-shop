@@ -1,0 +1,18 @@
+Run: 2026-10-30, after hub corrections (PR 2c), before the IAM lab corrections
+Hub working tree on p2c/data-corrections | IAM 2265be3 | VRA abd540c
+
+Burn and Churn program consistency check (hub, IAM, VRA)
+
+[1] People match people.csv: PASS
+[2] Systems and vendors match systems.csv and vendors.csv: PASS
+[3] IDs are unique and resolve: PASS
+[4] Links resolve and companions link the hub: PASS
+[5] Control matrix, crosswalk and README agree: PASS
+[6] Headcount matches people.csv: PASS
+[7] No forbidden terms or personal data: PASS
+[8] No secrets or tenant identifiers committed: PASS
+[9] Hub evidence agrees with the IAM access matrix: FAIL (2)
+      - MFA for Ethan Brooks on Google Workspace: hub mfa-status.csv:3 says 'No', IAM matrix says 'Yes'
+      - MFA for Aiden Scott on Google Workspace: hub mfa-status.csv:4 says 'No', IAM matrix says 'Yes'
+
+Summary: 8 passed, 1 failed, 0 skipped; 2 finding(s).

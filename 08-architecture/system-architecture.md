@@ -83,14 +83,14 @@ The environment consists of:
 This environment represents a small coffee shop with a limited technology footprint. The system boundary includes:
 
 - Toast POS system used for payment processing
-- Business Wi-Fi network (segmented from POS network)
+- Business Wi-Fi network (intended to be segmented from the POS network; not yet validated, POAM-015)
 - Employee devices (tablets, office workstation)
 - Cloud services (Google Workspace, Toast backend services)
 - Network infrastructure (router/firewall)
 
 Payment card data is captured at the POS and transmitted securely to the payment processor. The business does not intentionally store cardholder data locally.
 
-The POS network is logically segmented from the internal business network to reduce exposure risk.
+The POS network is intended to be logically segmented from the internal business network to reduce exposure risk. As of 2026-10-30 this is **not validated**: the network evidence shows POS terminals on the same Wi-Fi as the manager laptop (control SC-7 Partially Implemented, POAM-015).
 
 ---
 

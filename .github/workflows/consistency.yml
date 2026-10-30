@@ -1,0 +1,20 @@
+# Runs the program consistency checker on every pull request and push to main.
+# Only the hub-only checks run here; the full cross-repository run is done locally
+# and its output is committed under 07-evidence-pack/artifacts/consistency/.
+name: Program consistency
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run consistency checker (hub only)
+        run: python3 tools/check_program.py --hub .

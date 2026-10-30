@@ -7,7 +7,7 @@ This document defines how the coffee shop maintains ongoing awareness of securit
 
 ### Access Reviews
 - Frequency: Quarterly
-- Scope: Google Workspace, Toast POS, Stripe
+- Scope: Google Workspace, Toast POS, xtraCHEF, QuickBooks Online, network administration interfaces (the systems in the Q1 2026 access review)
 - Objective: Identify inactive or unauthorized accounts
 
 ### MFA Enforcement
@@ -34,3 +34,9 @@ This document defines how the coffee shop maintains ongoing awareness of securit
 Findings identified through monitoring activities are documented and tracked in the POA&M:
 
 [View POA&M](../07-evidence-pack/poam/poam.md)
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Access review scope: Stripe removed; xtraCHEF, QuickBooks Online and network administration interfaces added | Stripe is not used by the company; scope now matches the systems actually reviewed (AL-07) |

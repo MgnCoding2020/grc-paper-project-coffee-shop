@@ -41,7 +41,7 @@ This diagram illustrates how **cardholder data flows** through the coffee shop e
 ### 🧱 Segmentation (Key PCI Concept)
 
 * POS system operates within a **Cardholder Data Environment (CDE)**
-* Internal systems are logically separated
+* Internal systems are intended to be logically separated (not yet validated: POAM-015)
 * Reduces scope and risk
 
 ---
@@ -103,7 +103,7 @@ Payment transactions follow this general flow:
 Key considerations:
 
 - Cardholder data is not stored by internal business systems
-- Network segmentation separates POS traffic from internal systems and guest Wi-Fi
+- Network segmentation is intended to separate POS traffic from internal systems and guest Wi-Fi (not yet validated: POAM-015)
 - Administrative access to systems occurs through controlled user accounts
 
 This model reflects a simplified small business payment environment with minimal data retention and reliance on third-party processing.
