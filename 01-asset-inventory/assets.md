@@ -29,7 +29,7 @@ Each asset is categorized and assigned a sensitivity rating based on the **Confi
 | SYS-003  | Google Admin Console         | Admin Interface | Owner         | Cloud          | Restricted     | H-H-H      | Active | Administrative access to company systems; retirement planned (CR-001) |
 | SYS-004  | xtraCHEF                     | SaaS Platform   | Store Manager | Cloud          | Internal       | M-M-M      | Active | Inventory and invoices (part of Toast)   |
 | SYS-005  | QuickBooks Online            | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Active | Accounting; retirement planned (CR-001)  |
-| SYS-006  | Northwind Payroll Services   | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-M      | Active | Payroll and HR (V-002)                   |
+| SYS-006  | Northwind Payroll Services   | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-M      | Pending | Payroll and HR (V-002); onboarding pending until vendor conditions close                   |
 | SYS-007  | Store Network                | Network         | Owner         | Store          | Confidential   | M-H-H      | Active | Groups NET-001 to NET-005                |
 | SYS-010  | Microsoft Entra ID           | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-H      | Planned | Identity, from CR-001                   |
 | SYS-011  | Exchange Online              | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Planned | Email, from CR-001                      |
@@ -60,3 +60,4 @@ The canonical system list, with each system's vendor and evidence mode, is [syst
 | Date | Change | Reason |
 |---|---|---|
 | 2026-10-30 | Added PER-004, PER-005, SYS-004 to SYS-007, planned SYS-010 to SYS-014 and HW-003; noted planned retirements; fixed a typo | Assets named in the access review, vendor inventory and network evidence were missing from the register (AL-06) |
+| 2026-10-30 | SYS-006 Active → Pending | Northwind's pre-go-live conditions are open; onboarding has not proceeded (AL-24) |

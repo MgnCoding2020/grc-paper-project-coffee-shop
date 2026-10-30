@@ -4,7 +4,7 @@ SYS-002,Google Workspace,Email and collaboration,V-007,Confidential,Cloud,Simula
 SYS-003,Google Admin Console,Admin interface,V-007,Restricted,Cloud,Simulation,2026-02-01,2026-11-15,Retired with SYS-002 (planned date)
 SYS-004,xtraCHEF,Inventory and invoices,V-001,Internal,Cloud,Simulation,2026-02-01,,Part of Toast
 SYS-005,QuickBooks Online,Accounting,V-006,Confidential,Cloud,Simulation,2026-02-01,2026-11-15,Retired by CR-001 (planned date); bookkeeping moves to SYS-014
-SYS-006,Northwind Payroll Services,Payroll and HR,V-002,Restricted,Cloud,Simulation,2026-06-23,,Approved with conditions after assessment (VRA-V002); the shop's side (timesheets and payroll export) is Live in SYS-012 and SYS-014
+SYS-006,Northwind Payroll Services,Payroll and HR,V-002,Restricted,Cloud,Simulation,,,Approved with conditions 2026-06-23 (VRA-V002); onboarding pending until F-02 and F-03 close; the shop's side (timesheets and payroll export) is Live in SYS-012 and SYS-014
 SYS-007,Store network,Network,V-008,Confidential,Store,Simulation,2026-02-01,,Router; firewall; staff and guest Wi-Fi (assets NET-001 to NET-005); target segmentation in CLAUDE.md section 5.4
 SYS-010,Microsoft Entra ID,Identity,V-003,Restricted,Cloud (Microsoft 365 tenant),Live,2026-11-15,,From CR-001; tenant on Entra ID Free
 SYS-011,Exchange Online,Email,V-003,Confidential,Cloud (Microsoft 365 tenant),Planned,2026-11-15,,From CR-001; licence-dependent

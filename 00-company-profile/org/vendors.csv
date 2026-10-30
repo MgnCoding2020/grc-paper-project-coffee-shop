@@ -1,6 +1,6 @@
 vendor_id,name,service,data_accessed,cardholder_data,inherent_tier,assessment_status,last_assessed,assessment_ref,owner,status
 V-001,"Toast, Inc.",Point of sale and payment processing; xtraCHEF inventory,Cardholder and payment data; sales; inventory,Yes,High,Not Started,,Planned,Owner,Active
-V-002,Northwind Payroll Services,Cloud payroll and HR,Employee PII; payroll; tax; direct-deposit banking,No,High,Complete,2026-06-23,Vendor-Risk-Assessment-Lab (VRA-V002),Owner,Active
+V-002,Northwind Payroll Services,Cloud payroll and HR,Employee PII; payroll; tax; direct-deposit banking,No,High,Complete,2026-06-23,Vendor-Risk-Assessment-Lab (VRA-V002),Owner,Approved with conditions; onboarding pending (VRA-V002:F-02 and F-03 open)
 V-003,Microsoft (Microsoft 365),Identity; email; files; intranet,Employee accounts; business documents; email,No,High,Complete,2026-10-30,Vendor-Risk-Assessment-Lab (VRA-V003),Owner,Planned (CR-001)
 V-004,Vertex IT Support,IT managed services (privileged admin),Admin access to Google Workspace and network equipment,No,High,Not Started,,Offboarding record planned (CR-003),Owner,Active (offboarding planned by CR-003)
 V-005,NorthPeak Systems,Former IT support vendor,Network admin account (still enabled at Q1 review),No,Not scored,Not Required,,IAM:F-003,Owner,Inactive
