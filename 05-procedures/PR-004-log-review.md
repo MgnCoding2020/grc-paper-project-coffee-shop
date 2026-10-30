@@ -52,7 +52,7 @@ Additional reviews may occur:
 ## 5. Log Review Process
 
 ### Step 1: Collect Logs
-The system administrator gathers relevant logs from applicable systems.
+The IT administrator gathers relevant logs from applicable systems.
 
 Examples include:
 - Google Workspace login activity  

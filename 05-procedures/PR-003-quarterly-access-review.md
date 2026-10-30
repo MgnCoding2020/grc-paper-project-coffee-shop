@@ -50,7 +50,7 @@ The review should occur near the end of each quarter.
 
 ## 5. Access Review Process
 ### Step 1: Generate Access Reports
-The system administrator gathers current user access lists from applicable systems.
+The IT administrator gathers current user access lists from applicable systems.
 
 Examples include:
   - Google Workspace user and admin role lists
@@ -63,6 +63,8 @@ Managers review the user lists to confirm:
   - The user is still employed by the organization
   - Access aligns with the user's job responsibilities
   - No excessive or unnecessary privileges exist
+  - Vendor and guest accounts are still required and within their access end dates (vendor contacts register; P-001 §5.7)
+  - Network equipment administrator accounts are named and still required
 
 Managers should identify any accounts that require:
   - Access removal
@@ -70,7 +72,7 @@ Managers should identify any accounts that require:
   - Role modification
 
 ### Step 3: Access Updates
-The system administrator implements any required access changes identified during the review.
+The IT administrator implements any required access changes identified during the review.
 
 Examples include:
   - Removing accounts for former employees
@@ -86,13 +88,18 @@ Documentation should include:
   - Reviewer name
   - Summary of findings
   - Actions taken
+  - **Sign-off by the Owner and Store Manager**
+
+**Separation of duties:** the IT administrator prepares the access lists and makes the changes, but does not certify their own access; the Owner and Store Manager review and sign.
+
+Open findings are tracked to closure, and each status check is recorded with its date (POA&M review log, CA-5).
 
 This documentation serves as evidence that periodic access reviews are performed.
 
 -----
 
 ## 6. Handling Inactive Accounts
-If accounts are identified as belonging to former employees or inactive users, the system administrator must disable or remove them promptly.
+If accounts are identified as belonging to former employees or inactive users, the IT administrator must disable or remove them promptly.
 
 Inactive accounts should not remain enabled unless a documented business reason exists.
 
@@ -114,3 +121,11 @@ This procedure should be reviewed annually or when significant changes occur to 
 - [Asset Inventory](../01-asset-inventory/assets.md)
 - [Risk Register](../02-risk-management/risk-register.md)
 - [Evidence Matrix](../07-evidence-pack/evidence-matrix.md)
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | Sign-off and separation of duties added to documentation; vendor, guest and network-admin accounts added to the manager review; dated status checks; role naming | The Q1 2026 review had no sign-off, and the IAM lab's copy of this procedure already required it (AL-27) |
