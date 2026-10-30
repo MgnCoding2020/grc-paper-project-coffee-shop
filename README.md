@@ -222,7 +222,7 @@ Playbooks included:
 
 ## 📦 Evidence & Audit Readiness
 
-An evidence pack was created to simulate audit validation:
+An evidence pack was created to simulate audit validation. **Start with the [evidence index](07-evidence-pack/evidence-index.md)**: every artifact across the program's repositories, with dates and whether it is simulated or lab-verified.
 
 * MFA status tracking (CSV)
 * Access review and privileged-access review scripts (Python)
