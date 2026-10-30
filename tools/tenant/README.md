@@ -34,6 +34,10 @@ Both files go to the git-ignored `_raw/` folder:
 | `initial-passwords-<timestamp>.csv` | Temporary passwords (changed at first sign-in) | Hand out, then delete |
 | `provisioning-log-<timestamp>.csv` | Every create, skip and group add, using the fictional domain only | Review, then copy into `07-evidence-pack/` as account-management evidence (AC-2) |
 
+### Vendor guests (CR-004)
+
+Vendor contacts in [vendor-contacts.csv](../../00-company-profile/org/vendor-contacts.csv) are invited as B2B guests only when their status is `Approved` or `Active`; `Planned` and `Removed` contacts are skipped. Each contact's real email address is read from `.env` (the key in its `env_email_key` column), and the run log names guests by contact ID only. Inviting guests needs the `User.Invite.All` permission.
+
 ### Deliberately not automated
 
 Admin roles, `adm-` accounts, break-glass accounts, licences and MFA are set up by hand, so each privileged change is a deliberate, reviewed step (least privilege, AC-6).
