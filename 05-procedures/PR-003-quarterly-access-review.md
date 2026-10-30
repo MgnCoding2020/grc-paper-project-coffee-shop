@@ -25,7 +25,7 @@ Systems included in the review process include, but are not limited to:
   - Reviews and approves access review results
   - Confirms that employee access aligns with job responsibilities
   - Approves removal or modification of unnecessary access
-### 3.2 System Administrator
+### 3.2 IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)
   - Generates or collects user access lists from applicable systems
   - Provides access reports to management for review
   - Implements access changes identified during the review
@@ -110,7 +110,7 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 ## 9. Related Documents
 - [User Access Management Procedure](./PR-001-user-access.md)
-- [Access Management Policy](../04-policies/P-001-access-management.md)
+- [Access Management Policy](../04-policies/P-001-access-control.md)
 - [Asset Inventory](../01-asset-inventory/assets.md)
 - [Risk Register](../02-risk-management/risk-register.md)
 - [Evidence Matrix](../07-evidence-pack/evidence-matrix.md)
