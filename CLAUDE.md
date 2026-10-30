@@ -166,10 +166,10 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 
 | ID | System | Mode | Notes |
 |---|---|---|---|
-| SYS-001 | Toast POS | Simulation | In-store payments and orders (card-present). No public sandbox, so no live evidence; no real card data anywhere in the program |
+| SYS-001 | Toast POS | Simulation | In-store payments and orders (card-present). No public sandbox, so no live evidence; no real card data anywhere in the program. **Retired by CR-005** when the website's register goes live (D-11) |
 | SYS-002 | Google Workspace | Simulation | **Retired** by CR-001 (`retired_on` set); kept for history |
 | SYS-003 | Google Admin Console | Simulation | **Retired** with SYS-002 |
-| SYS-004 | xtraCHEF | Simulation | Inventory and invoices (by Toast) |
+| SYS-004 | xtraCHEF | Simulation | Inventory and invoices (by Toast). **Retired by CR-005**; inventory moves to a SharePoint list |
 | SYS-005 | QuickBooks Online | Simulation | **Retired** by CR-001: bookkeeping moves to SYS-014. Kept for the Q1 history |
 | SYS-006 | Northwind Payroll Services | Simulation | Payroll and HR (V-002). The shop's side (timesheets, payroll export) is Live in SYS-012/014 |
 | SYS-007 | Store network | Simulation | Router, firewall, staff and guest Wi-Fi (existing NET-00x assets) |
@@ -189,7 +189,7 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 
 | ID | Vendor | Status |
 |---|---|---|
-| V-001 | Toast, Inc. (POS, and xtraCHEF) | Active; High; assessment not started |
+| V-001 | Toast, Inc. (POS, and xtraCHEF) | Active; High; assessed 2026-10-30 (continue with conditions); **exit approved under CR-005**, offboarded at cutover |
 | V-002 | Northwind Payroll Services | Active; High; **assessed 2026-06-23** (vendor lab) |
 | V-003 | Microsoft (Microsoft 365) | Active from CR-001; assessment in P5 |
 | V-004 | Vertex IT Support (MSP) | **Offboarded** by CR-003 (IT brought in-house) after a handover; access removal and knowledge-transfer sign-off are the exit evidence (offboarding record in P5) |
@@ -260,10 +260,11 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
 
 ### 5.3 Payments
 
-- **No real payments, no real card data, anywhere.** Toast is documented only (`Simulation`); the website uses Stripe test mode with test card numbers.
-- **In store: Toast** (card-present). Toast is the PCI service provider; the shop's obligations are SA-9 / PCI DSS 12.8 vendor management plus device inspection (PE-3 / 9.5.1). Unchanged.
+- **No real payments, no real card data, anywhere.** Toast is documented only (`Simulation`); the website and the register use Stripe test mode with test card numbers and Stripe's simulated reader.
+- **In store today: Toast** (card-present). Toast is the PCI service provider; the shop's obligations are SA-9 / PCI DSS 12.8 vendor management plus device inspection (PE-3 / 9.5.1).
+- **In store after CR-005: Stripe Terminal (D-11).** The website's register screen takes counter payments through a Stripe reader (in the lab, Stripe's simulated reader, server-driven). Stripe states Terminal payments are validated with SAQ C. No offline card payments (Stripe's offline mode needs its mobile SDKs), so outages go to cash. Toast stays in use, and its conditions stay due, until cutover. Facts checked 2026-10-30.
 - **Online, later: Stripe Checkout in test mode**, via `CR-002`, because Toast's ordering platform has no public sandbox a portfolio project can integrate with. Two processors is a normal small-business pattern; the program must say so explicitly, and give each processor its own vendor entry, crosswalk rows and PCI scope statement.
-- Until CR-002 is approved, **no document mentions Stripe** (AL-07).
+- Until CR-002 is approved, **no document mentions Stripe** (AL-07), except CR-005 and this file. The checker allows exactly that one record.
 
 ### 5.4 Store network (target design, AL-19)
 
@@ -412,7 +413,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 | **P5. Vendor assessments** (in progress: per-vendor folders and V-003 Microsoft done in VRA PR #5; V-001 Toast in VRA PR #7; V-004 Vertex offboarding record due with CR-003) | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
 | **P6. Live tenant build** | 15–25 | Hub (`tools/tenant/`, evidence) + tenant | Create the 20 staff, vendor technician and break-glass accounts and the `grp-` groups from `people.csv`; Conditional Access (report-only, then enforce); MFA registration; verify the unified audit log; then the SharePoint sites (§7.4) once licensed. Commit redacted exports as `Lab-verified` evidence | Real sign-in and MFA evidence in the evidence index; every name matches the hub; no secret or tenant identifier committed |
 | **P7. Portfolio** | 3 | Portfolio repo | Update the GRC case study to tell the multi-repo story; link the evidence index | Case study verified against the merged repos |
-| **P8. Online ordering** | — | New repo | `CR-002` and the website plan (revised for M365 staff identity). **Out of scope for this file** | — |
+| **P8. Online ordering** | — | New repo | `CR-002` and the website plan (revised for M365 staff identity), including the counter register on Stripe Terminal that CR-005 depends on. **Out of scope for this file** | — |
 
 **Order of value:** P1 and P2 fix things a reviewer could catch today. P3 and P4 are the strongest new story: a controlled migration plus a post-migration review that finds what the first review missed.
 
@@ -433,7 +434,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 4. **Links:** every companion README links the hub; every relative link in the hub resolves.
 5. **Controls:** every control in the matrix appears in the crosswalk, and the reverse; control counts in the README match the matrix (the earlier 11-vs-15 bug becomes impossible).
 6. **Counts:** the headcount in the company profile matches `people.csv`.
-7. **Forbidden terms:** no Stripe before CR-002; no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
+7. **Forbidden terms:** no Stripe before CR-002 (CR-005 excepted); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
 8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
 9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
 
@@ -457,6 +458,7 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | D-8 | SharePoint licence reactivation | Michael reactivates it in time for the account build (2026-11-15). Until then SYS-012 and SYS-014 stay `Planned` |
 | D-9 | Microsoft 365 Business Premium 30-day trial at build time | **Strong option, decide closer to 2026-11-15.** It adds P1 (Conditional Access, built report-only then enforced), Intune and Defender for Business for the trial window; when it ends, the fall-back to per-user MFA is recorded as a change record plus a POA&M item. Before starting: confirm the trial terms on Microsoft's page and what happens to policies when the trial lapses |
 | D-10 | Vendor guest account | **Decided 2026-10-30:** a named Northwind payroll contact as a B2B guest in `grp-bc-vendors`, with time-limited access to the payroll-export folder, under change CR-004, granted only after Northwind confirms MFA (VRA-V002:F-02). Tested end to end in the real tenant (invite, sign-in, file access, expiry, removal) with fictional test data; the guest's real test mailbox lives only in `.env` |
+| D-11 | In-store payments: keep Toast or move to Stripe Terminal | **Decided 2026-10-30:** move to Stripe Terminal under CR-005, because Toast offers no sandbox and the program must be testable end to end. Toast is not erased: it stays the POS (Simulation) until the website's register passes acceptance testing, then it is offboarded like Google and Vertex, and its dated assessment stays as history. Trade-offs recorded in CR-005: no offline card payments (cash during outages), xtraCHEF replaced by a SharePoint list, Toast PIN rules carried over to the register sign-in |
 
 ---
 
@@ -531,6 +533,19 @@ Changes we already know will be needed, grouped by the event that triggers them.
 ### T3a. Network segmentation implemented (POAM-015)
 - [ ] P-005 §7 exception closed with a dated note; SC-7 re-rated on the evidence; `network-segmentation.md` gets a new dated record (the old one stays as history); R-04 residual risk reviewed
 - [ ] If built as a firewall VM lab: evidence marked `Lab-verified <date>` and the lab labelled as a technique demonstration, like IAM:F-005
+
+### T12. Toast replaced by Stripe Terminal (CR-005 cutover)
+Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in the same PR set as the cutover; Toast mentions in dated records stay.
+- [ ] **Before:** Stripe gets its `V-###` and `SYS-###`; Stripe vendor assessment in the Vendor lab (AOC, responsibility matrix, SAQ C); sandbox evidence for every CR-005 §6 test, marked `Lab-verified <date>`; Stripe test keys in `.env` only
+- [ ] **Org data:** `systems.csv` SYS-001 and SYS-004 `retired_on`; new register and reader rows; `vendors.csv` V-001 → Offboarded; `roles.md` Toast PIN section becomes register sign-in rules; `identifiers.md`, `timeline.md`
+- [ ] **Current-state documents** (each with a revision line naming CR-005): `company_profile.md`, `assessment_scope.md`, `security-program-overview.md`, `glossary.md`, `assets.md` (HW-001 becomes the Stripe reader; SYS-001/004 retired), `data-classification.md`, `continuous-monitoring.md`, `vendor-inventory.md`, `system-architecture.md` (and diagrams), README
+- [ ] **Policies:** P-001, P-002 (register sign-in rules), P-003, P-004 (SAQ C; tokens only), P-005 (POS segment holds the reader)
+- [ ] **Procedures and playbooks:** PR-001 (register accounts instead of Toast PINs), PR-002, PR-003, PR-004 (Stripe Dashboard and register logs), **PR-005 (cash only during outages; Toast Offline Mode and the $50 limit removed)**, PR-006 (device list: the Stripe reader), PR-007 (training module), PR-008, IRP-001, IRP-002, IRP-003 (Stripe support contact)
+- [ ] **Controls:** control matrix and crosswalk rows for card-present payments through Stripe; PCI scope note (SAQ C); re-rate PE-3 and SA-9 on the evidence
+- [ ] **Evidence:** `pos-device-list.csv` (new reader; Toast terminal row marked retired, not deleted); evidence matrix and index rows; POAM-020 closed when Toast is offboarded (or closed as superseded, with a note)
+- [ ] **IAM lab:** Toast stays in the Q1 matrix (history); the next review covers register sign-in and the Stripe Dashboard team members
+- [ ] **Vendor lab:** V-001 status entry (offboarded, exit evidence: account closure and terminal return); new Stripe assessment folder
+- [ ] **Checker:** remove the CR-005 Stripe exception (CR-002 is approved by then); add aliases for the register and reader
 
 ### T4. SharePoint licence reactivated (D-8)
 - [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist
@@ -629,3 +644,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 15 | 2026-10-30 | §12a repository security baseline (real world): secret scanning and push protection verified; branch protection and 2FA pending Michael; register T11 for introducing AI program-wide; rule 13 |
 | 16 | 2026-10-30 | Rule 14: program dates are the fictional company's calendar; gaps are recorded, never backdated. Cash and card payments both accepted (company profile, PR-005) |
 | 17 | 2026-10-30 | In-house IT role completed: PR-008 (10 hours a week, Owner as backup administrator, Vertex handover checklist), PR-009 password manager (Bitwarden Free organization, SYS-015, V-009), Privileged User Agreement, IA-5, R-13/R-14, POAM-021/022, E-19/E-20; register T1, T3, T3b |
+| 18 | 2026-10-30 | D-11: in-store payments move from Toast to Stripe Terminal under CR-005 (approved, blocked on the CR-002 register), so every payment flow can be tested; Toast stays until cutover; register trigger T12; checker allows Stripe in CR-005 only |

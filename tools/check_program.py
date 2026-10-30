@@ -393,6 +393,9 @@ def check_counts(hub, org):
     return findings
 
 
+STRIPE_ALLOWED = {"09-change-management/CR-005-toast-pos-replacement.md"}
+
+
 def without_revision_history(text):
     """Drop '## Revision History' sections: they record what was removed, which is allowed."""
     return re.sub(r"^#+ Revision History.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
@@ -409,7 +412,8 @@ def check_forbidden(repos):
                 continue
             text = without_revision_history(read_text(path))
             where = f"{repo} {rel(path, root)}"
-            if re.search(r"\bstripe\b", text, re.I):
+            # CR-005 (approved, blocked on CR-002) is the one record allowed to name Stripe early
+            if re.search(r"\bstripe\b", text, re.I) and rel(path, root) not in STRIPE_ALLOWED:
                 findings.append(f"{where}: mentions Stripe before CR-002")
             if path.suffix == ".md" and re.search(r"\bTODO\b", text):
                 findings.append(f"{where}: contains TODO")
