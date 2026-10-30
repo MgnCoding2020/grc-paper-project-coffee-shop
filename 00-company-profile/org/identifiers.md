@@ -42,7 +42,7 @@ The companion labs number their own findings locally. Both labs started at `F-0x
 |---|---|---|---|
 | [IAM Access Review Lab](https://github.com/MgnCoding2020/IAM-Access-Review-Lab), Q1 2026 review | `F-###` | `IAM:F-###` | `IAM:F-001` (terminated employee account still active) |
 | IAM Access Review Lab, later reviews | `F-###` | `IAM-<period>:F-###` | `IAM-Q4:F-001` |
-| [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab), assessment of vendor V-### | `F-##` | `VRA-V###:F-##` | `VRA-V002:F-02` (vendor admin MFA not enforced) |
+| [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab), assessment of vendor V-### | `F-##` | `VRA-V###:F-##` | `VRA-V002:F-02` (vendor admin MFA not enforced), `VRA-V003:F-01` (no Conditional Access on Entra ID Free) |
 
 Lab findings roll up to this repository's POA&M, which cites them in the global form.
 

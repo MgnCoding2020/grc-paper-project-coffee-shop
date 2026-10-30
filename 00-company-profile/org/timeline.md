@@ -24,6 +24,7 @@ A dated history of the Burn and Churn Coffee security program: policies, reviews
 | 2026-03-31 to 2026-04-05 | Target dates for Q1 remediation | IAM remediation tracker |
 | 2026-06-23 | Northwind Payroll Services (V-002) assessed: approved with conditions; findings VRA-V002:F-01 to F-04, rolled up as POAM-013 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) |
 | 2026-10-29 | Internal program alignment review begins: cross-repository findings AL-01 onward; baseline tagged `v1-pre-alignment` | `CLAUDE.md` |
+| 2026-10-30 | Microsoft (V-003) assessed before onboarding: High inherent risk, approved with conditions; findings VRA-V003:F-01 to F-05, rolled up as POAM-018 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-003-microsoft) |
 | 2026-10-30 | Change-control process established; CR-001 and CR-003 raised and approved by the Owner | [Change register](../../09-change-management/README.md) |
 | 2026-11-15 | **Planned:** CR-001 migration from Google Workspace to Microsoft 365 (QuickBooks retired into an Excel workbook in SharePoint) | [CR-001](../../09-change-management/CR-001-google-workspace-to-microsoft-365.md) |
 | 2026-11-15 | **Planned:** CR-003 IT brought in-house: IT Technician hired, Vertex IT Support offboarded | [CR-003](../../09-change-management/CR-003-it-support-in-house.md) |
