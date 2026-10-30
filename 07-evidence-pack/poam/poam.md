@@ -11,10 +11,10 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 | POA&M ID | Control ID | Weakness Description | Planned Remediation | Owner | Priority | Status |
 |----------|-----------|----------------------|---------------------|--------|----------|--------|
 | POAM-001 | IA-2 | MFA not enabled for all users | Enforce MFA for all employee accounts | Vertex IT Support (IT Technician from CR-003) | High | Open |
-| POAM-002 | AT-2 | No formal security awareness training | Implement annual security training program | Manager | High | Open |
+| POAM-002 | AT-2 | No formal security awareness training | Implement annual security training program | Manager | High | In Progress (program defined in PR-007; first all-staff session due by 2026-11-30) |
 | POAM-003 | AU-6 | Log review inconsistent, open incidents remain | Establish weekly log review process | Vertex IT Support (IT Technician from CR-003) | Medium | Open |
-| POAM-004 | PE-3 | No formal physical inspection process | Implement monthly device inspection checklist | Store Manager | Medium | Open |
-| POAM-005 | CP-2 | No documented outage or backup plan | Create basic contingency and recovery plan | Owner | High | Open |
+| POAM-004 | PE-3 | No formal physical inspection process | Implement monthly device inspection checklist | Store Manager | Medium | In Progress (procedure PR-006 and device list created; the 2026-02-01 inspection's issue has no recorded follow-up; first monthly inspection due November 2026) |
+| POAM-005 | CP-2 | No documented outage or backup plan | Create basic contingency and recovery plan | Owner | High | In Progress (plan documented in PR-005; not yet tested; first tabletop December 2026; cellular failover decision pending) |
 | POAM-006 | SA-9 | Vendor review not formally documented | Establish vendor assessment checklist and review cadence | Owner | Medium | In Progress (process and templates exist; V-001 Toast assessed 2026-10-30, POAM-020; V-004 offboarding record pending, CR-003) |
 | POAM-007 | SI-3 | Malware protection not validated across devices | Deploy and verify endpoint protection on all systems | Vertex IT Support (IT Technician from CR-003) | High | Open |
 | POAM-008 | SI-7 | No monitoring for unauthorized changes | Implement basic file/system change monitoring | Vertex IT Support (IT Technician from CR-003) | Medium | Open |
@@ -45,3 +45,4 @@ The POA&M is intended to be reviewed bi-weekly to track remediation progress. Un
 | Date | Reviewer | Outcome |
 |---|---|---|
 | 2026-10-30 | Program alignment review, reported to Olivia Carter (Owner) | First recorded review. POAM-013 found stalled (Northwind onboarding paused; F-01 and F-04 overdue) and POAM-014 overdue since April (IAM Q1 findings). Both escalated to the Owner, with closure through CR-001, CR-003 and vendor follow-up. Added POAM-019 for the missing reviews |
+| 2026-10-30 | Program alignment review, reported to Olivia Carter (Owner) | POAM-002, POAM-004 and POAM-005 moved to In Progress with new procedures (PR-007, PR-006, PR-005). POAM-004: the only recorded inspection (2026-02-01) found an issue with no follow-up |

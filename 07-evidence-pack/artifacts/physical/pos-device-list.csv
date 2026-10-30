@@ -1,0 +1,4 @@
+device_id,asset_id,type,make,model,serial_number,location,status,notes
+POS-01,HW-001,Countertop POS terminal with card reader,Toast,Countertop terminal,SIM-POS-0001,Front counter,Active,Simulated serial number; the only card-accepting device
+TAB-01,HW-002,Company tablet,Generic,Tablet,SIM-TAB-0001,Behind counter,Active,Inventory and operations; no card reader
+TAB-02,HW-002,Company tablet,Generic,Tablet,SIM-TAB-0002,Behind counter,Active,Loose casing found 2026-02-01; no follow-up recorded

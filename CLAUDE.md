@@ -537,8 +537,16 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] By 2026-12-31: SAQ type confirmed and SAQ completed and signed by the Owner (F-02); the SAQ becomes new evidence and may change PCI-mapped control ratings
 - [ ] Missed dates → status check and POA&M review-log entry (CA-5), as with the Q1 findings; POAM-020 and POAM-006 updated
 
+### T9b. Pre-build procedures come due (PR-005, PR-006, PR-007)
+- [ ] November 2026: first monthly POS inspection under PR-006, starting with Tablet 2's open 2026-02-01 issue; log results; update E-07 and POAM-004
+- [ ] Confirm the $50 offline limit is set in Toast Web and record it (PR-005 §9); Owner decides on cellular failover (if installed: P-005 segmentation applies, assets and vendors updated)
+- [ ] By 2026-11-30: first all-staff training session (PR-007), including Microsoft 365 sign-in and MFA; training log updated; AT-2 re-rated only once staff are actually trained
+- [ ] December 2026: first contingency tabletop (PR-005 §8); record it; consider adding CP-4 to the control matrix
+- [ ] Missed dates → status check and POA&M review-log entry (CA-5)
+
 ### T10. Recurring
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
+- [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
 - [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
