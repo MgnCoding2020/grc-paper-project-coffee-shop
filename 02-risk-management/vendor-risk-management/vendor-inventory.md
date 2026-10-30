@@ -23,6 +23,7 @@ The inventory is the entry point for the vendor risk management process: each ve
 | V-006 | Intuit (QuickBooks Online) | Accounting software | Financial records | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
 | V-007 | Google (Workspace) | Email and collaboration | Employee accounts; business documents; email | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
 | V-008 | Internet service provider | Store internet connectivity | Network traffic in transit | Not scored | No | Not Started | - | - | Owner | Active |
+| V-009 | Bitwarden, Inc. | Password manager (shared admin credentials) | Encrypted shared credentials | Not scored | No | Not Started | - | - | Owner | Planned (CR-003) |
 
 The machine-readable copy of this inventory is [vendors.csv](../../00-company-profile/org/vendors.csv); the two must match (the program's consistency checker verifies this).
 

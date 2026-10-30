@@ -100,7 +100,7 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 ├── 02-risk-management/      # Risk register, continuous monitoring, vendor risk management
 ├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
 ├── 04-policies/             # P-001–P-005 governance policies
-├── 05-procedures/           # PR-001–PR-004 operational procedures
+├── 05-procedures/           # PR-001–PR-009 operational procedures
 ├── 06-incident-playbooks/   # IRP-001–IRP-004 incident response playbooks
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
 ├── 08-architecture/         # System architecture and data-flow diagrams
@@ -158,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **20 controls across 13 families** — 0 Implemented, 13 Partially Implemented, 7 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **21 controls across 13 families** — 0 Implemented, 13 Partially Implemented, 8 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
@@ -204,6 +204,8 @@ And supporting operational **procedures**:
 * Contingency and outage plan (PR-005)
 * POS device inspection (PR-006)
 * Security awareness training program (PR-007)
+* IT administration and coverage (PR-008)
+* Shared credential management with a password manager (PR-009)
 
 ---
 

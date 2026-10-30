@@ -46,6 +46,8 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-16 | CM-3, CM-4 | Change process and change records (CR-001, CR-003) | [09-change-management/](../09-change-management/README.md) | 2026-10-30 | Simulation | POAM-017 |
 | E-17 | PS-4, PS-5 | Staff roster with employment status | [people.csv](../00-company-profile/org/people.csv) | 2026-10-30 | Simulation | POAM-016 |
 | E-18 | CA-5 | POA&M review log | [poam.md](poam/poam.md) | 2026-10-30 | Simulation | POAM-019 |
+| E-19 | IA-5 | Password manager lab test record | Planned: `artifacts/credentials/vault-test-record.md` ([PR-009 §6](../05-procedures/PR-009-credential-vault.md)) | — | Planned | POAM-021 |
+| E-20 | AC-6 | Signed Privileged User Agreements | [Template](examples/privileged-user-agreement.md) | — | Planned | POAM-014 |
 
 ---
 
