@@ -28,6 +28,7 @@ Every risk, control, finding, POA&M item, change and piece of evidence in the Bu
 | Change record | `CR-###` | `CR-001` | [Change register](../../09-change-management/README.md) |
 | Incident | `INC-###` | `INC-001` | [Incident log](../../07-evidence-pack/artifacts/monitoring/incident-log.md) (current entries to be renumbered from "Incident 001/002") |
 | Person | `EMP-###` | `EMP-001` | [people.csv](people.csv) (vendor and break-glass accounts are not people) |
+| Vendor contact | `VC-###` | `VC-001` | [vendor-contacts.csv](vendor-contacts.csv) (named vendor staff who may get guest access) |
 | Vendor | `V-###` | `V-002` | [Vendor inventory](../../02-risk-management/vendor-risk-management/vendor-inventory.md) |
 | System | `SYS-###` | `SYS-001` | [Asset inventory](../../01-asset-inventory/assets.md) |
 | Other assets | `HW-###`, `NET-###`, `DATA-###`, `PER-###` | `NET-002` | [Asset inventory](../../01-asset-inventory/assets.md) |

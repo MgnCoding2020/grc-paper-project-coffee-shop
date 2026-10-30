@@ -47,6 +47,7 @@ A change record is a dated record: once a stage is complete it is not rewritten.
 | CR-001 | Migrate from Google Workspace to Microsoft 365 | Approved (scheduled) | 2026-10-30 | 2026-11-15 | [CR-001](CR-001-google-workspace-to-microsoft-365.md) |
 | CR-002 | *Reserved for the planned online ordering website* | Not raised | — | — | — |
 | CR-003 | Bring IT support in-house; offboard Vertex IT Support | Approved (scheduled) | 2026-10-30 | 2026-11-15 | [CR-003](CR-003-it-support-in-house.md) |
+| CR-004 | Time-limited guest access for Northwind's payroll contact | Approved (blocked: needs VRA-V002:F-02 closed and SharePoint live) | 2026-10-30 | After CR-001 | [CR-004](CR-004-vendor-guest-access.md) |
 
 ---
 

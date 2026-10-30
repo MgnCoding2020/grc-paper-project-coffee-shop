@@ -1,0 +1,2 @@
+contact_id,display_name,vendor_id,job_title,purpose,sponsor,access_groups,access_start,access_end,status,env_email_key,notes
+VC-001,Jordan Ellis,V-002,Payroll support specialist (Northwind Payroll Services),Collect the bi-weekly payroll export from the SharePoint payroll-export folder (read-only),Olivia Carter,grp-bc-vendors,,,Planned,VENDOR_GUEST_EMAIL_VC001,Guest access under CR-004; granted only after VRA-V002:F-02 is confirmed and SharePoint is live; access_end = access_start + 90 days
