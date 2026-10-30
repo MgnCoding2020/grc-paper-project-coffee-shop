@@ -230,6 +230,13 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
   - IT Technician: `adm-riley.morgan` holds only the roles the job needs (User Administrator, Helpdesk Administrator, plus others only when a task requires them, recorded in the change). The daily `riley.morgan` account has no admin roles.
   - Baristas: no admin roles.
 - **Live tenant vs paper.** What Michael's tenant actually has is recorded separately from what the fictional company would buy. Any control that depends on a missing licence stays `Simulation` and says why.
+- **The tenant today (checked against Microsoft Learn, 2026-10-30): Microsoft Entra ID Free.** Tenant ID and domain live in the hub's `.env` only.
+  - **Works on Free:** users and groups, scripted creation, built-in admin roles and separate admin accounts, per-user MFA, and sign-in and audit logs (7 days' retention, downloadable as CSV or JSON from the portal).
+  - **Needs P1:** Conditional Access, dynamic groups, admin roles scoped to administrative units, the MFA registration-details report, and exporting logs through Graph.
+  - **Needs P2:** PIM, risk-based policies, Entra access reviews.
+  - **MFA approach on Free:** per-user MFA scoped to the Burn and Churn accounts. Security defaults are tenant-wide and would hit Michael's lab users too. The lack of P1 is recorded as a POA&M item or accepted risk, with per-user MFA as the interim control.
+  - **MFA evidence on Free:** the per-user MFA status page plus sign-in log details, exported within the 7-day window.
+  - **When SharePoint is reactivated (D-8):** sites, lists, libraries, Excel for the web and the Purview audit log (180 days by default) become available. Confirm which plan includes Purview Audit (Standard) once the licence is chosen.
 - **Licensing on paper** (what the fictional company would buy): Microsoft 365 **Business Premium** for the Owner, Manager and Shift Leaders, and Microsoft 365 **F1/F3 frontline** licences for baristas. Business Premium includes Entra ID P1 (Conditional Access), Intune and Defender for Business; PIM needs P2, which Business Premium doesn't include. **Every price or licence claim must be checked against Microsoft's current pages when written, and dated.**
 - **Conditional Access baseline:** require MFA for all users; block legacy authentication; require phishing-resistant MFA for admins; exclude break-glass. Report-only first, then enforce, the same pattern as the Cyber Home Lab.
 - **Joiner/mover/leaver:** access requests are submitted on the intranet (People site, Access Requests list), approved by the Owner or Manager, and fulfilled by the IT Technician. Termination disables the account the same day (PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
@@ -347,7 +354,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 
 | Phase | Hours | Repos | What | Done when |
 |---|---|---|---|---|
-| **P0. Baseline** | 1 | All three | Tag the current state `v1-pre-alignment` in each repo; add this file to the hub | Tags pushed; this file merged |
+| **P0. Baseline** ✅ PR #4, 2026-10-29 | 1 | All three | Tag the current state `v1-pre-alignment` in each repo; add this file to the hub | Tags pushed; this file merged |
 | **P1. Links and IDs** | 2 | All three | Fix AL-09 (two-way links) and AL-11 (global finding IDs); add `identifiers.md` | Every companion README links the hub, and the hub links every companion |
 | **P2. Canonical data and corrections** | 8 | Hub, IAM | Create `00-company-profile/org/*`; fix AL-01 to AL-08, AL-10 and AL-12 (decisions D-1 and D-2 first); add the consistency checker (§10) | The checker passes on all three repos |
 | **P3. CR-001 migration** | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
@@ -394,7 +401,8 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 | D-5 | IT support: outsourced MSP or in-house | **Decided:** hire a part-time in-house IT Technician, **Riley Morgan** (invented name; Michael performs the role in practice, but the fiction uses no real names). Vertex offboarded by CR-003 |
 | D-6 | Microsoft licence mix on paper | Business Premium for leaders, F1/F3 for baristas, verified against Microsoft's current pages when written |
 | D-7 | Payroll vendor: keep Northwind or replace it | **Recommended: keep V-002 Northwind as a paper vendor.** A vendor assessment never needs access to the vendor's system (it's questionnaires, contracts and SOC reports), the assessment is complete and dated, and it's fictional so no real company is implied. The hands-on part is the shop's own side: timesheets and the payroll export in SharePoint/Excel. **Confirmed by Michael 2026-10-29** |
-| D-8 | SharePoint licence reactivation | Michael to reactivate; until then SYS-012 and SYS-014 stay `Planned` and P6 starts with Entra-only work |
+| D-8 | SharePoint licence reactivation | Michael reactivates it in time for the account build (2026-11-15). Until then SYS-012 and SYS-014 stay `Planned` |
+| D-9 | Microsoft 365 Business Premium 30-day trial at build time | **Strong option, decide closer to 2026-11-15.** It adds P1 (Conditional Access, built report-only then enforced), Intune and Defender for Business for the trial window; when it ends, the fall-back to per-user MFA is recorded as a change record plus a POA&M item. Before starting: confirm the trial terms on Microsoft's page and what happens to policies when the trial lapses |
 
 ---
 
@@ -434,3 +442,4 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 | 1 | 2026-10-29 | Plan written from a full read of all five repos |
 | 2 | 2026-10-29 | Michael's decisions: live Entra tenant for real evidence (D-4); `workspace`/`cyber-homelab` reclassified as skill sources, AL-15 withdrawn, P6 becomes the live tenant build; QuickBooks retired into an Excel workbook in SharePoint (SYS-014, V-006 offboarded); `evidence_mode` added to systems; no-real-payments rule; PIM gap; secrets rule 11 and checker check 8; new findings AL-16 to AL-18; D-7 and D-8 added |
 | 3 | 2026-10-29 | D-1 (20 store staff), D-2 (Toast PIN rules), D-3 (cutover 2026-11-15), D-4 (shared tenant, `grp-bc-` groups), D-5 (in-house IT Technician Riley Morgan; Vertex offboarded by CR-003; GDAP dropped), D-7 confirmed; separation of duties and PS-3/PS-6; network target design §5.4 and finding AL-19 |
+| 4 | 2026-10-30 | Tenant confirmed on Entra ID Free: what works on Free and what needs P1 or P2 (§5.2); D-8 timing; D-9 Business Premium trial as a strong option; P0 marked done |

@@ -16,6 +16,20 @@ This repository reflects a **full security lifecycle** — connecting risk ident
 
 ---
 
+## 🔗 Program Repositories
+
+This repository is the **program hub and system of record**: the company, its people, systems and vendors are defined here, and findings from the companion labs roll up into this repository's POA&M.
+
+| Repository | Role in the program | Rolls up to |
+|---|---|---|
+| **grc-paper-project-coffee-shop** (this repo) | Program hub: policies, procedures, risk register, control matrix, crosswalk, POA&M, evidence | — |
+| [IAM Access Review Lab](https://github.com/MgnCoding2020/IAM-Access-Review-Lab) | Quarterly access reviews (AC-2, AC-6): Q1 2026 review, findings and remediation tracking | POA&M (AC-2, AC-6) |
+| [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) | Third-party risk assessments (SA-9): Northwind Payroll Services (V-002) | POAM-013 (SA-9) |
+
+Findings from the labs are referenced here by repository-prefixed IDs (for example `IAM:F-001`, `VRA-V002:F-01`) so the two labs' local finding numbers never collide. See [identifiers](00-company-profile/org/identifiers.md) for every ID format used across the program.
+
+---
+
 ## 🏢 Business Scenario
 
 **Burn and Churn Coffee** is a small coffee shop with:
