@@ -346,6 +346,37 @@ All 23 files mentioning Google, grouped:
 
 ---
 
+### 7.5 Build-day runbook (CR-001 and CR-003)
+
+The order of work for the pilot and the 2026-11-15 cutover. Each step names the evidence it produces. Raw exports go to `_raw/` (git-ignored); only redacted copies are committed, marked `Lab-verified <date>`.
+
+**Before (by 2026-11-14)**
+- [ ] Reactivate the SharePoint licence (D-8); decide on the Business Premium trial (D-9) after confirming its terms and what happens to policies when it lapses
+- [ ] `Install-Module Microsoft.Graph -Scope CurrentUser`; confirm `.env` values
+- [ ] Draft the 3b PR (M365 rewrite of the §7.3 files), opened as a draft and **not merged**
+- [ ] Note in the CR-001 log that Google Workspace and QuickBooks data were exported (step 1; fictional systems, so a log entry only)
+
+**Pilot (on or before 2026-11-15)**
+- [ ] Hub PR: Riley Morgan `Planned` → `Active` with a start date in `people.csv` (CR-003 step 1)
+- [ ] `provision-users.ps1 -DryRun`, then the real run → `provisioning-log` (AC-2 evidence)
+- [ ] By hand: `adm-olivia.carter` and `adm-riley.morgan` with least-privilege roles; two break-glass accounts → screenshot of role assignments (AC-6)
+- [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free), or Conditional Access report-only → on (if on the trial) → MFA status screenshot or policy export (IA-2)
+- [ ] Verify the audit log returns records → audit log export (AU-2)
+
+**Cutover (2026-11-15)**
+- [ ] Sign in as test users in InPrivate windows and register Authenticator; leave one barista unregistered on purpose; one wrong password; one denied MFA prompt
+- [ ] **Same day** (7-day retention on Free): download sign-in logs, audit logs and the per-user MFA status; export group memberships
+- [ ] Redact to the fictional domain (no tenant IDs, GUIDs or IPs); commit as new `Lab-verified` evidence rows; update E-01, E-02, E-03 and the evidence index
+- [ ] `systems.csv`: SYS-010 → Live; `vendors.csv`: V-003 Active, V-006 and V-007 offboarding started
+- [ ] CR-001 and CR-003 log entries; status → Implemented (awaiting review); **merge the 3b PR**
+- [ ] Run the consistency checker; save the run under `07-evidence-pack/artifacts/consistency/`
+
+**After**
+- [ ] V-004 Vertex offboarding record (P5); credential rotation recorded
+- [ ] Q4 2026 access review in Entra (P4) = post-implementation review for both CRs → CR status Closed; update POAM-001, 002, 003, 014, 016, 017 and re-rate controls on the new evidence
+
+---
+
 ## 8. Evidence index
 
 Add `07-evidence-pack/evidence-index.md` to the hub: **one table across all repos.** Columns:
@@ -459,3 +490,4 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | 7 | 2026-10-30 | AL-12, AL-17, AL-18 and AL-20 resolved (IAM PR #10, VRA PR #4); checker flags unfilled template placeholders; full cross-repo run passes 9 of 9 |
 | 8 | 2026-10-30 | `tools/tenant/provision-users.ps1` added: builds users and `grp-bc-` groups from `people.csv` (dry-run verified; run on the CR-001 build day); `.env.example` added; checker also scans `.ps1` files |
 | 9 | 2026-10-30 | P2 marked done. P3 split: 3a now (CR-001, CR-003, change process, PS-4/PS-5/CM-3/CM-4, R-10/R-11, E-16/E-17, POAM-016/017); 3b (M365 rewrite of current-state docs) merges on the cutover date, because until then the company still runs Google Workspace. D-6 proposed (F1 for baristas) |
+| 10 | 2026-10-30 | Build-day runbook added (§7.5): ordered steps for the pilot and cutover, with the evidence each step produces |
