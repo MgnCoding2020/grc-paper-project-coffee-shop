@@ -70,6 +70,7 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 |---|---|---|---|---|
 | AL-13 | IAM matrix vs hub `P-001` §5.7 | Policy says vendor access is "assigned to named individuals (no generic vendor accounts)", yet the matrix has generic **"Vertex IT Support"** and **"NorthPeak Systems"** accounts, and the review didn't flag it | Leave Q1 as recorded (it's history), but **this is a missed finding**: raise it in the Q4 review as a new finding, a strong "what the first review missed" story. **Rev 3:** the generic Vertex account is removed during the CR-003 handover, so Q4 records the finding *and* its closure evidence | P4 |
 | AL-14 | Hub, everywhere | Google Workspace is the productivity suite in 23 files (46 mentions) | `CR-001` migration to Microsoft 365 (section 7). Dated evidence stays; current-state documents change | P3 |
+| AL-26 | Hub `P-001` §1 and §8, `P-002` §3 | Policies reference documents that don't exist: a "Network/Wireless Security Policy", a "Network Security Policy", an "Onboarding and Offboarding Procedure" and an "Incident Response Plan / Playbook" | In the 3b policy rewrite: point onboarding/offboarding to PR-001 and incident documents to P-003 and the playbooks; either write a P-005 Network Security Policy (fits POAM-015, SC-7) or remove the references | P3b (§13 T2) |
 | AL-15 | `workspace` `js/app.js` | `config/sites.json` is fetched from a fixed path, so a second organization pack can't supply its own sites | **Withdrawn (rev 2):** `workspace` is no longer a companion repo; the intranet is built directly in the tenant (§7.4) | — |
 
 
@@ -468,10 +469,73 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 9. **Run the consistency checker before every PR** that touches people, systems, vendors, IDs or controls, and paste its summary in the PR.
 10. **Keep this file current:** tick phases as they merge; move fixed `AL-##` rows to a "Resolved" table with the PR number.
 11. **Secrets stay local.** Tenant IDs, client IDs and secrets, real domains, Michael's own UPN, API keys (Stripe test keys included) live in a git-ignored `.env` and are read at runtime; commit a `.env.example` with placeholder names only. Raw tenant exports go in git-ignored `_raw/`; only redacted copies (fictional UPNs, no IPs, no GUIDs, no tokens) are committed as evidence. Check `git diff --cached` for secrets before every commit.
+12. **Work the deferred-corrections register (§13).** When a trigger event happens, complete its rows, tick and date them, and add any newly discovered future change to the register.
 
 ---
 
-## 13. References
+## 13. Deferred corrections register
+
+Changes we already know will be needed, grouped by the event that triggers them. **When a trigger happens, work through its rows in the same PR set, tick them, and add the date and PR number.** Dated records still follow rule 3: add status entries, don't rewrite history. Re-scan with the consistency checker and a story-level read (every file in the affected repos) after each trigger.
+
+### T1. IT Technician hired (CR-003 step 1)
+- [ ] `people.csv`: Riley Morgan `Planned` → `Active`, `start_date` set
+- [ ] `roles.md`: headcount table ("planned hire" wording); `company_profile.md` IT paragraph
+- [ ] CR-003 log entry: screening (PS-3) and access agreement (PS-6) recorded
+
+### T2. Microsoft 365 cutover (CR-001, 2026-11-15; runbook §7.5)
+- [ ] Every runbook item in §7.5
+- [ ] **3b rewrite** of current-state documents that still describe Google Workspace (AL-14): `assessment_scope.md`, `company_profile.md`, `glossary.md`, `security-program-overview.md`, `assets.md`, `data-classification.md`, `continuous-monitoring.md` (access review scope → Entra ID), `vendor-inventory.md`, `P-001`, `P-002`, `P-003`, `PR-001` to `PR-004`, `IRP-001`, `IRP-002`, `examples/*`, `system-architecture.md`, README business scenario. **Not** dated records (evidence CSVs, incident log, `CORRECTIONS.md`, change records)
+- [ ] Architecture diagrams (`08-architecture/*.png`): regenerate if they show Google Workspace
+- [ ] `systems.csv`: SYS-010 → Live; SYS-011/012/014 per licence; confirm or revise `retired_on` for SYS-002, SYS-003, SYS-005 (2026-11-15 if on schedule)
+- [ ] `vendors.csv` and vendor inventory: V-003 → Active; V-006 and V-007 → offboarding, then Offboarded when the data deletion is confirmed
+- [ ] Asset register: SYS-010 to SYS-014 statuses; SYS-002, SYS-003, SYS-005 → Retired
+- [ ] IAM lab: procedure scope → Entra ID; README review history
+- [ ] Checker: add system aliases for the Microsoft 365 services used in evidence; implement the "retired systems only in older files" part of check 2
+- [ ] AL-26: P-001 and P-002 related-document references fixed in the policy rewrite (see the open findings)
+
+### T3. Vertex offboarded (CR-003 steps 3–6)
+- [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
+- [ ] Credential rotation recorded in the CR-003 log
+- [ ] NorthPeak account disabled → IAM F-003 closure evidence; V-005 notes
+- [ ] Asset PER-005 → Retired
+- [ ] Procedures `PR-001` to `PR-004` and the IAM procedure: heading "IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)" → "IT Administrator (IT Technician)"; `roles.md` vendor paragraph becomes history
+
+### T4. SharePoint licence reactivated (D-8)
+- [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist
+- [ ] Confirm which plan includes Purview Audit (Standard); update the logging approach (VRA-V003:F-04, PR-004)
+- [ ] CR-004 precondition 2 met (log entry)
+
+### T5. Business Premium trial starts or ends (D-9)
+- [ ] Start: Conditional Access policies (report-only, then on); SYS-013 Live if Intune and Defender are configured; VRA-V003:F-01 can close; CR-004 risk 1 can close for the trial period
+- [ ] End: new change record and POA&M item for the lost controls; VRA-V003:F-01 reopens; affected evidence marked as covering the trial dates only
+
+### T6. Northwind conditions close (VRA-V002)
+- [ ] F-02 and F-03 closed → V-002 → Active; SYS-006 `in_scope_since` set; asset SYS-006 Pending → Active; `company_profile.md` wording; Vendor-lab tracker and report status entries; POAM-013 status; CR-004 precondition 1 met
+- [ ] F-01 and F-04 closed → POAM-013 can close
+
+### T7. Q4 2026 access review completed (P4)
+- [ ] IAM lab: `reviews/2026-Q1/` (history) and `reviews/2026-Q4/`; raise AL-13 (generic vendor accounts) as the "what Q1 missed" finding; **record management sign-off** (missing in Q1)
+- [ ] Close or update POAM-014 and POAM-016 with evidence; re-rate AC-2, AC-6, IA-2 and PS-4 on the new evidence (matrix, crosswalk, README counts)
+- [ ] CR-001 and CR-003 → Closed (post-implementation review); POAM-017
+- [ ] POA&M review-log entry (CA-5); evidence index; timeline
+
+### T8. CR-004 implemented, and its access end date
+- [ ] VC-001: `Planned` → `Approved` (with dates) → `Active` → `Removed`, each dated
+- [ ] Guest evidence rows in the evidence index; what the sign-in log shows for guest MFA recorded (gap and POA&M item if it can't be verified)
+- [ ] Corrective-action exercise evidence at the end date
+
+### T9. Microsoft audit reports obtained (VRA-V003:F-02, within 30 days of onboarding)
+- [ ] Review recorded (report period, exceptions, customer responsibilities); F-02 and F-05 closed; POAM-018 updated
+
+### T10. Recurring
+- [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
+- [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
+- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
+- [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
+
+---
+
+## 14. References
 
 | Topic | Link |
 |---|---|
@@ -500,3 +564,4 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | 10 | 2026-10-30 | Build-day runbook added (§7.5): ordered steps for the pilot and cutover, with the evidence each step produces |
 | 11 | 2026-10-30 | P5: vendor lab reorganised per vendor; V-003 Microsoft assessed before onboarding (POAM-018); AL-22 accepted |
 | 12 | 2026-10-30 | Story alignment review: AL-23 to AL-25 resolved. Q1 remediation stalled (found by this review; feeds CR-003's justification); Northwind not live; CA-5 added (20 controls, 13 families); D-10 vendor guest account decided |
+| 13 | 2026-10-30 | Deferred-corrections register added (§13): every known future update grouped by trigger (hire, cutover, Vertex offboarding, SharePoint, trial, Northwind conditions, Q4 review, CR-004, Microsoft reports, recurring); rule 12; AL-26 (policies reference documents that don't exist) |
