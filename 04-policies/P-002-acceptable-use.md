@@ -5,9 +5,9 @@ Burn and Churn Coffee
   - **Policy Owner:** Business Owner
   - **Approved By:** Busines Owner
   - **Effective Date:** 2026-02-01
-  - **Last Reviewed / Updated:** 2026-02-25
+  - **Last Reviewed / Updated:** 2026-10-30
   - **review Frequency:** Annual
-  - **Version:** 1.1
+  - **Version:** 1.2
 
 ---------------------------------------------
 **1. Purpose**
@@ -50,7 +50,7 @@ All users shall:
   *  Protect login credentials and authentication factors (passwords, MFA devices) from disclosure.
   *  Lock or log out of devices when not in use.
   *  Immediately report suspected security incidents, suspicious activity, lost devices, or potential data exposure to the Store Manager or Business Owner.
-  *  Comply with all related company policies, including the Access Management Policy and Network Security Policy.
+  *  Comply with all related company policies, including the [Access Management Policy (P-001)](P-001-access-control.md) and the [Network Security Policy (P-005)](P-005-network-security.md).
   
 -------------------------------------------------
 
@@ -135,3 +135,10 @@ All users must acknowledge that they have read, understand, and agree to comply 
 
 Acknowledgments shall be retained for documentation purposes.
 
+----------------------------------------------------------
+
+**Revision History**
+
+| Version | Date | Change |
+|---|---|---|
+| 1.2 | 2026-10-30 | The Network Security Policy reference now points to P-005 (new); the Access Management Policy is linked (alignment item AL-26). No requirement changed |

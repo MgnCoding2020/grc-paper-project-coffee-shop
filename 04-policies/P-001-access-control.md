@@ -5,9 +5,9 @@ Burn and Churn Coffee
   -  **Policy Owned:** Business Owner
   -  **Approved By:** Business Owner
   -  **Effective Date:** 2026-02-01
-  -  **Last Reviewed/Updated:** 2026-02-23
+  -  **Last Reviewed/Updated:** 2026-10-30
   -  **Review Frequency:** Annual (or upon significant change to systems or roles)
-  -  **Version:** 1.1
+  -  **Version:** 1.2
     
 --------------------------------------------------------------
 
@@ -18,7 +18,7 @@ Burn and Churn Coffee uses a small set of cloud and on-site systems to operate d
   -  **Google Workspace** (email, share drive content and admin console)
   -  **Company-issued tablets** used for inventory, order, and business operations
   -  **Staff networking infrastructure** (router, firewall, Wi-Fi access points, and any network management interfaces)
-**Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **Network/Wireless Security Policy.**
+**Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **[Network Security Policy (P-005)](P-005-network-security.md).**
 
 ------------------------------------------------------------
 
@@ -155,8 +155,16 @@ Enforcement actions shall be applied consistently and in accordance with company
 ---------------------------------------------------------------------
 
 **8. Related Documents**
-  - Network/Wireless Security Policy
-  - Acceptable Use Policy
-  - Incident Response Plan / Playbook
-  - Onboarding and Offboarding Procedure
-  - Asset Inventory
+  - [Network Security Policy (P-005)](P-005-network-security.md)
+  - [Acceptable Use Policy (P-002)](P-002-acceptable-use.md)
+  - [Incident Response Policy (P-003)](P-003-incident-response.md) and the [incident playbooks](../06-incident-playbooks/)
+  - [User Access Management Procedure (PR-001)](../05-procedures/PR-001-user-access.md) (onboarding and offboarding)
+  - [Asset Inventory](../01-asset-inventory/assets.md)
+
+---------------------------------------------------------------------
+
+**Revision History**
+
+| Version | Date | Change |
+|---|---|---|
+| 1.2 | 2026-10-30 | Related documents point to documents that exist: the Network Security Policy (P-005, new), PR-001 for onboarding and offboarding, P-003 and the playbooks for incidents (alignment item AL-26). No requirement changed |

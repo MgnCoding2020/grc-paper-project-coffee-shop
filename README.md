@@ -99,7 +99,7 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 ├── 01-asset-inventory/      # Asset register, data classification, asset lifecycle & review
 ├── 02-risk-management/      # Risk register, continuous monitoring, vendor risk management
 ├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
-├── 04-policies/             # P-001–P-004 governance policies
+├── 04-policies/             # P-001–P-005 governance policies
 ├── 05-procedures/           # PR-001–PR-004 operational procedures
 ├── 06-incident-playbooks/   # IRP-001–IRP-004 incident response playbooks
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
@@ -193,6 +193,7 @@ The project includes formal governance **policies**:
 * Acceptable Use Policy (P-002)
 * Incident Response Policy (P-003)
 * Payment Card Data Protection Policy (P-004)
+* Network Security Policy (P-005)
 
 And supporting operational **procedures**:
 
