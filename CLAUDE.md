@@ -471,8 +471,23 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 10. **Keep this file current:** tick phases as they merge; move fixed `AL-##` rows to a "Resolved" table with the PR number.
 11. **Secrets stay local.** Tenant IDs, client IDs and secrets, real domains, Michael's own UPN, API keys (Stripe test keys included) live in a git-ignored `.env` and are read at runtime; commit a `.env.example` with placeholder names only. Raw tenant exports go in git-ignored `_raw/`; only redacted copies (fictional UPNs, no IPs, no GUIDs, no tokens) are committed as evidence. Check `git diff --cached` for secrets before every commit.
 12. **Work the deferred-corrections register (§13).** When a trigger event happens, complete its rows, tick and date them, and add any newly discovered future change to the register.
+13. **Treat AI as a program-wide change.** When AI is introduced, work register trigger T11 in full; don't add an AI feature to one repo alone.
+14. **Program dates are the company's calendar, not Michael's.** Inspection, review and training dates follow best practice to make the fiction believable; Michael won't really run monthly inspections, and the project may sit idle for months. When work resumes after a gap, never backdate an activity that didn't happen: record the missed dates honestly (status check plus a POA&M review-log entry, the way the stalled Q1 remediation was recorded), then set new dates. Dates on `Lab-verified` evidence are always the real dates.
 
 ---
+
+### 12a. Repository security (real world)
+
+These repositories are Michael's real public portfolio, so their security is Michael's responsibility, not part of the fiction. In the fiction, the company's security documents live in the SharePoint Security & Compliance site, where the Owner is accountable and the IT Technician administers access through the `grp-bc-` groups.
+
+| Control | State (checked 2026-10-30) |
+|---|---|
+| Secret scanning and push protection (all three repos) | **Enabled** |
+| Collaborators | Michael only |
+| Secrets kept out of the repos | `.gitignore` for `.env` and `_raw/`; checker check 8 (GUIDs, tenant domains, IPs, tokens, email addresses); secret scan of every staged diff |
+| CI | Hub: consistency checker on every PR and push to `main` |
+| **Branch protection on `main`** | **Not set. Pending Michael's approval:** block force pushes and branch deletion, require a PR before merging (no required approvals, since Michael works alone), and on the hub require the `check` status to pass |
+| **Two-factor authentication on the GitHub account** | **Not verifiable with the current token.** Michael to confirm under Settings → Password and authentication |
 
 ## 13. Deferred corrections register
 
@@ -552,6 +567,20 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
 - [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
 
+### T11. AI introduced (likely with the website, CR-002, or the intranet)
+AI is planned but not yet part of the company. When it is added, the whole program changes together, in one set of PRs:
+- [ ] **Change record** with the RMF steps (§6): purpose, data, users, boundary, approval
+- [ ] **Vendor:** a new `V-###` for the AI provider and a full assessment in the Vendor lab (how customer and company data is used, whether it trains models, retention, subprocessors, security reports)
+- [ ] **System:** a new `SYS-###` in `systems.csv` and the asset register, with an evidence mode
+- [ ] **Data classification:** which classes the AI may process (never cardholder data; Restricted data only with Owner approval)
+- [ ] **Acceptable Use Policy (P-002):** approved AI tools only; no pasting Confidential or Restricted data into unapproved tools; staff check AI output before relying on it
+- [ ] **Risk register:** AI risks (data leakage, prompt injection, wrong or harmful output, over-reliance, vendor lock-in), each with controls
+- [ ] **Controls:** extend the matrix and crosswalk (for example SA-9, AC-6, SI-10 input validation, AU-2 logging of AI use); consider a crosswalk to the NIST AI Risk Management Framework
+- [ ] **Training (PR-007):** an AI module; **incident playbook** for AI misuse or data leakage
+- [ ] **Secrets:** AI provider API keys in `.env` only; add the provider's key format to checker check 8
+- [ ] **Customers:** a privacy notice if the AI is customer-facing
+- [ ] **Evidence:** new evidence rows; story-level review of all repos
+
 ---
 
 ## 14. References
@@ -585,3 +614,5 @@ Changes we already know will be needed, grouped by the event that triggers them.
 | 12 | 2026-10-30 | Story alignment review: AL-23 to AL-25 resolved. Q1 remediation stalled (found by this review; feeds CR-003's justification); Northwind not live; CA-5 added (20 controls, 13 families); D-10 vendor guest account decided |
 | 13 | 2026-10-30 | Deferred-corrections register added (§13): every known future update grouped by trigger (hire, cutover, Vertex offboarding, SharePoint, trial, Northwind conditions, Q4 review, CR-004, Microsoft reports, recurring); rule 12; AL-26 (policies reference documents that don't exist) |
 | 14 | 2026-10-30 | Hub story-level review (procedures, playbooks, scope): AL-27 resolved; PR-004 and IRP-004 follow-ups added to register T2 |
+| 15 | 2026-10-30 | §12a repository security baseline (real world): secret scanning and push protection verified; branch protection and 2FA pending Michael; register T11 for introducing AI program-wide; rule 13 |
+| 16 | 2026-10-30 | Rule 14: program dates are the fictional company's calendar; gaps are recorded, never backdated. Cash and card payments both accepted (company profile, PR-005) |
