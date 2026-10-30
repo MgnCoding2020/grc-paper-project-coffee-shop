@@ -7,7 +7,7 @@ Burn and Churn Coffee
   -  **Effective Date:** 2026-02-01
   -  **Last Reviewed/Updated:** 2026-10-30
   -  **Review Frequency:** Annual (or upon significant change to systems or roles)
-  -  **Version:** 1.2
+  -  **Version:** 1.3
     
 --------------------------------------------------------------
 
@@ -99,6 +99,8 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
       - All Google Workspace administrative accounts (required)
       - All Google Workspace user accounts where supported and feasible (required if handling sensitive business data)
   - Privileged accounts shall use stronger authentication than standard accounts where possible (e.g., MFA enforced, separate admin accounts).
+  - Credentials that can't belong to one person (network device admin logins, Wi-Fi passphrases, vendor and device portals) shall be stored only in the company password manager, generated rather than chosen, and rotated when anyone who knew them leaves ([PR-009](../05-procedures/PR-009-credential-vault.md)).
+  - Admin account holders shall sign the Privileged User Agreement before receiving admin access, and every year after.
   
 **5.6 Privileged (Administrative) Access Controls**
   - Privileged access shall be restricted to designated personnel and approval by the Business Owner.
@@ -159,6 +161,7 @@ Enforcement actions shall be applied consistently and in accordance with company
   - [Acceptable Use Policy (P-002)](P-002-acceptable-use.md)
   - [Incident Response Policy (P-003)](P-003-incident-response.md) and the [incident playbooks](../06-incident-playbooks/)
   - [User Access Management Procedure (PR-001)](../05-procedures/PR-001-user-access.md) (onboarding and offboarding)
+  - [IT Administration and Coverage Procedure (PR-008)](../05-procedures/PR-008-it-administration.md) and [Shared Credential Management Procedure (PR-009)](../05-procedures/PR-009-credential-vault.md)
   - [Asset Inventory](../01-asset-inventory/assets.md)
 
 ---------------------------------------------------------------------
@@ -167,4 +170,5 @@ Enforcement actions shall be applied consistently and in accordance with company
 
 | Version | Date | Change |
 |---|---|---|
+| 1.3 | 2026-10-30 | §5.5: shared credentials kept in the company password manager (PR-009); admin account holders sign the Privileged User Agreement. Added with the in-house IT role (CR-003) |
 | 1.2 | 2026-10-30 | Related documents point to documents that exist: the Network Security Policy (P-005, new), PR-001 for onboarding and offboarding, P-003 and the playbooks for incidents (alignment item AL-26). No requirement changed |

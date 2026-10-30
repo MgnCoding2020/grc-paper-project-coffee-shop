@@ -45,6 +45,8 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-10 | Former employees or vendors keep access after leaving, or staff keep access after changing roles | High | High | High | PS-4, PS-5, AC-2 | High |
 | R-11 | Unplanned or poorly controlled changes (such as the Microsoft 365 migration or the IT handover) disrupt operations or weaken security | Medium | Medium | Medium | CM-3, CM-4 | Medium |
 | R-12 | Known weaknesses stay open because remediation isn't tracked or reviewed | Medium | High | High | CA-5 | Medium |
+| R-13 | Shared admin credentials (network devices, vendor portals) are undocumented, known to former providers, or lost when one person leaves | High | Medium | High | IA-5 | High |
+| R-14 | IT depends on one part-time technician (about 10 hours a week); problems outside those hours wait, or are handled without the right skills | Medium | Medium | Medium | CP-2, AC-6, IA-5 | Medium |
 
 ----
 
@@ -76,4 +78,5 @@ During reviews, risk may be:
 |---|---|---|
 | 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
 | 2026-10-30 | Added R-10 (access kept after leaving or changing roles) and R-11 (uncontrolled change) | R-10 already happened (IAM:F-001, IAM:F-003); R-11 arises from CR-001 and CR-003 |
+| 2026-10-30 | Added R-13 (shared credentials) and R-14 (one part-time IT technician) | IT brought in-house (CR-003) with a 10-hour-a-week role; R-13 residual stays High until the password manager is in use (POAM-021) |
 | 2026-10-30 | Added R-12 (untracked remediation) | The alignment review found POAM-013 and POAM-014 stalled for months without a recorded review |

@@ -134,7 +134,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
   - Shift Leaders: Mia Chen, Marcus Hill, Sofia Patel
   - Baristas: Ethan Brooks, Ava Reed, Noah Bennett, Lily Foster, James Cooper, Chloe Murphy, Logan Price, Grace Kelly, Henry Adams, Ella Turner, Jack Rivera, Nora Bailey, Leo Collins, Zoe Mitchell, Owen Parker
   - Terminated: Aiden Scott
-  - **IT Technician (part-time, in-house, from CR-003): Riley Morgan.** Hired to run the M365 migration and own IT from then on. Not counted in the 20 store staff
+  - **IT Technician (part-time, in-house, from CR-003): Riley Morgan.** Hired to run the M365 migration and own IT from then on. About 10 hours a week; the Owner is the backup administrator (PR-008). Not counted in the 20 store staff
 - **Headcount (D-1):** 20 active store staff (1 Owner, 1 Store Manager, 3 Shift Leaders, 15 Baristas) plus the part-time IT Technician. The company profile states it exactly that way.
 - **UPN pattern:** `first.last@burnandchurncoffee.com` (e.g. `olivia.carter@…`). Privileged work uses a **separate admin account** (`adm-first.last@…`); only the IT Technician and the Owner have one.
 - **Personnel controls for the IT Technician:** screening documented (PS-3), signed access agreement and privileged-user rules (PS-6), admin account separate from the daily account (AC-6(2)).
@@ -178,6 +178,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-012 | SharePoint Online + Teams | Planned → Live | Files, intranet lists and libraries, chat, from CR-001. Live once the SharePoint licence is reactivated (D-8) |
 | SYS-013 | Microsoft Intune + Defender for Business | Simulation unless licensed | Device management and endpoint protection, from CR-001 |
 | SYS-014 | Bookkeeping workbook (Excel for the web, in SharePoint) | Planned → Live | Sales, expenses and payroll reconciliation in a restricted Finance library, from CR-001. Permissions, versioning and audit-log entries are the live evidence |
+| SYS-015 | Password manager (Bitwarden organization) | Planned → Live | Shared admin credentials only (PR-009). Live once Michael's lab test (test entries only) is recorded |
 | SYS-020 | Online ordering website | Test | **CR-002, later**; with Stripe (test mode) |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
@@ -195,7 +196,9 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-005 | NorthPeak Systems | **Offboarded**; access removal is IAM F-003 |
 | V-006 | Intuit (QuickBooks Online) | **Offboarded** by CR-001 (replaced by SYS-014); data export and subscription cancellation are CR-001 exit steps |
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
-| V-008+ | Stripe, Cloudflare, AI provider | Added only by CR-002 |
+| V-008 | Internet service provider (unnamed) | Active; not scored |
+| V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician) |
+| V-010+ | Stripe, Cloudflare, AI provider | Added only by CR-002 (or T11 for AI) |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
 
@@ -497,6 +500,9 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] `people.csv`: Riley Morgan `Planned` → `Active`, `start_date` set
 - [ ] `roles.md`: headcount table ("planned hire" wording); `company_profile.md` IT paragraph
 - [ ] CR-003 log entry: screening (PS-3) and access agreement (PS-6) recorded
+- [ ] Privileged User Agreements signed by Riley and Olivia → E-20 present
+- [ ] PR-008 §8 and PR-009 §7 status: Planned → in effect; first IT work log entry
+- [ ] Within 30 days: first backup administrator drill with the Owner (PR-008 §5) → POAM-022
 
 ### T2. Microsoft 365 cutover (CR-001, 2026-11-15; runbook §7.5)
 - [ ] Every runbook item in §7.5
@@ -511,10 +517,16 @@ Changes we already know will be needed, grouped by the event that triggers them.
 
 ### T3. Vertex offboarded (CR-003 steps 3–6)
 - [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
-- [ ] Credential rotation recorded in the CR-003 log
+- [ ] Credential rotation recorded in the CR-003 log; rotated credentials stored in the password manager; handover checklist (PR-008 §7) signed and filed with the V-004 offboarding record
 - [ ] NorthPeak account disabled → IAM F-003 closure evidence; V-005 notes
 - [ ] Asset PER-005 → Retired
 - [ ] Procedures `PR-001` to `PR-004` and the IAM procedure: heading "IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)" → "IT Administrator (IT Technician)"; `roles.md` vendor paragraph becomes history
+
+### T3b. Password manager set up and tested (PR-009, POAM-021)
+- [ ] Michael's lab test (PR-009 §6) with test entries only; Bitwarden test emails in `.env` only; redacted screenshots → `artifacts/credentials/vault-test-record.md` marked `Lab-verified <date>`
+- [ ] E-19 present; SYS-015 → Live; V-009 → Active; IA-5 re-rated on the evidence (matrix, crosswalk, README counts); R-13 residual reviewed
+- [ ] Vendor lab: V-009 Bitwarden assessment (encryption model, security reports, breach history) on the 6-factor worksheet
+- [ ] IAM lab: the Q4 review checks password manager membership (exactly the Owner and the IT Technician)
 
 ### T3a. Network segmentation implemented (POAM-015)
 - [ ] P-005 §7 exception closed with a dated note; SC-7 re-rated on the evidence; `network-segmentation.md` gets a new dated record (the old one stays as history); R-04 residual risk reviewed
@@ -616,3 +628,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 14 | 2026-10-30 | Hub story-level review (procedures, playbooks, scope): AL-27 resolved; PR-004 and IRP-004 follow-ups added to register T2 |
 | 15 | 2026-10-30 | §12a repository security baseline (real world): secret scanning and push protection verified; branch protection and 2FA pending Michael; register T11 for introducing AI program-wide; rule 13 |
 | 16 | 2026-10-30 | Rule 14: program dates are the fictional company's calendar; gaps are recorded, never backdated. Cash and card payments both accepted (company profile, PR-005) |
+| 17 | 2026-10-30 | In-house IT role completed: PR-008 (10 hours a week, Owner as backup administrator, Vertex handover checklist), PR-009 password manager (Bitwarden Free organization, SYS-015, V-009), Privileged User Agreement, IA-5, R-13/R-14, POAM-021/022, E-19/E-20; register T1, T3, T3b |

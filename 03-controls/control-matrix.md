@@ -34,6 +34,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-10 | PS-5 | Personnel transfer: access reviewed and adjusted when a role changes | PS | Req. 7.2 | Not Implemented | E-17 | POAM-016 |
 | R-11 | CM-3 | Configuration change control: significant changes documented, approved and reviewed | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
 | R-11 | CM-4 | Impact analysis before significant changes | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
+| R-13 | IA-5 | Authenticator management: shared admin credentials in a two-member password manager, generated passwords, rotated when anyone who knew them leaves (PR-009) | IA | Req. 8.3, 8.6 (loose) | Not Implemented | E-19 | POAM-021 |
 | R-12 | CA-5 | Plan of action and milestones: weaknesses tracked, reviewed and driven to closure | CA | None (no direct PCI DSS requirement) | Partially Implemented | E-18 | POAM-019 |
 
 ----
@@ -73,5 +74,6 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-10-30 | Added IA-5 (POAM-021) | Shared admin credentials had no managed store, and Vertex knows them (CR-003) |
 | 2026-10-30 | Added CA-5 (POAM-019) | The POA&M exists but wasn't reviewed as stated; remediation stalled unnoticed |
 | 2026-10-30 | CP-2: Not Implemented → Partially Implemented | Contingency and outage plan documented (PR-005); not yet tested. PE-3 and AT-2 gain procedures (PR-006, PR-007) but keep their ratings until inspections and training actually happen |

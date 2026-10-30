@@ -36,6 +36,7 @@ Each asset is categorized and assigned a sensitivity rating based on the **Confi
 | SYS-012  | SharePoint Online and Teams  | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Planned | Files, intranet and chat, from CR-001   |
 | SYS-013  | Microsoft Intune and Defender for Business | SaaS Platform | Owner | Cloud | Internal | M-H-M | Planned | Device management and endpoint protection, from CR-001 (licence-dependent) |
 | SYS-014  | Bookkeeping Workbook (Excel for the web) | SaaS Platform | Owner | Cloud | Confidential | H-H-M | Planned | Replaces QuickBooks Online, from CR-001 |
+| SYS-015  | Password Manager (Bitwarden organization) | SaaS Platform | Owner | Cloud | Restricted | H-H-M | Planned | Shared admin credentials only; two members (Owner, IT Technician); PR-009, CR-003 |
 | HW-001   | POS Terminals                | Hardware        | Store Manager | Store          | Restricted     | H-H-H      | Active | Used for customer transactions           |
 | HW-002   | Company Tablets              | Hardware        | Store Manager | Store          | Internal       | M-M-M      | Active | Inventory and operational tasks          |
 | HW-003   | Manager Laptop               | Hardware        | Store Manager | Store          | Confidential   | M-M-M      | Active | Business network; shares Wi-Fi with POS terminals (POAM-015) |

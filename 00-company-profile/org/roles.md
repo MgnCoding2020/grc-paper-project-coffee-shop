@@ -19,7 +19,7 @@ This page defines every role in the Burn and Churn Coffee security program, who 
 | Store Manager | 1 | Daniel Lopez |
 | Shift Leader | 3 | Mia Chen, Marcus Hill, Sofia Patel |
 | Barista | 15 | See [people.csv](people.csv) |
-| IT Technician (part-time) | 1 | Riley Morgan (planned hire, CR-003) |
+| IT Technician (part-time, about 10 hours a week) | 1 | Riley Morgan (planned hire, CR-003) |
 
 ---
 
@@ -38,7 +38,10 @@ Supervises the store during a shift. Supports incident containment on shift, kee
 Uses the Toast POS register and follows the Acceptable Use Policy. Reports suspicious activity, lost devices and suspected incidents immediately.
 
 ### IT Technician (part-time, from CR-003)
-Creates, changes and removes accounts; administers the Microsoft 365 tenant, devices and store network; exports evidence for access reviews; handles the technical side of incidents. Holds a separate admin account for privileged work.
+Creates, changes and removes accounts; administers the Microsoft 365 tenant, devices and store network; exports evidence for access reviews; handles the technical side of incidents; manages shared credentials in the company password manager. Holds a separate admin account for privileged work. Works about 10 hours a week; duties, coverage and the Vertex handover are in the [IT Administration and Coverage Procedure (PR-008)](../../05-procedures/PR-008-it-administration.md).
+
+### Backup administrator (Owner)
+The Owner is next in line for IT when the IT Technician isn't working: disabling accounts, resetting passwords and MFA, retrieving shared credentials, and calling vendor support (PR-008 §5). There is no outsourced on-call service.
 
 ### Vendors (before CR-003)
 Until 2026-11-15, IT administration was performed by **Vertex IT Support** (V-004), a managed service provider. Older documents that name an "IT Admin" or "System Administrator" mean Vertex for records dated before 2026-11-15 and the IT Technician after it, with the Owner accountable throughout.
@@ -59,6 +62,8 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 | Network and firewall administration | A | I | — | **R** | — |
 | Security training | A | **R** | R | C | Participate |
 | Vendor guest access (sponsor, grant, remove) | **A** (sponsor) | C | — | **R** | — |
+| Shared credentials (password manager) | **A** (second member) | — | — | **R** | — |
+| IT cover when the IT Technician isn't working | **A/R** (backup administrator) | R (keeps the store trading) | C | I | — |
 | Policy ownership and approval | **A/R** | C | — | C | I |
 
 ---
@@ -66,7 +71,8 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 ## Separation of Duties
 
 - The IT Technician creates and changes accounts but **never certifies their own access**. The Owner and Store Manager sign the quarterly review; the IT Technician only exports the data.
-- Only the Owner and the IT Technician hold admin accounts, and those accounts are separate from their everyday accounts.
+- Only the Owner and the IT Technician hold admin accounts, and those accounts are separate from their everyday accounts. Both sign the [Privileged User Agreement](../../07-evidence-pack/examples/privileged-user-agreement.md).
+- The password manager has exactly two members, the Owner and the IT Technician ([PR-009](../../05-procedures/PR-009-credential-vault.md)).
 
 ---
 

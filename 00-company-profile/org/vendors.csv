@@ -7,3 +7,4 @@ V-005,NorthPeak Systems,Former IT support vendor,Network admin account (still en
 V-006,Intuit (QuickBooks Online),Accounting software,Financial records,No,Not scored,Not Started,,,Owner,Active (offboarding planned by CR-001)
 V-007,Google (Workspace),Email and collaboration,Employee accounts; business documents; email,No,Not scored,Not Started,,,Owner,Active (offboarding planned by CR-001)
 V-008,Internet service provider (unnamed),Store internet connectivity,Network traffic in transit,No,Not scored,Not Started,,,Owner,Active
+V-009,"Bitwarden, Inc.",Password manager (shared admin credentials),Encrypted shared credentials (end-to-end encrypted),No,Not scored,Not Started,,,Owner,Planned (CR-003)
