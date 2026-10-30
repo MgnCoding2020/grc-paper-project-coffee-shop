@@ -1,0 +1,23 @@
+person_id,display_name,role,employment_status,start_date,end_date,upn,groups,notes
+EMP-001,Olivia Carter,Owner,Active,,,olivia.carter@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-owners,Business Owner; accountable for the program; admin account adm-olivia.carter
+EMP-002,Daniel Lopez,Store Manager,Active,,,daniel.lopez@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-managers,Primary incident coordinator; reviewer for store systems; appears as manager@ in pre-2026-10-30 hub evidence
+EMP-003,Mia Chen,Shift Leader,Active,,,mia.chen@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-shift-leads,
+EMP-004,Marcus Hill,Shift Leader,Active,,,marcus.hill@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-shift-leads,Excess Toast admin role found in Q1 review (IAM:F-002)
+EMP-005,Sofia Patel,Shift Leader,Active,,,sofia.patel@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-shift-leads,
+EMP-006,Ethan Brooks,Barista,Active,,,ethan.brooks@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,Missing Google MFA in Q1 review (IAM:F-004); appears as barista1@ in pre-2026-10-30 hub evidence
+EMP-007,Ava Reed,Barista,Active,,,ava.reed@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-008,Noah Bennett,Barista,Active,,,noah.bennett@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-009,Lily Foster,Barista,Active,,,lily.foster@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-010,James Cooper,Barista,Active,,,james.cooper@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-011,Chloe Murphy,Barista,Active,,,chloe.murphy@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-012,Logan Price,Barista,Active,,,logan.price@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-013,Grace Kelly,Barista,Active,,,grace.kelly@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-014,Henry Adams,Barista,Active,,,henry.adams@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-015,Ella Turner,Barista,Active,,,ella.turner@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-016,Jack Rivera,Barista,Active,,,jack.rivera@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-017,Nora Bailey,Barista,Active,,,nora.bailey@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-018,Leo Collins,Barista,Active,,,leo.collins@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-019,Zoe Mitchell,Barista,Active,,,zoe.mitchell@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-020,Owen Parker,Barista,Active,,,owen.parker@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-baristas,
+EMP-021,Aiden Scott,Barista,Terminated,,,aiden.scott@burnandchurncoffee.com,,Termination date not recorded (HR gap; PS-4); accounts still active at Q1 review (IAM:F-001); appears as barista2@ in pre-2026-10-30 hub evidence; no Entra account will be created
+EMP-022,Riley Morgan,IT Technician,Planned,,,riley.morgan@burnandchurncoffee.com,grp-bc-all-staff;grp-bc-it,Part-time in-house hire via CR-003; start date set when the account is created (by 2026-11-15); admin account adm-riley.morgan; not counted in the 20 store staff

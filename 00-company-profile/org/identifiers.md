@@ -27,6 +27,7 @@ Every risk, control, finding, POA&M item, change and piece of evidence in the Bu
 | POA&M item | `POAM-###` | `POAM-013` | [POA&M](../../07-evidence-pack/poam/poam.md) (this repository only) |
 | Change record | `CR-###` | `CR-001` | `09-change-management/` (planned) |
 | Incident | `INC-###` | `INC-001` | [Incident log](../../07-evidence-pack/artifacts/monitoring/incident-log.md) (current entries to be renumbered from "Incident 001/002") |
+| Person | `EMP-###` | `EMP-001` | [people.csv](people.csv) (vendor and break-glass accounts are not people) |
 | Vendor | `V-###` | `V-002` | [Vendor inventory](../../02-risk-management/vendor-risk-management/vendor-inventory.md) |
 | System | `SYS-###` | `SYS-001` | [Asset inventory](../../01-asset-inventory/assets.md) |
 | Other assets | `HW-###`, `NET-###`, `DATA-###`, `PER-###` | `NET-002` | [Asset inventory](../../01-asset-inventory/assets.md) |
