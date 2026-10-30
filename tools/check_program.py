@@ -378,13 +378,21 @@ def check_counts(hub, org):
     return findings
 
 
+def without_revision_history(text):
+    """Drop '## Revision History' sections: they record what was removed, which is allowed."""
+    return re.sub(r"^#+ Revision History.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
+
+
 def check_forbidden(repos):
     findings = []
     for repo, root in repos:
         for path in tracked_files(root):
             if path.suffix not in SCANNED_SUFFIXES or path.name == "CLAUDE.md":
                 continue
-            text = read_text(path)
+            # The checker's own code and saved runs necessarily name what they look for
+            if rel(path, root).startswith(("tools/", "07-evidence-pack/artifacts/consistency/")):
+                continue
+            text = without_revision_history(read_text(path))
             where = f"{repo} {rel(path, root)}"
             if re.search(r"\bstripe\b", text, re.I):
                 findings.append(f"{where}: mentions Stripe before CR-002")
