@@ -398,6 +398,10 @@ def check_forbidden(repos):
                 findings.append(f"{where}: mentions Stripe before CR-002")
             if path.suffix == ".md" and re.search(r"\bTODO\b", text):
                 findings.append(f"{where}: contains TODO")
+            # Unfilled template placeholders (templates and examples are meant to have them)
+            is_template = "template" in path.name or "examples" in path.parts
+            if not is_template and re.search(r"YYYY-MM-DD|\[(?:Name|Date|TBD)\b[^\]]*\]", text):
+                findings.append(f"{where}: unfilled template placeholder")
             for label, pattern in PERSONAL_DATA_PATTERNS.items():
                 if pattern.search(text):
                     findings.append(f"{where}: {label}")

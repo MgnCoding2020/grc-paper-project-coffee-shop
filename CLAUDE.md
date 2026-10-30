@@ -68,14 +68,10 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 
 | ID | Repo / file | What's wrong | Fix | Phase |
 |---|---|---|---|---|
-| AL-12 | IAM `user-access-matrix.csv`, `F-004` | All 15 cashiers have Toast MFA "No"; only Ethan Brooks is flagged ("MFA not enabled") while the rest say "Access appropriate". Ethan's Google Workspace row shows MFA "Yes" | Decide the MFA scope (D-2). Toast cashier PIN logins are out of MFA scope by design. **Rev 2:** F-004's text, the remediation tracker and hub `mfa-status.csv` (`barista1`) all say Ethan's *Google* MFA was missing; only the matrix cell disagrees. Correct that one cell (and Ethan's Toast note) with a dated correction note instead of re-pointing F-004 | P2 |
 | AL-13 | IAM matrix vs hub `P-001` §5.7 | Policy says vendor access is "assigned to named individuals (no generic vendor accounts)", yet the matrix has generic **"Vertex IT Support"** and **"NorthPeak Systems"** accounts, and the review didn't flag it | Leave Q1 as recorded (it's history), but **this is a missed finding**: raise it in the Q4 review as a new finding, a strong "what the first review missed" story. **Rev 3:** the generic Vertex account is removed during the CR-003 handover, so Q4 records the finding *and* its closure evidence | P4 |
 | AL-14 | Hub, everywhere | Google Workspace is the productivity suite in 23 files (46 mentions) | `CR-001` migration to Microsoft 365 (section 7). Dated evidence stays; current-state documents change | P3 |
 | AL-15 | `workspace` `js/app.js` | `config/sites.json` is fetched from a fixed path, so a second organization pack can't supply its own sites | **Withdrawn (rev 2):** `workspace` is no longer a companion repo; the intranet is built directly in the tenant (§7.4) | — |
-| AL-17 | IAM `F-005`, `vm-*` evidence | F-005 is a password-policy fix on a Windows lab VM, which is not a Burn and Churn system; the checker would flag it | Keep it (it's real work) and label it explicitly as a **lab demonstration of the technique**, outside the company's system boundary; no `systems.csv` entry | P2 |
-| AL-18 | Hub `mfa-status.csv`, `user-access-review.csv`, `incident-log.md` vs IAM matrix | The generic accounts map naturally to the roster: `barista2` (last login 2026-01-15, "Review Required", Incident 002 "inactive, pending disable") is **Aiden Scott** (IAM:F-001); `barista1` is **Ethan Brooks** (IAM:F-004); `manager@` is **Daniel Lopez**. Remaining conflict: hub says `barista2` had no Google MFA, the matrix says Aiden did | Apply this mapping in AL-01; Incident 002 cross-references IAM:F-001; resolve the Aiden MFA cell (recommended: the hub CSV wins, matrix gets a correction note) | P2 |
 
-| AL-20 | Vendor lab `final-assessment/vendor-risk-assessment-report.md` | **Assessment Date** is still the placeholder `YYYY-MM-DD`; the hub vendor inventory records 2026-06-23 | Fill in 2026-06-23 with a dated correction note | P2 |
 
 ### Resolved
 
@@ -95,6 +91,10 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-16 | AC-2 and AC-6 marked Implemented despite open findings | Hub PR 2c: Partially Implemented in matrix, crosswalk and README; R-06 residual raised | 2026-10-30 |
 | AL-19 | SC-7 marked Implemented; evidence showed no segmentation | Hub PR 2c: Partially Implemented, POAM-015, architecture text corrected, R-04 residual raised | 2026-10-30 |
 | AL-21 | 6 broken links in procedures and data classification | Hub PR 2c: link targets fixed | 2026-10-30 |
+| AL-12 | IAM matrix MFA cells contradicted F-004 and the hub export | IAM PR #10: Ethan Brooks's Google MFA corrected; Toast PIN logins documented as outside MFA scope (D-2) | 2026-10-30 |
+| AL-17 | F-005 (Windows lab VM) looked like a company system | IAM PR #10: labelled as a lab demonstration outside the system boundary | 2026-10-30 |
+| AL-18 | Generic hub accounts hid conflicts with the IAM matrix | Hub PR #8 (mapping) and IAM PR #10 (Aiden Scott's MFA cell) | 2026-10-30 |
+| AL-20 | Vendor report kept `YYYY-MM-DD` and `[Name / Role]` placeholders | VRA PR #4: 2026-06-23, Olivia Carter (Owner); checker now flags unfilled placeholders | 2026-10-30 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -364,7 +364,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 |---|---|---|---|---|
 | **P0. Baseline** ✅ PR #4, 2026-10-29 | 1 | All three | Tag the current state `v1-pre-alignment` in each repo; add this file to the hub | Tags pushed; this file merged |
 | **P1. Links and IDs** ✅ hub #5, IAM #9, VRA #3, 2026-10-30 | 2 | All three | Fix AL-09 (two-way links) and AL-11 (global finding IDs); add `identifiers.md` | Every companion README links the hub, and the hub links every companion |
-| **P2. Canonical data and corrections** | 8 | Hub, IAM | Create `00-company-profile/org/*`; fix AL-01 to AL-08, AL-10 and AL-12 (decisions D-1 and D-2 first); add the consistency checker (§10) | The checker passes on all three repos |
+| **P2. Canonical data and corrections** (PRs open: hub #6–#8, IAM #10, VRA #4) | 8 | Hub, IAM | Create `00-company-profile/org/*`; fix AL-01 to AL-08, AL-10 and AL-12 (decisions D-1 and D-2 first); add the consistency checker (§10) | The checker passes on all three repos |
 | **P3. CR-001 migration** | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
 | **P4. Q4 2026 access review** | 6 | IAM | Restructure into `reviews/2026-Q1/` (history, unchanged) and `reviews/2026-Q4/`. Q4 runs against Entra groups and roles: confirm Q1 remediation, raise **AL-13 (generic vendor accounts)** as the "what Q1 missed" finding, check the break-glass and vendor-delegation design | Q4 findings roll up to hub POAM-014 |
 | **P5. Vendor assessments** | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
@@ -456,3 +456,4 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | 4 | 2026-10-30 | Tenant confirmed on Entra ID Free: what works on Free and what needs P1 or P2 (§5.2); D-8 timing; D-9 Business Premium trial as a strong option; P0 marked done |
 | 5 | 2026-10-30 | P1 marked done; AL-09 and AL-11 moved to Resolved; AL-20 added; canonical `org/` files created (person IDs `EMP-###`; ISP added as V-008; Aiden Scott's termination date left blank as a recorded HR gap) |
 | 6 | 2026-10-30 | Checker added (check 9, AL-21); hub corrections from PR 2c: AL-01 to AL-08, AL-10, AL-16, AL-19, AL-21 resolved; AL-12 and AL-18 stay open until the IAM matrix is corrected |
+| 7 | 2026-10-30 | AL-12, AL-17, AL-18 and AL-20 resolved (IAM PR #10, VRA PR #4); checker flags unfilled template placeholders; full cross-repo run passes 9 of 9 |
