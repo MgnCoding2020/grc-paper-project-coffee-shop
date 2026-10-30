@@ -7,7 +7,7 @@ Burn and Churn Coffee
 
 Burn and Churn Coffee is a small retail coffee shop that provides in-store beverage and food service to local customers.
 
-The business processes customer payments primarily through payment card transactions and relies on cloud-based business services to support daily operations.
+The business accepts both cash and card payments; most sales are card payments, processed in store through Toast. It relies on cloud-based business services to support daily operations.
 
 Because the business processes payment card transactions and stores limited operational data, cybersecurity risks primarily involve:
 
@@ -98,3 +98,4 @@ These risks are addressed through the organization's security governance program
 | Date | Change | Reason |
 |---|---|---|
 | 2026-10-30 | Headcount corrected from about 19 to 20 active store staff (15 Baristas); IT vendors named; xtraCHEF, QuickBooks Online and Northwind Payroll added; vendors listed with their inventory IDs | Aligned with the canonical org data and the Q1 2026 access review (AL-03, AL-05) |
+| 2026-10-30 | Stated that cash and card payments are both accepted | Clarification; the contingency plan (PR-005) relies on cash as a fallback |
