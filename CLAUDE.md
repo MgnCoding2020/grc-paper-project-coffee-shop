@@ -457,3 +457,4 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | 5 | 2026-10-30 | P1 marked done; AL-09 and AL-11 moved to Resolved; AL-20 added; canonical `org/` files created (person IDs `EMP-###`; ISP added as V-008; Aiden Scott's termination date left blank as a recorded HR gap) |
 | 6 | 2026-10-30 | Checker added (check 9, AL-21); hub corrections from PR 2c: AL-01 to AL-08, AL-10, AL-16, AL-19, AL-21 resolved; AL-12 and AL-18 stay open until the IAM matrix is corrected |
 | 7 | 2026-10-30 | AL-12, AL-17, AL-18 and AL-20 resolved (IAM PR #10, VRA PR #4); checker flags unfilled template placeholders; full cross-repo run passes 9 of 9 |
+| 8 | 2026-10-30 | `tools/tenant/provision-users.ps1` added: builds users and `grp-bc-` groups from `people.csv` (dry-run verified; run on the CR-001 build day); `.env.example` added; checker also scans `.ps1` files |
