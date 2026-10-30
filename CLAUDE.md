@@ -405,7 +405,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 | **P2. Canonical data and corrections** ✅ hub #6–#9, IAM #10, VRA #4, 2026-10-30 | 8 | Hub, IAM | Create `00-company-profile/org/*`; fix AL-01 to AL-08, AL-10 and AL-12 (decisions D-1 and D-2 first); add the consistency checker (§10) | The checker passes on all three repos |
 | **P3. CR-001 migration** (3a: change records and new controls, now; 3b: M365 rewrite of current-state documents, merged on the cutover date) | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
 | **P4. Q4 2026 access review** | 6 | IAM | Restructure into `reviews/2026-Q1/` (history, unchanged) and `reviews/2026-Q4/`. Q4 runs against Entra groups and roles: confirm Q1 remediation, raise **AL-13 (generic vendor accounts)** as the "what Q1 missed" finding, check the break-glass and vendor-delegation design | Q4 findings roll up to hub POAM-014 |
-| **P5. Vendor assessments** (in progress: per-vendor folders and V-003 Microsoft done in VRA PR #5; V-004 Vertex offboarding record due with CR-003) | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
+| **P5. Vendor assessments** (in progress: per-vendor folders and V-003 Microsoft done in VRA PR #5; V-001 Toast in VRA PR #7; V-004 Vertex offboarding record due with CR-003) | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
 | **P6. Live tenant build** | 15–25 | Hub (`tools/tenant/`, evidence) + tenant | Create the 20 staff, vendor technician and break-glass accounts and the `grp-` groups from `people.csv`; Conditional Access (report-only, then enforce); MFA registration; verify the unified audit log; then the SharePoint sites (§7.4) once licensed. Commit redacted exports as `Lab-verified` evidence | Real sign-in and MFA evidence in the evidence index; every name matches the hub; no secret or tenant identifier committed |
 | **P7. Portfolio** | 3 | Portfolio repo | Update the GRC case study to tell the multi-repo story; link the evidence index | Case study verified against the merged repos |
 | **P8. Online ordering** | — | New repo | `CR-002` and the website plan (revised for M365 staff identity). **Out of scope for this file** | — |
@@ -527,8 +527,14 @@ Changes we already know will be needed, grouped by the event that triggers them.
 ### T9. Microsoft audit reports obtained (VRA-V003:F-02, within 30 days of onboarding)
 - [ ] Review recorded (report period, exceptions, customer responsibilities); F-02 and F-05 closed; POAM-018 updated
 
+### T9a. Toast conditions due (VRA-V001)
+- [ ] By 2026-11-30: AOC, responsibility guide and SOC 2 Type II obtained; responsibility matrix built (F-01, F-04); service agreement located (F-03)
+- [ ] By 2026-12-31: SAQ type confirmed and SAQ completed and signed by the Owner (F-02); the SAQ becomes new evidence and may change PCI-mapped control ratings
+- [ ] Missed dates → status check and POA&M review-log entry (CA-5), as with the Q1 findings; POAM-020 and POAM-006 updated
+
 ### T10. Recurring
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
+- [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
 - [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
 - [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
