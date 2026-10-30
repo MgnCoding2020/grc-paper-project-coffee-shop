@@ -44,6 +44,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-15 | SC-28 | Data-at-rest protection and storage scope | — | — | Planned | POAM-012 |
 | E-16 | CM-3, CM-4 | Change process and change records (CR-001, CR-003) | [09-change-management/](../09-change-management/README.md) | 2026-10-30 | Simulation | POAM-017 |
 | E-17 | PS-4, PS-5 | Staff roster with employment status | [people.csv](../00-company-profile/org/people.csv) | 2026-10-30 | Simulation | POAM-016 |
+| E-18 | CA-5 | POA&M review log | [poam.md](poam/poam.md) | 2026-10-30 | Simulation | POAM-019 |
 
 ---
 
@@ -53,7 +54,8 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 |---|---|---|---|---|---|---|
 | IAM lab | AC-2, AC-6 | Q1 2026 user access matrix (all systems, all staff) | [user-access-matrix.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/user-access-matrix.csv) | 2026-03-25 | Simulation | POAM-014 |
 | IAM lab | AC-2, AC-6 | Q1 2026 access review findings IAM:F-001 to F-005 | [access-review-findings.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/findings/access-review-findings.md) | 2026-03-25 | Simulation | POAM-014 |
-| IAM lab | AC-2, AC-6 | Remediation tracker | [remediation-tracker.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/remediation/remediation-tracker.csv) | 2026-03-31 to 2026-04-05 (targets) | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6 | Remediation tracker | [remediation-tracker.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/remediation/remediation-tracker.csv) | Targets 2026-03-31 to 2026-04-05; status check 2026-10-30 (Overdue) | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6, CA-5 | Remediation status checks (overdue findings found and escalated) | [status-checks.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/remediation/status-checks.md) | 2026-10-30 | Simulation | POAM-014, POAM-019 |
 | IAM lab | AC-2, AC-6 | Quarterly access review summary | [quarterly-access-review-summary.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/review-summary/quarterly-access-review-summary.md) | Q1 2026 | Simulation | POAM-014 |
 | IAM lab | AC-2, AC-6 | Local access review of a Windows lab VM (redacted) | [vm-local-access-review-REDACTED.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-local-access-review-REDACTED.md) | 2026-03-08 | Lab-verified 2026-03-08 | — (lab demonstration, outside the company boundary) |
 | IAM lab | IA-5 (technique) | Password policy before and after hardening (`net accounts` output), IAM:F-005 | [before](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-password-policy-before.txt) · [after](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-password-policy-after.txt) | 2026-03-09 | Lab-verified 2026-03-09 | — (lab demonstration, outside the company boundary) |

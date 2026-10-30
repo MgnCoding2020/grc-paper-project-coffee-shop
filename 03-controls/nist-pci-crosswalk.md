@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **19 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 19: 0 Implemented, 11 Partially Implemented, 8 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **20 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 20: 0 Implemented, 12 Partially Implemented, 8 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -52,6 +52,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | PS-5 | Personnel Transfer | R-10 | **Req. 7.2** – Access assigned by job function (loose mapping\*) | Not Implemented |
 | CM-3 | Configuration Change Control | R-11 | **Req. 6.5.1** – Changes follow documented change-control procedures | Partially Implemented |
 | CM-4 | Impact Analyses | R-11 | **Req. 6.5.1** – Changes record their security impact | Partially Implemented |
+| CA-5 | Plan of Action and Milestones | R-12 | *No direct PCI DSS requirement* (supports remediation of every requirement's gaps) | Partially Implemented |
 
 \* PCI DSS has limited business-continuity coverage; CP-2's nearest analog is the incident response
 plan under Req. 12.10. The mapping is directional, not one-to-one — a normal feature of crosswalks.
@@ -132,3 +133,4 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-10-30 | Added CA-5 | POA&M management; no direct PCI DSS equivalent |
