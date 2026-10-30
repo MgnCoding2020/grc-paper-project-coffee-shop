@@ -40,7 +40,7 @@ Systems and services covered by this policy include:
   - Network infrastructure (router, firewall, Wi-Fi access points)
   - Staff Wi-Fi network
 
-This policy addresses **cybersecurity and technology-related incidents**. Broader operational disruptions such as natural disasters or extended power outages are managed under **Business Continuity procedures** where applicable. 
+This policy addresses **cybersecurity and technology-related incidents**. Broader operational disruptions such as natural disasters or extended power outages are managed under **Business Continuity procedures** where applicable (see the [Contingency and Outage Plan, PR-005](../05-procedures/PR-005-contingency-plan.md)). 
 
 ------------------------------------------------------
 

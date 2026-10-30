@@ -158,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **20 controls across 13 families** — 0 Implemented, 12 Partially Implemented, 8 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **20 controls across 13 families** — 0 Implemented, 13 Partially Implemented, 7 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
@@ -201,6 +201,9 @@ And supporting operational **procedures**:
 * Patch & vulnerability management (PR-002)
 * Quarterly access review (PR-003)
 * Log review (PR-004)
+* Contingency and outage plan (PR-005)
+* POS device inspection (PR-006)
+* Security awareness training program (PR-007)
 
 ---
 

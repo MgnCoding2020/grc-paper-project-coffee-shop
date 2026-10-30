@@ -16,13 +16,13 @@ Each control references the policy or procedure responsible for implementing the
 | Risk ID | Control ID | Control Description | NIST Family | PCI DSS Mapping | Implementation Status | Evidence ID | POA&M ID |
 |--------|-----------|---------------------|------------|------------------|----------------------|-------------|----------|
 | R-01 | IA-2 | Multi-factor authentication for all user accounts | IA | Req. 8 | Partially Implemented | E-02 | POAM-001 |
-| R-01 | AT-2 | Security awareness and phishing training | AT | Req. 12.6 | Not Implemented | E-06 | POAM-002 |
+| R-01 | AT-2 | Security awareness and phishing training (PR-007) | AT | Req. 12.6 | Not Implemented | E-06 | POAM-002 |
 | R-02 | AC-2 | Account management for POS and business systems | AC | Req. 7 | Partially Implemented | E-01 | POAM-014 |
 | R-02 | AU-6 | Log review for suspicious POS activity | AU | Req. 10 | Partially Implemented | E-04 | POAM-003 |
 | R-02 | CM-6 | Secure configuration baselines for POS and workstations | CM | Req. 2 | Not Implemented | E-12 | POAM-009 |
-| R-03 | PE-3 | Physical access control for devices and POS terminals | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
+| R-03 | PE-3 | Physical access control for devices and POS terminals; device inspection (PR-006) | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
 | R-04 | SC-7 | Network segmentation between POS and internal network (P-005) | SC | Req. 1 | Partially Implemented | E-05 | POAM-015 |
-| R-05 | CP-2 | Basic contingency planning for network outages | CP | Req. 12 | Not Implemented | E-08 | POAM-005 |
+| R-05 | CP-2 | Contingency and outage plan (PR-005) | CP | Req. 12 | Partially Implemented | E-08 | POAM-005 |
 | R-06 | AC-6 | Least privilege and privileged account review | AC | Req. 7 | Partially Implemented | E-03 | POAM-014 |
 | R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
 | R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
@@ -74,3 +74,4 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
 | 2026-10-30 | Added CA-5 (POAM-019) | The POA&M exists but wasn't reviewed as stated; remediation stalled unnoticed |
+| 2026-10-30 | CP-2: Not Implemented → Partially Implemented | Contingency and outage plan documented (PR-005); not yet tested. PE-3 and AT-2 gain procedures (PR-006, PR-007) but keep their ratings until inspections and training actually happen |

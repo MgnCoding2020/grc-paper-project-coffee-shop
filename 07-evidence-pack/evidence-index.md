@@ -34,7 +34,8 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-05 | SC-7 | Network segmentation summary (documents a gap) | [network-segmentation.md](artifacts/network/network-segmentation.md) | Undated | Simulation | POAM-015 |
 | E-06 | AT-2 | Security awareness training log | [security-training-log.csv](artifacts/training/security-training-log.csv) | 2026-01-10 | Simulation | POAM-002 |
 | E-07 | PE-3 | POS and device physical inspection checklist | [physical-inspection-checklist.csv](artifacts/physical/physical-inspection-checklist.csv) | From 2026-02-01 | Simulation | POAM-004 |
-| E-08 | CP-2 | Backup and outage response documentation | — | — | Planned | POAM-005 |
+| E-07a | PE-3 | POS device list (PCI DSS 9.5.1.1) | [pos-device-list.csv](artifacts/physical/pos-device-list.csv) | 2026-10-30 | Simulation | POAM-004 |
+| E-08 | CP-2 | Contingency and outage plan | [PR-005](../05-procedures/PR-005-contingency-plan.md) | 2026-10-30 | Simulation (not tested) | POAM-005 |
 | E-09 | SA-9 | Vendor assessment summary (Toast POS) | [vendor-assessment-summary.md](artifacts/vendor/vendor-assessment-summary.md) | Undated | Simulation | POAM-006 |
 | E-10 | SI-3 | Endpoint protection status | — | — | Planned | POAM-007 |
 | E-11 | SI-7 | Change and integrity monitoring logs | — | — | Planned | POAM-008 |

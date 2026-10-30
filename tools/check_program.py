@@ -52,7 +52,9 @@ SECRET_PATTERNS = {
     "GUID (tenant, client or object ID)": re.compile(
         r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b", re.I),
     "real *.onmicrosoft.com domain": re.compile(r"\b[a-z0-9-]+\.onmicrosoft\.com\b", re.I),
-    "IPv4 address": re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
+    # Exactly four dotted numbers (not part of a longer dotted sequence), and not a
+    # requirement number such as "PCI DSS 9.5.1.3" or "Req. 9.5.1.2"
+    "IPv4 address": re.compile(r"(?<!\d)(?<!\d\.)(?<!DSS )(?<!Req\. )(?<!Req )(?:\d{1,3}\.){3}\d{1,3}(?!\d)(?!\.\d)"),
     "access token (JWT)": re.compile(r"\beyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{10,}"),
     "Stripe API key": re.compile(r"\b(?:sk|rk|pk)_(?:live|test)_[A-Za-z0-9]{10,}"),
     # Any address outside the fictional domain (and example domains) could be a real test mailbox

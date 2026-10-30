@@ -23,8 +23,8 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-04 | AU-6 | Incident log (artifacts/monitoring/incident-log.md) | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
 | E-05 | SC-7 | Network segmentation summary (artifacts/network/network-segmentation.md) | Network configuration doc | Manual review | Valid (documents a gap: POAM-015) |
 | E-06 | AT-2 | Security awareness training log (artifacts/training/security-training-log.csv) | HR/training records | Manual review | Partial (1 of 20 active staff completed; POAM-002) |
-| E-07 | PE-3 | Physical inspection checklist (artifacts/physical/physical-inspection-checklist.csv) | Store inspection log | Manual review | Partial |
-| E-08 | CP-2 | Backup / outage response documentation | Internal documentation | Manual review | Missing |
+| E-07 | PE-3 | Physical inspection checklist (artifacts/physical/physical-inspection-checklist.csv) | Store inspection log | Manual review | Partial (one inspection recorded, 2026-02-01, with an unresolved issue; procedure PR-006 and device list added 2026-10-30) |
+| E-08 | CP-2 | Contingency and outage plan (05-procedures/PR-005-contingency-plan.md) | Plan document | Manual review; tabletop exercise | Partial (documented 2026-10-30; not tested) |
 | E-09 | SA-9 | Vendor assessment checklist (artifacts/vendor/vendor-assessment-summary.md) (Toast POS) | Vendor review doc | Manual review | Partial |
 | E-10 | SI-3 | Antivirus / endpoint protection status | Device reports | Manual review | Partial |
 | E-11 | SI-7 | Change monitoring / integrity logs | System logs | Manual review | Missing |
@@ -91,3 +91,4 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
 | 2026-10-30 | E-18 added | New control CA-5 |
+| 2026-10-30 | E-08 Missing → Partial; E-07 status detailed | Contingency plan documented; inspection history reviewed |

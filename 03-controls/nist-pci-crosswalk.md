@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **20 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 20: 0 Implemented, 12 Partially Implemented, 8 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **20 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 20: 0 Implemented, 13 Partially Implemented, 7 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -40,7 +40,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | CM-6 | Configuration Settings | R-02 | **Req. 2** – Apply secure configurations to all system components | Not Implemented |
 | PE-3 | Physical Access Control | R-03 | **Req. 9** – Restrict physical access (9.5.1: POS device inspection) | Partially Implemented |
 | SC-7 | Boundary Protection | R-04 | **Req. 1** – Network security controls / segmentation | Partially Implemented |
-| CP-2 | Contingency Plan | R-05 | **Req. 12.10** – Incident response / continuity (loose mapping\*) | Not Implemented |
+| CP-2 | Contingency Plan | R-05 | **Req. 12.10** – Incident response / continuity (loose mapping\*) | Partially Implemented |
 | AC-6 | Least Privilege | R-06 | **Req. 7** – Need-to-know / least privilege | Partially Implemented |
 | SA-9 | External System Services | R-07 | **Req. 12.8** – Manage service providers (Toast POS) | Partially Implemented |
 | SI-3 | Malicious Code Protection | R-08 | **Req. 5** – Protect from malicious software | Partially Implemented |
@@ -134,3 +134,4 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
 | 2026-10-30 | Added CA-5 | POA&M management; no direct PCI DSS equivalent |
+| 2026-10-30 | CP-2 Not Implemented → Partially Implemented | Contingency and outage plan (PR-005) documented, not yet tested |
