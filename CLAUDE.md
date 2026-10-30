@@ -70,7 +70,6 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 |---|---|---|---|---|
 | AL-13 | IAM matrix vs hub `P-001` §5.7 | Policy says vendor access is "assigned to named individuals (no generic vendor accounts)", yet the matrix has generic **"Vertex IT Support"** and **"NorthPeak Systems"** accounts, and the review didn't flag it | Leave Q1 as recorded (it's history), but **this is a missed finding**: raise it in the Q4 review as a new finding, a strong "what the first review missed" story. **Rev 3:** the generic Vertex account is removed during the CR-003 handover, so Q4 records the finding *and* its closure evidence | P4 |
 | AL-14 | Hub, everywhere | Google Workspace is the productivity suite in 23 files (46 mentions) | `CR-001` migration to Microsoft 365 (section 7). Dated evidence stays; current-state documents change | P3 |
-| AL-26 | Hub `P-001` §1 and §8, `P-002` §3 | Policies reference documents that don't exist: a "Network/Wireless Security Policy", a "Network Security Policy", an "Onboarding and Offboarding Procedure" and an "Incident Response Plan / Playbook" | In the 3b policy rewrite: point onboarding/offboarding to PR-001 and incident documents to P-003 and the playbooks; either write a P-005 Network Security Policy (fits POAM-015, SC-7) or remove the references | P3b (§13 T2) |
 | AL-15 | `workspace` `js/app.js` | `config/sites.json` is fetched from a fixed path, so a second organization pack can't supply its own sites | **Withdrawn (rev 2):** `workspace` is no longer a companion repo; the intranet is built directly in the tenant (§7.4) | — |
 
 
@@ -100,6 +99,7 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-23 | IAM Q1 record: summary lacked date and reviewer, said 14 employees; checklist unticked; remediation 7 months overdue with no updates | IAM PR #11: gaps filled from the program record, missing sign-off recorded as a gap, overdue status check with closure plans | 2026-10-30 |
 | AL-24 | Northwind listed as Active although its pre-go-live conditions (F-02, F-03) were open | Decision: not live. VRA PR #6 (status check) and this hub PR (status: onboarding pending) | 2026-10-30 |
 | AL-25 | POA&M claimed bi-weekly review; none was recorded, so stalls went unnoticed | Hub PR: POA&M review log, new control CA-5 with POAM-019, R-12, E-18 | 2026-10-30 |
+| AL-26 | P-001 and P-002 referenced documents that didn't exist (network policy, onboarding procedure, incident plan) | Network Security Policy P-005 written; P-001 and P-002 v1.2 point to P-005, PR-001, P-003 and the playbooks | 2026-10-30 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -491,7 +491,6 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] Asset register: SYS-010 to SYS-014 statuses; SYS-002, SYS-003, SYS-005 → Retired
 - [ ] IAM lab: procedure scope → Entra ID; README review history
 - [ ] Checker: add system aliases for the Microsoft 365 services used in evidence; implement the "retired systems only in older files" part of check 2
-- [ ] AL-26: P-001 and P-002 related-document references fixed in the policy rewrite (see the open findings)
 
 ### T3. Vertex offboarded (CR-003 steps 3–6)
 - [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
@@ -499,6 +498,10 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] NorthPeak account disabled → IAM F-003 closure evidence; V-005 notes
 - [ ] Asset PER-005 → Retired
 - [ ] Procedures `PR-001` to `PR-004` and the IAM procedure: heading "IT Administrator (Vertex IT Support until 2026-11-15, then the IT Technician)" → "IT Administrator (IT Technician)"; `roles.md` vendor paragraph becomes history
+
+### T3a. Network segmentation implemented (POAM-015)
+- [ ] P-005 §7 exception closed with a dated note; SC-7 re-rated on the evidence; `network-segmentation.md` gets a new dated record (the old one stays as history); R-04 residual risk reviewed
+- [ ] If built as a firewall VM lab: evidence marked `Lab-verified <date>` and the lab labelled as a technique demonstration, like IAM:F-005
 
 ### T4. SharePoint licence reactivated (D-8)
 - [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist

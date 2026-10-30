@@ -21,7 +21,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-02 | AU-6 | Log review for suspicious POS activity | AU | Req. 10 | Partially Implemented | E-04 | POAM-003 |
 | R-02 | CM-6 | Secure configuration baselines for POS and workstations | CM | Req. 2 | Not Implemented | E-12 | POAM-009 |
 | R-03 | PE-3 | Physical access control for devices and POS terminals | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
-| R-04 | SC-7 | Network segmentation between POS and internal network | SC | Req. 1 | Partially Implemented | E-05 | POAM-015 |
+| R-04 | SC-7 | Network segmentation between POS and internal network (P-005) | SC | Req. 1 | Partially Implemented | E-05 | POAM-015 |
 | R-05 | CP-2 | Basic contingency planning for network outages | CP | Req. 12 | Not Implemented | E-08 | POAM-005 |
 | R-06 | AC-6 | Least privilege and privileged account review | AC | Req. 7 | Partially Implemented | E-03 | POAM-014 |
 | R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
