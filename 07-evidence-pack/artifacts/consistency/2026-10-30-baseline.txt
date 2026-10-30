@@ -1,0 +1,44 @@
+Run: 2026-10-30, baseline before phase 2 corrections
+Hub 40aaaf7 | IAM 2265be3 | VRA abd540c
+
+Burn and Churn program consistency check (hub, IAM, VRA)
+
+[1] People match people.csv: FAIL (14)
+      - hub access/user-access-review.csv:2: account 'manager@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/user-access-review.csv:3: account 'manager@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/user-access-review.csv:4: account 'barista1@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/user-access-review.csv:5: account 'barista1@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/user-access-review.csv:6: account 'barista2@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/user-access-review.csv:7: account 'barista2@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/mfa-status.csv:2: account 'manager@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/mfa-status.csv:3: account 'barista1@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub access/mfa-status.csv:4: account 'barista2@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub training/security-training-log.csv:2: 'John Smith' is not in people.csv or vendors.csv
+      - hub training/security-training-log.csv:3: 'Jane Doe' is not in people.csv or vendors.csv
+      - hub training/security-training-log.csv:4: 'Alex Carter' is not in people.csv or vendors.csv
+      - hub monitoring/incident-log.md: account 'manager@burnandchurncoffee.com' is not a UPN in people.csv
+      - hub monitoring/incident-log.md: account 'barista2@burnandchurncoffee.com' is not a UPN in people.csv
+[2] Systems and vendors match systems.csv and vendors.csv: FAIL (6)
+      - hub vendor-inventory.md: V-003 is in vendors.csv but not in the inventory
+      - hub vendor-inventory.md: V-004 is in vendors.csv but not in the inventory
+      - hub vendor-inventory.md: V-005 is in vendors.csv but not in the inventory
+      - hub vendor-inventory.md: V-006 is in vendors.csv but not in the inventory
+      - hub vendor-inventory.md: V-007 is in vendors.csv but not in the inventory
+      - hub vendor-inventory.md: V-008 is in vendors.csv but not in the inventory
+[3] IDs are unique and resolve: PASS
+[4] Links resolve and companions link the hub: FAIL (6)
+      - hub 01-asset-inventory/data-classification.md: broken link '../04-policies/P-001-access-management.md'
+      - hub 01-asset-inventory/data-classification.md: broken link '../03-controls/contorl-matrix.md'
+      - hub 05-procedures/PR-001-user-access.md: broken link '../04-policies/P-001-access-management.md'
+      - hub 05-procedures/PR-002-patch-vuln-management.md: broken link '../04-policies/P-004-incident-response.md'
+      - hub 05-procedures/PR-003-quarterly-access-review.md: broken link '../04-policies/P-001-access-management.md'
+      - hub 05-procedures/PR-004-log-review.md: broken link '../04-policies/P-004-incident-response.md'
+[5] Control matrix, crosswalk and README agree: PASS
+[6] Headcount matches people.csv: FAIL (1)
+      - company_profile.md says 19; people.csv has 20 active store staff
+[7] No forbidden terms or personal data: FAIL (1)
+      - hub 02-risk-management/continuous-monitoring.md: mentions Stripe before CR-002
+[8] No secrets or tenant identifiers committed: PASS
+[9] Hub evidence agrees with the IAM access matrix: PASS
+
+Summary: 4 passed, 5 failed, 0 skipped; 28 finding(s).

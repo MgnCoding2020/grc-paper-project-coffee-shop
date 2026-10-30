@@ -87,6 +87,7 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-19 | Hub `network-segmentation.md` vs `system-architecture.md`, control matrix, crosswalk, risk register | The evidence puts Toast POS terminals on the **same Wi-Fi as the manager laptop** and says "no formal firewall rules or VLAN enforcement has been validated", yet the architecture says POS is segmented and SC-7 is marked **Implemented** with no POA&M | SC-7 → **Partially Implemented** with a new POA&M item; current state documented as is; target design in §5.4, owned by the IT Technician | P2 (status), P3 (design) |
 
 | AL-20 | Vendor lab `final-assessment/vendor-risk-assessment-report.md` | **Assessment Date** is still the placeholder `YYYY-MM-DD`; the hub vendor inventory records 2026-06-23 | Fill in 2026-06-23 with a dated correction note | P2 |
+| AL-21 | Hub `PR-001` to `PR-004`, `data-classification.md` | 6 broken links (found by the checker's first run): `P-001-access-management.md` (the file is `P-001-access-control.md`), `P-004-incident-response.md` (the Incident Response Policy is `P-003`), and `contorl-matrix.md` | Fix the link targets | P2 |
 
 ### Resolved
 
@@ -392,6 +393,9 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 6. **Counts:** the headcount in the company profile matches `people.csv`.
 7. **Forbidden terms:** no Stripe before CR-002; no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
 8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
+9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
+
+Not yet implemented: the "retired systems only in files dated before `retired_on`" part of check 2; it arrives with CR-001 in P3. The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
 
 **CI:** the hub's GitHub Action runs the checks that need only the hub. Full cross-repo runs are local, and their output is committed as evidence (`07-evidence-pack/artifacts/consistency/YYYY-MM-DD.txt`). That's continuous monitoring of the program itself, worth one line in the portfolio case study.
 
