@@ -472,6 +472,7 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 11. **Secrets stay local.** Tenant IDs, client IDs and secrets, real domains, Michael's own UPN, API keys (Stripe test keys included) live in a git-ignored `.env` and are read at runtime; commit a `.env.example` with placeholder names only. Raw tenant exports go in git-ignored `_raw/`; only redacted copies (fictional UPNs, no IPs, no GUIDs, no tokens) are committed as evidence. Check `git diff --cached` for secrets before every commit.
 12. **Work the deferred-corrections register (§13).** When a trigger event happens, complete its rows, tick and date them, and add any newly discovered future change to the register.
 13. **Treat AI as a program-wide change.** When AI is introduced, work register trigger T11 in full; don't add an AI feature to one repo alone.
+14. **Program dates are the company's calendar, not Michael's.** Inspection, review and training dates follow best practice to make the fiction believable; Michael won't really run monthly inspections, and the project may sit idle for months. When work resumes after a gap, never backdate an activity that didn't happen: record the missed dates honestly (status check plus a POA&M review-log entry, the way the stalled Q1 remediation was recorded), then set new dates. Dates on `Lab-verified` evidence are always the real dates.
 
 ---
 
@@ -614,3 +615,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 13 | 2026-10-30 | Deferred-corrections register added (§13): every known future update grouped by trigger (hire, cutover, Vertex offboarding, SharePoint, trial, Northwind conditions, Q4 review, CR-004, Microsoft reports, recurring); rule 12; AL-26 (policies reference documents that don't exist) |
 | 14 | 2026-10-30 | Hub story-level review (procedures, playbooks, scope): AL-27 resolved; PR-004 and IRP-004 follow-ups added to register T2 |
 | 15 | 2026-10-30 | §12a repository security baseline (real world): secret scanning and push protection verified; branch protection and 2FA pending Michael; register T11 for introducing AI program-wide; rule 13 |
+| 16 | 2026-10-30 | Rule 14: program dates are the fictional company's calendar; gaps are recorded, never backdated. Cash and card payments both accepted (company profile, PR-005) |
