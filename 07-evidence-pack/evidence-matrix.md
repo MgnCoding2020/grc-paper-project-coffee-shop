@@ -20,9 +20,9 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-01 | AC-2 | User account access review (artifacts/access/user-access-review.csv) | Internal system export | Python script (access_review_check.py) | Valid (shows open findings: POAM-014) |
 | E-02 | IA-2 | MFA status report (artifacts/access/mfa-status.csv)) | Google Workspace export | Python script (mfa_review_check.py) | Partial (missing users) |
 | E-03 | AC-6 | Privileged account review report | Admin role listing | Python script (privileged_access_review_check.py) | Valid (see IAM:F-002, POAM-014) |
-| E-04 | AU-6 | Incident log review CSV (artifacts/monitoring/incident-log.md) | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
+| E-04 | AU-6 | Incident log (artifacts/monitoring/incident-log.md) | Incident tracking log | Python script (incident_log_review_check.py) | Partial (open issues) |
 | E-05 | SC-7 | Network segmentation summary (artifacts/network/network-segmentation.md) | Network configuration doc | Manual review | Valid (documents a gap: POAM-015) |
-| E-06 | AT-2 | Security awareness training records | HR/training records | Manual review | Missing |
+| E-06 | AT-2 | Security awareness training log (artifacts/training/security-training-log.csv) | HR/training records | Manual review | Partial (1 of 20 active staff completed; POAM-002) |
 | E-07 | PE-3 | Physical inspection checklist (artifacts/physical/physical-inspection-checklist.csv) | Store inspection log | Manual review | Partial |
 | E-08 | CP-2 | Backup / outage response documentation | Internal documentation | Manual review | Missing |
 | E-09 | SA-9 | Vendor assessment checklist (artifacts/vendor/vendor-assessment-summary.md) (Toast POS) | Vendor review doc | Manual review | Partial |
@@ -77,3 +77,15 @@ These artifacts may be stored within the **examples** directory under the eviden
 Gaps identified in evidence and implementation are tracked in the POA&M:
 
 [View POA&M](./poam/poam.md)
+
+The [evidence index](evidence-index.md) lists every evidence artifact across the program's repositories, with dates and verification status.
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
+| 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
+| 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |

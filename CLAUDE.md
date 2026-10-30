@@ -385,6 +385,8 @@ Add `07-evidence-pack/evidence-index.md` to the hub: **one table across all repo
 
 This is the page an auditor (or a hiring manager) starts from. Entries in companion repos link to their exact file.
 
+**Created 2026-10-30.** Update it whenever evidence is added, especially after the build day (§7.5).
+
 ---
 
 ## 9. Phases
