@@ -1,0 +1,13 @@
+# Secrets and local settings: never committed (CLAUDE.md §12, rule 11)
+.env
+.env.*
+!.env.example
+*.local.json
+
+# Raw tenant exports go here before redaction; only redacted copies are committed
+_raw/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

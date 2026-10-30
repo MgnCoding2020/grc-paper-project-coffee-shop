@@ -3,6 +3,8 @@
 > **Where this file goes.** The root of `MgnCoding2020/grc-paper-project-coffee-shop`, as `CLAUDE.md`. That repo is the **program hub**; this file also governs changes Claude Code makes in the companion repos listed in section 2. The repos are public, and this file can be too: it contains nothing private.
 >
 > **Written 2026-10-29** from a full read of all five repos at these commits: `grc-paper-project-coffee-shop` `e4e0646`, `IAM-Access-Review-Lab` `a965fe0`, `Vendor-Risk-Assessment-Lab` `50b4679`, `workspace` `fe52f01`, `cyber-homelab` `e5f003c`. Every finding in section 3 cites the file it came from. Re-verify anything older than a few weeks before acting on it (§12, rule 8).
+>
+> **Revised 2026-10-29 (rev 2)** with Michael's decisions: real Entra ID accounts in his own tenant for live evidence; `workspace` and `cyber-homelab` are skill sources, not companion repos; QuickBooks replaced by an Excel workbook in SharePoint; Toast and Northwind stay paper-only; secrets rule added. See the revision history at the end.
 
 ---
 
@@ -31,9 +33,10 @@
 | **`grc-paper-project-coffee-shop`** (this repo) | **Program hub and system of record.** Company profile, canonical org data, policies, procedures, risk register, control matrix, crosswalk, POA&M, change records, evidence index | "He can run a security program." |
 | **`IAM-Access-Review-Lab`** | Operational: quarterly access reviews (AC-2, AC-6). Q1 2026 (pre-migration) plus Q4 2026 (post-migration, in Entra ID) | "He can execute and evidence an access certification." |
 | **`Vendor-Risk-Assessment-Lab`** | Operational: third-party assessments (SA-9). V-002 Northwind Payroll done; Microsoft and the IT managed-service provider next | "He can assess a vendor end to end." |
-| **`workspace`** | **Burn and Churn's intranet**, as a second organization pack inside the existing engine (section 7.4). The Contoso Defense demo stays intact | "He can build and run M365/SharePoint for a real-shaped business." |
-| **`burn-and-churn`** (future) | The online ordering website: `CR-002`, a separate later project with its own plan | "He can build a system to the controls." |
-| `cyber-homelab` | **Not part of the fiction.** Michael's own Microsoft 365 tenant lab. It may host Burn and Churn's live tenant objects (decision D-4); its case study stays about Michael's lab | — |
+| **Microsoft 365 tenant** (not a repo) | **Live evidence source.** Burn and Churn's staff accounts, groups, Conditional Access, MFA, audit log and SharePoint intranet are built in Michael's own tenant (D-4). Redacted exports are committed to the hub as `Lab-verified` evidence | "He can build and run M365 for a real-shaped business, and prove it." |
+| **`burn-and-churn`** (future) | The online ordering website: `CR-002`, a separate later project with its own plan. Where the technologies connect: Entra sign-in, least privilege, Stripe test mode | "He can build a system to the controls." |
+
+**Skill sources, not part of the program:** `workspace` (SharePoint-shaped intranet engine) and `cyber-homelab` (Entra, Conditional Access, audit log, eDiscovery labs) are where Michael practised the techniques this program now applies. They are not linked as companions, not changed by this plan, and their case studies stay about Michael's own labs. Lessons carried over are credited in prose where useful (e.g. "the break-glass exclusion pattern from the Cyber Home Lab").
 
 ### Link rules
 - **Hub → each companion repo:** the hub README has a "Program repositories" table linking all companion repos, and the evidence index (§8) links specific artifacts.
@@ -46,11 +49,11 @@
                     │  org data · policies · risk · controls│
                     │  POA&M · change records · evidence idx│
                     └──┬──────────────┬──────────────┬─────┘
-          access       │   vendor     │   intranet   │   online ordering (later)
-          reviews      │   assessments│   (M365)     │
+          access       │   vendor     │   live       │   online ordering (later)
+          reviews      │   assessments│   evidence   │
      ┌─────────────────▼─┐ ┌──────────▼────────┐ ┌───▼────────────┐ ┌────────────────┐
-     │ IAM-Access-Review │ │ Vendor-Risk-      │ │ workspace       │ │ burn-and-churn │
-     │ -Lab              │ │ Assessment-Lab    │ │ (B&C org pack)  │ │ (CR-002)       │
+     │ IAM-Access-Review │ │ Vendor-Risk-      │ │ M365 tenant     │ │ burn-and-churn │
+     │ -Lab              │ │ Assessment-Lab    │ │ (Entra, SPO)    │ │ (CR-002)       │
      └───────────────────┘ └───────────────────┘ └────────────────┘ └────────────────┘
           findings ─────────────► roll up to hub POA&M ◄──────────── findings
 ```
@@ -74,10 +77,13 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-09 | **Hub ↔ IAM lab** | **No links in either direction.** The hub README links only the vendor lab; the IAM lab README names the company but never links the program | Add the link rules in §2 | P1 |
 | AL-10 | Hub POA&M | IAM lab findings (F-001 to F-005) never roll up to the hub POA&M, unlike the vendor lab, which rolls up as POAM-013 | Add a rolled-up item (POAM-014, AC-2) referencing the IAM lab's remediation tracker | P2 |
 | AL-11 | IAM lab vs vendor lab | **Finding-ID collision:** both use `F-0x` | Keep local IDs; reference them globally as `IAM:F-001` and `VRA-V002:F-01` (§4.5) | P1 |
-| AL-12 | IAM `user-access-matrix.csv`, `F-004` | All 15 cashiers have Toast MFA "No"; only Ethan Brooks is flagged ("MFA not enabled") while the rest say "Access appropriate". Ethan's Google Workspace row shows MFA "Yes" | Decide the MFA scope (D-2). Recommended: Toast cashier PIN logins are out of MFA scope by design; F-004 becomes Ethan's **admin-capable** or Workspace account, with the data made to agree | P2 |
+| AL-12 | IAM `user-access-matrix.csv`, `F-004` | All 15 cashiers have Toast MFA "No"; only Ethan Brooks is flagged ("MFA not enabled") while the rest say "Access appropriate". Ethan's Google Workspace row shows MFA "Yes" | Decide the MFA scope (D-2). Toast cashier PIN logins are out of MFA scope by design. **Rev 2:** F-004's text, the remediation tracker and hub `mfa-status.csv` (`barista1`) all say Ethan's *Google* MFA was missing; only the matrix cell disagrees. Correct that one cell (and Ethan's Toast note) with a dated correction note instead of re-pointing F-004 | P2 |
 | AL-13 | IAM matrix vs hub `P-001` §5.7 | Policy says vendor access is "assigned to named individuals (no generic vendor accounts)", yet the matrix has generic **"Vertex IT Support"** and **"NorthPeak Systems"** accounts, and the review didn't flag it | Leave Q1 as recorded (it's history), but **this is a missed finding**: raise it in the Q4 review as a new finding, a strong "what the first review missed" story | P4 |
 | AL-14 | Hub, everywhere | Google Workspace is the productivity suite in 23 files (46 mentions) | `CR-001` migration to Microsoft 365 (section 7). Dated evidence stays; current-state documents change | P3 |
-| AL-15 | `workspace` `js/app.js` | `config/sites.json` is fetched from a fixed path, so a second organization pack can't supply its own sites | Small engine change: a `sitesPath` setting alongside the existing `seedPath` (§7.4) | P6 |
+| AL-15 | `workspace` `js/app.js` | `config/sites.json` is fetched from a fixed path, so a second organization pack can't supply its own sites | **Withdrawn (rev 2):** `workspace` is no longer a companion repo; the intranet is built directly in the tenant (§7.4) | — |
+| AL-16 | Hub `03-controls/control-matrix.md` vs IAM findings | AC-2 and AC-6 are marked **Implemented**, but the Q1 review left IAM:F-001 (terminated user active, AC-2), IAM:F-002 (excess Toast admin, AC-6) and IAM:F-003 (inactive vendor enabled, AC-2) open | Set both to **Partially Implemented**; POAM-014 covers AC-2 **and** AC-6 (or add POAM-015 for AC-6) | P2 |
+| AL-17 | IAM `F-005`, `vm-*` evidence | F-005 is a password-policy fix on a Windows lab VM, which is not a Burn and Churn system; the checker would flag it | Keep it (it's real work) and label it explicitly as a **lab demonstration of the technique**, outside the company's system boundary; no `systems.csv` entry | P2 |
+| AL-18 | Hub `mfa-status.csv`, `user-access-review.csv`, `incident-log.md` vs IAM matrix | The generic accounts map naturally to the roster: `barista2` (last login 2026-01-15, "Review Required", Incident 002 "inactive, pending disable") is **Aiden Scott** (IAM:F-001); `barista1` is **Ethan Brooks** (IAM:F-004); `manager@` is **Daniel Lopez**. Remaining conflict: hub says `barista2` had no Google MFA, the matrix says Aiden did | Apply this mapping in AL-01; Incident 002 cross-references IAM:F-001; resolve the Aiden MFA cell (recommended: the hub CSV wins, matrix gets a correction note) | P2 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -99,7 +105,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 
 ### 4.1 Company facts
 - **Burn and Churn Coffee**, single retail location (city fictional or unspecified; don't use a real address).
-- Email domain in documents: `burnandchurncoffee.com`. **Fictional, not owned:** never hyperlink it or use it as a real `mailto:`. If a live tenant is used (D-4), its real domain is the tenant's `*.onmicrosoft.com`, documented as the lab mapping.
+- Email domain in documents: `burnandchurncoffee.com`. **Fictional, not owned:** never hyperlink it or use it as a real `mailto:`. The live tenant (D-4) uses its own `*.onmicrosoft.com` domain. The real domain, tenant ID and Michael's own admin UPN are kept in a local `.env`, never committed; committed evidence shows `burnandchurncoffee.com` UPNs, with the substitution stated once in the evidence index.
 
 ### 4.2 People and roles
 
@@ -131,22 +137,25 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 
 ### 4.3 Systems
 
-`systems.csv` columns: `system_id, name, category, vendor_id, data_classification, boundary, in_scope_since, retired_on, notes`.
+`systems.csv` columns: `system_id, name, category, vendor_id, data_classification, boundary, evidence_mode, in_scope_since, retired_on, notes`.
 
-| ID | System | Notes |
-|---|---|---|
-| SYS-001 | Toast POS | In-store payments and orders (card-present). Unchanged |
-| SYS-002 | Google Workspace | **Retired** by CR-001 (`retired_on` set); kept for history |
-| SYS-003 | Google Admin Console | **Retired** with SYS-002 |
-| SYS-004 | xtraCHEF | Inventory and invoices (by Toast) |
-| SYS-005 | QuickBooks Online | Accounting |
-| SYS-006 | Northwind Payroll Services | Payroll and HR (V-002) |
-| SYS-007 | Store network | Router, firewall, staff and guest Wi-Fi (existing NET-00x assets) |
-| SYS-010 | Microsoft Entra ID | Identity, from CR-001 |
-| SYS-011 | Exchange Online | Email, from CR-001 |
-| SYS-012 | SharePoint Online + Teams | Files, intranet (Workspace), chat, from CR-001 |
-| SYS-013 | Microsoft Intune + Defender for Business | Device management and endpoint protection, from CR-001 (licence-dependent; see §7.2) |
-| SYS-020 | Online ordering website | **CR-002, later**; with Stripe (test mode) |
+`evidence_mode` says how a system can be evidenced: **Live** (built in Michael's tenant; screenshots and exports possible), **Simulation** (no access exists; documented design only, never claimed as live), **Test** (sandbox or test mode; no real payments or personal data).
+
+| ID | System | Mode | Notes |
+|---|---|---|---|
+| SYS-001 | Toast POS | Simulation | In-store payments and orders (card-present). No public sandbox, so no live evidence; no real card data anywhere in the program |
+| SYS-002 | Google Workspace | Simulation | **Retired** by CR-001 (`retired_on` set); kept for history |
+| SYS-003 | Google Admin Console | Simulation | **Retired** with SYS-002 |
+| SYS-004 | xtraCHEF | Simulation | Inventory and invoices (by Toast) |
+| SYS-005 | QuickBooks Online | Simulation | **Retired** by CR-001: bookkeeping moves to SYS-014. Kept for the Q1 history |
+| SYS-006 | Northwind Payroll Services | Simulation | Payroll and HR (V-002). The shop's side (timesheets, payroll export) is Live in SYS-012/014 |
+| SYS-007 | Store network | Simulation | Router, firewall, staff and guest Wi-Fi (existing NET-00x assets) |
+| SYS-010 | Microsoft Entra ID | Live | Identity, from CR-001 |
+| SYS-011 | Exchange Online | Live | Email, from CR-001 (licence-dependent) |
+| SYS-012 | SharePoint Online + Teams | Planned → Live | Files, intranet lists and libraries, chat, from CR-001. Live once the SharePoint licence is reactivated (D-8) |
+| SYS-013 | Microsoft Intune + Defender for Business | Simulation unless licensed | Device management and endpoint protection, from CR-001 |
+| SYS-014 | Bookkeeping workbook (Excel for the web, in SharePoint) | Planned → Live | Sales, expenses and payroll reconciliation in a restricted Finance library, from CR-001. Permissions, versioning and audit-log entries are the live evidence |
+| SYS-020 | Online ordering website | Test | **CR-002, later**; with Stripe (test mode) |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
 
@@ -161,7 +170,7 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-003 | Microsoft (Microsoft 365) | Active from CR-001; assessment in P5 |
 | V-004 | Vertex IT Support (MSP) | Active; privileged access; assessment in P5 |
 | V-005 | NorthPeak Systems | **Offboarded**; access removal is IAM F-003 |
-| V-006 | Intuit (QuickBooks Online) | Active; tier to score |
+| V-006 | Intuit (QuickBooks Online) | **Offboarded** by CR-001 (replaced by SYS-014); data export and subscription cancellation are CR-001 exit steps |
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
 | V-008+ | Stripe, Cloudflare, AI provider | Added only by CR-002 |
 
@@ -191,32 +200,34 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
 ```
 ┌─────────────────────────── Microsoft 365 tenant (Burn and Churn) ───────────────────────────┐
 │ Entra ID: users, groups, Conditional Access, app roles · Exchange Online · Teams           │
-│ SharePoint Online: intranet hub (Workspace org pack) ─ Operations · People · Finance ·      │
+│ SharePoint Online: intranet ─ Operations · People · Finance (Excel bookkeeping, SYS-014) ·  │
 │                    Security & Compliance sites                                              │
 │ Intune + Defender for Business: manager laptop, store tablets (licence-dependent)          │
 └───────────────┬─────────────────────────────────────────────────────────────────────────────┘
                 │ SSO (where supported)                       ┌──────────────────────────────┐
    ┌────────────▼───────────┐   ┌─────────────────────────┐   │ Store network (SYS-007)      │
-   │ Toast POS + xtraCHEF   │   │ QuickBooks Online       │   │ staff Wi-Fi · guest Wi-Fi ·  │
-   │ (card-present; vendor- │   │ Northwind Payroll       │   │ POS segment (SC-7)           │
-   │ managed PCI scope)     │   │ (SaaS, own logins)      │   └──────────────────────────────┘
+   │ Toast POS + xtraCHEF   │   │ Northwind Payroll       │   │ staff Wi-Fi · guest Wi-Fi ·  │
+   │ (card-present; vendor- │   │ (SaaS, own logins;      │   │ POS segment (SC-7)           │
+   │ managed PCI scope)     │   │ payroll export from SPO)│   └──────────────────────────────┘
    └────────────────────────┘   └─────────────────────────┘
         Later, CR-002: online ordering site ── Stripe Checkout (test mode) ── customer identity
 ```
 
 ### 5.2 Identity design (Entra ID)
 
-- **Groups** (security groups, `grp-` prefix): `grp-owners`, `grp-managers`, `grp-shift-leads`, `grp-baristas`, `grp-vendor-msp`, `grp-break-glass`. Every access decision is granted to a group, never to a person directly. Workspace's persona derivation from group membership already works this way (verified live, per Workspace `docs/STATUS.md`).
+- **Groups** (security groups, `grp-` prefix): `grp-owners`, `grp-managers`, `grp-shift-leads`, `grp-baristas`, `grp-vendor-msp`, `grp-break-glass`. Every access decision is granted to a group, never to a person directly (the group-driven role pattern Michael verified live in `workspace`).
 - **Admin roles, least privilege:**
-  - Owner: Global Administrator, kept **eligible**, not standing, where PIM is licensed; otherwise documented as a gap.
+  - Owner: Global Administrator. PIM (eligible, not standing, admin) needs Entra ID P2, which the tenant doesn't have, so standing admin is a **documented gap with compensating controls**: separate admin account, phishing-resistant MFA, break-glass, alerting on role assignments, and admin roles checked in every quarterly review. Recorded as an accepted risk in the risk register.
   - Vertex: delegated admin with only the roles it needs (User Administrator, Helpdesk Administrator), time-bound. In the documents this is **GDAP**, Microsoft's granular delegated admin model for service providers. In a lab tenant without a partner relationship, show it as a named vendor account with scoped roles and record the difference.
   - Baristas: no admin roles.
+- **Live tenant vs paper.** What Michael's tenant actually has is recorded separately from what the fictional company would buy. Any control that depends on a missing licence stays `Simulation` and says why.
 - **Licensing on paper** (what the fictional company would buy): Microsoft 365 **Business Premium** for the Owner, Manager and Shift Leaders, and Microsoft 365 **F1/F3 frontline** licences for baristas. Business Premium includes Entra ID P1 (Conditional Access), Intune and Defender for Business; PIM needs P2, which Business Premium doesn't include. **Every price or licence claim must be checked against Microsoft's current pages when written, and dated.**
 - **Conditional Access baseline:** require MFA for all users; block legacy authentication; require phishing-resistant MFA for admins; exclude break-glass. Report-only first, then enforce, the same pattern as the Cyber Home Lab.
-- **Joiner/mover/leaver:** access requests are submitted on the intranet (Workspace Access Requests list), approved by the Owner or Manager, and fulfilled by Vertex. Termination disables the account the same day (PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
+- **Joiner/mover/leaver:** access requests are submitted on the intranet (People site, Access Requests list), approved by the Owner or Manager, and fulfilled by Vertex. Termination disables the account the same day (PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
 
 ### 5.3 Payments
 
+- **No real payments, no real card data, anywhere.** Toast is documented only (`Simulation`); the website uses Stripe test mode with test card numbers.
 - **In store: Toast** (card-present). Toast is the PCI service provider; the shop's obligations are SA-9 / PCI DSS 12.8 vendor management plus device inspection (PE-3 / 9.5.1). Unchanged.
 - **Online, later: Stripe Checkout in test mode**, via `CR-002`, because Toast's ordering platform has no public sandbox a portfolio project can integrate with. Two processors is a normal small-business pattern; the program must say so explicitly, and give each processor its own vendor entry, crosswalk rows and PCI scope statement.
 - Until CR-002 is approved, **no document mentions Stripe** (AL-07).
@@ -265,7 +276,7 @@ The Q1 2026 access review, the March 2026 incidents and the MFA export **really 
 
 Create `09-change-management/CR-001-google-workspace-to-microsoft-365.md` with:
 - **Business justification:** one identity platform; Conditional Access; device management; a SharePoint intranet for SOPs, access requests and training; better audit logging.
-- **Scope:** systems in (SYS-010 to SYS-013) and out (SYS-002 and SYS-003); users (all 20 active staff plus the vendor technician plus break-glass).
+- **Scope:** systems in (SYS-010 to SYS-014) and out (SYS-002, SYS-003 and SYS-005 QuickBooks); users (all 20 active staff plus the vendor technician plus break-glass).
 - **Risk and impact analysis (CM-4):** migration risks (mail cutover, data loss, MFA enrolment gaps, the vendor's admin scope), each with a mitigation.
 - **Control impact:** the table in section 6, finalized.
 - **Plan:** pilot (Owner and Manager) → all staff → Google read-only for 30 days → Google closed. **Exit criteria:** every account has MFA enrolled; the audit log is verified returning records; Google data is exported and deleted, with the deletion confirmation filed as evidence for V-007 offboarding.
@@ -286,17 +297,14 @@ All 23 files mentioning Google, grouped:
 | Monitoring | `continuous-monitoring.md` | M365 scope; remove Stripe |
 | Evidence (dated) | `mfa-status.csv`, `user-access-review.csv`, `incident-log.md`, `evidence-matrix.md`, `examples/*` | **Keep the Google entries**; apply roster corrections with a note; add a new M365 evidence row when it exists |
 
-### 7.4 Workspace as Burn and Churn's intranet
+### 7.4 The intranet, built in the tenant
 
-**Recommendation: an organization pack inside the `workspace` repo, not a fork.** The engine already separates code from content: `js/` never names the company, `check-workspace.py` enforces that, and the README's "Bringing your own organisation" section says a new business is "a real authoring task" while the engine is reusable. A fork would drift; a pack reuses every engine fix.
+**Rev 2:** the intranet is built directly in SharePoint Online in Michael's tenant, applying what he practised in `workspace` and `cyber-homelab`; it is not an org pack in the `workspace` repo.
 
-- **Engine change (AL-15):** add `data.sitesPath` beside the existing `data.seedPath` in `config/app.json`, and have `app.js` read it instead of the fixed `config/sites.json`. Burn and Churn is selected in `config/app.local.json` (git-ignored) or by a build flag; the Contoso Defense default doesn't change.
-- **Pack location:** `orgs/burn-and-churn/` with `app.json` (org and brand overrides), `sites.json` and `seed/`.
-- **Sites:** Home; **Operations** (opening and closing checklists, food-safety SOPs, equipment issues); **People** (onboarding and offboarding, an **Access Requests** list that drives PR-001, the training tracker for AT-2); **Finance** (the Timesheets module, feeding the Northwind payroll export, and QuickBooks reconciliations); **Security & Compliance** (the published policies, the POA&M tracker, the incident log, the vendor inventory, access review sign-offs).
-- **Roles** map to the §5.2 groups (`grp-owners` and so on). Persona derivation from Entra groups is already verified live.
-- **Content:** every person, system and vendor comes from `00-company-profile/org/` in the hub. Write a small export script in the hub that produces the pack's seed data from the org files, so the intranet can't drift from the program.
-- **Live tenant: optional and later** (D-4, licensing). The pack is fully demonstrable on the `memory` provider; any live claim follows the Workspace `docs/STATUS.md` standard.
-- **Effort:** this is the largest piece: about 15–25 hours of seed authoring. Do it after the hub and labs are aligned.
+- **Sites:** Home; **Operations** (opening and closing checklists, food-safety SOPs, equipment issues); **People** (onboarding and offboarding, an **Access Requests** list that drives PR-001, the training tracker for AT-2, timesheets feeding the payroll export); **Finance** (the bookkeeping workbook SYS-014, restricted to `grp-owners` and `grp-managers`); **Security & Compliance** (the published policies, the POA&M tracker, the incident log, the vendor inventory, access review sign-offs).
+- **Permissions** are granted to the §5.2 groups only, never to individuals: least privilege is evidenced by the site permission pages themselves.
+- **Content:** every person, system and vendor comes from `00-company-profile/org/` in the hub. Provisioning scripts (users, groups, sites, lists) read `people.csv` and the other org files, so the tenant can't drift from the program. Scripts live in the hub under `tools/tenant/`; any tenant-specific value comes from `.env`.
+- **Until SharePoint is reactivated** (D-8), the sites are `Planned` and documented as design; Entra work (users, groups, Conditional Access, MFA, audit log) can go ahead first.
 
 ---
 
@@ -322,7 +330,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 | **P3. CR-001 migration** | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
 | **P4. Q4 2026 access review** | 6 | IAM | Restructure into `reviews/2026-Q1/` (history, unchanged) and `reviews/2026-Q4/`. Q4 runs against Entra groups and roles: confirm Q1 remediation, raise **AL-13 (generic vendor accounts)** as the "what Q1 missed" finding, check the break-glass and vendor-delegation design | Q4 findings roll up to hub POAM-014 |
 | **P5. Vendor assessments** | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `assessments/V-004-vertex-msp/` | Inventory statuses updated; findings roll up to POAM-0xx |
-| **P6. Intranet org pack** | 15–25 | Workspace (+ hub export script) | AL-15 engine change; the Burn and Churn pack; seed generated from hub org data | Works on `memory`; every name and system matches the hub |
+| **P6. Live tenant build** | 15–25 | Hub (`tools/tenant/`, evidence) + tenant | Create the 20 staff, vendor technician and break-glass accounts and the `grp-` groups from `people.csv`; Conditional Access (report-only, then enforce); MFA registration; verify the unified audit log; then the SharePoint sites (§7.4) once licensed. Commit redacted exports as `Lab-verified` evidence | Real sign-in and MFA evidence in the evidence index; every name matches the hub; no secret or tenant identifier committed |
 | **P7. Portfolio** | 3 | Portfolio repo | Update the GRC case study to tell the multi-repo story; link the evidence index | Case study verified against the merged repos |
 | **P8. Online ordering** | — | New repo | `CR-002` and the website plan (revised for M365 staff identity). **Out of scope for this file** | — |
 
@@ -335,7 +343,7 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 `tools/check_program.py` in the hub. Python standard library only. It runs **locally** against sibling clones:
 
 ```
-python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Vendor-Risk-Assessment-Lab [--workspace ../workspace]
+python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Vendor-Risk-Assessment-Lab
 ```
 
 **It checks:**
@@ -346,6 +354,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 5. **Controls:** every control in the matrix appears in the crosswalk, and the reverse; control counts in the README match the matrix (the earlier 11-vs-15 bug becomes impossible).
 6. **Counts:** the headcount in the company profile matches `people.csv`.
 7. **Forbidden terms:** no Stripe before CR-002; no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
+8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
 
 **CI:** the hub's GitHub Action runs the checks that need only the hub. Full cross-repo runs are local, and their output is committed as evidence (`07-evidence-pack/artifacts/consistency/YYYY-MM-DD.txt`). That's continuous monitoring of the program itself, worth one line in the portfolio case study.
 
@@ -358,9 +367,11 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 | D-1 | Headcount: 19 or 20 active staff? | **20** (the evidence has 15 baristas); update the profile |
 | D-2 | MFA scope for Toast cashier PIN logins | Out of scope by design (documented); re-point F-004 at a real MFA gap |
 | D-3 | CR-001 cutover date | **2026-11-15**, before the Q4 review |
-| D-4 | Live tenant: none, the Cyber Home Lab tenant, or a new one | Decide after checking current licences. Until then, everything is `Simulation`. If you reuse the lab tenant, prefix every Burn and Churn object (`bc-`) and keep its case study separate |
+| D-4 | Live tenant: none, the Cyber Home Lab tenant, or a new one | **Decided 2026-10-29:** Michael's own tenant, with real accounts for all staff to capture real sign-in and MFA evidence. No Entra ID P2 (PIM is a documented gap). Open: confirm it's the same tenant as the Cyber Home Lab; if so, tag Burn and Churn objects (e.g. department = "Burn and Churn Coffee") so they're filterable and the homelab case study stays separate |
 | D-5 | Vertex technician's name | Pick one invented name and use it everywhere |
 | D-6 | Microsoft licence mix on paper | Business Premium for leaders, F1/F3 for baristas, verified against Microsoft's current pages when written |
+| D-7 | Payroll vendor: keep Northwind or replace it | **Recommended: keep V-002 Northwind as a paper vendor.** A vendor assessment never needs access to the vendor's system (it's questionnaires, contracts and SOC reports), the assessment is complete and dated, and it's fictional so no real company is implied. The hands-on part is the shop's own side: timesheets and the payroll export in SharePoint/Excel. Awaiting Michael's confirmation |
+| D-8 | SharePoint licence reactivation | Michael to reactivate; until then SYS-012 and SYS-014 stay `Planned` and P6 starts with Entra-only work |
 
 ---
 
@@ -376,6 +387,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 8. **Verify before claiming.** Facts about Microsoft licensing, pricing, features or PCI requirements are checked against the vendor's or standard's current pages when written, and dated. Facts about Michael's work are checked against the repo, not this plan.
 9. **Run the consistency checker before every PR** that touches people, systems, vendors, IDs or controls, and paste its summary in the PR.
 10. **Keep this file current:** tick phases as they merge; move fixed `AL-##` rows to a "Resolved" table with the PR number.
+11. **Secrets stay local.** Tenant IDs, client IDs and secrets, real domains, Michael's own UPN, API keys (Stripe test keys included) live in a git-ignored `.env` and are read at runtime; commit a `.env.example` with placeholder names only. Raw tenant exports go in git-ignored `_raw/`; only redacted copies (fictional UPNs, no IPs, no GUIDs, no tokens) are committed as evidence. Check `git diff --cached` for secrets before every commit.
 
 ---
 
@@ -390,3 +402,12 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 | Microsoft 365 Business Premium (security features) | https://learn.microsoft.com/microsoft-365/business-premium/ |
 | Emergency access (break-glass) accounts | https://learn.microsoft.com/entra/identity/role-based-access-control/security-emergency-access |
 | Granular delegated admin privileges (GDAP) | https://learn.microsoft.com/partner-center/customers/gdap-introduction |
+
+---
+
+## Revision history
+
+| Rev | Date | Change |
+|---|---|---|
+| 1 | 2026-10-29 | Plan written from a full read of all five repos |
+| 2 | 2026-10-29 | Michael's decisions: live Entra tenant for real evidence (D-4); `workspace`/`cyber-homelab` reclassified as skill sources, AL-15 withdrawn, P6 becomes the live tenant build; QuickBooks retired into an Excel workbook in SharePoint (SYS-014, V-006 offboarded); `evidence_mode` added to systems; no-real-payments rule; PIM gap; secrets rule 11 and checker check 8; new findings AL-16 to AL-18; D-7 and D-8 added |
