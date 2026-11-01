@@ -12,10 +12,10 @@ Regular access reviews help reduce the risk of unauthorized access, excessive pe
 This procedure applies to all systems and services used by Burn and Churn Coffee that require user authentication or role-based permissions.
 
 Systems included in the review process include, but are not limited to:
-  - Google Workspace (email, Drive, administrative roles)
+  - Microsoft Entra ID (users, groups, administrative roles, guests)
   - Toast POS system
   - xtraCHEF inventory and supplier management platform
-  - QuickBooks Online accounting platform
+  - The bookkeeping workbook (SharePoint Finance library permissions)
   - Store networking systems and administrative interfaces
 
 ---------
@@ -53,10 +53,10 @@ The review should occur near the end of each quarter.
 The IT administrator gathers current user access lists from applicable systems.
 
 Examples include:
-  - Google Workspace user and admin role lists
+  - Microsoft Entra ID users, group memberships, admin role assignments and guests (exported by the IT Technician)
   - Toast POS employee account permissions
   - xtraCHEF system user access
-  - QuickBooks Online user access list
+  - Finance library permissions
 
 ### Step 2: Manager Review
 Managers review the user lists to confirm:
@@ -128,4 +128,5 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Review scope and evidence move to Microsoft Entra ID and the Finance library | Microsoft 365 cutover (CR-001) |
 | 2026-10-30 | Sign-off and separation of duties added to documentation; vendor, guest and network-admin accounts added to the manager review; dated status checks; role naming | The Q1 2026 review had no sign-off, and the IAM lab's copy of this procedure already required it (AL-27) |

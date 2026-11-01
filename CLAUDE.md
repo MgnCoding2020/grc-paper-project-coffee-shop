@@ -520,7 +520,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] Every runbook item in §7.5
 - [ ] PR-004: keep log-review records separate from the incident log; add the within-7-days export (Entra ID Free) and the Microsoft 365 audit log; IRP-004: remote lock or wipe through Intune if licensed
 - [ ] **3b rewrite** of current-state documents that still describe Google Workspace (AL-14): `assessment_scope.md`, `company_profile.md`, `glossary.md`, `security-program-overview.md`, `assets.md`, `data-classification.md`, `continuous-monitoring.md` (access review scope → Entra ID), `vendor-inventory.md`, `P-001`, `P-002`, `P-003`, `PR-001` to `PR-004`, `IRP-001`, `IRP-002`, `examples/*`, `system-architecture.md`, README business scenario. **Not** dated records (evidence CSVs, incident log, `CORRECTIONS.md`, change records)
-- [ ] Architecture diagrams (`08-architecture/*.png`): regenerate if they show Google Workspace
+- [x] Architecture diagrams (`08-architecture/*.png`): checked 2026-11-01; generic, no Google service shown, no change needed
 - [ ] `systems.csv`: SYS-010 → Live; SYS-011/012/014 per licence; confirm or revise `retired_on` for SYS-002, SYS-003, SYS-005 (2026-11-15 if on schedule)
 - [ ] `vendors.csv` and vendor inventory: V-003 → Active; V-006 and V-007 → offboarding, then Offboarded when the data deletion is confirmed
 - [ ] Asset register: SYS-010 to SYS-014 statuses; SYS-002, SYS-003, SYS-005 → Retired

@@ -7,7 +7,7 @@ Burn and Churn Coffee
   - **Effective Date:** 2026-02-01
   - **Last Reviewed / Updated:** 2026-10-30
   - **review Frequency:** Annual
-  - **Version:** 1.2
+  - **Version:** 1.3
 
 ---------------------------------------------
 **1. Purpose**
@@ -34,7 +34,7 @@ This policy applies to:
 **2.2 Systems and Resources Covered**
 This policy applies to the use of:
   - Toast POS systems and administrative portal
-  - Google Workspace (email, Drive, admin console)
+  - Microsoft 365 (email, OneDrive, SharePoint, Teams, admin centres)
   - Company-issued tablets and computing devices
   - Staff Wi-Fi network
   - Network infrastructure and administrative interfaces
@@ -57,7 +57,7 @@ All users shall:
 **4. Prohibited Activities** 
 The following activities are strictly prohibited:
   **1.** Share login credentials or use another individual's account.
-  **2.** Logging into Toast POS or Google Workspace using another employee's credentials.
+  **2.** Logging into Toast POS or Microsoft 365 using another employee's credentials.
   **3.** Attempting to bypass, disable, or interfere with system security controls.
   **4.** Installing unauthorized applications or software on company-owned devices.
   **5.** Accessing, downloading, or distributing illegal, inappropriate, or non-work-related content using company-owned systems.
@@ -141,4 +141,5 @@ Acknowledgments shall be retained for documentation purposes.
 
 | Version | Date | Change |
 |---|---|---|
+| 1.3 | 2026-11-15 | Microsoft 365 replaces Google Workspace (CR-001) |
 | 1.2 | 2026-10-30 | The Network Security Policy reference now points to P-005 (new); the Access Management Policy is linked (alignment item AL-26). No requirement changed |

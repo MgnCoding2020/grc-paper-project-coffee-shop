@@ -9,7 +9,7 @@ Burn and Churn Coffee
 **Approved By:** Business Owner
 **Effective Date:** February 2026
 **Review Frequency:** Annual or following a major incident
-**Version:** 1.2
+**Version:** 1.3
 
 ------------------------------------------------------
 
@@ -35,7 +35,7 @@ This policy applies to all individuals who interact with Burn and Churn Coffee t
 
 Systems and services covered by this policy include:
   - Toast POS systems and administrative portal
-  - Google Workspace email and administrative console
+  - Microsoft 365 email and admin centres
   - Company-issued tablets and operational devices
   - Network infrastructure (router, firewall, Wi-Fi access points)
   - Staff Wi-Fi network
@@ -256,6 +256,7 @@ to and including termination of employment or contractual relationship.
 
 | Version | Date | Change |
 |---|---|---|
+| 1.3 | 2026-11-15 | Scope: Microsoft 365 replaces Google Workspace (CR-001) |
 | 1.2 | 2026-11-01 | §6 lifecycle mapped to the NIST CSF 2.0 functions used by NIST SP 800-61 Rev. 3; §6.7 playbook index with IRP-005 to IRP-007 and a yearly tabletop; High-severity examples for ransomware, vendor breach and payment fraud; §9 adds the bank, IC3 and the insurer |
 | 1.1 | Before 2026-10-30 | Earlier version (not dated) |
 

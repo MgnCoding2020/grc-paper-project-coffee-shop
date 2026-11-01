@@ -7,7 +7,7 @@ This document defines how the coffee shop maintains ongoing awareness of securit
 
 ### Access Reviews
 - Frequency: Quarterly
-- Scope: Google Workspace, Toast POS, xtraCHEF, QuickBooks Online, network administration interfaces (the systems in the Q1 2026 access review)
+- Scope: Microsoft Entra ID (users, groups, admin roles, guests), Toast POS, xtraCHEF, network administration interfaces, the password manager and connected-device portals (from the Q4 2026 review; the Q1 2026 review covered Google Workspace and QuickBooks Online)
 - Objective: Identify inactive or unauthorized accounts
 
 ### MFA Enforcement
@@ -47,5 +47,6 @@ Findings identified through monitoring activities are documented and tracked in 
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Access review scope moves to Microsoft Entra ID and the systems added since Q1 | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Added the automated program monitor; patching scope widened | Monthly checks of the program's own records (CA-7); IT Operations Policy (P-006) |
 | 2026-10-30 | Access review scope: Stripe removed; xtraCHEF, QuickBooks Online and network administration interfaces added | Stripe is not used by the company; scope now matches the systems actually reviewed (AL-07) |

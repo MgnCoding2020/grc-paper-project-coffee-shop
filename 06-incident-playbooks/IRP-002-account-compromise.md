@@ -8,7 +8,7 @@ Burn and Churn Coffee
 **Approved By:** Business Owner  
 **Effective Date:** March 2026  
 **Review Frequency:** Annual or following an account compromise incident  
-**Version:** 1.1  
+**Version:** 1.2  
 
 ---
 
@@ -22,8 +22,8 @@ Account compromise occurs when unauthorized individuals gain access to company a
 ## 2. Scope
 This playbook applies to compromised accounts affecting:
 
-- Google Workspace user accounts  
-- Google Workspace administrative accounts  
+- Microsoft 365 user accounts (Entra ID)  
+- Microsoft 365 administrative accounts (`adm-` accounts)  
 - Toast POS administrative accounts  
 - Company-issued tablets  
 - Network administration accounts  
@@ -155,4 +155,15 @@ Review:
 - Access Control Policy  
 - Acceptable Use Policy  
 - Risk Register  
-- Control Matrix  
+- Control Matrix
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-15 | Microsoft 365 replaces Google Workspace in scope | Microsoft 365 cutover (CR-001) |
+
+---
+

@@ -44,14 +44,14 @@ Key systems include:
 - **Toast POS System**  
   Used for payment processing and order management.
 
-- **Google Workspace**  
-  Used for company email, documents, and business communication.
+- **Microsoft 365**  
+  Staff accounts and sign-in (Microsoft Entra ID), email (Exchange Online), files, the intranet and chat (SharePoint and Teams). Replaced Google Workspace on 2026-11-15 (CR-001).
 
 - **xtraCHEF**  
   Inventory and invoice management (part of Toast).
 
-- **QuickBooks Online**  
-  Accounting.
+- **Bookkeeping workbook**  
+  Excel for the web in a restricted SharePoint Finance library (Owner and Store Manager only). Replaced QuickBooks Online on 2026-11-15 (CR-001).
 
 - **Northwind Payroll Services**  
   Payroll and HR (approved with conditions after a vendor risk assessment on 2026-06-23; onboarding pending until the vendor meets its pre-go-live conditions).
@@ -74,14 +74,15 @@ Burn and Churn Coffee relies on several third-party vendors, each with a stable 
 - Toast, Inc. (point of sale, payment processing and xtraCHEF), V-001
 - Northwind Payroll Services (payroll and HR), V-002
 - Vertex IT Support (IT managed services), V-004
-- Intuit (QuickBooks Online), V-006
-- Google (Workspace email and collaboration), V-007
+- Microsoft (Microsoft 365), V-003
+- Intuit (QuickBooks Online), V-006: being offboarded under CR-001 (data exported; subscription cancelled)
+- Google (Workspace email and collaboration), V-007: being offboarded under CR-001 (data exported; deletion confirmation pending)
 - Internet service provider, V-008
 - Cloud camera service, V-010
 - Espresso machine service company (including remote diagnostics), V-011
 - Temperature monitoring service, V-012
 
-Planned: Microsoft (Microsoft 365), V-003, with the CR-001 migration; Bitwarden (password manager), V-009, with CR-003.
+Planned: Bitwarden (password manager), V-009, with CR-003.
 
 Card payments are processed through Toast, which connects to the card networks. These vendors introduce **third-party risk considerations** that must be evaluated as part of the security program.
 
@@ -105,6 +106,7 @@ These risks are addressed through the organization's security governance program
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Google Workspace replaced by Microsoft 365 and QuickBooks Online by the bookkeeping workbook; V-003 active; V-006 and V-007 being offboarded | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices and their vendors (V-010 to V-012) added; planned vendors V-003 and V-009 noted | The devices were registered in the asset and vendor inventories (PR-011) but missing here |
 | 2026-10-30 | Headcount corrected from about 19 to 20 active store staff (15 Baristas); IT vendors named; xtraCHEF, QuickBooks Online and Northwind Payroll added; vendors listed with their inventory IDs | Aligned with the canonical org data and the Q1 2026 access review (AL-03, AL-05) |
 | 2026-10-30 | Stated that cash and card payments are both accepted | Clarification; the contingency plan (PR-005) relies on cash as a fallback |
