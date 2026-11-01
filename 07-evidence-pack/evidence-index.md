@@ -83,13 +83,14 @@ Runs of the program consistency checker ([`tools/check_program.py`](../tools/che
 
 ## Coming From the Live Tenant
 
-Evidence the CR-001 build will produce (see the build-day runbook in `CLAUDE.md` §7.5). Each becomes `Lab-verified <date>` when committed.
+Evidence the CR-001 build will produce (see the build-day runbook in `CLAUDE.md` §7.5). Each becomes `Lab-verified <date>` when committed. The planned file names, and how each is redacted, are in [artifacts/tenant/](artifacts/tenant/README.md) and [artifacts/credentials/](artifacts/credentials/README.md).
 
 | Control(s) | Evidence | Status |
 |---|---|---|
 | AC-2 | Provisioning log from `provision-users.ps1` | Planned (2026-11-15) |
 | AC-2, AC-6 | Entra users, group memberships and admin role assignments | Planned (2026-11-15) |
 | IA-2 | Per-user MFA status and sign-in log details | Planned (2026-11-15) |
+| IA-2, AC-2 | Conditional Access policies, report-only then on | Planned (Business Premium trial, D-9) |
 | AU-2, AU-6 | Audit log export, verified returning records | Planned (2026-11-15) |
 | AC-2, AC-6 | Q4 2026 access review run against Entra ID | Planned (Q4 2026) |
 | AC-2, SA-9 | Vendor guest invited and added to `grp-bc-vendors` (CR-004 provisioning log) | Planned (after VRA-V002:F-02 closes) |

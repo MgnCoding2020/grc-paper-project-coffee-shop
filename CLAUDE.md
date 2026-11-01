@@ -122,7 +122,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 
 ### 4.1 Company facts
 - **Burn and Churn Coffee**, single retail location (city fictional or unspecified; don't use a real address).
-- Email domain in documents: `burnandchurncoffee.com`. **Fictional, not owned:** never hyperlink it or use it as a real `mailto:`. The live tenant (D-4) uses its own `*.onmicrosoft.com` domain. The real domain, tenant ID and Michael's own admin UPN are kept in a local `.env`, never committed; committed evidence shows `burnandchurncoffee.com` UPNs, with the substitution stated once in the evidence index.
+- Email domain in documents: `burnandchurncoffee.com`. **Fictional, not owned:** never hyperlink it or use it as a real `mailto:`. The live tenant (D-4) uses its own `*.onmicrosoft.com` domain. The real domain, tenant ID and Michael's own admin UPN are kept in a local `.env`, never committed; committed evidence shows `burnandchurncoffee.com` UPNs, with the substitution stated once in the evidence index. **No domain is bought** (decided 2026-11-01): the tenant keeps its free default domain, account names match exactly (`olivia.carter@…`) and only the part after the `@` differs, replaced by `tools/tenant/redact_export.py`; the website (CR-002) runs on Cloudflare's free tier with its default subdomain.
 
 ### 4.2 People and roles
 
@@ -241,7 +241,7 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
 
 ### 5.2 Identity design (Entra ID)
 
-- **Groups** (security groups, `grp-bc-` prefix so they never mix with Michael's lab objects in the shared tenant): `grp-bc-all-staff` (every Burn and Churn account, the scope for Conditional Access), `grp-bc-owners`, `grp-bc-managers`, `grp-bc-shift-leads`, `grp-bc-baristas`, `grp-bc-it`, `grp-bc-break-glass`. Every Burn and Churn user also has department = "Burn and Churn Coffee". Every access decision is granted to a group, never to a person directly (the group-driven role pattern Michael verified live in `workspace`).
+- **Groups** (security groups, `grp-bc-` prefix so they never mix with Michael's lab objects in the shared tenant): `grp-bc-all-staff` (every Burn and Churn account, the scope for Conditional Access), `grp-bc-owners`, `grp-bc-managers`, `grp-bc-shift-leads`, `grp-bc-baristas`, `grp-bc-it`, `grp-bc-vendors` (vendor guests, CR-004), `grp-bc-admins` (the `adm-` accounts only: the scope for admin sign-in rules, never granted site access), `grp-bc-break-glass`. Every Burn and Churn user also has department = "Burn and Churn Coffee". Every access decision is granted to a group, never to a person directly (the group-driven role pattern Michael verified live in `workspace`).
 - **Admin roles, least privilege:**
   - Owner: Global Administrator. PIM (eligible, not standing, admin) needs Entra ID P2, which the tenant doesn't have, so standing admin is a **documented gap with compensating controls**: separate admin account, phishing-resistant MFA, break-glass, alerting on role assignments, and admin roles checked in every quarterly review. Recorded as an accepted risk in the risk register.
   - IT Technician: `adm-riley.morgan` holds only the roles the job needs (User Administrator, Helpdesk Administrator, plus others only when a task requires them, recorded in the change). The daily `riley.morgan` account has no admin roles.
@@ -361,7 +361,7 @@ All 23 files mentioning Google, grouped:
 The order of work for the pilot and the 2026-11-15 cutover. Each step names the evidence it produces. Raw exports go to `_raw/` (git-ignored); only redacted copies are committed, marked `Lab-verified <date>`.
 
 **Before (by 2026-11-14)**
-- [ ] Reactivate the SharePoint licence (D-8); decide on the Business Premium trial (D-9) after confirming its terms and what happens to policies when it lapses
+- [ ] Nothing to buy: build day runs on Entra ID Free. The Business Premium trial (D-9) comes later, in the website repo's build phase
 - [ ] `Install-Module Microsoft.Graph -Scope CurrentUser`; confirm `.env` values
 - [ ] Draft the 3b PR (M365 rewrite of the §7.3 files), opened as a draft and **not merged**
 - [ ] Note in the CR-001 log that Google Workspace and QuickBooks data were exported (step 1; fictional systems, so a log entry only)
@@ -369,14 +369,14 @@ The order of work for the pilot and the 2026-11-15 cutover. Each step names the 
 **Pilot (on or before 2026-11-15)**
 - [ ] Hub PR: Riley Morgan `Planned` → `Active` with a start date in `people.csv` (CR-003 step 1)
 - [ ] `provision-users.ps1 -DryRun`, then the real run → `provisioning-log` (AC-2 evidence)
-- [ ] By hand: `adm-olivia.carter` and `adm-riley.morgan` with least-privilege roles; two break-glass accounts → screenshot of role assignments (AC-6)
-- [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free), or Conditional Access report-only → on (if on the trial) → MFA status screenshot or policy export (IA-2)
+- [ ] `provision-users.ps1 -IncludeAdminAccounts`: `adm-olivia.carter` and `adm-riley.morgan` with exactly the roles in `admin-accounts.csv`; turn on their MFA first; document the tenant's existing break-glass accounts → screenshot of role assignments (AC-6)
+- [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free; Conditional Access comes with the trial, D-9) → MFA status export (IA-2)
 - [ ] Verify the audit log returns records → audit log export (AU-2)
 
 **Cutover (2026-11-15)**
 - [ ] Sign in as test users in InPrivate windows and register Authenticator; leave one barista unregistered on purpose; one wrong password; one denied MFA prompt
 - [ ] **Same day** (7-day retention on Free): download sign-in logs, audit logs and the per-user MFA status; export group memberships
-- [ ] Redact to the fictional domain (no tenant IDs, GUIDs or IPs); commit as new `Lab-verified` evidence rows; update E-01, E-02, E-03 and the evidence index
+- [ ] Redact each export with `tools/tenant/redact_export.py` into `07-evidence-pack/artifacts/tenant/` (the planned file names are listed there); commit as new `Lab-verified` evidence rows; update E-01, E-02, E-03 and the evidence index
 - [ ] `systems.csv`: SYS-010 → Live; `vendors.csv`: V-003 Active, V-006 and V-007 offboarding started
 - [ ] CR-001 and CR-003 log entries; status → Implemented (awaiting review); **merge the 3b PR**
 - [ ] Run the consistency checker; save the run under `07-evidence-pack/artifacts/consistency/`
@@ -455,8 +455,8 @@ Not yet implemented: the "retired systems only in files dated before `retired_on
 | D-5 | IT support: outsourced MSP or in-house | **Decided:** hire a part-time in-house IT Technician, **Riley Morgan** (invented name; Michael performs the role in practice, but the fiction uses no real names). Vertex offboarded by CR-003 |
 | D-6 | Microsoft licence mix on paper | **Proposed in CR-001 (2026-10-30):** Business Premium for the Owner, Store Manager, Shift Leaders and IT Technician; **F1** for baristas (Microsoft's pages, checked 2026-10-30: F1 and F3 both include Entra ID P1 and Intune Plan 1; only F3 has a mailbox, which baristas don't need) |
 | D-7 | Payroll vendor: keep Northwind or replace it | **Recommended: keep V-002 Northwind as a paper vendor.** A vendor assessment never needs access to the vendor's system (it's questionnaires, contracts and SOC reports), the assessment is complete and dated, and it's fictional so no real company is implied. The hands-on part is the shop's own side: timesheets and the payroll export in SharePoint/Excel. **Confirmed by Michael 2026-10-29** |
-| D-8 | SharePoint licence reactivation | Michael reactivates it in time for the account build (2026-11-15). Until then SYS-012 and SYS-014 stay `Planned` |
-| D-9 | Microsoft 365 Business Premium 30-day trial at build time | **Strong option, decide closer to 2026-11-15.** It adds P1 (Conditional Access, built report-only then enforced), Intune and Defender for Business for the trial window; when it ends, the fall-back to per-user MFA is recorded as a change record plus a POA&M item. Before starting: confirm the trial terms on Microsoft's page and what happens to policies when the trial lapses |
+| D-8 | SharePoint licence | **Superseded 2026-11-01:** no separate SharePoint licence. SharePoint comes with the Business Premium trial (D-9), which includes everything in Business Standard. Until then SYS-012 and SYS-014 stay `Planned` |
+| D-9 | Microsoft 365 Business Premium 30-day trial | **Decided 2026-11-01:** started in the **website repo's build phase** (CR-002), when Michael is ready to test everything that needs it in one window: SharePoint sites and lists, Exchange mailboxes, Conditional Access (report-only, then on), guest MFA for CR-004, Intune and Defender. Licences assigned with `provision-users.ps1 -AssignLicenses`. Michael cancels before it converts to paid: before starting, confirm the trial terms, the licence count and how to cancel, and set a reminder. When it ends, a change record and POA&M item record the lost controls (T5); evidence from the trial is marked as covering the trial dates only |
 | D-10 | Vendor guest account | **Decided 2026-10-30:** a named Northwind payroll contact as a B2B guest in `grp-bc-vendors`, with time-limited access to the payroll-export folder, under change CR-004, granted only after Northwind confirms MFA (VRA-V002:F-02). Tested end to end in the real tenant (invite, sign-in, file access, expiry, removal) with fictional test data; the guest's real test mailbox lives only in `.env` |
 | D-11 | In-store payments: keep Toast or move to Stripe Terminal | **Decided 2026-10-30:** move to Stripe Terminal under CR-005, because Toast offers no sandbox and the program must be testable end to end. Toast is not erased: it stays the POS (Simulation) until the website's register passes acceptance testing, then it is offboarded like Google and Vertex, and its dated assessment stays as history. Trade-offs recorded in CR-005: no offline card payments (cash during outages), xtraCHEF replaced by a SharePoint list, Toast PIN rules carried over to the register sign-in |
 
@@ -547,7 +547,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Vendor lab:** V-001 status entry (offboarded, exit evidence: account closure and terminal return); new Stripe assessment folder
 - [ ] **Checker:** remove the CR-005 Stripe exception (CR-002 is approved by then); add aliases for the register and reader
 
-### T4. SharePoint licence reactivated (D-8)
+### T4. SharePoint available (Business Premium trial, D-8 and D-9)
 - [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist
 - [ ] Confirm which plan includes Purview Audit (Standard); update the logging approach (VRA-V003:F-04, PR-004)
 - [ ] CR-004 precondition 2 met (log entry)
@@ -646,3 +646,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 17 | 2026-10-30 | In-house IT role completed: PR-008 (10 hours a week, Owner as backup administrator, Vertex handover checklist), PR-009 password manager (Bitwarden Free organization, SYS-015, V-009), Privileged User Agreement, IA-5, R-13/R-14, POAM-021/022, E-19/E-20; register T1, T3, T3b |
 | 18 | 2026-10-30 | D-11: in-store payments move from Toast to Stripe Terminal under CR-005 (approved, blocked on the CR-002 register), so every payment flow can be tested; Toast stays until cutover; register trigger T12; checker allows Stripe in CR-005 only |
 | 19 | 2026-11-01 | §12a closed: GitHub two-factor authentication confirmed on; branch protection not used, by Michael's decision |
+| 20 | 2026-11-01 | Build readiness: no domain bought (tenant default domain; Cloudflare free tier for the website); D-8 superseded and D-9 decided (Business Premium trial in the website repo's build phase, cancelled before it converts); runbook uses `-IncludeAdminAccounts` and `redact_export.py`; `grp-bc-admins` and `grp-bc-vendors` listed; tenant and credentials evidence folders |
