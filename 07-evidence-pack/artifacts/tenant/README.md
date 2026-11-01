@@ -20,6 +20,7 @@ Nothing is in this folder yet. The table lists each file the builds will produce
 | `<date>-mfa-status.csv` | Per-user MFA page (Entra ID Free) | IA-2 | E-02 | Build day |
 | `<date>-signins.csv` | Sign-in logs download (7-day retention on Free: same day) | IA-2, AU-2 | E-02 | Build day |
 | `<date>-audit-log.csv` | Audit logs download | AU-2, AU-6 | New row when captured | Build day |
+| `<date>-tenant-baseline/` | Screenshots of each PR-013 §2 setting page (names blurred) | CM-6, IA-2 | E-28 | Build day |
 | `<date>-conditional-access.json` | Conditional Access policy export (report-only, then on) | IA-2, AC-2 | E-02 | Business Premium trial (D-9) |
 | `<date>-guest-lifecycle.md` | Invite, sign-in, file access, denied access, expiry, removal (CR-004) | AC-2, AC-6, PS-4 | — | After CR-004's preconditions |
 

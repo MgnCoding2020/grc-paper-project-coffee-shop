@@ -55,6 +55,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-25 | CA-7 | Monthly program monitor issues | [Saved reports](artifacts/monitoring/program-monitor/README.md) and [issues labelled program-monitor](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues?q=label%3Aprogram-monitor) | 2026-11-01 (first run: [issue #30](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues/30)) | Automated (reads the records) | POAM-028 |
 | E-26 | CP-9, CP-10 | Backup log | [backup-log.csv](artifacts/backup/backup-log.csv) | 2026-11-01 | Simulation | POAM-029 |
 | E-27 | IR-8, CP-2 | Tabletop exercise log | [tabletop-log.csv](artifacts/monitoring/tabletop-log.csv) | — | Planned | POAM-030, POAM-005 |
+| E-28 | CM-6, IA-2 | Microsoft 365 tenant baseline screenshots | Planned: `artifacts/tenant/<date>-tenant-baseline/` ([PR-013](../05-procedures/PR-013-m365-tenant-baseline.md)) | — | Planned | POAM-009 |
 
 ---
 

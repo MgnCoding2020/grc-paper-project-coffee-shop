@@ -35,6 +35,7 @@ Most incidents at a small shop start with a person: a convincing phishing email,
 | **Spotting POS tampering** | Overlays, extra devices, broken seals, unexpected prompts; checking anyone claiming to service a terminal | PR-006, PCI DSS 9.5.1.3 |
 | Outages | Offline payment rules, the $50 limit, never clearing a terminal with pending payments | PR-005 §4 |
 | Lost or stolen devices | Report immediately | IRP-004 |
+| Personal phones and MFA | Authenticator on a personal phone is fine and holds no company data; never approve a prompt you didn't start; report a lost phone the same day; don't download company files; a security key is available instead | P-007 |
 | Payment and payroll fraud | Never change bank details or pay anything because of an email or text; call back on a known number; no gift cards; tell the Owner | IRP-007 §9 |
 | Visitors and smart devices | Confirm any technician with the vendor before letting them touch equipment; never pair a personal phone with the speaker or other store devices; report a camera that has been moved | PR-010 §4, PR-011 |
 | How to report | Tell the Store Manager or Owner straight away; reporting is always the right call | P-003 §7 |

@@ -377,6 +377,7 @@ The order of work for the pilot and the 2026-11-15 cutover. Each step names the 
 - [ ] Hub PR: Riley Morgan `Planned` → `Active` with a start date in `people.csv` (CR-003 step 1)
 - [ ] `provision-users.ps1 -DryRun`, then the real run → `provisioning-log` (AC-2 evidence)
 - [ ] `provision-users.ps1 -IncludeAdminAccounts`: `adm-olivia.carter` and `adm-riley.morgan` with exactly the roles in `admin-accounts.csv`; turn on their MFA first; document the tenant's existing break-glass accounts → screenshot of role assignments (AC-6)
+- [ ] Apply the tenant baseline (PR-013 §2): confirm the tenant-wide settings first (shared tenant), then screenshot each setting page → `artifacts/tenant/<date>-tenant-baseline/` (E-28, CM-6)
 - [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free; Conditional Access comes with the trial, D-9) → MFA status export (IA-2)
 - [ ] Verify the audit log returns records → audit log export (AU-2)
 
@@ -596,6 +597,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] Confirm the $50 offline limit is set in Toast Web and record it (PR-005 §9); Owner decides on cellular failover (if installed: P-005 segmentation applies, assets and vendors updated)
 - [ ] By 2026-11-30: first all-staff training session (PR-007), including Microsoft 365 sign-in and MFA; training log updated; AT-2 re-rated only once staff are actually trained
 - [ ] December 2026: first tabletop: the contingency plan (PR-005 §8) plus the incident playbooks, at least ransomware (IRP-005) and payroll fraud (IRP-007); record it in `tabletop-log.csv` → E-27, POAM-030, POAM-005; consider adding CP-4 to the control matrix
+- [ ] By 2026-11-30: staff acknowledge the personal phone policy (P-007) in the first training session; security keys bought for anyone who declines → POAM-031
 - [ ] Missed dates → status check and POA&M review-log entry (CA-5)
 
 ### T9c. IT operations first cycles (P-006, PR-002, PR-010)
@@ -678,3 +680,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 25 | 2026-11-01 | Batch E, incident playbooks: IRP-005 malware and ransomware, IRP-006 vendor breach (vendor notification commitments from the assessments), IRP-007 payment and payroll fraud (prevention rules: callback, two people, no gift cards); P-003 v1.2 mapped to NIST CSF 2.0 / SP 800-61 Rev. 3 with a playbook index; IR-4 and IR-8 (33 controls, 15 families); R-20; POAM-030; E-27 tabletop log; due-date monitor tracks the yearly tabletop |
 | 26 | 2026-11-01 | Program monitor commits each report as a dated file in `artifacts/monitoring/program-monitor/` (workflow needs contents: write); branch runs skip the issue for testing; checker treats saved reports like saved consistency runs |
 | 27 | 2026-11-01 | Company profile, assessment scope, program overview and data classification now include the connected devices and vendors V-010 to V-012 (missed in batch C); checker check 2 confirms the profile lists every current vendor |
+| 28 | 2026-11-01 | Build-day documents: P-007 Mobile Device and Personal Phone Policy (Authenticator on personal phones, no downloads, security-key alternative) and PR-013 Microsoft 365 Tenant Security Baseline (per-user MFA, user and guest settings, consent, admin roles, logging; tenant-wide items flagged for the shared tenant); AC-19 (34 controls); R-21; POAM-031; POAM-009 In Progress; E-28; runbook applies the baseline |
