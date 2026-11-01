@@ -20,6 +20,7 @@ This classification standard applies to all business information created, proces
   - Internal business documents
   - Administrative systems
   - Vendor platforms that process company data
+  - Connected devices and their vendor clouds (camera recordings, temperature logs)
 
 All employees and authorized vendors who interact with company information must follow this classification standard.
 
@@ -64,6 +65,8 @@ Below are examples of common data handled by Burn and Churn Coffee.
 | Payment transaction records        | Restricted     |
 | Employee payroll information       | Restricted     |
 | Administrative account credentials | Restricted     |
+| Camera footage of customers and staff | Confidential |
+| Food-safety temperature log        | Internal       |
 
 -------
 
@@ -94,6 +97,14 @@ Updates may be made following:
   - Operational changes
   - New system implementations
   - Policy Updates
+
+----
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-01 | Connected devices in scope; camera footage (Confidential) and the temperature log (Internal) added to the examples | Connected devices registered under PR-011; camera footage is asset DATA-005 |
 
 ----
 

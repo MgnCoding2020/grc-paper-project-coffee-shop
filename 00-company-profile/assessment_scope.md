@@ -28,6 +28,7 @@ The following systems and services are included in this security assessment:
 - Northwind Payroll Services, once onboarded (approved with conditions; onboarding pending)
 - Store network infrastructure (router, firewall, and Wi-Fi)
 - Company tablets used for operational management
+- Connected devices (cameras, espresso machine, temperature sensors, speaker) and their vendor portals, including the espresso service company's remote access
 - Vendor access to operational systems
 
 These systems represent the primary technology components supporting daily business operations.
@@ -77,4 +78,5 @@ The findings from this assessment will inform the organization's risk management
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-01 | Connected devices and their vendor portals added | Registered under PR-011; they share the store network with the POS until the Devices segment exists |
 | 2026-10-30 | xtraCHEF, QuickBooks Online and Northwind added to scope; inventory out-of-scope wording clarified; account-administration assumption aligned with the RACI | The scope omitted systems in the canonical system list and contradicted the RACI (AL-27). The Microsoft 365 systems join the scope with CR-001 |

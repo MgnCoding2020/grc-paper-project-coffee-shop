@@ -62,6 +62,9 @@ Key systems include:
 - **Company Tablets**  
   Used by store managers and employees for operational tasks.
 
+- **Connected Devices**  
+  Two security cameras with cloud recording, a connected espresso machine that its service company monitors remotely, fridge temperature sensors that keep the food-safety log, and a music speaker ([PR-011](../05-procedures/PR-011-connected-devices.md)).
+
 ---
 
 ## External Service Providers
@@ -74,6 +77,11 @@ Burn and Churn Coffee relies on several third-party vendors, each with a stable 
 - Intuit (QuickBooks Online), V-006
 - Google (Workspace email and collaboration), V-007
 - Internet service provider, V-008
+- Cloud camera service, V-010
+- Espresso machine service company (including remote diagnostics), V-011
+- Temperature monitoring service, V-012
+
+Planned: Microsoft (Microsoft 365), V-003, with the CR-001 migration; Bitwarden (password manager), V-009, with CR-003.
 
 Card payments are processed through Toast, which connects to the card networks. These vendors introduce **third-party risk considerations** that must be evaluated as part of the security program.
 
@@ -97,5 +105,6 @@ These risks are addressed through the organization's security governance program
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-01 | Connected devices and their vendors (V-010 to V-012) added; planned vendors V-003 and V-009 noted | The devices were registered in the asset and vendor inventories (PR-011) but missing here |
 | 2026-10-30 | Headcount corrected from about 19 to 20 active store staff (15 Baristas); IT vendors named; xtraCHEF, QuickBooks Online and Northwind Payroll added; vendors listed with their inventory IDs | Aligned with the canonical org data and the Q1 2026 access review (AL-03, AL-05) |
 | 2026-10-30 | Stated that cash and card payments are both accepted | Clarification; the contingency plan (PR-005) relies on cash as a fallback |
