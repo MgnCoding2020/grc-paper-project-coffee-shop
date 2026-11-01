@@ -6,14 +6,14 @@ Burn and Churn Coffee
 **Approved by:** Business Owner | 
 **Effective Date:** 2026-11-01 | 
 **Review Frequency:** Annual, or when systems or the IT role change | 
-**Version:** 1.0
+**Version:** 1.1
 
 ----------
 
 ## 1. Purpose
 This policy sets the rules for looking after Burn and Churn Coffee's technology once it's in place: knowing what equipment the business has, keeping it updated, maintaining and repairing it safely, and replacing it before its maker stops supporting it.
 
-It implements NIST SP 800-53 **CM-8 (System Component Inventory)**, **SI-2 (Flaw Remediation)**, **MA-2 (Controlled Maintenance)**, **MA-5 (Maintenance Personnel)** and **SA-22 (Unsupported System Components)**, and supports PCI DSS Requirements 6.3.3, 9.5.1, 12.3.4 and 12.5.1.
+It implements NIST SP 800-53 **CM-8 (System Component Inventory)**, **SI-2 (Flaw Remediation)**, **MA-2 (Controlled Maintenance)**, **MA-5 (Maintenance Personnel)** and **SA-22 (Unsupported System Components)**, It also implements **CP-9 (System Backup)** and **CP-10 (System Recovery and Reconstitution)**. It supports PCI DSS Requirements 6.3.3, 9.5.1, 12.3.4, 12.5.1 and 12.10.1.
 
 -----------
 
@@ -63,23 +63,45 @@ Before a device is sold, recycled or returned to a vendor, company data is erase
 
 -----------
 
-## 8. Current Exceptions
-  - **Equipment records are incomplete.** Before 2026-11-15, Vertex IT Support kept no maintenance records, and the support end dates for the firewall, access points and tablets are not on file. The register marks them *Unknown*. Tracked under POAM-023 and POAM-025.
+## 8. Backups and Recovery (CP-9, CP-10)
+  1. Data and settings the shop couldn't easily recreate are backed up, including data held in cloud services: a vendor's own backups protect the vendor, not the shop's data.
+  2. A monthly copy is kept **offline and encrypted**, in two places, so ransomware, fire or theft can't destroy every copy.
+  3. Network device settings are exported after every change.
+  4. Data is exported before any vendor account is closed.
+  5. Restores are **tested every quarter**. A backup that hasn't been restored isn't counted as working.
+
+The [Backup and Recovery Procedure (PR-012)](../05-procedures/PR-012-backup-and-recovery.md) describes how.
 
 -----------
 
-## 9. Enforcement
+## 9. Current Exceptions
+  - **Equipment records are incomplete.** Before 2026-11-15, Vertex IT Support kept no maintenance records, and the support end dates for the firewall, access points and tablets are not on file. The register marks them *Unknown*. Tracked under POAM-023 and POAM-025.
+  - **No backups exist yet** (PR-012 §7). Tracked under POAM-029.
+
+-----------
+
+## 10. Enforcement
 Equipment that isn't in the register, isn't updated on time, or is past its end of support without an approved exception is a finding in the next review. Unrecorded maintenance by a visitor is treated as a security incident under the [Incident Response Policy (P-003)](P-003-incident-response.md).
 
 -----------
 
-## 10. Related Documents
+## 11. Related Documents
   - [Patch and Vulnerability Management Procedure (PR-002)](../05-procedures/PR-002-patch-vuln-management.md)
   - [Equipment Maintenance and Lifecycle Procedure (PR-010)](../05-procedures/PR-010-equipment-lifecycle.md)
+  - [Backup and Recovery Procedure (PR-012)](../05-procedures/PR-012-backup-and-recovery.md)
   - [POS Device Inspection Procedure (PR-006)](../05-procedures/PR-006-pos-device-inspection.md)
   - [IT Administration and Coverage Procedure (PR-008)](../05-procedures/PR-008-it-administration.md)
   - [Network Security Policy (P-005)](P-005-network-security.md)
   - [Asset Inventory](../01-asset-inventory/assets.md)
+
+-----------
+
+## Revision History
+
+| Version | Date | Change |
+|---|---|---|
+| 1.1 | 2026-11-01 | §8 Backups and Recovery added (CP-9, CP-10, PR-012); later sections renumbered |
+| 1.0 | 2026-11-01 | First version |
 
 -----------
 

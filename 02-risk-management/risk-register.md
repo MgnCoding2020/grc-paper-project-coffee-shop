@@ -51,6 +51,7 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-16 | Someone posing as a technician, or unrecorded maintenance, tampers with equipment | High | Low | Medium | MA-2, MA-5, PE-3 | Medium |
 | R-17 | A connected device (camera, espresso machine, sensor, speaker) with a default password, old firmware or vendor remote access gives an attacker a way into the store network and on to the POS | High | Medium | High | SC-7, MA-4, IA-5, SI-2 | High |
 | R-18 | Camera footage captures customers entering card PINs, or is viewed or shared without a reason | High | Low | Medium | PE-6 | Medium |
+| R-19 | Data or settings are lost to deletion, ransomware, a dead device or a closed vendor account, with no copy to restore from | High | Medium | High | CP-9, CP-10 | High |
 
 ----
 
@@ -82,6 +83,7 @@ During reviews, risk may be:
 |---|---|---|
 | 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
 | 2026-10-30 | Added R-10 (access kept after leaving or changing roles) and R-11 (uncontrolled change) | R-10 already happened (IAM:F-001, IAM:F-003); R-11 arises from CR-001 and CR-003 |
+| 2026-11-01 | Added R-19 (no backups) | The shop relied on vendors' own backups and has no copy of its own data or network settings (PR-012); residual stays High until the first restore test (POAM-029) |
 | 2026-11-01 | R-12 controls: CA-7 added | The monthly program monitor reports overdue items automatically |
 | 2026-11-01 | Added R-17 (connected devices) and R-18 (camera footage) | Connected devices found on the staff Wi-Fi with unverified passwords and unrecorded vendor access (PR-011); R-17 residual stays High until the Devices segment exists (POAM-015, POAM-026) |
 | 2026-11-01 | Added R-15 (unpatched or unsupported equipment) and R-16 (unverified maintenance) | IT Operations Policy (P-006); no update, repair or visit records exist from before 2026-11-15; R-15 residual stays High until records exist (POAM-023, POAM-025) |
