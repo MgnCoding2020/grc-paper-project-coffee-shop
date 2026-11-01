@@ -27,21 +27,44 @@
       - provisioning-log-<timestamp>.csv   what was created or skipped, using the fictional
                                            domain only, so a copy can be committed as evidence
 
-    Out of scope (deliberate manual steps, reviewed for least privilege): admin roles,
-    adm- accounts, break-glass accounts, licences and MFA.
+    Each user's employeeId is set from person_id (EMP-###), so HR records and the directory
+    match. People sign in with their user principal name (first.last@...), not the employee ID.
+
+    With -IncludeAdminAccounts, it also creates the separate admin accounts listed in
+    admin-accounts.csv (adm-first.last), adds them to grp-bc-admins, and assigns exactly the
+    directory roles listed there. Admin accounts get no licence and no site access.
+
+    With -AssignLicenses, it assigns the licence named by BC_LICENSE_SKU in .env (for example
+    the Microsoft 365 Business Premium trial) to every provisioned person. Admin accounts and
+    guests are never licensed.
+
+    Out of scope (deliberate manual steps): break-glass accounts (tenant-wide, documented
+    separately) and MFA registration, which each person completes at first sign-in.
 
 .PARAMETER DryRun
     Show what would be created without connecting to Microsoft Graph or changing anything.
+
+.PARAMETER IncludeAdminAccounts
+    Also create the admin accounts in admin-accounts.csv and assign their directory roles.
+    Turn on MFA for them straight away: they hold real admin rights in the tenant.
+
+.PARAMETER AssignLicenses
+    Also assign the licence named by BC_LICENSE_SKU in .env to every provisioned person.
 
 .EXAMPLE
     .\tools\tenant\provision-users.ps1 -DryRun
 
 .EXAMPLE
     .\tools\tenant\provision-users.ps1
+
+.EXAMPLE
+    .\tools\tenant\provision-users.ps1 -IncludeAdminAccounts -AssignLicenses
 #>
 [CmdletBinding()]
 param(
-    [switch]$DryRun
+    [switch]$DryRun,
+    [switch]$IncludeAdminAccounts,
+    [switch]$AssignLicenses
 )
 
 $ErrorActionPreference = 'Stop'
@@ -49,6 +72,7 @@ $ErrorActionPreference = 'Stop'
 $HubRoot   = Resolve-Path (Join-Path $PSScriptRoot '..\..')
 $PeopleCsv   = Join-Path $HubRoot '00-company-profile\org\people.csv'
 $ContactsCsv = Join-Path $HubRoot '00-company-profile\org\vendor-contacts.csv'
+$AdminsCsv   = Join-Path $HubRoot '00-company-profile\org\admin-accounts.csv'
 $EnvFile     = Join-Path $HubRoot '.env'
 $RawDir    = Join-Path $HubRoot '_raw'
 $Company   = 'Burn and Churn Coffee'
@@ -92,11 +116,15 @@ $skipped = @(Import-Csv $PeopleCsv | Where-Object { $_.employment_status -eq 'Te
 $allContacts = @(Import-Csv $ContactsCsv)
 $guests = @($allContacts | Where-Object { $_.status -in 'Approved', 'Active' })
 $waiting = @($allContacts | Where-Object { $_.status -notin 'Approved', 'Active' })
-$groupNames = @((@($people | ForEach-Object { $_.groups -split ';' }) + @($guests | ForEach-Object { $_.access_groups -split ';' })) |
-    Where-Object { $_ } | Sort-Object -Unique)
+if ($IncludeAdminAccounts) { $admins = @(Import-Csv $AdminsCsv) } else { $admins = @() }
+$groupNames = @((@($people | ForEach-Object { $_.groups -split ';' }) + @($guests | ForEach-Object { $_.access_groups -split ';' }) +
+    @($admins | ForEach-Object { $_.groups -split ';' })) | Where-Object { $_ } | Sort-Object -Unique)
+$licenseSku = $envValues['BC_LICENSE_SKU']
+if ($AssignLicenses -and -not $licenseSku) { throw "BC_LICENSE_SKU is not set in .env (needed for -AssignLicenses)." }
 
 Write-Host "Burn and Churn provisioning from people.csv and vendor-contacts.csv"
-Write-Host ("  {0} people to provision, {1} terminated (skipped), {2} guests to invite, {3} groups" -f $people.Count, $skipped.Count, $guests.Count, $groupNames.Count)
+Write-Host ("  {0} people to provision, {1} terminated (skipped), {2} guests to invite, {3} admin accounts, {4} groups" -f $people.Count, $skipped.Count, $guests.Count, $admins.Count, $groupNames.Count)
+if ($AssignLicenses) { Write-Host "  licence $licenseSku for each of the $($people.Count) people (not admin accounts or guests)" }
 foreach ($p in $skipped) { Write-Host "  skip  $($p.display_name) (Terminated: no account is created)" }
 foreach ($c in $waiting) { Write-Host "  skip  $($c.contact_id) $($c.display_name) (vendor contact, status $($c.status): not invited)" }
 
@@ -110,6 +138,9 @@ if ($DryRun) {
     foreach ($c in $guests) {
         Write-Host ("  guest  {0} {1} ({2}), access {3} to {4}  -> {5}" -f $c.contact_id, $c.display_name, $c.vendor_id, $c.access_start, $c.access_end, $c.access_groups)
     }
+    foreach ($a in $admins) {
+        Write-Host ("  admin  {0,-24} {1}  roles: {2}  -> {3}" -f $a.display_name, $a.upn, $a.roles, $a.groups)
+    }
     Write-Host ""
     Write-Host "Real UPNs and guest email addresses come from .env; they are not printed here."
     return
@@ -121,6 +152,8 @@ if ($guests.Count) {
     $modules += 'Microsoft.Graph.Identity.SignIns'
     $scopes += 'User.Invite.All'
 }
+if ($admins.Count) { $scopes += 'RoleManagement.ReadWrite.Directory' }
+if ($AssignLicenses) { $scopes += 'Organization.Read.All' }
 foreach ($module in $modules) {
     if (-not (Get-Module -ListAvailable $module)) {
         throw "Module $module is not installed. Run: Install-Module Microsoft.Graph -Scope CurrentUser"
@@ -136,6 +169,25 @@ function Write-Log($Action, $Object, $Detail) {
     $entry = [pscustomobject]@{ timestamp = (Get-Date -Format 's'); action = $Action; object = $Object; detail = $Detail }
     $log.Add($entry)
     Write-Host ("  {0,-8} {1} {2}" -f $Action, $Object, $Detail)
+}
+
+function Add-License($User, $Label) {
+    $current = (Get-MgUser -UserId $User.Id -Property assignedLicenses).AssignedLicenses.SkuId
+    if ($current -contains $script:skuId) {
+        Write-Log 'exists' $Label "licence $licenseSku"
+    } else {
+        $body = @{ addLicenses = @(@{ skuId = $script:skuId }); removeLicenses = @() }
+        Invoke-MgGraphRequest -Method POST -Uri "v1.0/users/$($User.Id)/assignLicense" -Body $body | Out-Null
+        Write-Log 'licensed' $Label $licenseSku
+    }
+}
+
+if ($AssignLicenses) {
+    $sku = (Invoke-MgGraphRequest -Method GET -Uri 'v1.0/subscribedSkus').value | Where-Object { $_.skuPartNumber -eq $licenseSku }
+    if (-not $sku) { throw "Licence $licenseSku is not in this tenant. List yours with: Get-MgSubscribedSku | Select-Object SkuPartNumber" }
+    $free = $sku.prepaidUnits.enabled - $sku.consumedUnits
+    Write-Host "  licence $licenseSku : $free of $($sku.prepaidUnits.enabled) available"
+    $script:skuId = $sku.skuId
 }
 
 # Groups
@@ -163,11 +215,12 @@ foreach ($p in $people) {
         $first, $last = $p.display_name -split ' ', 2
         $user = New-MgUser -DisplayName $p.display_name -GivenName $first -Surname $last `
             -UserPrincipalName $upn -MailNickname ($upn.Split('@')[0]) -AccountEnabled `
-            -Department $Company -CompanyName $Company -JobTitle $p.role -UsageLocation 'US' `
+            -Department $Company -CompanyName $Company -JobTitle $p.role -UsageLocation 'US' -EmployeeId $p.person_id `
             -PasswordProfile @{ Password = $password; ForceChangePasswordNextSignIn = $true }
         $passwords.Add([pscustomobject]@{ display_name = $p.display_name; upn = $upn; temporary_password = $password })
         Write-Log 'created' $p.upn "user ($($p.role))"
     }
+    if ($AssignLicenses) { Add-License $user $p.upn }
     foreach ($name in ($p.groups -split ';' | Where-Object { $_ })) {
         $members = Get-MgGroupMember -GroupId $groups[$name].Id -All | Select-Object -ExpandProperty Id
         if ($members -contains $user.Id) {
@@ -201,6 +254,47 @@ foreach ($c in $guests) {
             Write-Log 'added' $c.contact_id "to $name"
         }
     }
+}
+
+# Admin accounts: their own temporary password, no licence, roles exactly as listed
+foreach ($a in $admins) {
+    $upn = $a.upn -replace [regex]::Escape("@$docDomain"), "@$realDomain"
+    $user = Get-MgUser -Filter "userPrincipalName eq '$upn'" -ErrorAction SilentlyContinue
+    if ($user) {
+        Write-Log 'exists' $a.upn 'admin account'
+    } else {
+        $password = New-TempPassword
+        $user = New-MgUser -DisplayName $a.display_name -UserPrincipalName $upn -MailNickname ($upn.Split('@')[0]) `
+            -AccountEnabled -Department $Company -CompanyName $Company -EmployeeId $a.person_id `
+            -PasswordProfile @{ Password = $password; ForceChangePasswordNextSignIn = $true }
+        $passwords.Add([pscustomobject]@{ display_name = $a.display_name; upn = $upn; temporary_password = $password })
+        Write-Log 'created' $a.upn "admin account ($($a.person_id))"
+    }
+    foreach ($name in ($a.groups -split ';' | Where-Object { $_ })) {
+        $members = Get-MgGroupMember -GroupId $groups[$name].Id -All | Select-Object -ExpandProperty Id
+        if ($members -contains $user.Id) {
+            Write-Log 'exists' $a.upn "member of $name"
+        } else {
+            New-MgGroupMember -GroupId $groups[$name].Id -DirectoryObjectId $user.Id
+            Write-Log 'added' $a.upn "to $name"
+        }
+    }
+    $assigned = (Invoke-MgGraphRequest -Method GET -Uri "v1.0/roleManagement/directory/roleAssignments?`$filter=principalId eq '$($user.Id)'").value.roleDefinitionId
+    foreach ($role in ($a.roles -split ';' | Where-Object { $_ })) {
+        $definition = (Invoke-MgGraphRequest -Method GET -Uri "v1.0/roleManagement/directory/roleDefinitions?`$filter=displayName eq '$role'").value | Select-Object -First 1
+        if (-not $definition) { throw "Directory role '$role' not found (admin-accounts.csv, $($a.upn))." }
+        if ($assigned -contains $definition.id) {
+            Write-Log 'exists' $a.upn "role $role"
+        } else {
+            $body = @{ principalId = $user.Id; roleDefinitionId = $definition.id; directoryScopeId = '/' }
+            Invoke-MgGraphRequest -Method POST -Uri 'v1.0/roleManagement/directory/roleAssignments' -Body $body | Out-Null
+            Write-Log 'assigned' $a.upn "role $role"
+        }
+    }
+}
+if ($admins.Count) {
+    Write-Host ""
+    Write-Host "Admin accounts hold real admin rights: turn on MFA for them before doing anything else."
 }
 
 $logPath = Join-Path $RawDir "provisioning-log-$Stamp.csv"

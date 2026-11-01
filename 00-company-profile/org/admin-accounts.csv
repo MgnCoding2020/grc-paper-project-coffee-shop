@@ -1,0 +1,3 @@
+upn,person_id,display_name,roles,groups,notes
+adm-olivia.carter@burnandchurncoffee.com,EMP-001,Olivia Carter (admin),Global Administrator,grp-bc-admins,Owner; standing Global Administrator is an accepted gap (no Entra ID P2 for PIM); phishing-resistant MFA; used only for admin tasks
+adm-riley.morgan@burnandchurncoffee.com,EMP-022,Riley Morgan (admin),User Administrator;Helpdesk Administrator,grp-bc-admins,IT Technician; any other role only through a change record (PR-008)
