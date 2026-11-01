@@ -491,8 +491,8 @@ These repositories are Michael's real public portfolio, so their security is Mic
 | Collaborators | Michael only |
 | Secrets kept out of the repos | `.gitignore` for `.env` and `_raw/`; checker check 8 (GUIDs, tenant domains, IPs, tokens, email addresses); secret scan of every staged diff |
 | CI | Hub: consistency checker on every PR and push to `main` |
-| **Branch protection on `main`** | **Not set. Pending Michael's approval:** block force pushes and branch deletion, require a PR before merging (no required approvals, since Michael works alone), and on the hub require the `check` status to pass |
-| **Two-factor authentication on the GitHub account** | **Not verifiable with the current token.** Michael to confirm under Settings → Password and authentication |
+| Branch protection on `main` | **Not used, by Michael's decision (2026-11-01).** He works alone; CI runs the checker on every PR and push, and changes still go through PRs by habit |
+| Two-factor authentication on the GitHub account | **Enabled** (confirmed by Michael 2026-11-01; on for months) |
 
 ## 13. Deferred corrections register
 
@@ -645,3 +645,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 16 | 2026-10-30 | Rule 14: program dates are the fictional company's calendar; gaps are recorded, never backdated. Cash and card payments both accepted (company profile, PR-005) |
 | 17 | 2026-10-30 | In-house IT role completed: PR-008 (10 hours a week, Owner as backup administrator, Vertex handover checklist), PR-009 password manager (Bitwarden Free organization, SYS-015, V-009), Privileged User Agreement, IA-5, R-13/R-14, POAM-021/022, E-19/E-20; register T1, T3, T3b |
 | 18 | 2026-10-30 | D-11: in-store payments move from Toast to Stripe Terminal under CR-005 (approved, blocked on the CR-002 register), so every payment flow can be tested; Toast stays until cutover; register trigger T12; checker allows Stripe in CR-005 only |
+| 19 | 2026-11-01 | §12a closed: GitHub two-factor authentication confirmed on; branch protection not used, by Michael's decision |
