@@ -9,7 +9,7 @@ Burn and Churn Coffee
 **Approved By:** Business Owner
 **Effective Date:** February 2026
 **Review Frequency:** Annual or following a major incident
-**Version:** 1.1
+**Version:** 1.2
 
 ------------------------------------------------------
 
@@ -112,7 +112,9 @@ Incidents that significantly impact operations, financial security, or sensitive
 Examples include:
   - Confirmed data breach
   - Compromised administrative account
-  - Financial fraud or unauthorized refunds
+  - Financial fraud or unauthorized refunds, including money sent to a fraudster (IRP-007)
+  - Any ransomware (IRP-005)
+  - A vendor breach exposing card data, staff personal data or admin credentials (IRP-006)
   - Extended system outage affecting sales operations
 
 High-severity incidents must be escalated immediately to the Business Owner.
@@ -120,7 +122,16 @@ High-severity incidents must be escalated immediately to the Business Owner.
 ---------------------------------------------------------------
 
 ## 6. Incident Response Lifecycle
-Burn and Churn Coffee follows a structured lifecycle aligned with common security practices.
+Burn and Churn Coffee follows the lifecycle below. It lines up with the NIST Cybersecurity Framework 2.0 functions, which [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025) uses to organise incident response. The playbooks (§6.7) use the CSF function names for their steps.
+
+| Lifecycle step (this policy) | CSF 2.0 function |
+|---|---|
+| 6.1 Preparation | Govern, Identify, Protect |
+| 6.2 Identification | Detect |
+| 6.3 Containment, 6.4 Eradication | Respond |
+| 6.5 Recovery | Recover |
+| 6.6 Lessons Learned | Identify (improvement) |
+
 ### 6.1 Preparation
 Preparation activities help ensure the organization can respond effectively to incidents.
 These activities include:
@@ -164,6 +175,21 @@ The review should include:
   - Effectiveness of the response actions
   - Recommended improvements to controls or procedures
 
+### 6.7 Playbooks
+Each playbook applies this lifecycle to one kind of incident:
+
+| Playbook | Incident |
+|---|---|
+| [IRP-001](../06-incident-playbooks/IRP-001-phishing.md) | Phishing |
+| [IRP-002](../06-incident-playbooks/IRP-002-account-compromise.md) | Account compromise |
+| [IRP-003](../06-incident-playbooks/IRP-003-pos-suspicious-activity.md) | POS suspicious activity or tampering |
+| [IRP-004](../06-incident-playbooks/IRP-004-lost-stolen-device.md) | Lost or stolen device |
+| [IRP-005](../06-incident-playbooks/IRP-005-malware-ransomware.md) | Malware and ransomware |
+| [IRP-006](../06-incident-playbooks/IRP-006-vendor-breach.md) | A vendor reports a breach |
+| [IRP-007](../06-incident-playbooks/IRP-007-payment-payroll-fraud.md) | Payment and payroll fraud (business email compromise) |
+
+The plan and the playbooks are exercised in a tabletop at least once a year, with the contingency plan ([PR-005](../05-procedures/PR-005-contingency-plan.md)), and updated afterwards.
+
 --------------------------------------------------------------
 
 ## 7. Reporting and Escalation
@@ -204,6 +230,9 @@ Possible notification recipients include:
   - Vendors
   - Customers
   - Regulatory authorities
+  - The company's bank, **immediately**, when money has been sent to a fraudster (IRP-007)
+  - Law enforcement: the FBI's [Internet Crime Complaint Center (IC3)](https://www.ic3.gov) for fraud and ransomware
+  - The cyber insurer, if the company has a policy
 
 External communications must be approved by the Business Owner before being issued.
 
@@ -220,3 +249,14 @@ Following medium or high-severity incidents:
 ## 11. **Enforcement**
 Failure to comply with this policy may result in disciplinary action in accordance with company management procedures, up 
 to and including termination of employment or contractual relationship.
+
+---------------------------------------------------------------------------
+
+## Revision History
+
+| Version | Date | Change |
+|---|---|---|
+| 1.2 | 2026-11-01 | §6 lifecycle mapped to the NIST CSF 2.0 functions used by NIST SP 800-61 Rev. 3; §6.7 playbook index with IRP-005 to IRP-007 and a yearly tabletop; High-severity examples for ransomware, vendor breach and payment fraud; §9 adds the bank, IC3 and the insurer |
+| 1.1 | Before 2026-10-30 | Earlier version (not dated) |
+
+*This document is a simulation for educational and portfolio purposes only.*

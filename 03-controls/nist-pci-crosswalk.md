@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **31 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 31: 0 Implemented, 16 Partially Implemented, 15 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **33 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 33: 0 Implemented, 18 Partially Implemented, 15 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -62,6 +62,8 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | SA-22 | Unsupported System Components | R-15 | **Req. 12.3.4** – Hardware and software technologies reviewed at least once every 12 months, including plans for end-of-life | Not Implemented |
 | MA-4 | Nonlocal Maintenance | R-17 | **Req. 8.2.7** – Third-party remote access accounts enabled only when needed, and monitored (loose mapping\*: vendor remote diagnostics on the espresso machine, outside the card environment) | Not Implemented |
 | PE-6 | Monitoring Physical Access | R-18 | *No direct PCI DSS requirement* (the camera rule keeps PIN entry off camera) | Not Implemented |
+| IR-4 | Incident Handling | R-20 | **Req. 12.10.1** – An incident response plan exists and is ready to be activated, with specific response procedures | Partially Implemented |
+| IR-8 | Incident Response Plan | R-20 | **Req. 12.10.1**; **12.10.2** – The plan is reviewed, updated and tested at least once every 12 months | Partially Implemented |
 | CA-5 | Plan of Action and Milestones | R-12 | *No direct PCI DSS requirement* (supports remediation of every requirement's gaps) | Partially Implemented |
 | CA-7 | Continuous Monitoring | R-12 | *No direct PCI DSS requirement* (the monitor reports late PCI-related activities, such as device inspections under PCI DSS 9.5.1.2) | Partially Implemented |
 
@@ -85,7 +87,7 @@ plan under Req. 12.10. The mapping is directional, not one-to-one — a normal f
 | 9 | Restrict physical access to cardholder data | PE-3, MA-2, MA-5 (Req. 9.5.1.3), CM-8 (Req. 9.5.1.1) | ✅ Covered (partial impl) |
 | 10 | Log & monitor all access | AU-6 | ✅ Covered (partial impl) |
 | 11 | Test security of systems & networks regularly | SI-7 *(RA-5 / CA-8 not implemented)* | ❌ Gap (no vuln scan / pen test) |
-| 12 | Support information security with policies & programs | AT-2, SA-9, CM-8 (12.5.1), SA-22 (12.3.4), CP-9 and CP-10 (12.10.1), P-001–P-006 | ✅ Covered (partial impl) |
+| 12 | Support information security with policies & programs | AT-2, SA-9, CM-8 (12.5.1), SA-22 (12.3.4), CP-9 and CP-10 (12.10.1), IR-4 and IR-8 (12.10.1, 12.10.2), P-001–P-006 | ✅ Covered (partial impl) |
 
 **Summary:** 7 of 12 requirements have at least one implemented control; 2 are partial; 3 are gaps.
 
@@ -144,6 +146,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-11-01 | Added IR-4 and IR-8 | Incident response plan and playbooks (P-003 v1.2, IRP-005 to IRP-007) |
 | 2026-11-01 | Added CP-9 and CP-10 | Backups and recovery (PR-012), mapped to the backup and recovery parts of 12.10.1 |
 | 2026-11-01 | Added CA-7 | Monthly program monitor; no direct PCI DSS requirement |
 | 2026-11-01 | Added MA-4 and PE-6 | Connected devices (PR-011); MA-4 loosely mapped to 8.2.7; PE-6 has no direct PCI DSS requirement |
