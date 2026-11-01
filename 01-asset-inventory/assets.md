@@ -25,17 +25,17 @@ Each asset is categorized and assigned a sensitivity rating based on the **Confi
 | PER-004  | Shift Leaders                | Personnel       | Store Manager | Store          | Internal       | L-M-M      | Active | Shift supervision; POS shift-lead role   |
 | PER-005  | IT Vendor Administrators (Vertex IT Support) | Personnel | Owner | Remote | Restricted | H-H-M | Active | Privileged admin access to Google Workspace and network equipment; offboarding planned (CR-003) |
 | SYS-001  | Toast POS System             | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-H      | Active | Processes payment transactions           |
-| SYS-002  | Google Workspace             | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-H      | Active | Email and document management; retirement planned (CR-001) |
-| SYS-003  | Google Admin Console         | Admin Interface | Owner         | Cloud          | Restricted     | H-H-H      | Active | Administrative access to company systems; retirement planned (CR-001) |
+| SYS-002  | Google Workspace             | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-H      | Retired | Email and document management; retired 2026-11-15 (CR-001); data exported, deletion confirmation pending |
+| SYS-003  | Google Admin Console         | Admin Interface | Owner         | Cloud          | Restricted     | H-H-H      | Retired | Administrative access to company systems; retired 2026-11-15 (CR-001) |
 | SYS-004  | xtraCHEF                     | SaaS Platform   | Store Manager | Cloud          | Internal       | M-M-M      | Active | Inventory and invoices (part of Toast)   |
-| SYS-005  | QuickBooks Online            | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Active | Accounting; retirement planned (CR-001)  |
+| SYS-005  | QuickBooks Online            | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Retired | Accounting; retired 2026-11-15 (CR-001); data exported to the bookkeeping workbook |
 | SYS-006  | Northwind Payroll Services   | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-M      | Pending | Payroll and HR (V-002); onboarding pending until vendor conditions close                   |
 | SYS-007  | Store Network                | Network         | Owner         | Store          | Confidential   | M-H-H      | Active | Groups NET-001 to NET-005                |
-| SYS-010  | Microsoft Entra ID           | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-H      | Planned | Identity, from CR-001                   |
-| SYS-011  | Exchange Online              | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Planned | Email, from CR-001                      |
-| SYS-012  | SharePoint Online and Teams  | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Planned | Files, intranet and chat, from CR-001   |
-| SYS-013  | Microsoft Intune and Defender for Business | SaaS Platform | Owner | Cloud | Internal | M-H-M | Planned | Device management and endpoint protection, from CR-001 (licence-dependent) |
-| SYS-014  | Bookkeeping Workbook (Excel for the web) | SaaS Platform | Owner | Cloud | Confidential | H-H-M | Planned | Replaces QuickBooks Online, from CR-001 |
+| SYS-010  | Microsoft Entra ID           | SaaS Platform   | Owner         | Cloud          | Restricted     | H-H-H      | Active | Identity, from CR-001                   |
+| SYS-011  | Exchange Online              | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Active | Email, from CR-001                      |
+| SYS-012  | SharePoint Online and Teams  | SaaS Platform   | Owner         | Cloud          | Confidential   | H-H-M      | Active | Files, intranet and chat, from CR-001   |
+| SYS-013  | Microsoft Intune and Defender for Business | SaaS Platform | Owner | Cloud | Internal | M-H-M | Active | Device management and endpoint protection, from CR-001 (licence-dependent) |
+| SYS-014  | Bookkeeping Workbook (Excel for the web) | SaaS Platform | Owner | Cloud | Confidential | H-H-M | Active | Replaces QuickBooks Online, from CR-001 |
 | SYS-015  | Password Manager (Bitwarden organization) | SaaS Platform | Owner | Cloud | Restricted | H-H-M | Planned | Shared admin credentials only; two members (Owner, IT Technician); PR-009, CR-003 |
 | SYS-016  | Camera System (cloud recording) | SaaS Platform | Owner | Cloud and store | Confidential | M-M-M | Active | Two cameras; footage kept 30 days (PR-011) |
 | SYS-017  | Espresso Machine Service Portal | SaaS Platform | Store Manager | Cloud | Internal | L-M-M | Active | Vendor remote diagnostics (PR-011 §4) |
@@ -69,6 +69,7 @@ The canonical system list, with each system's vendor and evidence mode, is [syst
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | SYS-002, SYS-003 and SYS-005 → Retired; SYS-010 to SYS-014 → Active | Microsoft 365 cutover (CR-001). Evidence modes (Live, Planned, Simulation) stay in systems.csv |
 | 2026-10-30 | Added PER-004, PER-005, SYS-004 to SYS-007, planned SYS-010 to SYS-014 and HW-003; noted planned retirements; fixed a typo | Assets named in the access review, vendor inventory and network evidence were missing from the register (AL-06) |
 | 2026-11-01 | Added SYS-016 to SYS-018, HW-004 to HW-007, NET-006 (planned) and DATA-005 | Connected devices were in the store but not in the register (PR-011) |
 | 2026-10-30 | SYS-006 Active → Pending | Northwind's pre-go-live conditions are open; onboarding has not proceeded (AL-24) |

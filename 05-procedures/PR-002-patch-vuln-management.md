@@ -27,7 +27,7 @@ Keep every system and device updated, so known weaknesses are fixed before someo
 
 | Category | Examples | Who updates | How we check |
 |---|---|---|---|
-| **Cloud services** | Productivity suite (Google Workspace until the CR-001 cutover, then Microsoft 365), Toast cloud, xtraCHEF, Northwind | The vendor | Read the vendor's notices and service health page; act on any customer step they ask for |
+| **Cloud services** | Microsoft 365, Toast cloud, xtraCHEF, Northwind | The vendor | Read the vendor's notices and service health page; act on any customer step they ask for |
 | **POS terminal** | Toast terminal POS-01 | Toast pushes updates | Confirm the terminal is on the current version after each update; never update during service |
 | **Network equipment** | Router, firewall, access points | IT Technician (router: the internet provider) | Check for firmware monthly; back up the configuration first; install in the update window |
 | **Computers and tablets** | Manager laptop, two tablets | Automatic updates; IT Technician checks | Monthly check that updates are installing; after CR-001, Intune update schedules if licensed |
