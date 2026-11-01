@@ -4,7 +4,7 @@ Burn and Churn Coffee
 ---
 
 ## Document Control
-**Owner:** Business Owner | **Approved by:** Business Owner | **Effective:** 2026-10-30 | **Review:** Annually, after any outage longer than one business day, and after any change to payment or network systems | **Version:** 1.0
+**Owner:** Business Owner | **Approved by:** Business Owner | **Effective:** 2026-10-30 | **Review:** Annually, after any outage longer than one business day, and after any change to payment or network systems | **Version:** 1.1
 
 ---
 
@@ -78,7 +78,7 @@ Mobile wallets (for example Apple Pay) are payment methods, not a backup: they r
 ---
 
 ## 7. Data Recovery
-Business data lives in vendor-managed cloud services (Toast, Google Workspace now, Microsoft 365 after CR-001) that run their own backups. After CR-001, SharePoint version history and the recycle bin cover accidental deletion of company documents. The shop does not run its own backup system.
+Backups, offline copies and restore tests follow the [Backup and Recovery Procedure (PR-012)](PR-012-backup-and-recovery.md). Cloud vendors' own backups protect their services, not the shop's data, and recycle bins and version history are not backups (PR-012 §2).
 
 ---
 
@@ -103,11 +103,21 @@ These are tracked under **POAM-005**.
   - [Network Security Policy (P-005)](../04-policies/P-005-network-security.md)
   - [POS Device Inspection Procedure (PR-006)](PR-006-pos-device-inspection.md)
   - [Security Awareness Training Program (PR-007)](PR-007-security-awareness-training.md)
+  - [Backup and Recovery Procedure (PR-012)](PR-012-backup-and-recovery.md)
 
 ### Sources (checked 2026-10-30)
   - [Toast: Prepare to Operate in Offline Mode](https://support.toasttab.com/en/article/Prepare-to-Operate-in-Offline-Mode-During-Service-Disruptions-or-Outages)
   - [Toast: Use Toast in Offline Mode](https://support.toasttab.com/en/article/Using-Toast-in-Offline-Mode?lang=en_US)
   - [Toast blog: POS outages](https://pos.toasttab.com/blog/on-the-line/pos-outage) (cellular backup recommendation)
+
+---
+
+## Revision History
+
+| Version | Date | Change |
+|---|---|---|
+| 1.1 | 2026-11-01 | §7 Data Recovery points to PR-012. The earlier text relied on vendors' backups and said the shop ran no backup system; that position was written before the shop had an IT Technician and is replaced |
+| 1.0 | 2026-10-30 | First version (cash and card wording clarified the same day) |
 
 ---
 

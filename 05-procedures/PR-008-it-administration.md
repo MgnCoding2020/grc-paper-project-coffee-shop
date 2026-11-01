@@ -38,7 +38,8 @@ Before receiving any admin access, the IT Technician completes screening (PS-3) 
 | Weekly | Review sign-in and audit logs, and export them before the 7-day retention ends (Entra ID Free) | PR-004 |
 | Monthly | Apply updates in the maintenance window; support the Shift Leader's POS inspection if a device needs attention | PR-002, PR-006 |
 | Monthly | Check admin role assignments and break-glass sign-ins; confirm the password manager has only its two members | PR-009 |
-| Quarterly | Export account and group data for the access review (export only, never sign-off); walk the store with the equipment register | PR-003, PR-010 |
+| Monthly | Write the month's backups to the offline drive, check they open, disconnect it and swap drives | PR-012 |
+| Quarterly | Export account and group data for the access review (export only, never sign-off); walk the store with the equipment register; restore test from the offline drive | PR-003, PR-010, PR-012 |
 | Every 6 months | Review firewall rules with the Owner | P-005 |
 | Annually | Rotate network admin passwords; run the backup administrator drill with the Owner (§5); end-of-support review every November; update this procedure | PR-009, PR-010 |
 | Any change | Raise a change record before changing firewall rules, admin roles, or a system in scope | CM-3, [change management](../09-change-management/README.md) |
@@ -94,6 +95,7 @@ On the handover day, Vertex IT Support (V-004) walks the IT Technician through t
 - [ ] Network diagram, and every network device with its admin interface (router, firewall, access points)
 - [ ] Current firewall rules, with the reason for each
 - [ ] Every account and credential Vertex holds or knows, listed; each one rotated and stored in the password manager
+- [ ] Firewall and access point configurations exported: the first backup (PR-012)
 - [ ] Open tickets and known issues (including the Q1 findings assigned to Vertex: IAM:F-001, F-003, F-004)
 - [ ] Vendor and warranty contacts for store equipment, purchase dates, firmware versions and any maintenance history, entered in the equipment register and maintenance log (PR-010)
 - [ ] Google Workspace admin tasks still pending before CR-001 completes

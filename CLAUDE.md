@@ -529,6 +529,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 
 ### T3. Vertex offboarded (CR-003 steps 3–6)
 - [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
+- [ ] Firewall and access point configurations exported at the handover: the first backup (PR-012) → backup log
 - [ ] Credential rotation recorded in the CR-003 log; rotated credentials stored in the password manager; handover checklist (PR-008 §7) signed and filed with the V-004 offboarding record
 - [ ] NorthPeak account disabled → IAM F-003 closure evidence; V-005 notes
 - [ ] Asset PER-005 → Retired
@@ -602,11 +603,14 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] December 2026: first recorded monthly update window (PR-002 §6); maintenance log rows; current versions in the equipment register → POAM-023, E-22
 - [ ] First technician visit handled under PR-010 §4 (confirmed with the vendor, supervised, logged) → POAM-024; MA-5 re-rated only on real records
 - [ ] Connected devices (PR-011): default passwords changed into the password manager; vendor accounts company-owned with MFA; espresso remote sessions logged; checklist re-run → POAM-026, E-23
+- [ ] December 2026: first monthly encrypted offline backup copy (PR-012 §4); backup log row → POAM-029, E-26
+- [ ] By 2027-02-28: first restore test from the offline drive (PR-012 §5) → CP-10 re-rated only on a passed test
 - [ ] Cameras: each view checked against the keypad rule; entrance sign; 30-day retention; individual accounts → POAM-027, E-24
 
 ### T10. Recurring
 - [ ] **Every month:** read the program monitor issue; do or reschedule each overdue item; record the outcome in the POA&M review log (CA-5, POAM-028)
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
+- [ ] **Monthly offline backup copy** and **quarterly restore test (PR-012)**
 - [ ] **Monthly update window (PR-002)**, **quarterly equipment register check** and **November end-of-support review (PR-010)**
 - [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
@@ -670,3 +674,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 21 | 2026-11-01 | Batch B, IT operations: P-006 IT Operations Policy, PR-002 v2.0 (one-month PCI deadline, monthly update window), PR-010 equipment lifecycle, equipment register and maintenance log, device tags; SI-2, CM-8, MA-2, MA-5, SA-22 (26 controls, 14 families); R-15/R-16; POAM-023 to 025; E-21/E-22; register T9c |
 | 22 | 2026-11-01 | Batch C, connected devices: PR-011 (cameras, espresso machine with vendor remote access, temperature sensors, speaker), P-005 v1.1 Devices segment, devices and vendors V-010 to V-012 and SYS-016 to SYS-018 registered, connected device checklist; MA-4 and PE-6 (28 controls); R-17/R-18; POAM-026/027; E-23/E-24; vendor ID note fixed (no IDs reserved) |
 | 23 | 2026-11-01 | Monthly program monitor (GitHub Actions, CA-7): full checker plus `tools/due_dates.py`, opened as a monthly issue; reads records only, never generates evidence; checker check 10 (CSV format); CA-7 (29 controls); POAM-028; E-25 |
+| 24 | 2026-11-01 | Batch D, backups: PR-012 (cloud data still needs backups; monthly encrypted offline copies in two places; Entra rebuilt from `people.csv`; quarterly restore tests); P-006 v1.1 §8; PR-005 v1.1; CP-9 and CP-10 (31 controls); R-19; POAM-029; E-26; due-date monitor reads the backup log. First monitor run (issue #30) passed |

@@ -41,7 +41,8 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-22 | SI-2, MA-2, MA-5 | Maintenance log (01-asset-inventory/maintenance-log.csv) | Log | Manual review: monthly update window recorded; every technician visit confirmed and supervised | Partial (one recorded event, 2026-02-01; records gap noted 2026-11-01) |
 | E-23 | MA-4, SC-7, IA-5 | Connected device checklist (artifacts/iot/connected-device-checklist.csv) | Checklist | Manual review: segment, password changed, account owner, MFA, updates, vendor access per device | Partial (first check 2026-11-01 records the gaps) |
 | E-24 | PE-6 | Camera view and settings check | Check record with screenshots of each camera view (no customers identifiable) | Manual review: keypad not visible; sign; retention; individual accounts | Missing |
-| E-25 | CA-7 | Monthly program monitor issues (GitHub issues labelled program-monitor) | Automated report | Workflow run: consistency checker and due-date monitor across all three repos | Partial (workflow added 2026-11-01; first issue on the first run) |
+| E-25 | CA-7 | Monthly program monitor issues (GitHub issues labelled program-monitor) | Automated report | Workflow run: consistency checker and due-date monitor across all three repos | Partial (first run 2026-11-01: issue #30, all steps passed) |
+| E-26 | CP-9, CP-10 | Backup log (artifacts/backup/backup-log.csv) | Log | Manual review: monthly offline copy recorded; quarterly restore test passed | Missing (records gap noted 2026-11-01; no backups yet) |
 
 ---
 
@@ -98,6 +99,7 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
+| 2026-11-01 | E-26 added; E-25 first run recorded | Backups (PR-012); monitor test run, issue #30 |
 | 2026-11-01 | E-25 added | Monthly program monitor (CA-7) |
 | 2026-11-01 | E-23 and E-24 added | Connected devices and cameras (PR-011) |
 | 2026-11-01 | E-21 and E-22 added | IT Operations Policy (P-006) |

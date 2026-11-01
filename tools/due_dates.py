@@ -157,6 +157,11 @@ def recurring(hub, iam):
                latest(to_date(m) for r in history for m in ISO.finditer(r["Date"]) if "planned" not in r["Date"].lower()), 92, None)
     yield ("Security awareness training (PR-007)", "training log",
            latest(csv_dates(hub / "07-evidence-pack/artifacts/training/security-training-log.csv", "date")), 365, None)
+    backup_log = hub / "07-evidence-pack/artifacts/backup/backup-log.csv"
+    yield ("Offline backup copy (PR-012)", "backup log",
+           latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Backup")), 31, date(2026, 12, 31))
+    yield ("Restore test (PR-012)", "backup log",
+           latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Restore test")), 92, date(2027, 2, 28))
     yield ("Firewall rule review (P-005 §6)", "no record kept yet", None, 182, date(2027, 4, 30))
 
 

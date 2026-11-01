@@ -23,6 +23,8 @@ Each control references the policy or procedure responsible for implementing the
 | R-03 | PE-3 | Physical access control for devices and POS terminals; device inspection (PR-006) | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
 | R-04 | SC-7 | Network segmentation between POS and internal network (P-005) | SC | Req. 1 | Partially Implemented | E-05 | POAM-015 |
 | R-05 | CP-2 | Contingency and outage plan (PR-005) | CP | Req. 12 | Partially Implemented | E-08 | POAM-005 |
+| R-19 | CP-9 | System backup: monthly encrypted offline copies in two places; network settings exported after every change; data exported before a vendor account closes (PR-012) | CP | Req. 12.10.1 (data backup processes) | Not Implemented | E-26 | POAM-029 |
+| R-19 | CP-10 | System recovery: quarterly restore tests, recovery order and targets, clean-point recovery after an incident (PR-012) | CP | Req. 12.10.1 (business recovery) | Not Implemented | E-26 | POAM-029 |
 | R-06 | AC-6 | Least privilege and privileged account review | AC | Req. 7 | Partially Implemented | E-03 | POAM-014 |
 | R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
 | R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
@@ -82,6 +84,7 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-11-01 | Added CP-9 and CP-10 (POAM-029) | The shop had no backups of its own; written before the IT Technician role existed (PR-012) |
 | 2026-11-01 | Added CA-7 (POAM-028) | Monthly automated program monitor; operational checks are still manual |
 | 2026-11-01 | Added MA-4 (POAM-026) and PE-6 (POAM-027) | Connected devices and cameras brought into the program (PR-011) |
 | 2026-11-01 | Added SI-2, CM-8, MA-2, MA-5, SA-22 (POAM-023 to POAM-025) | IT Operations Policy (P-006); patching existed only as an undated procedure, with no equipment or maintenance records |
