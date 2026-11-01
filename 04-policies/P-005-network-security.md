@@ -6,7 +6,7 @@ Burn and Churn Coffee
 **Approved by:** Business Owner | 
 **Effective Date:** 2026-10-30 | 
 **Review Frequency:** Annual, or upon any change to the store network | 
-**Version:** 1.0
+**Version:** 1.1
 
 ----------
 
@@ -20,19 +20,20 @@ Its main goal is to keep payment terminals isolated from everything else, so a c
 ## 2. Scope
 This policy applies to:
   - The store network (SYS-007): router, firewall/gateway, Wi-Fi access points and every network segment (assets NET-001 to NET-005)
-  - Every device that connects to it, including Toast POS terminals, company tablets, the manager laptop, staff personal devices and customer devices
+  - Every device that connects to it, including Toast POS terminals, company tablets, the manager laptop, connected devices (cameras, espresso machine, temperature sensors, speaker), staff personal devices and customer devices
   - Everyone who administers or uses the network: the IT administrator, staff, vendors and customers
 
 -----------
 
 ## 3. Network Segmentation
-The store network is divided into four segments:
+The store network is divided into five segments:
 
 | Segment | Who connects | Allowed traffic |
 |---|---|---|
 | **POS** (wired where possible) | Toast POS terminals only | Outbound to Toast services only; nothing inbound from other segments |
 | **Staff** | Company-managed devices | Internet and Microsoft 365; no access to the POS or management segments |
 | **Guest** | Customers and personal devices | Internet only; devices cannot see each other (client isolation); bandwidth limited; terms page |
+| **Devices** | Cameras, espresso machine, temperature sensors, music speaker ([PR-011](../05-procedures/PR-011-connected-devices.md)) | Internet to each device's own vendor cloud only; no access to any other segment; nothing inbound from the internet |
 | **Management** | Router, firewall, access points | Administration only, from the IT administrator's device |
 
 Rules:
@@ -46,6 +47,7 @@ Rules:
   - Staff Wi-Fi uses WPA3 (or WPA2 where a device requires it) with a strong passphrase that is not shared with customers.
   - The staff Wi-Fi passphrase is changed **whenever someone who knows it leaves the company** (see the joiner/mover/leaver process, PR-001) and at least once a year.
   - Guest Wi-Fi is a separate network with client isolation and no route to internal segments.
+  - Connected devices use their own Wi-Fi network for the Devices segment, never the staff or guest network.
   - Unauthorized access points and hotspots connected to the company network are prohibited (Acceptable Use Policy, P-002).
 
 -----------
@@ -56,7 +58,8 @@ Rules:
   - Administration happens only from the management segment or the IT administrator's device, over encrypted connections, with MFA where the device supports it.
   - Administrative logging stays enabled where supported (Access Management Policy, P-001 §5.10).
   - Firmware and security updates follow the patch and vulnerability procedure (PR-002).
-  - Vendor remote access follows P-001 §5.7: named individuals, least privilege, time-limited.
+  - Vendor remote access follows P-001 §5.7: named individuals, least privilege, time-limited. Vendors reach connected devices only through their own cloud service, never through an inbound connection.
+  - No port forwarding, and UPnP is turned off on the router and firewall, so no device can open a path in from the internet.
 
 -----------
 
@@ -67,7 +70,7 @@ Rules:
 -----------
 
 ## 7. Current Exceptions
-As of the effective date, the store network does **not** yet meet section 3: Toast POS terminals share the business Wi-Fi with the manager laptop, and no firewall rules or segment enforcement have been verified. This is recorded as **POAM-015** (SC-7, Partially Implemented), approved by the Owner as a time-limited exception until the IT administrator implements and validates the segments in section 3.
+As of the effective date, the store network does **not** yet meet section 3: Toast POS terminals share the business Wi-Fi with the manager laptop, and no firewall rules or segment enforcement have been verified. The connected devices (cameras, espresso machine, temperature sensors, speaker) are also on the staff Wi-Fi (POAM-026). This is recorded as **POAM-015** (SC-7, Partially Implemented), approved by the Owner as a time-limited exception until the IT administrator implements and validates the segments in section 3.
 
 -----------
 
@@ -82,7 +85,17 @@ Failure to comply with this policy may result in disciplinary action in accordan
   - [Payment Card Data Protection Policy (P-004)](P-004-payment-card-data-protection.md)
   - [Patch and Vulnerability Management Procedure (PR-002)](../05-procedures/PR-002-patch-vuln-management.md)
   - [Network segmentation evidence](../07-evidence-pack/artifacts/network/network-segmentation.md)
-  - [POA&M](../07-evidence-pack/poam/poam.md) (POAM-015)
+  - [Connected Devices Procedure (PR-011)](../05-procedures/PR-011-connected-devices.md)
+  - [POA&M](../07-evidence-pack/poam/poam.md) (POAM-015, POAM-026)
+
+-------------
+
+## Revision History
+
+| Version | Date | Change |
+|---|---|---|
+| 1.1 | 2026-11-01 | Fifth segment, **Devices**, for connected devices; their own Wi-Fi network; no port forwarding or UPnP; vendors reach devices only through their own cloud; §7 exception covers the connected devices (POAM-026) |
+| 1.0 | 2026-10-30 | First version |
 
 -------------
 

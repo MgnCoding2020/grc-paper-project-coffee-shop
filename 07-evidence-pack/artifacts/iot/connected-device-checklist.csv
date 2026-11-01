@@ -1,0 +1,7 @@
+checked_on,device_tag,device,in_register,network_segment,default_password_changed,vendor_account_owner,mfa_on_vendor_account,automatic_updates,vendor_remote_access,notes
+2026-11-01,CAM-01,Security camera (front),Yes,Staff Wi-Fi (should be Devices),Not verified,Shared by Owner and Store Manager,No,Unknown,Vendor cloud only,View not yet checked against the keypad rule; no entrance sign or retention setting on record
+2026-11-01,CAM-02,Security camera (back door),Yes,Staff Wi-Fi (should be Devices),Not verified,Shared by Owner and Store Manager,No,Unknown,Vendor cloud only,Covers back door and stock room
+2026-11-01,ESP-01,Connected espresso machine,Yes,Staff Wi-Fi (should be Devices),Not verified,Set up by the vendor,Unknown,Vendor-managed,Yes (remote diagnostics; sessions not recorded),No record of who at the vendor can connect
+2026-11-01,TMP-01,Temperature sensor (walk-in fridge),Yes,Staff Wi-Fi (should be Devices),Not verified,Set up by the vendor,Unknown,Vendor-managed,Unknown,Food-safety temperature log kept in the vendor's cloud
+2026-11-01,TMP-02,Temperature sensor (under-counter fridge),Yes,Staff Wi-Fi (should be Devices),Not verified,Set up by the vendor,Unknown,Vendor-managed,Unknown,
+2026-11-01,SPK-01,Music speaker,Yes,Staff Wi-Fi (should be Devices),Not verified,Store Manager's personal app account,Not applicable,Unknown,None,Should move to a company account and be controlled from the store tablet only

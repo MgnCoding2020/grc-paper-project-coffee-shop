@@ -179,6 +179,9 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-013 | Microsoft Intune + Defender for Business | Simulation unless licensed | Device management and endpoint protection, from CR-001 |
 | SYS-014 | Bookkeeping workbook (Excel for the web, in SharePoint) | Planned → Live | Sales, expenses and payroll reconciliation in a restricted Finance library, from CR-001. Permissions, versioning and audit-log entries are the live evidence |
 | SYS-015 | Password manager (Bitwarden organization) | Planned → Live | Shared admin credentials only (PR-009). Live once Michael's lab test (test entries only) is recorded |
+| SYS-016 | Camera system (cloud recording) | Simulation | Two cameras; footage DATA-005, 30-day retention; never pointed at the keypad (PR-011) |
+| SYS-017 | Espresso machine service portal | Simulation | Vendor remote diagnostics (MA-4) |
+| SYS-018 | Temperature monitoring service | Simulation | Food-safety temperature log |
 | SYS-020 | Online ordering website | Test | **CR-002, later**; with Stripe (test mode) |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
@@ -198,7 +201,10 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
 | V-008 | Internet service provider (unnamed) | Active; not scored |
 | V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician) |
-| V-010+ | Stripe, Cloudflare, AI provider | Added only by CR-002 (or T11 for AI) |
+| V-010 | Cloud camera service (unnamed) | Active; not scored |
+| V-011 | Espresso machine service company (unnamed) | Active; not scored; remote access to the machine |
+| V-012 | Temperature monitoring service (unnamed) | Active; not scored |
+| Next free | Stripe, Cloudflare (CR-002), the AI provider (T11) | Get the next free `V-###` when added |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
 
@@ -275,6 +281,7 @@ Owned by the IT Technician. `Simulation` unless Michael later builds it as a fir
 | POS (wired where possible) | Toast terminals only | Outbound to Toast services only; nothing inbound from other segments |
 | Staff | Company-managed devices | Internet and Microsoft 365; no access to POS or management |
 | Guest | Customers and personal devices | Internet only; client isolation; bandwidth limit; terms page |
+| Devices | Cameras, espresso machine, temperature sensors, speaker | Internet to each vendor's cloud only; no access to other segments; nothing inbound; no port forwarding or UPnP |
 | Management | Router, firewall, access points | Admin only from the IT Technician's device, with named admin accounts and logging |
 
 Default deny between segments; every allow rule is written down with its reason. Changes to firewall rules go through the CR process (CM-3). The current state (POS and the manager laptop on one Wi-Fi network) stays documented as the starting point, with its POA&M item.
@@ -531,6 +538,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] IAM lab: the Q4 review checks password manager membership (exactly the Owner and the IT Technician)
 
 ### T3a. Network segmentation implemented (POAM-015)
+- [ ] Connected devices moved to the Devices segment (P-005 §3); POAM-026 network part closed
 - [ ] P-005 §7 exception closed with a dated note; SC-7 re-rated on the evidence; `network-segmentation.md` gets a new dated record (the old one stays as history); R-04 residual risk reviewed
 - [ ] If built as a firewall VM lab: evidence marked `Lab-verified <date>` and the lab labelled as a technique demonstration, like IAM:F-005
 
@@ -590,7 +598,8 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] By 2026-11-30: first end-of-support review (PR-010 §6); support dates looked up and recorded; replacements proposed to the Owner; exceptions approved → POAM-025
 - [ ] December 2026: first recorded monthly update window (PR-002 §6); maintenance log rows; current versions in the equipment register → POAM-023, E-22
 - [ ] First technician visit handled under PR-010 §4 (confirmed with the vendor, supervised, logged) → POAM-024; MA-5 re-rated only on real records
-- [ ] Connected devices (batch C) added to the equipment register before they count as managed
+- [ ] Connected devices (PR-011): default passwords changed into the password manager; vendor accounts company-owned with MFA; espresso remote sessions logged; checklist re-run → POAM-026, E-23
+- [ ] Cameras: each view checked against the keypad rule; entrance sign; 30-day retention; individual accounts → POAM-027, E-24
 
 ### T10. Recurring
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
@@ -655,3 +664,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 19 | 2026-11-01 | §12a closed: GitHub two-factor authentication confirmed on; branch protection not used, by Michael's decision |
 | 20 | 2026-11-01 | Build readiness: no domain bought (tenant default domain; Cloudflare free tier for the website); D-8 superseded and D-9 decided (Business Premium trial in the website repo's build phase, cancelled before it converts); runbook uses `-IncludeAdminAccounts` and `redact_export.py`; `grp-bc-admins` and `grp-bc-vendors` listed; tenant and credentials evidence folders |
 | 21 | 2026-11-01 | Batch B, IT operations: P-006 IT Operations Policy, PR-002 v2.0 (one-month PCI deadline, monthly update window), PR-010 equipment lifecycle, equipment register and maintenance log, device tags; SI-2, CM-8, MA-2, MA-5, SA-22 (26 controls, 14 families); R-15/R-16; POAM-023 to 025; E-21/E-22; register T9c |
+| 22 | 2026-11-01 | Batch C, connected devices: PR-011 (cameras, espresso machine with vendor remote access, temperature sensors, speaker), P-005 v1.1 Devices segment, devices and vendors V-010 to V-012 and SYS-016 to SYS-018 registered, connected device checklist; MA-4 and PE-6 (28 controls); R-17/R-18; POAM-026/027; E-23/E-24; vendor ID note fixed (no IDs reserved) |

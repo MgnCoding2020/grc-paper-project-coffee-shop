@@ -39,6 +39,8 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-20 | AC-6 | Signed Privileged User Agreements (template: examples/privileged-user-agreement.md) | Signed form | Manual review: one per admin account holder, renewed yearly | Missing (signed when the IT Technician starts) |
 | E-21 | CM-8, SA-22 | Equipment register (01-asset-inventory/equipment-register.csv) | Register | Manual review: every device listed and found; support end dates known | Partial (created 2026-11-01; simulated serials; support dates mostly unknown) |
 | E-22 | SI-2, MA-2, MA-5 | Maintenance log (01-asset-inventory/maintenance-log.csv) | Log | Manual review: monthly update window recorded; every technician visit confirmed and supervised | Partial (one recorded event, 2026-02-01; records gap noted 2026-11-01) |
+| E-23 | MA-4, SC-7, IA-5 | Connected device checklist (artifacts/iot/connected-device-checklist.csv) | Checklist | Manual review: segment, password changed, account owner, MFA, updates, vendor access per device | Partial (first check 2026-11-01 records the gaps) |
+| E-24 | PE-6 | Camera view and settings check | Check record with screenshots of each camera view (no customers identifiable) | Manual review: keypad not visible; sign; retention; individual accounts | Missing |
 
 ---
 
@@ -95,6 +97,7 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
+| 2026-11-01 | E-23 and E-24 added | Connected devices and cameras (PR-011) |
 | 2026-11-01 | E-21 and E-22 added | IT Operations Policy (P-006) |
 | 2026-10-30 | E-19 and E-20 added | New control IA-5; admin account agreements (CR-003) |
 | 2026-10-30 | E-18 added | New control CA-5 |
