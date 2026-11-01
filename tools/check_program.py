@@ -266,6 +266,12 @@ def check_systems_and_vendors(hub, iam, vra, org):
             for vendor_id in set(re.findall(r"\bV-\d{3}\b", read_text(path))):
                 if vendor_id not in org.vendor_ids:
                     findings.append(f"{repo} {rel(path, root)}: {vendor_id} is not in vendors.csv")
+
+    # The company profile names every vendor the company still uses or plans to use
+    profile = read_text(Path(hub) / "00-company-profile" / "company_profile.md")
+    for v in org.vendors:
+        if not v["status"].startswith(("Offboarded", "Inactive")) and v["vendor_id"] not in profile:
+            findings.append(f"company_profile.md: {v['vendor_id']} ({v['name']}) is {v['status']} but not listed")
     return findings
 
 

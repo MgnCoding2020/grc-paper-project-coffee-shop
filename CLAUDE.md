@@ -436,7 +436,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 
 **It checks:**
 1. **People:** every person named in any evidence CSV, finding, review or seed file exists in `people.csv`, with a matching role and status.
-2. **Systems and vendors:** every system or vendor named matches `systems.csv` or `vendors.csv`. Retired systems may appear only in files dated before their `retired_on`, or in the CR.
+2. **Systems and vendors:** every system or vendor named matches `systems.csv` or `vendors.csv`. The company profile lists every vendor that isn't offboarded or inactive (added 2026-11-01). Retired systems may appear only in files dated before their `retired_on`, or in the CR.
 3. **IDs:** no duplicate `POAM`, `R`, `E`, `CR` or `INC` IDs. Every POA&M "related finding" resolves to a real file and ID. Every `V-###` reference exists.
 4. **Links:** every companion README links the hub; every relative link in the hub resolves.
 5. **Controls:** every control in the matrix appears in the crosswalk, and the reverse; control counts in the README match the matrix (the earlier 11-vs-15 bug becomes impossible).
@@ -677,3 +677,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 24 | 2026-11-01 | Batch D, backups: PR-012 (cloud data still needs backups; monthly encrypted offline copies in two places; Entra rebuilt from `people.csv`; quarterly restore tests); P-006 v1.1 §8; PR-005 v1.1; CP-9 and CP-10 (31 controls); R-19; POAM-029; E-26; due-date monitor reads the backup log. First monitor run (issue #30) passed |
 | 25 | 2026-11-01 | Batch E, incident playbooks: IRP-005 malware and ransomware, IRP-006 vendor breach (vendor notification commitments from the assessments), IRP-007 payment and payroll fraud (prevention rules: callback, two people, no gift cards); P-003 v1.2 mapped to NIST CSF 2.0 / SP 800-61 Rev. 3 with a playbook index; IR-4 and IR-8 (33 controls, 15 families); R-20; POAM-030; E-27 tabletop log; due-date monitor tracks the yearly tabletop |
 | 26 | 2026-11-01 | Program monitor commits each report as a dated file in `artifacts/monitoring/program-monitor/` (workflow needs contents: write); branch runs skip the issue for testing; checker treats saved reports like saved consistency runs |
+| 27 | 2026-11-01 | Company profile, assessment scope, program overview and data classification now include the connected devices and vendors V-010 to V-012 (missed in batch C); checker check 2 confirms the profile lists every current vendor |

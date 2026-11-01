@@ -29,6 +29,7 @@ The security program applies to all technology systems used by Burn and Churn Co
   - Google Workspace email and collaboration services
   - Company-issues tablets used for store operations
   - Store network infrastructure (router, firewall, Wi-Fi access points)
+  - Connected devices: security cameras, the connected espresso machine, temperature sensors and the music speaker
   - Administrative access to POS and cloud systems
 
 The program applies to all individuals interacting with company systems, including:
@@ -202,3 +203,11 @@ This charter supports the following governance artifacts within the security pro
   - Evidence Matrix
   - Security Policies
   - Incident Response Playbooks
+
+----
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-01 | Connected devices added to the program scope | Registered under PR-011 |
