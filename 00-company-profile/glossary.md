@@ -86,7 +86,7 @@ The Toast POS system used to process customer transactions. It is a critical sys
 ---
 
 ## Vendor / Service Provider
-A third-party organization that provides services supporting business operations (e.g., Toast POS, Google Workspace). Vendor risk must be managed due to limited control over external systems.
+A third-party organization that provides services supporting business operations (e.g., Toast POS, Microsoft 365). Vendor risk must be managed due to limited control over external systems.
 
 ---
 
@@ -107,3 +107,14 @@ The ability to link risks, controls, evidence, validation activities, and remedi
 
 ## Control Validation
 The process of verifying that controls are implemented and functioning as intended. In this project, validation is supported through evidence review and lightweight automation scripts.
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-15 | Vendor example updated to Microsoft 365 | Microsoft 365 cutover (CR-001) |
+
+---
+

@@ -7,7 +7,7 @@ Burn and Churn Coffee
   -  **Effective Date:** 2026-02-01
   -  **Last Reviewed/Updated:** 2026-10-30
   -  **Review Frequency:** Annual (or upon significant change to systems or roles)
-  -  **Version:** 1.3
+  -  **Version:** 1.4
     
 --------------------------------------------------------------
 
@@ -15,7 +15,7 @@ Burn and Churn Coffee
 
 Burn and Churn Coffee uses a small set of cloud and on-site systems to operate daily business functions and store business and customer information. This policy applies to the following system and business and administrative interfaces:
   -  **Toast POS** (point-of-sale devices and administrative portal)
-  -  **Google Workspace** (email, share drive content and admin console)
+  -  **Microsoft 365** (Entra ID accounts and admin roles, Exchange Online email, SharePoint and Teams content, and the admin centres)
   -  **Company-issued tablets** used for inventory, order, and business operations
   -  **Staff networking infrastructure** (router, firewall, Wi-Fi access points, and any network management interfaces)
 **Out of Scope:** Guest Wi-Fi user identity controls. Guest Wi-Fi access is not provisioned via individual user accounts; however, guest network access is governed by network segmentation, configuration, and monitoring controls under the **[Network Security Policy (P-005)](P-005-network-security.md).**
@@ -52,7 +52,7 @@ This policy applies to:
 **3.2 Systems and Access Types In Scope**
 This policy governs logical access (accounts, permissions, and authentication) to:
   -  Toast POS user accounts and roles
-  -  Google Workspace accounts and administrative roles
+  -  Microsoft Entra ID accounts, groups and administrative roles
   -  Administrative access to network equipment and Wi-fi management interfaces
   -  Authentication and authorization mechanisms used by company-issued tablets
   -  Company credentials (password, MFA methods, admin accounts)
@@ -72,7 +72,8 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
 **5. Safeguards**
 
 **5.1 Role Definitions and Access Model**
-  - Burn and Churn Coffee shall define and maintain documented user roles for systems within scope (Toast POS, Google Workspace, tablets, and network infrastructure).
+  - Burn and Churn Coffee shall define and maintain documented user roles for systems within scope (Toast POS, Microsoft 365, tablets, and network infrastructure).
+  - Access to Microsoft 365 is granted to security groups that match these roles (`grp-bc-*`), never to individuals directly.
   - Roles shall be assigned based on job responsibilities and shall follow least privilege.
   - Separation of duties shall be implemented where feasible, especially for high-risk actions (e.g., refunds, pay/HR access, admin changes).
   - Administrative privileges shall be limited to the Business Owner and explicitly authorized management personnel.
@@ -89,20 +90,21 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
   - Access that is no longer required shall be removed as part of the change.
   
 **5.4 Access Revocation (Leavers)**
-  - When employment ends, access to Google Workspace, Toast POS, and network administrative interfaces shall be disabled or removed **no later than 24 hours** after separation.
+  - When employment ends, access to Microsoft 365, Toast POS, and network administrative interfaces shall be disabled or removed **no later than 24 hours** after separation.
   - For involuntary or high-risk terminations, access shall be disabled **immediately upon notification** of termination or at the time of termination, whichever is earlier.
   - Company-issued devices shall be recovered where feasible. If devices are not recovered promptly, accounts associated with the device shall be disabled and remote wipe shall be performed where supported.
   
 **5.5 Authentication and Credential Requirements**
   - Passwords shall be kept confidential and shall not be shared between individuals.
   - Multi-factor authentication (MFA) shall be enabled for:
-      - All Google Workspace administrative accounts (required)
-      - All Google Workspace user accounts where supported and feasible (required if handling sensitive business data)
+      - All Microsoft 365 administrative accounts (required; phishing-resistant methods where supported)
+      - All Microsoft 365 user accounts (required)
   - Privileged accounts shall use stronger authentication than standard accounts where possible (e.g., MFA enforced, separate admin accounts).
   - Credentials that can't belong to one person (network device admin logins, Wi-Fi passphrases, vendor and device portals) shall be stored only in the company password manager, generated rather than chosen, and rotated when anyone who knew them leaves ([PR-009](../05-procedures/PR-009-credential-vault.md)).
   - Admin account holders shall sign the Privileged User Agreement before receiving admin access, and every year after.
   
 **5.6 Privileged (Administrative) Access Controls**
+  - Two cloud-only emergency (break-glass) accounts exist for when no admin can sign in. They are excluded from MFA enforcement policies, their credentials are sealed and kept by the Owner, and every sign-in is reviewed.
   - Privileged access shall be restricted to designated personnel and approval by the Business Owner.
   - Privileged access shall be used only for administrative tasks and not for routine daily operations where feasible.
   - Privileged access shall be reviewed during quarterly access reviews.
@@ -117,14 +119,14 @@ Compliance with this policy is mandatory. Exceptions require documents approval 
   - Vendor access shall be reviewed during quarterly access reviews and removed when no longer required.
   
 **5.8 Secure Access and Encryption**
-  - Administrative access to Toast POS, Google Workspace, and network equipment shall occur over encrypted connections (HTTPS/TLS) whenever available.
+  - Administrative access to Toast POS, Microsoft 365, and network equipment shall occur over encrypted connections (HTTPS/TLS) whenever available.
   - Company-issued tablets shall use device-level encryption where supported.
-  - For hosted SaaS systems (Toast POS, Google Workspace), Burn and Churn Coffee relies on vendor-managed encryption controls for data in transit and at rest.
+  - For hosted SaaS systems (Toast POS, Microsoft 365), Burn and Churn Coffee relies on vendor-managed encryption controls for data in transit and at rest.
   
 **5.9 Access Reviews (Quarterly)**
   - Burn and Churn Coffee shall perform access reviews **quarterly** for:
       - Toast POS user accounts and roles
-      - Google Workspace accounts, groups, and administrative roles
+      - Microsoft Entra ID accounts, groups, administrative roles and guests
       - Network equipment administrative accounts
   - Access reviews shall verify:
       - Former employees do not retain access
@@ -170,5 +172,6 @@ Enforcement actions shall be applied consistently and in accordance with company
 
 | Version | Date | Change |
 |---|---|---|
+| 1.4 | 2026-11-15 | Microsoft 365 replaces Google Workspace throughout (CR-001); MFA required on every Microsoft 365 account; group-based access (`grp-bc-*`); break-glass accounts in §5.6 |
 | 1.3 | 2026-10-30 | §5.5: shared credentials kept in the company password manager (PR-009); admin account holders sign the Privileged User Agreement. Added with the in-house IT role (CR-003) |
 | 1.2 | 2026-10-30 | Related documents point to documents that exist: the Network Security Policy (P-005, new), PR-001 for onboarding and offboarding, P-003 and the playbooks for incidents (alignment item AL-26). No requirement changed |

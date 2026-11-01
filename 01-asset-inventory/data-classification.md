@@ -15,7 +15,7 @@ Proper classification ensures that sensitive information receives stronger prote
 ## 2. Scope
 This classification standard applies to all business information created, processed, transmitted, or stored by Burn and Churn Coffee, including data stored within:
   - Toast POS systems
-  - Google Workspace
+  - Microsoft 365 (SharePoint, OneDrive, Exchange Online)
   - Company-issued tablets
   - Internal business documents
   - Administrative systems
@@ -104,6 +104,7 @@ Updates may be made following:
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Scope: Google Workspace replaced by Microsoft 365 | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices in scope; camera footage (Confidential) and the temperature log (Internal) added to the examples | Connected devices registered under PR-011; camera footage is asset DATA-005 |
 
 ----

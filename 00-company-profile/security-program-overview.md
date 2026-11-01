@@ -26,7 +26,7 @@ The Security program aims to:
 ## 3. Program Scope
 The security program applies to all technology systems used by Burn and Churn Coffee, including:
   - Toast POS payment processing systems
-  - Google Workspace email and collaboration services
+  - Microsoft 365 identity, email and collaboration services (Entra ID, Exchange Online, SharePoint, Teams)
   - Company-issues tablets used for store operations
   - Store network infrastructure (router, firewall, Wi-Fi access points)
   - Connected devices: security cameras, the connected espresso machine, temperature sensors and the music speaker
@@ -46,7 +46,7 @@ The program applies to all individuals interacting with company systems, includi
 flowchart LR
   %% Users
   C[Customer] -->|Pays with card| POS[Toast POS Terminal]
-  E[Employee / Manager] -->|Admin access| GW[Google Workspace]
+  E[Employee / Manager] -->|Admin access| GW[Microsoft 365]
   E -->|Uses| TAB[Company Tablet]
 
   %% Networks
@@ -210,4 +210,5 @@ This charter supports the following governance artifacts within the security pro
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Program scope and architecture diagram show Microsoft 365 instead of Google Workspace | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices added to the program scope | Registered under PR-011 |

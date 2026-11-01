@@ -85,7 +85,7 @@ This environment represents a small coffee shop with a limited technology footpr
 - Toast POS system used for payment processing
 - Business Wi-Fi network (intended to be segmented from the POS network; not yet validated, POAM-015)
 - Employee devices (tablets, office workstation)
-- Cloud services (Google Workspace, Toast backend services)
+- Cloud services (Microsoft 365, Toast backend services, connected-device vendor clouds)
 - Network infrastructure (router/firewall)
 
 Payment card data is captured at the POS and transmitted securely to the payment processor. The business does not intentionally store cardholder data locally.
@@ -118,3 +118,14 @@ This architecture supports:
 This is a simplified architecture intended for educational and portfolio demonstration purposes.
 
 ---
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-15 | Cloud services list: Microsoft 365 replaces Google Workspace; connected-device clouds added. The PNG diagrams are generic and show no Google service, so they are unchanged | Microsoft 365 cutover (CR-001) |
+
+---
+

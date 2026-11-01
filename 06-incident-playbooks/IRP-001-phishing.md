@@ -8,7 +8,7 @@ Burn and Churn Coffee
 **Approved By:** Business Owner  
 **Effective Date:** March 2026  
 **Review Frequency:** Annual or following a phishing-related incident  
-**Version:** 1.1  
+**Version:** 1.2  
 
 ---
 
@@ -22,7 +22,7 @@ Phishing attacks attempt to trick employees into revealing credentials, download
 ## 2. Scope
 This playbook applies to phishing incidents affecting:
 
-- Google Workspace email accounts  
+- Microsoft 365 email accounts (Exchange Online)  
 - Toast POS administrative access  
 - Company-issued tablets  
 - Store network accounts  
@@ -98,7 +98,8 @@ Severity determines escalation and response urgency.
 - Disable account if compromise is suspected  
 
 ### Step 4: Investigation
-- Review login activity in Google Workspace  
+- Review Entra ID sign-in logs and the Microsoft 365 audit log  
+- Check the mailbox for new inbox or forwarding rules  
 - Identify suspicious account behavior  
 - Review POS or administrative access activity  
 
@@ -146,6 +147,14 @@ After an incident, review:
 - Effectiveness of current controls  
 - Need for additional training (AT-2)  
 - Potential improvements to detection and response  
+
+---
+
+## Revision History
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-15 | Microsoft 365 replaces Google Workspace; investigation uses Entra ID sign-in logs and mailbox rules | Microsoft 365 cutover (CR-001) |
 
 ---
 

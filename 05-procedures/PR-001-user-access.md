@@ -14,10 +14,10 @@ This procedure ensures that access to company systems is granted according to jo
 This procedure applies to all Burn and Churn Coffee employees, contractors, and third-party vendors who require access to company information systems.
 
 Systems covered by this procedure include, but are not limited to:
-  - Google Workspace (email, Drive, administration)
+  - Microsoft 365 (Entra ID account, email, SharePoint and Teams), requested through the intranet Access Requests list
   - Toast POS system
   - xtraCHEF inventory and supplier management platform
-  - QuickBooks Online accounting platform
+  - The bookkeeping workbook (SharePoint Finance library: Owner and Store Manager only)
   - Store Wi-Fi and network resources
   - Company-managed devices and tablets
 
@@ -55,10 +55,10 @@ Systems covered by this procedure include, but are not limited to:
      - Level of access required
   3. Management reviews and approves the request.
   4. The IT administrator creates the necessary accounts in applicable systems, such as:
-     - Google Workspace
+     - Microsoft Entra ID account, added to the groups for the role (`grp-bc-*`)
      - Toast POS
      - xtraCHEF
-     - QuickBooks Online (if applicable)
+     - Finance library access (Owner and Store Manager only)
   5. Default security settings must be applied when accounts are created, including:
      - Strong password requirements
      - Multi-factor authentication, where supported
@@ -84,10 +84,10 @@ When an employee or contractor leaves the organization, access must be removed p
 The following steps must be completed:
   1. The supervisor notifies the IT administrator of employee departure.
   2. The IT administrator disables or removes the user accounts from all systems, including:
-     - Google Workspace
+     - Microsoft Entra ID account (disable, revoke sessions, remove from groups)
      - Toast POS
      - xtraCHEF
-     - QuickBooks Online
+     - Finance library access, if held
      - Network access
      - The employee's personal Toast POS PIN
   3. Any company devices assigned to the employee must be returned.
@@ -149,4 +149,5 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-15 | Microsoft 365 replaces Google Workspace and the Finance library replaces QuickBooks Online in the joiner and leaver steps | Microsoft 365 cutover (CR-001) |
 | 2026-10-30 | Removal deadline aligned with P-001 §5.4 (24 hours; immediately for involuntary terminations), replacing "last working day"; 3-business-day deadline for role changes (P-001 §5.3); Toast PIN and staff Wi-Fi passphrase added to removal; vendor access section; role naming | Story-level alignment review found the procedure contradicted the policy (AL-27) |
