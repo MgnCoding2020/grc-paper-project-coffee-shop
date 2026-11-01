@@ -408,7 +408,8 @@ def check_forbidden(repos):
             if path.suffix not in SCANNED_SUFFIXES or path.name == "CLAUDE.md":
                 continue
             # The checker's own code and saved runs necessarily name what they look for
-            if rel(path, root).startswith(("tools/", "07-evidence-pack/artifacts/consistency/")):
+            if rel(path, root).startswith(("tools/", "07-evidence-pack/artifacts/consistency/",
+                                          "07-evidence-pack/artifacts/monitoring/program-monitor/")):
                 continue
             text = without_revision_history(read_text(path))
             where = f"{repo} {rel(path, root)}"
