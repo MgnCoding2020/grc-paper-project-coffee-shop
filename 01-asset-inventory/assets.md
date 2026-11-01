@@ -52,7 +52,7 @@ Each asset is categorized and assigned a sensitivity rating based on the **Confi
 
 
 
-The canonical system list, with each system's vendor and evidence mode, is [systems.csv](../00-company-profile/org/systems.csv).
+The canonical system list, with each system's vendor and evidence mode, is [systems.csv](../00-company-profile/org/systems.csv). Individual devices, with serial numbers, warranty and support dates, are in the [equipment register](equipment-register.csv), and their updates, repairs and technician visits in the [maintenance log](maintenance-log.csv) (PR-010).
 
 ---
 

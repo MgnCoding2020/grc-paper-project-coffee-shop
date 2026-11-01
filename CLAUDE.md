@@ -586,8 +586,15 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] December 2026: first contingency tabletop (PR-005 §8); record it; consider adding CP-4 to the control matrix
 - [ ] Missed dates → status check and POA&M review-log entry (CA-5)
 
+### T9c. IT operations first cycles (P-006, PR-002, PR-010)
+- [ ] By 2026-11-30: first end-of-support review (PR-010 §6); support dates looked up and recorded; replacements proposed to the Owner; exceptions approved → POAM-025
+- [ ] December 2026: first recorded monthly update window (PR-002 §6); maintenance log rows; current versions in the equipment register → POAM-023, E-22
+- [ ] First technician visit handled under PR-010 §4 (confirmed with the vendor, supervised, logged) → POAM-024; MA-5 re-rated only on real records
+- [ ] Connected devices (batch C) added to the equipment register before they count as managed
+
 ### T10. Recurring
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
+- [ ] **Monthly update window (PR-002)**, **quarterly equipment register check** and **November end-of-support review (PR-010)**
 - [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
@@ -647,3 +654,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 18 | 2026-10-30 | D-11: in-store payments move from Toast to Stripe Terminal under CR-005 (approved, blocked on the CR-002 register), so every payment flow can be tested; Toast stays until cutover; register trigger T12; checker allows Stripe in CR-005 only |
 | 19 | 2026-11-01 | §12a closed: GitHub two-factor authentication confirmed on; branch protection not used, by Michael's decision |
 | 20 | 2026-11-01 | Build readiness: no domain bought (tenant default domain; Cloudflare free tier for the website); D-8 superseded and D-9 decided (Business Premium trial in the website repo's build phase, cancelled before it converts); runbook uses `-IncludeAdminAccounts` and `redact_export.py`; `grp-bc-admins` and `grp-bc-vendors` listed; tenant and credentials evidence folders |
+| 21 | 2026-11-01 | Batch B, IT operations: P-006 IT Operations Policy, PR-002 v2.0 (one-month PCI deadline, monthly update window), PR-010 equipment lifecycle, equipment register and maintenance log, device tags; SI-2, CM-8, MA-2, MA-5, SA-22 (26 controls, 14 families); R-15/R-16; POAM-023 to 025; E-21/E-22; register T9c |

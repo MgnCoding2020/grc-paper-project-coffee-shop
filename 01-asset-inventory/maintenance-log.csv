@@ -1,0 +1,5 @@
+date,device_tag,activity,performed_by,supervised_by,change_ref,result,notes
+2026-02-01,POS-01,Inspection,Store Manager,,,OK,No tampering observed (07-evidence-pack/artifacts/physical/physical-inspection-checklist.csv)
+2026-02-01,TAB-01,Inspection,Store Manager,,,OK,No issues
+2026-02-01,TAB-02,Inspection,Store Manager,,,Issue,Loose casing observed; no repair or follow-up recorded
+2026-11-01,All,Records review,Program alignment review,,,Gap,Register created; no update repair or technician-visit records exist from before 2026-11-15 (Vertex IT Support kept none); POAM-023 and POAM-024

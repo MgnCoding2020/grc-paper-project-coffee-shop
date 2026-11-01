@@ -38,9 +38,9 @@ Before receiving any admin access, the IT Technician completes screening (PS-3) 
 | Weekly | Review sign-in and audit logs, and export them before the 7-day retention ends (Entra ID Free) | PR-004 |
 | Monthly | Apply updates in the maintenance window; support the Shift Leader's POS inspection if a device needs attention | PR-002, PR-006 |
 | Monthly | Check admin role assignments and break-glass sign-ins; confirm the password manager has only its two members | PR-009 |
-| Quarterly | Export account and group data for the access review (export only, never sign-off) | PR-003 |
+| Quarterly | Export account and group data for the access review (export only, never sign-off); walk the store with the equipment register | PR-003, PR-010 |
 | Every 6 months | Review firewall rules with the Owner | P-005 |
-| Annually | Rotate network admin passwords; run the backup administrator drill with the Owner (§5); update this procedure | PR-009 |
+| Annually | Rotate network admin passwords; run the backup administrator drill with the Owner (§5); end-of-support review every November; update this procedure | PR-009, PR-010 |
 | Any change | Raise a change record before changing firewall rules, admin roles, or a system in scope | CM-3, [change management](../09-change-management/README.md) |
 
 Each block ends with a short entry in the IT work log (a SharePoint list once [CR-001](../09-change-management/CR-001-google-workspace-to-microsoft-365.md) is live): date, hours, what was done, and anything left open.
@@ -95,7 +95,7 @@ On the handover day, Vertex IT Support (V-004) walks the IT Technician through t
 - [ ] Current firewall rules, with the reason for each
 - [ ] Every account and credential Vertex holds or knows, listed; each one rotated and stored in the password manager
 - [ ] Open tickets and known issues (including the Q1 findings assigned to Vertex: IAM:F-001, F-003, F-004)
-- [ ] Vendor and warranty contacts for store equipment
+- [ ] Vendor and warranty contacts for store equipment, purchase dates, firmware versions and any maintenance history, entered in the equipment register and maintenance log (PR-010)
 - [ ] Google Workspace admin tasks still pending before CR-001 completes
 - [ ] Vertex's generic account and every other Vertex account disabled (CR-003 step 5)
 
