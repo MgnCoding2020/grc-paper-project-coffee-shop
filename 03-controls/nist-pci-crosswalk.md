@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **21 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 21: 0 Implemented, 13 Partially Implemented, 8 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **26 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 26: 0 Implemented, 15 Partially Implemented, 11 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -53,6 +53,11 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | CM-3 | Configuration Change Control | R-11 | **Req. 6.5.1** – Changes follow documented change-control procedures | Partially Implemented |
 | CM-4 | Impact Analyses | R-11 | **Req. 6.5.1** – Changes record their security impact | Partially Implemented |
 | IA-5 | Authenticator Management | R-13 | **Req. 8.3** – Strong authentication for users and administrators; **8.6** – System and application account credentials strictly managed (loose mapping\*: shared device and portal credentials) | Not Implemented |
+| SI-2 | Flaw Remediation | R-15 | **Req. 6.3.3** – Critical and high-security patches installed within one month of release | Partially Implemented |
+| CM-8 | System Component Inventory | R-15 | **Req. 12.5.1** – Inventory of in-scope system components maintained; **Req. 9.5.1.1** – list of POI devices | Partially Implemented |
+| MA-2 | Controlled Maintenance | R-16 | **Req. 9.5.1** – POI devices protected from tampering and substitution (loose mapping\*: maintenance of card-reading devices) | Not Implemented |
+| MA-5 | Maintenance Personnel | R-16 | **Req. 9.5.1.3** – Personnel trained to verify the identity of anyone claiming to be repair or maintenance personnel before granting access | Not Implemented |
+| SA-22 | Unsupported System Components | R-15 | **Req. 12.3.4** – Hardware and software technologies reviewed at least once every 12 months, including plans for end-of-life | Not Implemented |
 | CA-5 | Plan of Action and Milestones | R-12 | *No direct PCI DSS requirement* (supports remediation of every requirement's gaps) | Partially Implemented |
 
 \* PCI DSS has limited business-continuity coverage; CP-2's nearest analog is the incident response
@@ -69,13 +74,13 @@ plan under Req. 12.10. The mapping is directional, not one-to-one — a normal f
 | 3 | Protect stored account data | P-004 policy *(SC-28 not implemented)* | ⚠️ Partial / scope-dependent |
 | 4 | Protect cardholder data with strong cryptography in transit | *(none — SC-8 not implemented)* | ❌ Gap |
 | 5 | Protect all systems & networks from malicious software | SI-3 | ✅ Covered (partial impl) |
-| 6 | Develop & maintain secure systems & software | CM-3, CM-4 (6.5.1), PR-002 procedure *(SI-2 not formalized)* | ⚠️ Partial |
+| 6 | Develop & maintain secure systems & software | CM-3, CM-4 (6.5.1), SI-2 (6.3.3, PR-002) | ⚠️ Partial |
 | 7 | Restrict access by business need-to-know | AC-2, AC-6, PS-5 | ✅ Covered (partial impl) |
 | 8 | Identify users & authenticate access | IA-2, IA-5, AC-2, PS-4 (8.2.5) | ✅ Covered — MFA gap (POAM-001); termination gap (POAM-016) |
-| 9 | Restrict physical access to cardholder data | PE-3 | ✅ Covered (partial impl) |
+| 9 | Restrict physical access to cardholder data | PE-3, MA-2, MA-5 (Req. 9.5.1.3), CM-8 (Req. 9.5.1.1) | ✅ Covered (partial impl) |
 | 10 | Log & monitor all access | AU-6 | ✅ Covered (partial impl) |
 | 11 | Test security of systems & networks regularly | SI-7 *(RA-5 / CA-8 not implemented)* | ❌ Gap (no vuln scan / pen test) |
-| 12 | Support information security with policies & programs | AT-2, SA-9, P-001–P-004 | ✅ Covered (partial impl) |
+| 12 | Support information security with policies & programs | AT-2, SA-9, CM-8 (12.5.1), SA-22 (12.3.4), P-001–P-006 | ✅ Covered (partial impl) |
 
 **Summary:** 7 of 12 requirements have at least one implemented control; 2 are partial; 3 are gaps.
 
@@ -134,6 +139,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-11-01 | Added SI-2, CM-8, MA-2, MA-5, SA-22 | IT Operations Policy (P-006); MA-2 loosely mapped to 9.5.1 |
 | 2026-10-30 | Added IA-5 | Shared admin credentials (PR-009); loose mapping to 8.3 and 8.6 |
 | 2026-10-30 | Added CA-5 | POA&M management; no direct PCI DSS equivalent |
 | 2026-10-30 | CP-2 Not Implemented → Partially Implemented | Contingency and outage plan (PR-005) documented, not yet tested |
