@@ -105,7 +105,7 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
 ├── 08-architecture/         # System architecture and data-flow diagrams
 ├── 09-change-management/    # Change process and change records (CR-001, CR-003)
-└── tools/                   # Consistency checker and tenant provisioning scripts
+└── tools/                   # Consistency checker, due-date monitor, tenant scripts
 ```
 
 ---
@@ -158,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **28 controls across 14 families** — 0 Implemented, 15 Partially Implemented, 13 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **29 controls across 14 families** — 0 Implemented, 16 Partially Implemented, 13 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 

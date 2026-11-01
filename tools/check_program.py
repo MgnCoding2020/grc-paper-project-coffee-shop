@@ -445,6 +445,23 @@ def check_secrets(repos):
     return findings
 
 
+def check_csv_format(repos):
+    """Every CSV row has as many fields as its header (an unquoted comma silently shifts columns)."""
+    findings = []
+    for repo, root in repos:
+        for path in tracked_files(root):
+            if path.suffix != ".csv" or not path.exists():
+                continue
+            with open(path, encoding="utf-8-sig", newline="") as f:
+                rows = list(csv.reader(f))
+            if not rows:
+                continue
+            for number, row in enumerate(rows[1:], start=2):
+                if row and len(row) != len(rows[0]):
+                    findings.append(f"{repo} {rel(path, root)} line {number}: {len(row)} fields, header has {len(rows[0])}")
+    return findings
+
+
 # ---------------------------------------------------------------- main
 
 def main():
@@ -474,6 +491,7 @@ def main():
     report.add(8, "No secrets or tenant identifiers committed", check_secrets(repos))
     report.add(9, "Hub evidence agrees with the IAM access matrix",
                check_evidence_agrees(hub, iam, org) if iam else [], skipped="needs --iam" if not iam else None)
+    report.add(10, "CSV files are well formed", check_csv_format(repos))
     if cross:
         print(f"Note: cross-repository parts of checks 1, 2, 4, 7 and 8 were skipped ({cross}).")
         print()

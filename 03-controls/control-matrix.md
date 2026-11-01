@@ -43,6 +43,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-17 | MA-4 | Nonlocal maintenance: vendor remote diagnostics only when requested, named technician, each session logged (PR-011) | MA | Req. 8.2.7 (loose) | Not Implemented | E-23 | POAM-026 |
 | R-18 | PE-6 | Monitoring physical access: cameras on entrances and stock room, never on the keypad; owner-approved footage access; 30-day retention (PR-011) | PE | None (no direct PCI DSS requirement) | Not Implemented | E-24 | POAM-027 |
 | R-12 | CA-5 | Plan of action and milestones: weaknesses tracked, reviewed and driven to closure | CA | None (no direct PCI DSS requirement) | Partially Implemented | E-18 | POAM-019 |
+| R-12 | CA-7 | Continuous monitoring: monthly automated program monitor (consistency checker and due-date report) plus the manual activities in the monitoring strategy | CA | None (no direct PCI DSS requirement) | Partially Implemented | E-25 | POAM-028 |
 
 ----
 
@@ -81,6 +82,7 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-11-01 | Added CA-7 (POAM-028) | Monthly automated program monitor; operational checks are still manual |
 | 2026-11-01 | Added MA-4 (POAM-026) and PE-6 (POAM-027) | Connected devices and cameras brought into the program (PR-011) |
 | 2026-11-01 | Added SI-2, CM-8, MA-2, MA-5, SA-22 (POAM-023 to POAM-025) | IT Operations Policy (P-006); patching existed only as an undated procedure, with no equipment or maintenance records |
 | 2026-10-30 | Added IA-5 (POAM-021) | Shared admin credentials had no managed store, and Vertex knows them (CR-003) |

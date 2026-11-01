@@ -444,10 +444,13 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 7. **Forbidden terms:** no Stripe before CR-002 (CR-005 excepted); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
 8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
 9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
+10. **CSV files are well formed** (added 2026-11-01): every row has as many fields as its header, so an unquoted comma can't silently shift columns.
 
 Not yet implemented: the "retired systems only in files dated before `retired_on`" part of check 2; it arrives with CR-001 in P3. The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
 
 **CI:** the hub's GitHub Action runs the checks that need only the hub. Full cross-repo runs are local, and their output is committed as evidence (`07-evidence-pack/artifacts/consistency/YYYY-MM-DD.txt`). That's continuous monitoring of the program itself, worth one line in the portfolio case study.
+
+**Monthly program monitor (added 2026-11-01, CA-7):** `.github/workflows/monthly-monitor.yml` runs on the 1st of each month (and on demand). It checks out all three repos, runs the full checker and `tools/due_dates.py`, and opens a "Program monitor: YYYY-MM" issue (label `program-monitor`), closing the previous month's. **It only reads records; it never writes inspection results or commits anything** (Michael's question about automated monthly "inspections", answered 2026-11-01: automated detection, not automated completion). GitHub pauses scheduled workflows after 60 days without repo activity; a gap in the issues is recorded as the monitor being paused. When adding a recurring activity or a dated register item, make sure `due_dates.py` can read it: register items start with their deadline ("By 2026-11-30:" or "November 2026:"), and recurring activities are listed in its `recurring()` function.
 
 ---
 
@@ -602,6 +605,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] Cameras: each view checked against the keypad rule; entrance sign; 30-day retention; individual accounts → POAM-027, E-24
 
 ### T10. Recurring
+- [ ] **Every month:** read the program monitor issue; do or reschedule each overdue item; record the outcome in the POA&M review log (CA-5, POAM-028)
 - [ ] **Every POA&M review (at least monthly, POAM-019):** a review-log entry
 - [ ] **Monthly update window (PR-002)**, **quarterly equipment register check** and **November end-of-support review (PR-010)**
 - [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
@@ -665,3 +669,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 20 | 2026-11-01 | Build readiness: no domain bought (tenant default domain; Cloudflare free tier for the website); D-8 superseded and D-9 decided (Business Premium trial in the website repo's build phase, cancelled before it converts); runbook uses `-IncludeAdminAccounts` and `redact_export.py`; `grp-bc-admins` and `grp-bc-vendors` listed; tenant and credentials evidence folders |
 | 21 | 2026-11-01 | Batch B, IT operations: P-006 IT Operations Policy, PR-002 v2.0 (one-month PCI deadline, monthly update window), PR-010 equipment lifecycle, equipment register and maintenance log, device tags; SI-2, CM-8, MA-2, MA-5, SA-22 (26 controls, 14 families); R-15/R-16; POAM-023 to 025; E-21/E-22; register T9c |
 | 22 | 2026-11-01 | Batch C, connected devices: PR-011 (cameras, espresso machine with vendor remote access, temperature sensors, speaker), P-005 v1.1 Devices segment, devices and vendors V-010 to V-012 and SYS-016 to SYS-018 registered, connected device checklist; MA-4 and PE-6 (28 controls); R-17/R-18; POAM-026/027; E-23/E-24; vendor ID note fixed (no IDs reserved) |
+| 23 | 2026-11-01 | Monthly program monitor (GitHub Actions, CA-7): full checker plus `tools/due_dates.py`, opened as a monthly issue; reads records only, never generates evidence; checker check 10 (CSV format); CA-7 (29 controls); POAM-028; E-25 |
