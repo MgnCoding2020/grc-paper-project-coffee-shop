@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **33 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 33: 0 Implemented, 18 Partially Implemented, 15 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **34 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 34: 0 Implemented, 18 Partially Implemented, 16 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -44,6 +44,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | CP-9 | System Backup | R-19 | **Req. 12.10.1** – The incident response plan covers data backup processes | Not Implemented |
 | CP-10 | System Recovery and Reconstitution | R-19 | **Req. 12.10.1** – The incident response plan covers business recovery and continuity procedures | Not Implemented |
 | AC-6 | Least Privilege | R-06 | **Req. 7** – Need-to-know / least privilege | Partially Implemented |
+| AC-19 | Access Control for Mobile Devices | R-21 | *No direct PCI DSS requirement* (card data is never on phones: P-004) | Not Implemented |
 | SA-9 | External System Services | R-07 | **Req. 12.8** – Manage service providers (Toast POS) | Partially Implemented |
 | SI-3 | Malicious Code Protection | R-08 | **Req. 5** – Protect from malicious software | Partially Implemented |
 | SI-7 | Software, Firmware & Information Integrity | R-08 | **Req. 11.5** – Change / intrusion detection | Not Implemented |
@@ -146,6 +147,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-11-01 | Added AC-19 | Personal phones used for MFA (P-007); no direct PCI DSS requirement |
 | 2026-11-01 | Added IR-4 and IR-8 | Incident response plan and playbooks (P-003 v1.2, IRP-005 to IRP-007) |
 | 2026-11-01 | Added CP-9 and CP-10 | Backups and recovery (PR-012), mapped to the backup and recovery parts of 12.10.1 |
 | 2026-11-01 | Added CA-7 | Monthly program monitor; no direct PCI DSS requirement |

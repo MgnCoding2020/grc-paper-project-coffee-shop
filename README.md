@@ -99,8 +99,8 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 ├── 01-asset-inventory/      # Asset register, equipment register, maintenance log, data classification, lifecycle
 ├── 02-risk-management/      # Risk register, continuous monitoring, vendor risk management
 ├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
-├── 04-policies/             # P-001–P-006 governance policies
-├── 05-procedures/           # PR-001–PR-012 operational procedures
+├── 04-policies/             # P-001–P-007 governance policies
+├── 05-procedures/           # PR-001–PR-013 operational procedures
 ├── 06-incident-playbooks/   # IRP-001–IRP-007 incident response playbooks
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
 ├── 08-architecture/         # System architecture and data-flow diagrams
@@ -158,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **33 controls across 15 families** — 0 Implemented, 18 Partially Implemented, 15 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **34 controls across 15 families** — 0 Implemented, 18 Partially Implemented, 16 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
@@ -195,6 +195,7 @@ The project includes formal governance **policies**:
 * Payment Card Data Protection Policy (P-004)
 * Network Security Policy (P-005)
 * IT Operations Policy (P-006)
+* Mobile Device and Personal Phone Policy (P-007)
 
 And supporting operational **procedures**:
 
@@ -210,6 +211,7 @@ And supporting operational **procedures**:
 * Equipment maintenance and lifecycle (PR-010)
 * Connected devices: cameras and smart devices (PR-011)
 * Backup and recovery (PR-012)
+* Microsoft 365 tenant security baseline (PR-013)
 
 ---
 
