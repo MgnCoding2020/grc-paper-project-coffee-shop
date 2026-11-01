@@ -32,7 +32,7 @@ Every risk, control, finding, POA&M item, change and piece of evidence in the Bu
 | Vendor | `V-###` | `V-002` | [Vendor inventory](../../02-risk-management/vendor-risk-management/vendor-inventory.md) |
 | System | `SYS-###` | `SYS-001` | [Asset inventory](../../01-asset-inventory/assets.md) |
 | Other assets | `HW-###`, `NET-###`, `DATA-###`, `PER-###` | `NET-002` | [Asset inventory](../../01-asset-inventory/assets.md) |
-| Device tag | `POS-##`, `TAB-##`, `LAP-##`, `RTR-##`, `FW-##`, `AP-##` | `FW-01` | [Equipment register](../../01-asset-inventory/equipment-register.csv) (one tag per physical device; several devices can share one asset ID) |
+| Device tag | `POS-##`, `TAB-##`, `LAP-##`, `RTR-##`, `FW-##`, `AP-##`, `CAM-##`, `ESP-##`, `TMP-##`, `SPK-##` | `FW-01` | [Equipment register](../../01-asset-inventory/equipment-register.csv) (one tag per physical device; several devices can share one asset ID) |
 
 ---
 

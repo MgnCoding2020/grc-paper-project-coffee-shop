@@ -12,3 +12,6 @@ SYS-012,SharePoint Online and Teams,Files; intranet; chat,V-003,Confidential,Clo
 SYS-013,Microsoft Intune and Defender for Business,Device management and endpoint protection,V-003,Internal,Cloud (Microsoft 365 tenant),Simulation,2026-11-15,,From CR-001; Live only if licensed (e.g. Business Premium trial)
 SYS-014,Bookkeeping workbook (Excel for the web),Accounting,V-003,Confidential,Cloud (SharePoint Finance library),Planned,2026-11-15,,From CR-001; restricted to grp-bc-owners and grp-bc-managers
 SYS-015,Password manager (Bitwarden organization),Shared credential storage,V-009,Restricted,Cloud (Bitwarden Free organization; two members),Planned,,,From CR-003; holds shared admin credentials only (PR-009); Live once the lab test is recorded
+SYS-016,Camera system (cloud recording),Video surveillance,V-010,Confidential,Store cameras and the vendor's cloud,Simulation,2026-02-01,,Two cameras (CAM-01/02); footage is DATA-005; rules in PR-011 §5
+SYS-017,Espresso machine service portal,Equipment telemetry and remote diagnostics,V-011,Internal,Store machine and the vendor's cloud,Simulation,2026-02-01,,ESP-01; vendor remote access (MA-4; PR-011 §4)
+SYS-018,Temperature monitoring service,Food-safety temperature log and alerts,V-012,Internal,Store sensors and the vendor's cloud,Simulation,2026-03-01,,TMP-01/02
