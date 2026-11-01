@@ -52,6 +52,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-22 | SI-2, MA-2, MA-5 | Maintenance log | [maintenance-log.csv](../01-asset-inventory/maintenance-log.csv) | 2026-11-01 | Simulation | POAM-023, POAM-024 |
 | E-23 | MA-4, SC-7, IA-5 | Connected device checklist | [connected-device-checklist.csv](artifacts/iot/connected-device-checklist.csv) | 2026-11-01 | Simulation | POAM-026 |
 | E-24 | PE-6 | Camera view and settings check | — | — | Planned | POAM-027 |
+| E-25 | CA-7 | Monthly program monitor issues | [Issues labelled program-monitor](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues?q=label%3Aprogram-monitor) | Monthly from 2026-11 | Automated (reads the records) | POAM-028 |
 
 ---
 

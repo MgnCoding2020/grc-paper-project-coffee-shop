@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **28 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 28: 0 Implemented, 15 Partially Implemented, 13 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **29 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 29: 0 Implemented, 16 Partially Implemented, 13 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -61,6 +61,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | MA-4 | Nonlocal Maintenance | R-17 | **Req. 8.2.7** – Third-party remote access accounts enabled only when needed, and monitored (loose mapping\*: vendor remote diagnostics on the espresso machine, outside the card environment) | Not Implemented |
 | PE-6 | Monitoring Physical Access | R-18 | *No direct PCI DSS requirement* (the camera rule keeps PIN entry off camera) | Not Implemented |
 | CA-5 | Plan of Action and Milestones | R-12 | *No direct PCI DSS requirement* (supports remediation of every requirement's gaps) | Partially Implemented |
+| CA-7 | Continuous Monitoring | R-12 | *No direct PCI DSS requirement* (the monitor reports late PCI-related activities, such as device inspections under PCI DSS 9.5.1.2) | Partially Implemented |
 
 \* PCI DSS has limited business-continuity coverage; CP-2's nearest analog is the incident response
 plan under Req. 12.10. The mapping is directional, not one-to-one — a normal feature of crosswalks.
@@ -141,6 +142,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-11-01 | Added CA-7 | Monthly program monitor; no direct PCI DSS requirement |
 | 2026-11-01 | Added MA-4 and PE-6 | Connected devices (PR-011); MA-4 loosely mapped to 8.2.7; PE-6 has no direct PCI DSS requirement |
 | 2026-11-01 | Added SI-2, CM-8, MA-2, MA-5, SA-22 | IT Operations Policy (P-006); MA-2 loosely mapped to 9.5.1 |
 | 2026-10-30 | Added IA-5 | Shared admin credentials (PR-009); loose mapping to 8.3 and 8.6 |

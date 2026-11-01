@@ -1,0 +1,75 @@
+# Monthly program monitor (CA-7). On the 1st of each month it checks out all three repos,
+# runs the full consistency checker and the due-date monitor, and opens a "Program monitor"
+# issue with the results. It only reads the records: it never writes inspection results or
+# commits anything, so a missed date stays visible until someone does the work.
+#
+# GitHub turns scheduled workflows off in a public repo after 60 days without activity.
+# A missing monthly issue therefore means the monitor was paused; re-enable it from the
+# Actions tab, or run it by hand (Run workflow).
+name: Monthly program monitor
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"   # 09:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: hub
+      - uses: actions/checkout@v4
+        with:
+          repository: MgnCoding2020/IAM-Access-Review-Lab
+          path: IAM-Access-Review-Lab
+      - uses: actions/checkout@v4
+        with:
+          repository: MgnCoding2020/Vendor-Risk-Assessment-Lab
+          path: Vendor-Risk-Assessment-Lab
+
+      - name: Consistency checker (all three repos)
+        working-directory: hub
+        # A failed check is a finding for the report, not a reason to stop
+        run: python3 tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Vendor-Risk-Assessment-Lab > ../consistency.txt || true
+
+      - name: Due-date monitor
+        working-directory: hub
+        run: python3 tools/due_dates.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Vendor-Risk-Assessment-Lab --output ../due-dates.md
+
+      - name: Open this month's issue and close the previous one
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          month=$(date -u +%Y-%m)
+          {
+            cat due-dates.md
+            echo
+            echo "## Consistency checker"
+            echo
+            echo '```'
+            cat consistency.txt
+            echo '```'
+            echo
+            echo "_Opened automatically by the [monthly program monitor](../blob/main/.github/workflows/monthly-monitor.yml) (CA-7). Read-only: it reports what the records show and changes nothing._"
+          } > body.md
+          gh label create program-monitor --repo "$GITHUB_REPOSITORY" --color 5319e7 \
+            --description "Monthly program monitor (CA-7)" --force
+          previous=$(gh issue list --repo "$GITHUB_REPOSITORY" --label program-monitor --state open --json number --jq '.[].number')
+          url=$(gh issue create --repo "$GITHUB_REPOSITORY" --title "Program monitor: $month" \
+            --label program-monitor --body-file body.md)
+          for n in $previous; do
+            gh issue close "$n" --repo "$GITHUB_REPOSITORY" --comment "Superseded by $url"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: program-monitor
+          path: |
+            due-dates.md
+            consistency.txt
