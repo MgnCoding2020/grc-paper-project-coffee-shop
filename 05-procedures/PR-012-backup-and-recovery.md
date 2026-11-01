@@ -68,7 +68,7 @@ Each backup and each test is recorded in the [backup log](../07-evidence-pack/ar
 ---
 
 ## 6. Recovering After an Incident
-  1. **Find a clean point.** For ransomware or account compromise, decide with the Owner which backup predates the incident (the malware and ransomware playbook, IRP-005).
+  1. **Find a clean point.** For ransomware or account compromise, decide with the Owner which backup predates the incident ([IRP-005](../06-incident-playbooks/IRP-005-malware-ransomware.md)).
   2. **Fix the cause first**: remove the malware, reset accounts, patch. Then restore, so the restored data isn't re-infected.
   3. **Restore** in priority order: payments (Toast offline or cash keep the counter open meanwhile), staff sign-in, documents and the bookkeeping workbook, everything else.
   4. **Check** that restored data is complete and opens, and record what was lost between the backup and the incident.
@@ -86,6 +86,7 @@ Each backup and each test is recorded in the [backup log](../07-evidence-pack/ar
 ## 8. Related Documents
   - [IT Operations Policy (P-006)](../04-policies/P-006-it-operations.md)
   - [Contingency and Outage Plan (PR-005)](PR-005-contingency-plan.md)
+  - [Malware and Ransomware Playbook (IRP-005)](../06-incident-playbooks/IRP-005-malware-ransomware.md)
   - [Shared Credential Management Procedure (PR-009)](PR-009-credential-vault.md)
   - [Tenant provisioning scripts](../tools/tenant/README.md)
 

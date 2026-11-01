@@ -101,7 +101,7 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 ├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
 ├── 04-policies/             # P-001–P-006 governance policies
 ├── 05-procedures/           # PR-001–PR-012 operational procedures
-├── 06-incident-playbooks/   # IRP-001–IRP-004 incident response playbooks
+├── 06-incident-playbooks/   # IRP-001–IRP-007 incident response playbooks
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
 ├── 08-architecture/         # System architecture and data-flow diagrams
 ├── 09-change-management/    # Change process and change records (CR-001, CR-003)
@@ -158,7 +158,7 @@ Controls were designed and mapped to **NIST SP 800-53 families** and, where rele
 * **AU-6** – Log Review (PCI Req. 10)
 * **SC-7** – Network Segmentation (PCI Req. 1)
 
-The full set of **31 controls across 14 families** — 0 Implemented, 16 Partially Implemented, 15 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
+The full set of **33 controls across 15 families** — 0 Implemented, 18 Partially Implemented, 15 Not Implemented, with every open gap tracked to a POA&M item — is maintained in the [control matrix](03-controls/control-matrix.md).
 
 Each control includes:
 
@@ -228,6 +228,9 @@ Playbooks included:
 * Account compromise (IRP-002)
 * POS suspicious activity (IRP-003)
 * Lost or stolen device (IRP-004)
+* Malware and ransomware (IRP-005)
+* Vendor breach notification (IRP-006)
+* Payment and payroll fraud (IRP-007)
 
 ---
 

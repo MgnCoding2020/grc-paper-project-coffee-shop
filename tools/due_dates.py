@@ -162,6 +162,8 @@ def recurring(hub, iam):
            latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Backup")), 31, date(2026, 12, 31))
     yield ("Restore test (PR-012)", "backup log",
            latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Restore test")), 92, date(2027, 2, 28))
+    yield ("Tabletop exercise (P-003 §6.7, PR-005 §8)", "tabletop log",
+           latest(csv_dates(hub / "07-evidence-pack/artifacts/monitoring/tabletop-log.csv", "date")), 365, date(2026, 12, 31))
     yield ("Firewall rule review (P-005 §6)", "no record kept yet", None, 182, date(2027, 4, 30))
 
 
