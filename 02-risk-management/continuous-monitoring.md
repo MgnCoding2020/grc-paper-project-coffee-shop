@@ -35,7 +35,7 @@ This document defines how the coffee shop maintains ongoing awareness of securit
 - Scope: all three repositories
 - What it does: runs the [consistency checker](../tools/check_program.py) and the [due-date monitor](../tools/due_dates.py), then opens a "Program monitor" issue listing overdue remediation targets, register items due soon, and recurring activities that are behind (POA&M review, POS inspections, update windows, access reviews, training, firewall review)
 - What it doesn't do: it never records an activity as done. It reads the records people keep; a missed date stays listed until the work is done and recorded
-- Evidence: the monthly issues (label `program-monitor`), E-25
+- Evidence: a dated report file committed each run to [artifacts/monitoring/program-monitor/](../07-evidence-pack/artifacts/monitoring/program-monitor/README.md), and the monthly issues (label `program-monitor`), E-25
 - Limit: GitHub pauses scheduled workflows in a public repository after 60 days without activity, so a gap in the monthly issues means the monitor itself was paused. That gap is recorded honestly too
 
 ## POA&M Integration

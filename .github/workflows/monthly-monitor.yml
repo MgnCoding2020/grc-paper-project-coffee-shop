@@ -1,7 +1,11 @@
 # Monthly program monitor (CA-7). On the 1st of each month it checks out all three repos,
-# runs the full consistency checker and the due-date monitor, and opens a "Program monitor"
-# issue with the results. It only reads the records: it never writes inspection results or
-# commits anything, so a missed date stays visible until someone does the work.
+# runs the full consistency checker and the due-date monitor, saves the report as a dated file
+# in 07-evidence-pack/artifacts/monitoring/program-monitor/ (one commit by github-actions[bot]),
+# and opens a "Program monitor" issue. It only reads the records: it never marks an activity
+# as done, so a missed date stays visible until someone does the work and records it.
+#
+# Run by hand on a branch other than main, it commits the report to that branch and skips the
+# issue, so the workflow can be tested without touching main.
 #
 # GitHub turns scheduled workflows off in a public repo after 60 days without activity.
 # A missing monthly issue therefore means the monitor was paused; re-enable it from the
@@ -14,7 +18,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # to commit the monthly report file
   issues: write
 
 jobs:
@@ -42,7 +46,32 @@ jobs:
         working-directory: hub
         run: python3 tools/due_dates.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Vendor-Risk-Assessment-Lab --output ../due-dates.md
 
+      - name: Save the report in the repository
+        working-directory: hub
+        run: |
+          day=$(date -u +%Y-%m-%d)
+          dir=07-evidence-pack/artifacts/monitoring/program-monitor
+          mkdir -p "$dir"
+          {
+            echo "<!-- Automated report by the monthly program monitor (CA-7). Reads the records; changes nothing else. -->"
+            cat ../due-dates.md
+            echo
+            echo "## Consistency checker"
+            echo
+            echo '```'
+            cat ../consistency.txt
+            echo '```'
+            echo
+            echo "_Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID (branch $GITHUB_REF_NAME)_"
+          } > "$dir/$day.md"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dir/$day.md"
+          git commit -m "Program monitor report $day (automated)" || echo "No change to commit"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
       - name: Open this month's issue and close the previous one
+        if: github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

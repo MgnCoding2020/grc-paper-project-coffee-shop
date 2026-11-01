@@ -52,7 +52,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-22 | SI-2, MA-2, MA-5 | Maintenance log | [maintenance-log.csv](../01-asset-inventory/maintenance-log.csv) | 2026-11-01 | Simulation | POAM-023, POAM-024 |
 | E-23 | MA-4, SC-7, IA-5 | Connected device checklist | [connected-device-checklist.csv](artifacts/iot/connected-device-checklist.csv) | 2026-11-01 | Simulation | POAM-026 |
 | E-24 | PE-6 | Camera view and settings check | — | — | Planned | POAM-027 |
-| E-25 | CA-7 | Monthly program monitor issues | [Issues labelled program-monitor](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues?q=label%3Aprogram-monitor) | 2026-11-01 (first run: [issue #30](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues/30)) | Automated (reads the records) | POAM-028 |
+| E-25 | CA-7 | Monthly program monitor issues | [Saved reports](artifacts/monitoring/program-monitor/README.md) and [issues labelled program-monitor](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues?q=label%3Aprogram-monitor) | 2026-11-01 (first run: [issue #30](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues/30)) | Automated (reads the records) | POAM-028 |
 | E-26 | CP-9, CP-10 | Backup log | [backup-log.csv](artifacts/backup/backup-log.csv) | 2026-11-01 | Simulation | POAM-029 |
 | E-27 | IR-8, CP-2 | Tabletop exercise log | [tabletop-log.csv](artifacts/monitoring/tabletop-log.csv) | — | Planned | POAM-030, POAM-005 |
 
