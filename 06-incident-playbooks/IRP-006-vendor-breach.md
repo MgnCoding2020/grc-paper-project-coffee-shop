@@ -42,7 +42,8 @@ How quickly each vendor has promised to tell the shop, from the vendor assessmen
 | V-002 Northwind | Payroll and staff personal data | **Not defined** in the contract | VRA-V002:F-03 (open) |
 | V-003 Microsoft | Email, files, staff accounts | 72 hours, in the Data Protection Addendum | VRA-V003 assessment |
 | V-009 Bitwarden | Shared admin credentials (encrypted) | Not yet assessed | — |
-| V-010 to V-012 (cameras, espresso, temperature) | Video; machine access; temperature log | Not yet assessed | — |
+| V-011 Espresso machine service company | Machine telemetry; remote access to the machine | **No timeline:** "without undue delay" | VRA-V011:F-04 (open; 72-hour clause at renewal, 2027-01-15) |
+| V-010, V-012 (cameras, temperature) | Video; temperature log | Not yet assessed | — |
 
 ---
 
