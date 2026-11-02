@@ -23,10 +23,10 @@ The inventory is the entry point for the vendor risk management process: each ve
 | V-006 | Intuit (QuickBooks Online) | Accounting software | Financial records | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
 | V-007 | Google (Workspace) | Email and collaboration | Employee accounts; business documents; email | Not scored | No | Not Started | - | - | Owner | Active; offboarding planned (CR-001) |
 | V-008 | Internet service provider | Store internet connectivity | Network traffic in transit | Not scored | No | Not Started | - | - | Owner | Active |
-| V-009 | Bitwarden, Inc. | Password manager (shared admin credentials) | Encrypted shared credentials | Not scored | No | Not Started | - | - | Owner | Planned (CR-003) |
-| V-010 | Cloud camera service (unnamed) | Security cameras and cloud video recording | Video of customers and staff | Not scored | No | Not Started | - | - | Owner | Active |
+| V-009 | Bitwarden, Inc. | Password manager (shared admin credentials) | Encrypted shared credentials | Moderate | No | Complete | 2026-11-02 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-009-bitwarden) (VRA-V009) | Owner | Planned (CR-003); approved with conditions |
+| V-010 | Cloud camera service (unnamed) | Security cameras and cloud video recording | Video of customers and staff | Moderate | No | Complete | 2026-11-02 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-010-camera-service) (VRA-V010) | Owner | Active (continue with conditions) |
 | V-011 | Espresso machine service company (unnamed) | Espresso machine servicing and remote diagnostics | Machine data; remote access to the machine | Moderate | No | Complete | 2026-11-01 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-011-espresso-service) (VRA-V011) | Owner | Active (continue with conditions) |
-| V-012 | Temperature monitoring service (unnamed) | Fridge temperature sensors and food-safety log | Temperature readings | Not scored | No | Not Started | - | - | Owner | Active |
+| V-012 | Temperature monitoring service (unnamed) | Fridge temperature sensors and food-safety log | Temperature readings | Moderate | No | Complete | 2026-11-02 | [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-012-temperature-monitoring) (VRA-V012) | Owner | Active (continue with conditions) |
 
 The machine-readable copy of this inventory is [vendors.csv](../../00-company-profile/org/vendors.csv); the two must match (the program's consistency checker verifies this).
 

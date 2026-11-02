@@ -199,11 +199,11 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-005 | NorthPeak Systems | **Offboarded**; access removal is IAM F-003 |
 | V-006 | Intuit (QuickBooks Online) | **Offboarded** by CR-001 (replaced by SYS-014); data export and subscription cancellation are CR-001 exit steps |
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
-| V-008 | Internet service provider (unnamed) | Active; not scored |
-| V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician) |
-| V-010 | Cloud camera service (unnamed) | Active; not scored |
-| V-011 | Espresso machine service company (unnamed) | Active; not scored; remote access to the machine |
-| V-012 | Temperature monitoring service (unnamed) | Active; not scored |
+| V-008 | Internet service provider (unnamed) | Active; **not yet scored** (the last vendor awaiting assessment) |
+| V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician); assessed 2026-11-02, Moderate, approve with conditions |
+| V-010 | Cloud camera service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
+| V-011 | Espresso machine service company (unnamed) | Active; remote access to the machine; assessed 2026-11-01, Moderate, continue with conditions |
+| V-012 | Temperature monitoring service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
 | Next free | Stripe, Cloudflare (CR-002), the AI provider (T11) | Get the next free `V-###` when added |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
@@ -539,7 +539,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 ### T3b. Password manager set up and tested (PR-009, POAM-021)
 - [ ] Michael's lab test (PR-009 §6) with test entries only; Bitwarden test emails in `.env` only; redacted screenshots → `artifacts/credentials/vault-test-record.md` marked `Lab-verified <date>`
 - [ ] E-19 present; SYS-015 → Live; V-009 → Active; IA-5 re-rated on the evidence (matrix, crosswalk, README counts); R-13 residual reviewed
-- [ ] Vendor lab: V-009 Bitwarden assessment (encryption model, security reports, breach history) on the 6-factor worksheet
+- [x] Vendor lab: V-009 Bitwarden assessment (VRA #12, 2026-11-02: Moderate, approve with conditions)
 - [ ] IAM lab: the Q4 review checks password manager membership (exactly the Owner and the IT Technician)
 
 ### T3a. Network segmentation implemented (POAM-015)
@@ -690,3 +690,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 30 | 2026-11-02 | Policies batch A: P-008 Third-Party Risk Management (tiers and reassessment cadence, required contract clauses incl. 72-hour breach notice, PCI DSS 12.8.1–12.8.5, offboarding records) and P-009 Personnel Security (position risk, screening within local law, agreements before access, role change, leaving, external personnel, sanctions); personnel file checklist; PS-3 and PS-6 (36 controls); R-22; POAM-032; E-29 |
 | 31 | 2026-11-02 | Policies batch B: P-010 Records Retention and Disposal (schedule for every record type, legal hold, NIST SP 800-88 Rev. 2 disposal methods, disposal log, yearly review) and PR-014 Risk Acceptance and Exception Procedure with the exception register (`EXC-###`; six existing exceptions approved, each expiring within 12 months); SI-12, MP-6, RA-7 (39 controls, 16 families); R-23; POAM-033/034; E-30/E-31; monitor reads exception expiries and the yearly records review |
 | 32 | 2026-11-02 | Policies batch C: P-011 Physical Security (areas, personal keys and alarm codes, opening and closing, escorted and logged visitors) and PR-015 Device Configuration Baselines (laptop, tablets, POS, firewall, access points, router; quarterly checks; Intune later); key register, visitor log and baseline check log; PE-2, PE-8 (41 controls); CM-6 → Partially Implemented; R-24; POAM-035; E-32; monitor tracks the quarterly baseline check. The gap list's missing-policy items are complete except vulnerability scanning, which waits for the SAQ type |
+| 33 | 2026-11-02 | Vendor assessments V-009 Bitwarden (before onboarding), V-010 cameras and V-012 temperature monitoring (VRA #12–#14) rolled up: vendors.csv, inventory, IRP-006 notification table, P-008 status, POAM-021/026/027; only the ISP (V-008) remains unscored |
