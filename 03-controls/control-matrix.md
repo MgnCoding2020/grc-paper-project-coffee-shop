@@ -49,6 +49,9 @@ Each control references the policy or procedure responsible for implementing the
 | R-18 | PE-6 | Monitoring physical access: cameras on entrances and stock room, never on the keypad; owner-approved footage access; 30-day retention (PR-011) | PE | None (no direct PCI DSS requirement) | Not Implemented | E-24 | POAM-027 |
 | R-20 | IR-4 | Incident handling: playbooks for each incident type, following the NIST CSF 2.0 functions; incidents logged as INC-### (P-003, IRP-001 to IRP-007) | IR | Req. 12.10.1 | Partially Implemented | E-04 | POAM-030 |
 | R-20 | IR-8 | Incident response plan: P-003 and its playbooks, exercised in a yearly tabletop and updated afterwards | IR | Req. 12.10.1, 12.10.2 | Partially Implemented | E-27 | POAM-030 |
+| R-23 | SI-12 | Information retention: schedule for every record type, legal hold, yearly review (P-010) | SI | Req. 3.2.1 (loose: card data is never stored) | Partially Implemented | E-30 | POAM-033 |
+| R-23 | MP-6 | Media sanitization: shredding, purge or destruction by media type, every disposal logged (P-010, NIST SP 800-88 Rev. 2) | MP | Req. 9.4.6, 9.4.7 | Not Implemented | E-30 | POAM-033 |
+| R-12 | RA-7 | Risk response: exceptions accepted only by the Owner, in writing, with compensating controls and an expiry (PR-014) | RA | None (no direct PCI DSS requirement) | Partially Implemented | E-31 | POAM-034 |
 | R-12 | CA-5 | Plan of action and milestones: weaknesses tracked, reviewed and driven to closure | CA | None (no direct PCI DSS requirement) | Partially Implemented | E-18 | POAM-019 |
 | R-12 | CA-7 | Continuous monitoring: monthly automated program monitor (consistency checker and due-date report) plus the manual activities in the monitoring strategy | CA | None (no direct PCI DSS requirement) | Partially Implemented | E-25 | POAM-028 |
 
@@ -89,6 +92,7 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-11-02 | Added SI-12, MP-6 (POAM-033) and RA-7 (POAM-034) | Records Retention and Disposal Policy (P-010); Risk Acceptance and Exception Procedure (PR-014) |
 | 2026-11-02 | Added PS-3 and PS-6 (POAM-032); SA-9 description widened to all vendors (P-008) | Personnel Security Policy (P-009) and Third-Party Risk Management Policy (P-008) |
 | 2026-11-01 | Added AC-19 (POAM-031); CM-6 description adds the tenant baseline (PR-013) | Staff will use personal phones for MFA from the cutover (P-007) |
 | 2026-11-01 | Added IR-4 and IR-8 (POAM-030) | Incident playbooks IRP-005 to IRP-007; the plan had never been listed as a control or exercised |

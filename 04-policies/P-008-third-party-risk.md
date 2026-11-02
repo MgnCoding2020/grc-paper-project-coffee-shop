@@ -75,7 +75,7 @@ Every exit has an **offboarding record** in the Vendor Risk Assessment Lab (the 
 -----------
 
 ## 8. Exceptions
-A vendor that can't meet a requirement may still be used if the Owner accepts the risk in writing, with compensating controls, under the [risk acceptance procedure](../02-risk-management/risk-register.md) and with a review date.
+A vendor that can't meet a requirement may still be used if the Owner accepts the risk in writing, with compensating controls, under the [Risk Acceptance and Exception Procedure (PR-014)](../05-procedures/PR-014-risk-acceptance.md) and with a review date.
 
 -----------
 

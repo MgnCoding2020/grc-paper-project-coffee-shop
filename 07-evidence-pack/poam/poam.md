@@ -42,6 +42,8 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 | POAM-030 | IR-4, IR-8 | The incident response plan and its playbooks have never been exercised; the fraud prevention rules (callback, two-person bank changes) are new and staff haven't been trained on them | First tabletop in December 2026, together with the contingency tabletop (PR-005), covering ransomware and payroll fraud; fraud rules in the first training session (PR-007, by 2026-11-30); update the plan afterwards | Owner | Medium | Open |
 | POAM-031 | AC-19 | No rules yet for personal phones, which most staff will use for MFA from the cutover | Mobile Device and Personal Phone Policy (P-007) takes effect 2026-11-15; staff acknowledge it in the first training session by 2026-11-30; security keys bought for anyone who declines a personal phone | Owner | Medium | Open |
 | POAM-032 | PS-3, PS-6 | No screening or confidentiality agreements recorded for any staff, all hired before a personnel policy existed | Existing staff sign the acceptable use, confidentiality and (if applicable) personal phone acknowledgments in the first training session by 2026-11-30; IT Technician screened and signed before admin access (CR-003); personnel files started with the checklist (P-009) | Owner | Medium | Open |
+| POAM-033 | SI-12, MP-6 | No retention schedule was applied and no disposal has ever been recorded | Retention schedule in force (P-010); every disposal logged from now on; first yearly review by 2027-01-31 | IT Technician | Low | Open |
+| POAM-034 | RA-7 | Exceptions were accepted informally across many documents with no single register or expiry dates | Exception register with six exceptions approved 2026-11-02 (PR-014); first six-monthly review by 2027-05-02 | Owner | Low | Open |
 
 
 ---
@@ -68,3 +70,4 @@ The POA&M is intended to be reviewed bi-weekly to track remediation progress. Un
 | 2026-11-01 | Program alignment review, reported to Olivia Carter (Owner) | POAM-026: espresso machine service company (V-011) assessed, continue with conditions; first targets 2026-11-30 (VRA-V011) |
 | 2026-11-01 | Program alignment review, reported to Olivia Carter (Owner) | Added POAM-031 (personal phones, P-007); POAM-009 moved to In Progress with the tenant baseline (PR-013) |
 | 2026-11-02 | Program alignment review, reported to Olivia Carter (Owner) | Added POAM-032 (personnel screening and agreements, P-009); POAM-006 updated with the Third-Party Risk Management Policy (P-008) |
+| 2026-11-02 | Program alignment review, reported to Olivia Carter (Owner) | Added POAM-033 (retention and disposal) and POAM-034 (risk acceptance); six existing exceptions recorded in the new exception register |

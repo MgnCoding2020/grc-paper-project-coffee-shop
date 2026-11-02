@@ -127,6 +127,16 @@ def vra_deadlines(vra):
                 yield f"VRA-V{vendor}:{r['Finding ID']} {r.get('Remediation Action', '')[:60]}", "Vendor lab tracker", due
 
 
+def exception_expiries(hub):
+    path = hub / "02-risk-management/risk-exceptions.md"
+    if not path.exists():
+        return
+    for r in md_rows(path, ("ID", "Expires", "Status")):
+        if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Expires"]):
+            continue
+        yield f"{r['ID']} expires: {r['Requirement not met'][:70]}", "exception register", to_date(ISO.search(r["Expires"]))
+
+
 # ---------------------------------------------------------------- recurring
 
 def latest(dates):
@@ -169,6 +179,8 @@ def recurring(hub, iam):
            latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Restore test")), 92, date(2027, 2, 28))
     yield ("Tabletop exercise (P-003 §6.7, PR-005 §8)", "tabletop log",
            latest(csv_dates(hub / "07-evidence-pack/artifacts/monitoring/tabletop-log.csv", "date")), 365, date(2026, 12, 31))
+    yield ("Records retention review (P-010 §4)", "disposal log",
+           latest(csv_dates(hub / "07-evidence-pack/artifacts/assets/disposal-log.csv", "date", lambda r: r["item"] == "Yearly review")), 365, date(2027, 1, 31))
     yield ("Firewall rule review (P-005 §6)", "no record kept yet", None, 182, date(2027, 4, 30))
 
 
@@ -193,7 +205,7 @@ def main():
     today = date.fromisoformat(args.today) if args.today else date.today()
     horizon = today + timedelta(days=args.window)
 
-    deadlines = list(poam_deadlines(hub)) + list(register_deadlines(hub))
+    deadlines = list(poam_deadlines(hub)) + list(register_deadlines(hub)) + list(exception_expiries(hub))
     if iam:
         deadlines += list(iam_deadlines(iam))
     if vra:
