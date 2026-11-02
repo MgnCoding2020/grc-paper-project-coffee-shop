@@ -17,6 +17,7 @@ import csv
 import re
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 
 HUB_URL = "github.com/MgnCoding2020/grc-paper-project-coffee-shop"
@@ -281,6 +282,37 @@ def check_systems_and_vendors(hub, iam, vra, org):
     return findings
 
 
+# Where a retired system may still be named: dated records, registers and change records
+RETIRED_OK_PATHS = ("07-evidence-pack/artifacts/", "07-evidence-pack/poam/", "07-evidence-pack/evidence-",
+                    "09-change-management/", "00-company-profile/org/", "01-asset-inventory/assets.md",
+                    "02-risk-management/vendor-risk-management/", "tools/")
+# A line that describes the system as history is fine anywhere
+HISTORY_WORDS = re.compile(r"retired|replac|former|until|migrat|offboard|CR-001|history|Q1 2026|cutover|used to", re.I)
+
+
+def check_retired_systems(hub, org, as_of):
+    """Once a system's retired_on date has passed, current-state documents must not still describe it."""
+    findings = []
+    retired = [s for s in org.systems if s["retired_on"] and date.fromisoformat(s["retired_on"]) <= as_of]
+    names = {}
+    for s in retired:
+        for name in {s["name"], re.sub(r" Online$", "", s["name"])}:
+            names[name] = s["system_id"]
+    if not names:
+        return findings
+    pattern = re.compile("|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)))
+    for path in tracked_files(hub):
+        relpath = rel(path, hub)
+        if path.suffix != ".md" or path.name == "CLAUDE.md" or relpath.startswith(RETIRED_OK_PATHS):
+            continue
+        hits = [line for line in without_revision_history(read_text(path)).splitlines()
+                if pattern.search(line) and not HISTORY_WORDS.search(line)]
+        if hits:
+            first = pattern.search(hits[0]).group(0)
+            findings.append(f"hub {relpath}: still names retired {first} ({names[first]}) as current, {len(hits)} line(s)")
+    return findings
+
+
 def access_level(value):
     """Normalise access levels from different exports to admin / standard / cashier."""
     value = value.lower()
@@ -482,7 +514,9 @@ def main():
     parser.add_argument("--hub", default=".", help="path to grc-paper-project-coffee-shop")
     parser.add_argument("--iam", help="path to IAM-Access-Review-Lab")
     parser.add_argument("--vra", help="path to Vendor-Risk-Assessment-Lab")
+    parser.add_argument("--as-of", help="check as if today were this date (YYYY-MM-DD), e.g. to preview a cutover")
     args = parser.parse_args()
+    as_of = date.fromisoformat(args.as_of) if args.as_of else date.today()
 
     hub = Path(args.hub).resolve()
     iam = Path(args.iam).resolve() if args.iam else None
@@ -495,7 +529,8 @@ def main():
     print()
     report = Report()
     report.add(1, "People match people.csv", check_people(hub, iam, org))
-    report.add(2, "Systems and vendors match systems.csv and vendors.csv", check_systems_and_vendors(hub, iam, vra, org))
+    report.add(2, "Systems and vendors match systems.csv and vendors.csv",
+               check_systems_and_vendors(hub, iam, vra, org) + check_retired_systems(hub, org, as_of))
     report.add(3, "IDs are unique and resolve", check_ids(hub))
     report.add(4, "Links resolve and companions link the hub", check_links(hub, iam, vra))
     report.add(5, "Control matrix, crosswalk and README agree", check_controls(hub))

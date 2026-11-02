@@ -447,7 +447,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
 10. **CSV files are well formed** (added 2026-11-01): every row has as many fields as its header, so an unquoted comma can't silently shift columns.
 
-Not yet implemented: the "retired systems only in files dated before `retired_on`" part of check 2; it arrives with CR-001 in P3. The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
+The retired-systems part of check 2 was added 2026-11-02: once a system's `retired_on` date has passed, any current-state document that still names it fails, except dated records, registers, change records, revision history and lines that describe it as history. `--as-of YYYY-MM-DD` previews a future date (run against the draft 3b PR #35 as of 2026-11-16: passes; against `main`: the 16 files the rewrite covers). The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
 
 **CI:** the hub's GitHub Action runs the checks that need only the hub. Full cross-repo runs are local, and their output is committed as evidence (`07-evidence-pack/artifacts/consistency/YYYY-MM-DD.txt`). That's continuous monitoring of the program itself, worth one line in the portfolio case study.
 
@@ -526,7 +526,8 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] `vendors.csv` and vendor inventory: V-003 → Active; V-006 and V-007 → offboarding, then Offboarded when the data deletion is confirmed
 - [ ] Asset register: SYS-010 to SYS-014 statuses; SYS-002, SYS-003, SYS-005 → Retired
 - [ ] IAM lab: procedure scope → Entra ID; README review history
-- [ ] Checker: add system aliases for the Microsoft 365 services used in evidence; implement the "retired systems only in older files" part of check 2
+- [x] Checker: "retired systems only in older files" part of check 2 (2026-11-02; run `--as-of` the cutover date before merging #35)
+- [ ] Checker: add system aliases for the Microsoft 365 services used in evidence
 
 ### T3. Vertex offboarded (CR-003 steps 3–6)
 - [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
