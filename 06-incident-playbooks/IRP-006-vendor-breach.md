@@ -45,6 +45,7 @@ How quickly each vendor has promised to tell the shop, from the vendor assessmen
 | V-011 Espresso machine service company | Machine telemetry; remote access to the machine | **No timeline:** "without undue delay" | VRA-V011:F-04 (open; 72-hour clause at renewal, 2027-01-15) |
 | V-010 Cloud camera service | Video of customers and staff | 72 hours, in the terms of service | VRA-V010 assessment |
 | V-012 Temperature monitoring service | Temperature log | **No timeline:** "prompt" | VRA-V012:F-04 (open) |
+| V-008 Internet service provider | Traffic in transit (encrypted by the services using it); the router | **None** in the contract | VRA-V008:F-04 (open) |
 
 ---
 
