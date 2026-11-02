@@ -45,6 +45,7 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-26 | CP-9, CP-10 | Backup log (artifacts/backup/backup-log.csv) | Log | Manual review: monthly offline copy recorded; quarterly restore test passed | Missing (records gap noted 2026-11-01; no backups yet) |
 | E-27 | IR-8, CP-2 | Tabletop exercise log (artifacts/monitoring/tabletop-log.csv) | Exercise record | Manual review: yearly tabletop held, scenarios, gaps found, plan updated | Missing (first tabletop December 2026) |
 | E-28 | CM-6, IA-2 | Microsoft 365 tenant baseline screenshots (artifacts/tenant/<date>-tenant-baseline/) | Screenshots of each setting page, names blurred | Manual review against PR-013 §2 | Missing (applied on build day) |
+| E-29 | PS-3, PS-6 | Personnel files (template: examples/personnel-file-checklist.md) | Checklist per person, kept by the Owner | Manual review: screening level met, agreements signed and renewed | Missing (no files yet; staff sign by 2026-11-30) |
 
 ---
 
@@ -101,6 +102,7 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
+| 2026-11-02 | E-29 added | Personnel Security Policy (P-009) |
 | 2026-11-01 | E-28 added | Microsoft 365 tenant baseline (PR-013) |
 | 2026-11-01 | E-27 added | Incident response plan and contingency tabletops (IR-8, CP-2) |
 | 2026-11-01 | E-26 added; E-25 first run recorded | Backups (PR-012); monitor test run, issue #30 |

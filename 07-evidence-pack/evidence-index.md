@@ -56,6 +56,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-26 | CP-9, CP-10 | Backup log | [backup-log.csv](artifacts/backup/backup-log.csv) | 2026-11-01 | Simulation | POAM-029 |
 | E-27 | IR-8, CP-2 | Tabletop exercise log | [tabletop-log.csv](artifacts/monitoring/tabletop-log.csv) | — | Planned | POAM-030, POAM-005 |
 | E-28 | CM-6, IA-2 | Microsoft 365 tenant baseline screenshots | Planned: `artifacts/tenant/<date>-tenant-baseline/` ([PR-013](../05-procedures/PR-013-m365-tenant-baseline.md)) | — | Planned | POAM-009 |
+| E-29 | PS-3, PS-6 | Personnel files | [Template](examples/personnel-file-checklist.md) | — | Planned | POAM-032 |
 
 ---
 

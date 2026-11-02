@@ -598,6 +598,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] Confirm the $50 offline limit is set in Toast Web and record it (PR-005 §9); Owner decides on cellular failover (if installed: P-005 segmentation applies, assets and vendors updated)
 - [ ] By 2026-11-30: first all-staff training session (PR-007), including Microsoft 365 sign-in and MFA; training log updated; AT-2 re-rated only once staff are actually trained
 - [ ] December 2026: first tabletop: the contingency plan (PR-005 §8) plus the incident playbooks, at least ransomware (IRP-005) and payroll fraud (IRP-007); record it in `tabletop-log.csv` → E-27, POAM-030, POAM-005; consider adding CP-4 to the control matrix
+- [ ] By 2026-11-30: existing staff sign the acceptable use and confidentiality agreements (P-009 §5) in the first training session; personnel files started → POAM-032, E-29
 - [ ] By 2026-11-30: staff acknowledge the personal phone policy (P-007) in the first training session; security keys bought for anyone who declines → POAM-031
 - [ ] Missed dates → status check and POA&M review-log entry (CA-5)
 
@@ -683,3 +684,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 27 | 2026-11-01 | Company profile, assessment scope, program overview and data classification now include the connected devices and vendors V-010 to V-012 (missed in batch C); checker check 2 confirms the profile lists every current vendor |
 | 28 | 2026-11-01 | Build-day documents: P-007 Mobile Device and Personal Phone Policy (Authenticator on personal phones, no downloads, security-key alternative) and PR-013 Microsoft 365 Tenant Security Baseline (per-user MFA, user and guest settings, consent, admin roles, logging; tenant-wide items flagged for the shared tenant); AC-19 (34 controls); R-21; POAM-031; POAM-009 In Progress; E-28; runbook applies the baseline |
 | 29 | 2026-11-02 | IAM lab reorganised into `reviews/2026-Q1/` and a `reviews/2026-Q4/` plan (IAM #13); checker and monitor read per-review folders (hub #38); hub links updated; V-004 Vertex offboarding record prepared (VRA #11) |
+| 30 | 2026-11-02 | Policies batch A: P-008 Third-Party Risk Management (tiers and reassessment cadence, required contract clauses incl. 72-hour breach notice, PCI DSS 12.8.1–12.8.5, offboarding records) and P-009 Personnel Security (position risk, screening within local law, agreements before access, role change, leaving, external personnel, sanctions); personnel file checklist; PS-3 and PS-6 (36 controls); R-22; POAM-032; E-29 |
