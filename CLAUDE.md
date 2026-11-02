@@ -199,7 +199,7 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-005 | NorthPeak Systems | **Offboarded**; access removal is IAM F-003 |
 | V-006 | Intuit (QuickBooks Online) | **Offboarded** by CR-001 (replaced by SYS-014); data export and subscription cancellation are CR-001 exit steps |
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
-| V-008 | Internet service provider (unnamed) | Active; **not yet scored** (the last vendor awaiting assessment) |
+| V-008 | Internet service provider (unnamed) | Active; provider-managed router; assessed 2026-11-02, Moderate, continue with conditions |
 | V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician); assessed 2026-11-02, Moderate, approve with conditions |
 | V-010 | Cloud camera service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
 | V-011 | Espresso machine service company (unnamed) | Active; remote access to the machine; assessed 2026-11-01, Moderate, continue with conditions |
@@ -692,3 +692,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 31 | 2026-11-02 | Policies batch B: P-010 Records Retention and Disposal (schedule for every record type, legal hold, NIST SP 800-88 Rev. 2 disposal methods, disposal log, yearly review) and PR-014 Risk Acceptance and Exception Procedure with the exception register (`EXC-###`; six existing exceptions approved, each expiring within 12 months); SI-12, MP-6, RA-7 (39 controls, 16 families); R-23; POAM-033/034; E-30/E-31; monitor reads exception expiries and the yearly records review |
 | 32 | 2026-11-02 | Policies batch C: P-011 Physical Security (areas, personal keys and alarm codes, opening and closing, escorted and logged visitors) and PR-015 Device Configuration Baselines (laptop, tablets, POS, firewall, access points, router; quarterly checks; Intune later); key register, visitor log and baseline check log; PE-2, PE-8 (41 controls); CM-6 → Partially Implemented; R-24; POAM-035; E-32; monitor tracks the quarterly baseline check. The gap list's missing-policy items are complete except vulnerability scanning, which waits for the SAQ type |
 | 33 | 2026-11-02 | Vendor assessments V-009 Bitwarden (before onboarding), V-010 cameras and V-012 temperature monitoring (VRA #12–#14) rolled up: vendors.csv, inventory, IRP-006 notification table, P-008 status, POAM-021/026/027; only the ISP (V-008) remains unscored |
+| 34 | 2026-11-02 | Internet provider (V-008) assessed (VRA #15) and rolled up: every vendor that needs an assessment now has one |
