@@ -618,8 +618,9 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Monthly update window (PR-002)**, **quarterly equipment register check** and **November end-of-support review (PR-010)**
 - [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
+- [ ] **Every January:** records retention review and disposals logged (P-010 §4). **Every six months:** exception register review (PR-014); expiring exceptions appear in the monitor
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
-- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
+- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1, 7.2, 9.4.6 and 9.4.7 in the crosswalk
 - [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
 
 ### T11. AI introduced (likely with the website, CR-002, or the intranet)
@@ -685,3 +686,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 28 | 2026-11-01 | Build-day documents: P-007 Mobile Device and Personal Phone Policy (Authenticator on personal phones, no downloads, security-key alternative) and PR-013 Microsoft 365 Tenant Security Baseline (per-user MFA, user and guest settings, consent, admin roles, logging; tenant-wide items flagged for the shared tenant); AC-19 (34 controls); R-21; POAM-031; POAM-009 In Progress; E-28; runbook applies the baseline |
 | 29 | 2026-11-02 | IAM lab reorganised into `reviews/2026-Q1/` and a `reviews/2026-Q4/` plan (IAM #13); checker and monitor read per-review folders (hub #38); hub links updated; V-004 Vertex offboarding record prepared (VRA #11) |
 | 30 | 2026-11-02 | Policies batch A: P-008 Third-Party Risk Management (tiers and reassessment cadence, required contract clauses incl. 72-hour breach notice, PCI DSS 12.8.1–12.8.5, offboarding records) and P-009 Personnel Security (position risk, screening within local law, agreements before access, role change, leaving, external personnel, sanctions); personnel file checklist; PS-3 and PS-6 (36 controls); R-22; POAM-032; E-29 |
+| 31 | 2026-11-02 | Policies batch B: P-010 Records Retention and Disposal (schedule for every record type, legal hold, NIST SP 800-88 Rev. 2 disposal methods, disposal log, yearly review) and PR-014 Risk Acceptance and Exception Procedure with the exception register (`EXC-###`; six existing exceptions approved, each expiring within 12 months); SI-12, MP-6, RA-7 (39 controls, 16 families); R-23; POAM-033/034; E-30/E-31; monitor reads exception expiries and the yearly records review |

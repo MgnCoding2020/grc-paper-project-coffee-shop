@@ -21,7 +21,7 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 
 ## How to read this document
 
-- **Part A** maps all **36 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 36: 0 Implemented, 19 Partially Implemented, 17 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
+- **Part A** maps all **39 controls in the control matrix** to their primary PCI DSS requirement(s), whatever their implementation status. Of the 39: 0 Implemented, 21 Partially Implemented, 18 Not Implemented (AC-2, AC-6 and SC-7 were downgraded on 2026-10-30; see the revision history).
 - **Part B** broadens the view to **all 12 PCI DSS requirements**, marking each as
   ✅ Covered, ⚠️ Partial, or ❌ Gap based on whether an implemented control addresses it.
 - **Part C** turns the gaps into **proposed POA&M items**, continuing the
@@ -67,6 +67,9 @@ The matrix answers *"what controls do we run and are they working?"*; this cross
 | PE-6 | Monitoring Physical Access | R-18 | *No direct PCI DSS requirement* (the camera rule keeps PIN entry off camera) | Not Implemented |
 | IR-4 | Incident Handling | R-20 | **Req. 12.10.1** – An incident response plan exists and is ready to be activated, with specific response procedures | Partially Implemented |
 | IR-8 | Incident Response Plan | R-20 | **Req. 12.10.1**; **12.10.2** – The plan is reviewed, updated and tested at least once every 12 months | Partially Implemented |
+| SI-12 | Information Management and Retention | R-23 | **Req. 3.2.1** – Account data storage kept to a minimum with retention and disposal policies (loose mapping\*: the shop stores no card data) | Partially Implemented |
+| MP-6 | Media Sanitization | R-23 | **Req. 9.4.6** – Hard-copy materials with cardholder data destroyed when no longer needed; **9.4.7** – electronic media likewise (secondary sources\*) | Not Implemented |
+| RA-7 | Risk Response | R-12 | *No direct PCI DSS requirement* | Partially Implemented |
 | CA-5 | Plan of Action and Milestones | R-12 | *No direct PCI DSS requirement* (supports remediation of every requirement's gaps) | Partially Implemented |
 | CA-7 | Continuous Monitoring | R-12 | *No direct PCI DSS requirement* (the monitor reports late PCI-related activities, such as device inspections under PCI DSS 9.5.1.2) | Partially Implemented |
 
@@ -81,16 +84,16 @@ plan under Req. 12.10. The mapping is directional, not one-to-one — a normal f
 |---|----------------------------|------------------------|----------|
 | 1 | Install & maintain network security controls | SC-7 | ✅ Covered (partial impl) |
 | 2 | Apply secure configurations to all system components | *(none — CM-2 / CM-6 not implemented)* | ❌ Gap |
-| 3 | Protect stored account data | P-004 policy *(SC-28 not implemented)* | ⚠️ Partial / scope-dependent |
+| 3 | Protect stored account data | P-004 policy, SI-12 (3.2.1) *(SC-28 not implemented)* | ⚠️ Partial / scope-dependent |
 | 4 | Protect cardholder data with strong cryptography in transit | *(none — SC-8 not implemented)* | ❌ Gap |
 | 5 | Protect all systems & networks from malicious software | SI-3 | ✅ Covered (partial impl) |
 | 6 | Develop & maintain secure systems & software | CM-3, CM-4 (6.5.1), SI-2 (6.3.3, PR-002) | ⚠️ Partial |
 | 7 | Restrict access by business need-to-know | AC-2, AC-6, PS-5 | ✅ Covered (partial impl) |
 | 8 | Identify users & authenticate access | IA-2, IA-5, AC-2, PS-4 (8.2.5), MA-4 (8.2.7, loose) | ✅ Covered — MFA gap (POAM-001); termination gap (POAM-016) |
-| 9 | Restrict physical access to cardholder data | PE-3, MA-2, MA-5 (Req. 9.5.1.3), CM-8 (Req. 9.5.1.1) | ✅ Covered (partial impl) |
+| 9 | Restrict physical access to cardholder data | PE-3, MA-2, MA-5 (Req. 9.5.1.3), CM-8 (Req. 9.5.1.1), MP-6 (Req. 9.4.6, 9.4.7) | ✅ Covered (partial impl) |
 | 10 | Log & monitor all access | AU-6 | ✅ Covered (partial impl) |
 | 11 | Test security of systems & networks regularly | SI-7 *(RA-5 / CA-8 not implemented)* | ❌ Gap (no vuln scan / pen test) |
-| 12 | Support information security with policies & programs | AT-2, SA-9 (12.8), PS-3 (12.7.1), PS-6 (12.2.1), CM-8 (12.5.1), SA-22 (12.3.4), CP-9 and CP-10 (12.10.1), IR-4 and IR-8 (12.10.1, 12.10.2), P-001–P-009 | ✅ Covered (partial impl) |
+| 12 | Support information security with policies & programs | AT-2, SA-9 (12.8), PS-3 (12.7.1), PS-6 (12.2.1), CM-8 (12.5.1), SA-22 (12.3.4), CP-9 and CP-10 (12.10.1), IR-4 and IR-8 (12.10.1, 12.10.2), P-001–P-010 | ✅ Covered (partial impl) |
 
 **Summary:** 7 of 12 requirements have at least one implemented control; 2 are partial; 3 are gaps.
 
@@ -149,6 +152,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 |---|---|---|
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
+| 2026-11-02 | Added SI-12, MP-6 and RA-7 | Retention and disposal (P-010), risk acceptance (PR-014); 9.4.6 and 9.4.7 from secondary sources, to verify against the PCI SSC text |
 | 2026-11-02 | Added PS-3 and PS-6; SA-9 mapped to 12.8.1–12.8.5 | Personnel Security (P-009) and Third-Party Risk Management (P-008) policies |
 | 2026-11-01 | Added AC-19 | Personal phones used for MFA (P-007); no direct PCI DSS requirement |
 | 2026-11-01 | Added IR-4 and IR-8 | Incident response plan and playbooks (P-003 v1.2, IRP-005 to IRP-007) |
