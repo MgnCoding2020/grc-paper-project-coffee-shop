@@ -27,7 +27,7 @@ Each control references the policy or procedure responsible for implementing the
 | R-19 | CP-10 | System recovery: quarterly restore tests, recovery order and targets, clean-point recovery after an incident (PR-012) | CP | Req. 12.10.1 (business recovery) | Not Implemented | E-26 | POAM-029 |
 | R-06 | AC-6 | Least privilege and privileged account review | AC | Req. 7 | Partially Implemented | E-03 | POAM-014 |
 | R-21 | AC-19 | Access control for mobile devices: personal phones for Authenticator and viewing only, no company file downloads, same-day reporting of lost phones, security key alternative (P-007) | AC | None (no direct PCI DSS requirement; card data never on phones, P-004) | Not Implemented | E-06 | POAM-031 |
-| R-07 | SA-9 | Vendor/service provider management (Toast POS) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
+| R-07 | SA-9 | Third-party risk management: inventory, tiered assessments, contract clauses, monitoring and offboarding (P-008) | SA | Req. 12.8 | Partially Implemented | E-09 | POAM-006 |
 | R-08 | SI-3 | Malware protection on business systems | SI | Req. 5 | Partially Implemented | E-10 | POAM-007 |
 | R-08 | SI-7 | Monitoring for unauthorized changes | SI | Req. 11 | Not Implemented | E-11 | POAM-008 |
 | R-08 | RA-5 | Vulnerability scanning and penetration testing | RA | Req. 11 | Not Implemented | E-14 | POAM-011 |
@@ -35,6 +35,8 @@ Each control references the policy or procedure responsible for implementing the
 | R-09 | SC-28 | Protection of cardholder data at rest | SC | Req. 3 | Not Implemented | E-15 | POAM-012 |
 | R-10 | PS-4 | Personnel termination: all access removed when employment ends | PS | Req. 8.2.5 | Partially Implemented | E-17 | POAM-016 |
 | R-10 | PS-5 | Personnel transfer: access reviewed and adjusted when a role changes | PS | Req. 7.2 | Not Implemented | E-17 | POAM-016 |
+| R-22 | PS-3 | Personnel screening by position risk before access, within local law (P-009) | PS | Req. 12.7.1 | Not Implemented | E-29 | POAM-032 |
+| R-22 | PS-6 | Access agreements before access: acceptable use, confidentiality, privileged user rules; renewed yearly (P-009) | PS | Req. 12.2.1 (loose) | Partially Implemented | E-29 | POAM-032 |
 | R-11 | CM-3 | Configuration change control: significant changes documented, approved and reviewed | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
 | R-11 | CM-4 | Impact analysis before significant changes | CM | Req. 6.5.1 | Partially Implemented | E-16 | POAM-017 |
 | R-13 | IA-5 | Authenticator management: shared admin credentials in a two-member password manager, generated passwords, rotated when anyone who knew them leaves (PR-009) | IA | Req. 8.3, 8.6 (loose) | Not Implemented | E-19 | POAM-021 |
@@ -87,6 +89,7 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-11-02 | Added PS-3 and PS-6 (POAM-032); SA-9 description widened to all vendors (P-008) | Personnel Security Policy (P-009) and Third-Party Risk Management Policy (P-008) |
 | 2026-11-01 | Added AC-19 (POAM-031); CM-6 description adds the tenant baseline (PR-013) | Staff will use personal phones for MFA from the cutover (P-007) |
 | 2026-11-01 | Added IR-4 and IR-8 (POAM-030) | Incident playbooks IRP-005 to IRP-007; the plan had never been listed as a control or exercised |
 | 2026-11-01 | Added CP-9 and CP-10 (POAM-029) | The shop had no backups of its own; written before the IT Technician role existed (PR-012) |
