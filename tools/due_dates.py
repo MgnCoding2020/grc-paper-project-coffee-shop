@@ -181,6 +181,8 @@ def recurring(hub, iam):
            latest(csv_dates(hub / "07-evidence-pack/artifacts/monitoring/tabletop-log.csv", "date")), 365, date(2026, 12, 31))
     yield ("Records retention review (P-010 §4)", "disposal log",
            latest(csv_dates(hub / "07-evidence-pack/artifacts/assets/disposal-log.csv", "date", lambda r: r["item"] == "Yearly review")), 365, date(2027, 1, 31))
+    yield ("Device baseline check (PR-015 §9)", "baseline check log",
+           latest(csv_dates(hub / "07-evidence-pack/artifacts/assets/baseline-checks.csv", "date", lambda r: r["result"] != "Not checked")), 92, date(2027, 2, 15))
     yield ("Firewall rule review (P-005 §6)", "no record kept yet", None, 182, date(2027, 4, 30))
 
 

@@ -39,7 +39,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-09 | SA-9 | Vendor assessment summary (Toast POS) | [vendor-assessment-summary.md](artifacts/vendor/vendor-assessment-summary.md) | Undated | Simulation | POAM-006 |
 | E-10 | SI-3 | Endpoint protection status | — | — | Planned | POAM-007 |
 | E-11 | SI-7 | Change and integrity monitoring logs | — | — | Planned | POAM-008 |
-| E-12 | CM-6 | Secure configuration baselines | — | — | Planned | POAM-009 |
+| E-12 | CM-6 | Baseline check log (tenant and device baselines) | [baseline-checks.csv](artifacts/assets/baseline-checks.csv) | 2026-11-02 | Simulation | POAM-009 |
 | E-13 | SC-8 | Encryption-in-transit evidence | — | — | Planned | POAM-010 |
 | E-14 | RA-5 | Vulnerability scan and penetration test reports | — | — | Planned | POAM-011 |
 | E-15 | SC-28 | Data-at-rest protection and storage scope | — | — | Planned | POAM-012 |
@@ -59,6 +59,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-29 | PS-3, PS-6 | Personnel files | [Template](examples/personnel-file-checklist.md) | — | Planned | POAM-032 |
 | E-30 | SI-12, MP-6 | Disposal log | [disposal-log.csv](artifacts/assets/disposal-log.csv) | 2026-11-02 | Simulation | POAM-033 |
 | E-31 | RA-7 | Exception register | [risk-exceptions.md](../02-risk-management/risk-exceptions.md) | 2026-11-02 | Simulation | POAM-034 |
+| E-32 | PE-2, PE-8 | Key register and visitor log | [key-register.csv](artifacts/physical/key-register.csv), [visitor-log.csv](artifacts/physical/visitor-log.csv) | 2026-11-02 | Simulation | POAM-035 |
 
 ---
 

@@ -608,6 +608,8 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] First technician visit handled under PR-010 §4 (confirmed with the vendor, supervised, logged) → POAM-024; MA-5 re-rated only on real records
 - [ ] Connected devices (PR-011): default passwords changed into the password manager; vendor accounts company-owned with MFA; espresso remote sessions logged; checklist re-run → POAM-026, E-23
 - [ ] December 2026: first monthly encrypted offline backup copy (PR-012 §4); backup log row → POAM-029, E-26
+- [ ] By 2027-02-15: first quarterly device baseline check (PR-015 §9) → baseline-checks.csv, E-12, POAM-009
+- [ ] By 2026-11-30: personal alarm codes for each key holder; key register completed; decision on re-keying the back office (P-011) → POAM-035, E-32
 - [ ] By 2027-02-28: first restore test from the offline drive (PR-012 §5) → CP-10 re-rated only on a passed test
 - [ ] Cameras: each view checked against the keypad rule; entrance sign; 30-day retention; individual accounts → POAM-027, E-24
 
@@ -620,7 +622,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
 - [ ] **Every January:** records retention review and disposals logged (P-010 §4). **Every six months:** exception register review (PR-014); expiring exceptions appear in the monitor
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
-- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1, 7.2, 9.4.6 and 9.4.7 in the crosswalk
+- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1, 7.2, 9.3.1, 9.3.4, 9.4.6 and 9.4.7 in the crosswalk
 - [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
 
 ### T11. AI introduced (likely with the website, CR-002, or the intranet)
@@ -687,3 +689,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 29 | 2026-11-02 | IAM lab reorganised into `reviews/2026-Q1/` and a `reviews/2026-Q4/` plan (IAM #13); checker and monitor read per-review folders (hub #38); hub links updated; V-004 Vertex offboarding record prepared (VRA #11) |
 | 30 | 2026-11-02 | Policies batch A: P-008 Third-Party Risk Management (tiers and reassessment cadence, required contract clauses incl. 72-hour breach notice, PCI DSS 12.8.1–12.8.5, offboarding records) and P-009 Personnel Security (position risk, screening within local law, agreements before access, role change, leaving, external personnel, sanctions); personnel file checklist; PS-3 and PS-6 (36 controls); R-22; POAM-032; E-29 |
 | 31 | 2026-11-02 | Policies batch B: P-010 Records Retention and Disposal (schedule for every record type, legal hold, NIST SP 800-88 Rev. 2 disposal methods, disposal log, yearly review) and PR-014 Risk Acceptance and Exception Procedure with the exception register (`EXC-###`; six existing exceptions approved, each expiring within 12 months); SI-12, MP-6, RA-7 (39 controls, 16 families); R-23; POAM-033/034; E-30/E-31; monitor reads exception expiries and the yearly records review |
+| 32 | 2026-11-02 | Policies batch C: P-011 Physical Security (areas, personal keys and alarm codes, opening and closing, escorted and logged visitors) and PR-015 Device Configuration Baselines (laptop, tablets, POS, firewall, access points, router; quarterly checks; Intune later); key register, visitor log and baseline check log; PE-2, PE-8 (41 controls); CM-6 → Partially Implemented; R-24; POAM-035; E-32; monitor tracks the quarterly baseline check. The gap list's missing-policy items are complete except vulnerability scanning, which waits for the SAQ type |
