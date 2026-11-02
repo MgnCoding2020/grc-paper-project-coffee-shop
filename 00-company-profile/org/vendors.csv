@@ -4,8 +4,8 @@ V-002,Northwind Payroll Services,Cloud payroll and HR,Employee PII; payroll; tax
 V-003,Microsoft (Microsoft 365),Identity; email; files; intranet,Employee accounts; business documents; email,No,High,Complete,2026-10-30,Vendor-Risk-Assessment-Lab (VRA-V003),Owner,Planned (CR-001)
 V-004,Vertex IT Support,IT managed services (privileged admin),Admin access to Google Workspace and network equipment,No,High,Not Started,,Offboarding record prepared (Vendor-Risk-Assessment-Lab offboarding/V-004-vertex-msp; completed at the CR-003 handover),Owner,Active (offboarding planned by CR-003)
 V-005,NorthPeak Systems,Former IT support vendor,Network admin account (still enabled at Q1 review),No,Not scored,Not Required,,IAM:F-003,Owner,Inactive
-V-006,Intuit (QuickBooks Online),Accounting software,Financial records,No,Not scored,Not Started,,,Owner,Active (offboarding planned by CR-001)
-V-007,Google (Workspace),Email and collaboration,Employee accounts; business documents; email,No,Not scored,Not Started,,,Owner,Active (offboarding planned by CR-001)
+V-006,Intuit (QuickBooks Online),Accounting software,Financial records,No,Not scored,Not Required (offboarding under CR-001),,,Owner,Active (offboarding planned by CR-001)
+V-007,Google (Workspace),Email and collaboration,Employee accounts; business documents; email,No,Not scored,Not Required (offboarding under CR-001),,,Owner,Active (offboarding planned by CR-001)
 V-008,Internet service provider (unnamed),Store internet connectivity,Network traffic in transit,No,Moderate,Complete,2026-11-02,Vendor-Risk-Assessment-Lab (VRA-V008),Owner,Active (continue with conditions)
 V-009,"Bitwarden, Inc.",Password manager (shared admin credentials),Encrypted shared credentials (end-to-end encrypted),No,Moderate,Complete,2026-11-02,Vendor-Risk-Assessment-Lab (VRA-V009),Owner,Planned (CR-003; approved with conditions)
 V-010,Cloud camera service (unnamed),Security cameras and cloud video recording,Video of customers and staff,No,Moderate,Complete,2026-11-02,Vendor-Risk-Assessment-Lab (VRA-V010),Owner,Active (continue with conditions)

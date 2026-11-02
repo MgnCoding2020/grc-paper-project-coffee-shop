@@ -15,6 +15,7 @@ Accepted risks and policy exceptions, under the [Risk Acceptance and Exception P
 | EXC-004 | MFA on every login (P-001 §5.5) | Toast register logins use PINs by design; cashiers can't do MFA at the counter (D-2) | Personal PINs; one person signed in at a time; sign out when leaving the register; idle auto-logout; no PIN sharing | Low | 2026-11-02, Olivia Carter (Owner) | 2027-11-02 | `org/roles.md`; D-2 | Open |
 | EXC-005 | Independent security assurance from every Moderate-tier vendor (P-008 §4) | The espresso service company has no SOC 2 or ISO 27001 | Machine isolated on the Devices segment (once built); remote sessions need approval and are logged; supervised visits | Low (after conditions) | 2026-11-02, Olivia Carter (Owner) | 2027-11-02 | VRA-V011:F-03 | Open |
 | EXC-006 | Logging of access to shared credentials (AU-2) | The Bitwarden Free plan has no event log | Two members only; per-item password history; rotation on every staff or vendor change; monthly membership check | Low | 2026-11-02, Olivia Carter (Owner) | 2027-11-02 | PR-009 §5 | Open |
+| EXC-007 | Toast's PCI DSS evidence (AOC, responsibility matrix, agreement, SOC 2) on file, and a completed SAQ (PCI DSS 12.8.2–12.8.5; VRA-V001 conditions) | Toast is being replaced under CR-005; collecting a departing provider's documents and a Toast-era SAQ is wasted effort. The shop's SAQ is done once, for the new register | Toast is a PCI DSS Level 1 service provider (stated in its public filings); no card data is stored by the shop; device inspections continue (PR-006); the new register's SAQ is due within 30 days of the CR-005 cutover | Medium | 2026-11-02, Olivia Carter (Owner) | 2027-01-31 | VRA-V001:F-01 to F-04; POAM-020; CR-005 | Open |
 
 ---
 
@@ -23,6 +24,7 @@ Accepted risks and policy exceptions, under the [Risk Acceptance and Exception P
 | Date | Reviewer | Outcome |
 |---|---|---|
 | 2026-11-02 | Olivia Carter (Owner) | Register created; EXC-001 to EXC-006 recorded from decisions already made in other program documents |
+| 2026-11-02 | Olivia Carter (Owner) | EXC-007 added: Toast's conditions deferred until Toast exits under CR-005; lapses 2027-01-31 if the cutover hasn't happened |
 
 ---
 
