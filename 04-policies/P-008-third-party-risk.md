@@ -80,7 +80,7 @@ A vendor that can't meet a requirement may still be used if the Owner accepts th
 -----------
 
 ## 9. Current Status
-The process runs in the Vendor Risk Assessment Lab: V-001, V-002, V-003 and V-011 are assessed and V-004's offboarding record is prepared. Not yet assessed: V-009, V-010 and V-012. Breach-notification clauses are missing for Toast (VRA-V001:F-03), Northwind (VRA-V002:F-03) and the espresso service (VRA-V011:F-04). Tracked under **POAM-006** (SA-9).
+The process runs in the Vendor Risk Assessment Lab: V-001, V-002, V-003, V-009, V-010, V-011 and V-012 are assessed and V-004's offboarding record is prepared. Not yet scored: V-008, the internet service provider. Breach-notification clauses are missing for Toast (VRA-V001:F-03), Northwind (VRA-V002:F-03), the espresso service (VRA-V011:F-04) and the temperature service (VRA-V012:F-04); Bitwarden is on standard terms (VRA-V009:F-05). Tracked under **POAM-006** (SA-9).
 
 -----------
 
