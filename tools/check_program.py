@@ -143,6 +143,12 @@ def tracked_files(repo):
         return [p for p in Path(repo).rglob("*") if p.is_file() and ".git" not in p.parts]
 
 
+def iam_file(iam, *parts):
+    """A Q1 2026 review file in the IAM lab: reviews/2026-Q1/ once restructured (P4), else the old top-level path."""
+    moved = Path(iam) / "reviews" / "2026-Q1" / Path(*parts)
+    return moved if moved.exists() else Path(iam) / Path(*parts)
+
+
 def rel(path, root):
     return Path(path).relative_to(root).as_posix()
 
@@ -209,7 +215,7 @@ def check_people(hub, iam, org):
             check_identity(match.group(1), "hub monitoring/incident-log.md")
 
     if iam:
-        matrix = Path(iam) / "evidence" / "user-access-matrix.csv"
+        matrix = iam_file(iam, "evidence", "user-access-matrix.csv")
         for i, row in enumerate(read_csv(matrix), start=2):
             name, role, status = row["User_Name"], row["Role"], row["Employment_Status"]
             where = f"IAM evidence/user-access-matrix.csv:{i}"
@@ -222,7 +228,7 @@ def check_people(hub, iam, org):
                 findings.append(f"{where}: {name} has role '{role}', people.csv says '{person['role']}'")
             if status != person["employment_status"]:
                 findings.append(f"{where}: {name} is '{status}', people.csv says '{person['employment_status']}'")
-        findings_doc = Path(iam) / "findings" / "access-review-findings.md"
+        findings_doc = iam_file(iam, "findings", "access-review-findings.md")
         for match in re.finditer(r"\*\*User:\*\*\s*(.+)", read_text(findings_doc)):
             check_identity(match.group(1), "IAM findings/access-review-findings.md")
     return findings
@@ -234,7 +240,7 @@ def check_systems_and_vendors(hub, iam, vra, org):
     sources = [(access / "user-access-review.csv", "hub", "System"),
                (access / "mfa-status.csv", "hub", "System")]
     if iam:
-        sources.append((Path(iam) / "evidence" / "user-access-matrix.csv", "IAM", "System"))
+        sources.append((iam_file(iam, "evidence", "user-access-matrix.csv"), "IAM", "System"))
     for path, repo, column in sources:
         if not path.exists():
             continue
@@ -291,7 +297,7 @@ def check_evidence_agrees(hub, iam, org):
     """Hub evidence and the IAM access matrix must agree on the same person and system."""
     findings = []
     matrix = {}
-    for row in read_csv(Path(iam) / "evidence" / "user-access-matrix.csv"):
+    for row in read_csv(iam_file(iam, "evidence", "user-access-matrix.csv")):
         matrix[(row["User_Name"], row["System"])] = row
     access = Path(hub) / "07-evidence-pack" / "artifacts" / "access"
 

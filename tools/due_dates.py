@@ -103,14 +103,19 @@ def register_deadlines(hub):
 
 
 def iam_deadlines(iam):
-    path = iam / "remediation/remediation-tracker.csv"
-    if not path.exists():
-        return
-    with open(path, encoding="utf-8-sig", newline="") as f:
-        for r in csv.DictReader(f):
-            if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Target_Date"]):
-                continue
-            yield f"IAM:{r['Finding_ID']} {r['Issue']}", "IAM remediation tracker", date.fromisoformat(r["Target_Date"])
+    # One tracker per review under reviews/<period>/ (P4), or the original top-level tracker.
+    # Global IDs follow identifiers.md: IAM:F-### for Q1 2026, IAM-Q4:F-### for later reviews.
+    trackers = sorted(iam.glob("reviews/*/remediation/remediation-tracker.csv"))
+    if not trackers and (iam / "remediation/remediation-tracker.csv").exists():
+        trackers = [iam / "remediation/remediation-tracker.csv"]
+    for path in trackers:
+        period = path.parts[-3] if "reviews" in path.parts else "2026-Q1"
+        prefix = "IAM" if period == "2026-Q1" else f"IAM-{period.split('-')[-1]}"
+        with open(path, encoding="utf-8-sig", newline="") as f:
+            for r in csv.DictReader(f):
+                if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Target_Date"]):
+                    continue
+                yield f"{prefix}:{r['Finding_ID']} {r['Issue']}", f"IAM tracker ({period})", date.fromisoformat(r["Target_Date"])
 
 
 def vra_deadlines(vra):
