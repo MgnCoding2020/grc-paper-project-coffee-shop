@@ -23,8 +23,10 @@ This repository is the **program hub and system of record**: the company, its pe
 | Repository | Role in the program | Rolls up to |
 |---|---|---|
 | **grc-paper-project-coffee-shop** (this repo) | Program hub: policies, procedures, risk register, control matrix, crosswalk, POA&M, evidence | — |
-| [IAM Access Review Lab](https://github.com/MgnCoding2020/IAM-Access-Review-Lab) | Quarterly access reviews (AC-2, AC-6): Q1 2026 review, findings and remediation tracking | POA&M (AC-2, AC-6) |
-| [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) | Third-party risk assessments (SA-9): Northwind Payroll Services (V-002) | POAM-013 (SA-9) |
+| [IAM Access Review Lab](https://github.com/MgnCoding2020/IAM-Access-Review-Lab) | Quarterly access reviews (AC-2, AC-6): the Q1 2026 review (Google Workspace era), and the Q4 2026 review planned as the first in Microsoft Entra ID | POAM-014 (AC-2, AC-6) |
+| [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab) | Third-party risk (SA-9): eight vendor assessments (Toast, Northwind, Microsoft, the internet provider, Bitwarden, and the camera, espresso and temperature services) and the Vertex IT Support offboarding record | POAM-006, -013, -018, -020, -021, -026, -027 |
+| Microsoft 365 tenant (not a repository) | **Live evidence source** from the CR-001 build: real Entra ID accounts, groups, MFA and logs, committed here as redacted `Lab-verified` evidence | [Evidence index](07-evidence-pack/evidence-index.md) |
+| Online ordering website (planned repository) | Change CR-002: where staff identity, payments in test mode and the new counter register connect | Planned |
 
 Findings from the labs are referenced here by repository-prefixed IDs (for example `IAM:F-001`, `VRA-V002:F-01`) so the two labs' local finding numbers never collide. See [identifiers](00-company-profile/org/identifiers.md) for every ID format used across the program.
 
@@ -34,10 +36,11 @@ Findings from the labs are referenced here by repository-prefixed IDs (for examp
 
 **Burn and Churn Coffee** is a small coffee shop with:
 
-* A **Point-of-Sale (POS) system** processing payment card transactions
-* Employee workstations for daily operations
-* A basic internal network with internet connectivity
-* Third-party vendors (**Toast POS** as the point-of-sale provider, plus the payment processor)
+* **20 store staff** (Owner, Store Manager, 3 Shift Leaders, 15 Baristas) and a part-time in-house **IT Technician**, hired under change CR-003 to replace an outsourced IT provider
+* A **Toast POS** register taking cash and card payments, to be replaced by an integrated register under change CR-005
+* **Microsoft 365** for identity, email and files, replacing Google Workspace on 2026-11-15 (change CR-001)
+* A small store network, a manager laptop, tablets and **connected devices** (cameras, a remotely serviced espresso machine, fridge sensors)
+* Twelve third-party vendors, each with an ID, a risk tier and an assessment or exit record
 
 ### Key Risks:
 
@@ -45,6 +48,7 @@ Findings from the labs are referenced here by repository-prefixed IDs (for examp
 * Exposure of cardholder data
 * Lack of centralized monitoring and logging
 * Weak vendor security oversight
+* Gaps inherited from an outsourced IT provider: shared accounts, no records, no backups
 
 ---
 
@@ -73,6 +77,9 @@ This project aligns with:
   * Configuration Management (CM)
   * Contingency Planning (CP)
   * Identification & Authentication (IA)
+  * Incident Response (IR)
+  * Maintenance (MA)
+  * Media Protection (MP)
   * Personnel Security (PS)
   * Physical & Environmental Protection (PE)
   * Risk Assessment (RA)
@@ -97,14 +104,14 @@ A detailed [NIST 800-53 ↔ PCI DSS crosswalk](03-controls/nist-pci-crosswalk.md
 .
 ├── 00-company-profile/      # Business profile, assessment scope, glossary, program overview
 ├── 01-asset-inventory/      # Asset register, equipment register, maintenance log, data classification, lifecycle
-├── 02-risk-management/      # Risk register, continuous monitoring, vendor risk management
+├── 02-risk-management/      # Risk register, exception register, continuous monitoring, vendor risk management
 ├── 03-controls/             # Control matrix (NIST 800-53 ↔ PCI DSS) and evidence plan
 ├── 04-policies/             # P-001–P-011 governance policies
 ├── 05-procedures/           # PR-001–PR-015 operational procedures
 ├── 06-incident-playbooks/   # IRP-001–IRP-007 incident response playbooks
 ├── 07-evidence-pack/        # Evidence matrix, POA&M, artifacts, and validation scripts
 ├── 08-architecture/         # System architecture and data-flow diagrams
-├── 09-change-management/    # Change process and change records (CR-001, CR-003)
+├── 09-change-management/    # Change process and change records (CR-001, CR-003, CR-004, CR-005)
 └── tools/                   # Consistency checker, due-date monitor, tenant scripts
 ```
 
@@ -144,7 +151,7 @@ A structured risk management process was implemented:
 * **R-01** – Phishing leading to account compromise
 * **R-02** – Unauthorized POS transactions or misuse
 * **R-04** – Network-based attack due to poor segmentation
-* **R-07** – Vendor compromise or service disruption (Toast POS)
+* **R-07** – Vendor compromise, disruption or a poorly managed exit
 
 ---
 
@@ -182,6 +189,19 @@ Risk → Control → Evidence → Validation → Remediation
 - Gaps are tracked through the POA&M
 
 This structure reflects a simplified but realistic GRC program model used in small business environments.
+
+---
+
+## 🔄 Change Management and the Microsoft 365 Migration
+
+Significant changes go through [change records](09-change-management/README.md) that walk each system through the NIST RMF steps (categorize, select, implement, assess, authorize, monitor):
+
+* **CR-001** – Google Workspace to Microsoft 365 (cutover 2026-11-15). History is kept, not rewritten: dated records stay as written, and current-state documents change on the day
+* **CR-003** – IT brought in-house; the outsourced provider offboarded with a recorded handover
+* **CR-004** – Time-limited guest access for a vendor's payroll contact
+* **CR-005** – The Toast POS replaced by an integrated register (approved, waiting on the website, CR-002)
+
+Accepted risks are recorded in the [exception register](02-risk-management/risk-exceptions.md), each approved by the Owner with compensating controls and an expiry date.
 
 ---
 
@@ -249,7 +269,8 @@ An evidence pack was created to simulate audit validation. **Start with the [evi
 * MFA status tracking (CSV)
 * Access review and privileged-access review scripts (Python)
 * Incident log review script (Python)
-* Control validation artifacts
+* Registers kept as evidence: equipment, maintenance, backups, disposals, keys and visitors, connected devices
+* **Live tenant evidence** from the Microsoft 365 build, redacted with [`tools/tenant/redact_export.py`](tools/tenant/README.md) before it's committed
 
 This demonstrates how controls can be validated and assessed in an audit-like scenario using structured evidence and repeatable review processes.
 
@@ -275,23 +296,20 @@ A third-party risk process was implemented including:
 * Risk scoring methodology
 * Due diligence checklist
 * Ongoing monitoring considerations
-* Vendors are tracked in the [vendor inventory](02-risk-management/vendor-risk-management/vendor-inventory.md). A full worked example — the assessment of Northwind Payroll Services — is executed in the companion [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab), with findings rolled up here under POAM-013 (SA-9).
+* Vendors are tracked in the [vendor inventory](02-risk-management/vendor-risk-management/vendor-inventory.md) and governed by the [Third-Party Risk Management Policy (P-008)](04-policies/P-008-third-party-risk.md): risk tiers set how deep and how often each vendor is assessed, and every contract needs a breach-notification clause.
+* **Every vendor that needs an assessment has one**, executed in the companion [Vendor Risk Assessment Lab](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab): real vendors from their public compliance documents, fictional ones from simulated questionnaires. Exits get an offboarding record (Vertex IT Support, V-004).
 
 ---
 
 ## 📊 Continuous Monitoring & Metrics
 
-Continuous monitoring concepts were implemented using periodic reviews, log analysis, and control validation activities:
+The program monitors itself as well as the shop:
 
-* Periodic access reviews
-* Log review processes
-* Control validation tracking
+* **Consistency checker** ([`tools/check_program.py`](tools/check_program.py)): ten checks across all three repositories (people, systems and vendors match the canonical data, IDs, links, control counts, secrets, CSV format, and retired systems after a cutover). Runs in CI on every change
+* **Monthly program monitor** (GitHub Actions): on the 1st of each month it runs the checker and a [due-date report](tools/due_dates.py) of overdue findings, upcoming deadlines, expiring exceptions and late recurring activities, and saves the result as a dated [report](07-evidence-pack/artifacts/monitoring/program-monitor/README.md) and a GitHub issue. It reads the records; it never marks anything done
+* Periodic access reviews, log reviews, inspections, update windows and restore tests, each with its own record
 
-Future enhancements may include:
-
-* KPI dashboards
-* Automated monitoring scripts
-* Risk trend analysis
+Future enhancements may include KPI dashboards and risk trend analysis.
 
 ---
 
@@ -303,16 +321,19 @@ Future enhancements may include:
 * Policy and procedure development
 * Incident response planning
 * Audit evidence preparation
-* Vendor risk management
+* Vendor risk management, including exits
+* Change management with NIST RMF steps
+* Microsoft 365 and Entra ID identity design (groups, admin roles, MFA, tenant baseline)
+* Automation: Python validation, PowerShell with Microsoft Graph, GitHub Actions
 * Basic technical security validation
 
 ---
 
 ## 📈 Future Enhancements
 
-* Expanded control mapping (broader NIST 800-53 coverage)
-* SIEM / logging simulation
-* Automated compliance tracking and KPI dashboards
+* The Microsoft 365 build (CR-001): real accounts, MFA and sign-in evidence
+* The online ordering website and new register (CR-002, CR-005)
+* SIEM / logging simulation and KPI dashboards
 
 ---
 
