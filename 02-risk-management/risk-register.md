@@ -56,6 +56,7 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-21 | A lost, stolen or shared personal phone lets someone approve MFA prompts or read company data; or staff copy company files to personal phones | Medium | Medium | Medium | AC-19, IA-2 | Medium |
 | R-22 | Someone with access to the register, cash, payroll records or admin accounts misuses it, with no screening or signed agreements on file | High | Low | Medium | PS-3, PS-6 | Medium |
 | R-23 | Records are kept longer than needed and leak, are destroyed too early to prove something, or are recovered from a disposed device or drive | Medium | Medium | Medium | SI-12, MP-6 | Medium |
+| R-24 | Someone gets into the back office, network cabinet or stock room unnoticed: keys never inventoried, one shared alarm code, visitors unrecorded | High | Low | Medium | PE-2, PE-8, PE-6 | Medium |
 
 ----
 
@@ -93,6 +94,7 @@ Risks the Owner has accepted rather than reduced, with their compensating contro
 |---|---|---|
 | 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
 | 2026-10-30 | Added R-10 (access kept after leaving or changing roles) and R-11 (uncontrolled change) | R-10 already happened (IAM:F-001, IAM:F-003); R-11 arises from CR-001 and CR-003 |
+| 2026-11-02 | Added R-24 (physical access) | Physical Security Policy (P-011); keys never inventoried and the alarm code is shared |
 | 2026-11-02 | Added R-23 (retention and disposal); R-12 lists RA-7 | Records Retention and Disposal Policy (P-010); accepted risks now recorded in the exception register (PR-014) |
 | 2026-11-02 | Added R-22 (personnel); R-07 widened to every vendor | Personnel Security (P-009) and Third-Party Risk Management (P-008) policies |
 | 2026-11-01 | Added R-21 (personal phones) | Staff will use personal phones for MFA from the cutover (P-007) |

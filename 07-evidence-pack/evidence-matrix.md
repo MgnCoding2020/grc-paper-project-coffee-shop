@@ -28,7 +28,7 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-09 | SA-9 | Vendor assessment checklist (artifacts/vendor/vendor-assessment-summary.md) (Toast POS) | Vendor review doc | Manual review | Partial |
 | E-10 | SI-3 | Antivirus / endpoint protection status | Device reports | Manual review | Partial |
 | E-11 | SI-7 | Change monitoring / integrity logs | System logs | Manual review | Missing |
-| E-12 | CM-6 | Secure configuration baseline documentation | Configuration standard | Manual review | Missing |
+| E-12 | CM-6 | Baseline check log (artifacts/assets/baseline-checks.csv) against PR-013 and PR-015 | Check log | Manual review each quarter; Intune compliance report once licensed | Missing (baselines written 2026-11-02; first check due by 2027-02-15) |
 | E-13 | SC-8 | Encryption-in-transit (TLS) configuration evidence | Vendor/system config | Manual review | Missing |
 | E-14 | RA-5 | Vulnerability scan and penetration test reports | Scan tooling output | Manual review | Missing |
 | E-15 | SC-28 | Data-at-rest protection / storage scope documentation | Vendor/system config | Manual review | Missing |
@@ -48,6 +48,7 @@ Example evidence artifacts and templates may be maintained in the **examples** d
 | E-29 | PS-3, PS-6 | Personnel files (template: examples/personnel-file-checklist.md) | Checklist per person, kept by the Owner | Manual review: screening level met, agreements signed and renewed | Missing (no files yet; staff sign by 2026-11-30) |
 | E-30 | SI-12, MP-6 | Disposal log (artifacts/assets/disposal-log.csv) | Log | Manual review: every disposal recorded with method and witness; yearly review held | Missing (records gap noted 2026-11-02) |
 | E-31 | RA-7 | Exception register (02-risk-management/risk-exceptions.md) | Register | Manual review: Owner approval, compensating controls, expiry, review log | Partial (six exceptions approved 2026-11-02; no review yet) |
+| E-32 | PE-2, PE-8 | Key register and visitor log (artifacts/physical/key-register.csv, visitor-log.csv) | Registers | Manual review: every key and code personal and recorded; visitors logged and escorted | Partial (key register started 2026-11-02 with gaps recorded; visitor log empty) |
 
 ---
 
@@ -104,6 +105,7 @@ The [evidence index](evidence-index.md) lists every evidence artifact across the
 | 2026-10-30 | E-01, E-03, E-05 statuses annotated with their POA&M items | Program alignment review (AL-16, AL-19) |
 | 2026-10-30 | E-16 and E-17 added | New controls CM-3, CM-4, PS-4, PS-5 |
 | 2026-10-30 | E-04 description corrected (the log is markdown, not CSV); E-06 Missing → Partial | The training log exists (rebuilt from the roster in the alignment review); 1 of 20 active staff has completed training |
+| 2026-11-02 | E-32 added; E-12 points to the baseline check log | Physical security (P-011); device baselines (PR-015) |
 | 2026-11-02 | E-30 and E-31 added | Retention and disposal (P-010); exception register (PR-014) |
 | 2026-11-02 | E-29 added | Personnel Security Policy (P-009) |
 | 2026-11-01 | E-28 added | Microsoft 365 tenant baseline (PR-013) |

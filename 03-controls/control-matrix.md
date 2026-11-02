@@ -19,8 +19,10 @@ Each control references the policy or procedure responsible for implementing the
 | R-01 | AT-2 | Security awareness and phishing training (PR-007) | AT | Req. 12.6 | Not Implemented | E-06 | POAM-002 |
 | R-02 | AC-2 | Account management for POS and business systems | AC | Req. 7 | Partially Implemented | E-01 | POAM-014 |
 | R-02 | AU-6 | Log review for suspicious POS activity | AU | Req. 10 | Partially Implemented | E-04 | POAM-003 |
-| R-02 | CM-6 | Secure configuration baselines for POS and workstations; Microsoft 365 tenant baseline (PR-013) | CM | Req. 2 | Not Implemented | E-12 | POAM-009 |
+| R-02 | CM-6 | Secure configuration baselines for POS and workstations; Microsoft 365 tenant baseline (PR-013) and device baselines for the laptop, tablets, POS, firewall, access points and router (PR-015) | CM | Req. 2 | Partially Implemented | E-12 | POAM-009 |
 | R-03 | PE-3 | Physical access control for devices and POS terminals; device inspection (PR-006) | PE | Req. 9 | Partially Implemented | E-07 | POAM-004 |
+| R-24 | PE-2 | Physical access authorizations: personal keys and alarm codes recorded in a key register, returned on leaving, checked quarterly (P-011) | PE | Req. 9.3.1 (loose; secondary sources) | Not Implemented | E-32 | POAM-035 |
+| R-24 | PE-8 | Visitor access records: escorted visitors in back areas logged (P-011) | PE | Req. 9.3.4 (loose; secondary sources) | Not Implemented | E-32 | POAM-035 |
 | R-04 | SC-7 | Network segmentation between POS and internal network (P-005) | SC | Req. 1 | Partially Implemented | E-05 | POAM-015 |
 | R-05 | CP-2 | Contingency and outage plan (PR-005) | CP | Req. 12 | Partially Implemented | E-08 | POAM-005 |
 | R-19 | CP-9 | System backup: monthly encrypted offline copies in two places; network settings exported after every change; data exported before a vendor account closes (PR-012) | CP | Req. 12.10.1 (data backup processes) | Not Implemented | E-26 | POAM-029 |
@@ -92,6 +94,7 @@ Control deficiencies and partial implementations are tracked in the POA&M:
 |---|---|---|
 | 2026-10-30 | AC-2 and AC-6: Implemented → Partially Implemented (POAM-014); SC-7: Implemented → Partially Implemented (POAM-015) | The Q1 2026 access review left IAM:F-001 to F-004 open, and the network evidence shows POS terminals sharing Wi-Fi with the manager laptop. Found in the program alignment review (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3 and CM-4 (POAM-016, POAM-017) | The Q1 review showed access isn't removed on termination or role change; the change process was created for CR-001 and CR-003 |
+| 2026-11-02 | Added PE-2 and PE-8 (POAM-035); CM-6: Not Implemented → Partially Implemented | Physical Security Policy (P-011); every device type now has a written baseline (PR-013, PR-015), not yet checked on the devices |
 | 2026-11-02 | Added SI-12, MP-6 (POAM-033) and RA-7 (POAM-034) | Records Retention and Disposal Policy (P-010); Risk Acceptance and Exception Procedure (PR-014) |
 | 2026-11-02 | Added PS-3 and PS-6 (POAM-032); SA-9 description widened to all vendors (P-008) | Personnel Security Policy (P-009) and Third-Party Risk Management Policy (P-008) |
 | 2026-11-01 | Added AC-19 (POAM-031); CM-6 description adds the tenant baseline (PR-013) | Staff will use personal phones for MFA from the cutover (P-007) |
