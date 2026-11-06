@@ -36,7 +36,7 @@
 | **`IAM-Access-Review-Lab`** | Operational: quarterly access reviews (AC-2, AC-6). Q1 2026 (pre-migration) plus Q4 2026 (post-migration, in Entra ID) | "He can execute and evidence an access certification." |
 | **`Vendor-Risk-Assessment-Lab`** | Operational: third-party assessments (SA-9). Eight assessments (V-001, V-002, V-003, V-008 to V-012) and the V-004 Vertex offboarding record (CR-003); every vendor that needs an assessment has one | "He can assess a vendor end to end." |
 | **Microsoft 365 tenant** (not a repo) | **Live evidence source.** Burn and Churn's staff accounts, groups, Conditional Access, MFA, audit log and SharePoint intranet are built in Michael's own tenant (D-4). Redacted exports are committed to the hub as `Lab-verified` evidence | "He can build and run M365 for a real-shaped business, and prove it." |
-| **`burn-and-churn`** (future) | The online ordering website: `CR-002`, a separate later project with its own plan. Where the technologies connect: Entra sign-in, least privilege, Stripe test mode | "He can build a system to the controls." |
+| **[`burn-and-churn-website`](https://github.com/MgnCoding2020/burn-and-churn-website)** (active, CR-002) | The online ordering website, staff portal and counter register: `CR-002` (approved 2026-11-05), with its own plan. Public site live with fictional content; staff sign-in next. Where the technologies connect: Entra sign-in, least privilege, Stripe test mode | "He can build a system to the controls." |
 
 **Skill sources, not part of the program:** `workspace` (SharePoint-shaped intranet engine) and `cyber-homelab` (Entra, Conditional Access, audit log, eDiscovery labs) are where Michael practised the techniques this program now applies. They are not linked as companions, not changed by this plan, and their case studies stay about Michael's own labs. Lessons carried over are credited in prose where useful (e.g. "the break-glass exclusion pattern from the Cyber Home Lab").
 
@@ -182,7 +182,8 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-016 | Camera system (cloud recording) | Simulation | Two cameras; footage DATA-005, 30-day retention; never pointed at the keypad (PR-011) |
 | SYS-017 | Espresso machine service portal | Simulation | Vendor remote diagnostics (MA-4) |
 | SYS-018 | Temperature monitoring service | Simulation | Food-safety temperature log |
-| SYS-020 | Online ordering website | Test | **CR-002, later**; with Stripe (test mode) |
+| SYS-020 | Online ordering website | Test | **CR-002** (approved 2026-11-05); public site live; staff sign-in next |
+| SYS-021 | Stripe (Checkout and Terminal) | Test | CR-002 and CR-005; test mode with the simulated reader; planned |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
 
@@ -204,7 +205,9 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-010 | Cloud camera service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
 | V-011 | Espresso machine service company (unnamed) | Active; remote access to the machine; assessed 2026-11-01, Moderate, continue with conditions |
 | V-012 | Temperature monitoring service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
-| Next free | Stripe, Cloudflare (CR-002), the AI provider (T11) | Get the next free `V-###` when added |
+| V-013 | Stripe, Inc. | **Planned** (CR-002, CR-005); assessment not started (before payments go live) |
+| V-014 | Cloudflare, Inc. | **Active** (CR-002, hosts the test website); assessment not started |
+| Next free | V-015: the AI provider (T11) | Get the next free `V-###` when added |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
 
@@ -270,7 +273,7 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
 - **In store today: Toast** (card-present). Toast is the PCI service provider; the shop's obligations are SA-9 / PCI DSS 12.8 vendor management plus device inspection (PE-3 / 9.5.1).
 - **In store after CR-005: Stripe Terminal (D-11).** The website's register screen takes counter payments through a Stripe reader (in the lab, Stripe's simulated reader, server-driven). Stripe states Terminal payments are validated with SAQ C. No offline card payments (Stripe's offline mode needs its mobile SDKs), so outages go to cash. Toast stays in use, and its conditions stay due, until cutover. Facts checked 2026-10-30.
 - **Online, later: Stripe Checkout in test mode**, via `CR-002`, because Toast's ordering platform has no public sandbox a portfolio project can integrate with. Two processors is a normal small-business pattern; the program must say so explicitly, and give each processor its own vendor entry, crosswalk rows and PCI scope statement.
-- Until CR-002 is approved, **no document mentions Stripe** (AL-07), except CR-005 and this file. The checker allows exactly that one record.
+- Until CR-002 was approved, **no document mentioned Stripe** (AL-07), except CR-005 and this file. CR-002 was approved on 2026-11-05; the checker now allows Stripe once the change register shows CR-002 approved. Current-state documents still describe Stripe as **planned** until the register goes live (T12).
 
 ### 5.4 Store network (target design, AL-19)
 
@@ -442,7 +445,7 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 4. **Links:** every companion README links the hub; every relative link in the hub resolves.
 5. **Controls:** every control in the matrix appears in the crosswalk, and the reverse; control counts in the README match the matrix (the earlier 11-vs-15 bug becomes impossible).
 6. **Counts:** the headcount in the company profile matches `people.csv`.
-7. **Forbidden terms:** no Stripe before CR-002 (CR-005 excepted); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
+7. **Forbidden terms:** no Stripe before CR-002 is approved in the change register (CR-005 excepted; satisfied since 2026-11-05); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
 8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
 9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
 10. **CSV files are well formed** (added 2026-11-01): every row has as many fields as its header, so an unquoted comma can't silently shift columns.
@@ -550,7 +553,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 
 ### T12. Toast replaced by Stripe Terminal (CR-005 cutover)
 Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in the same PR set as the cutover; Toast mentions in dated records stay.
-- [ ] **Before:** Stripe gets its `V-###` and `SYS-###`; Stripe vendor assessment in the Vendor lab (AOC, responsibility matrix, SAQ C); sandbox evidence for every CR-005 §6 test, marked `Lab-verified <date>`; Stripe test keys in `.env` only
+- [ ] **Before:** ~~Stripe gets its `V-###` and `SYS-###`~~ (done 2026-11-05 with CR-002: V-013, SYS-021); Stripe vendor assessment in the Vendor lab (AOC, responsibility matrix, SAQ C); sandbox evidence for every CR-005 §6 test, marked `Lab-verified <date>`; Stripe test keys in `.env` only
 - [ ] **Org data:** `systems.csv` SYS-001 and SYS-004 `retired_on`; new register and reader rows; `vendors.csv` V-001 → Offboarded; `roles.md` Toast PIN section becomes register sign-in rules; `identifiers.md`, `timeline.md`
 - [ ] **Current-state documents** (each with a revision line naming CR-005): `company_profile.md`, `assessment_scope.md`, `security-program-overview.md`, `glossary.md`, `assets.md` (HW-001 becomes the Stripe reader; SYS-001/004 retired), `data-classification.md`, `continuous-monitoring.md`, `vendor-inventory.md`, `system-architecture.md` (and diagrams), README
 - [ ] **Policies:** P-001, P-002 (register sign-in rules), P-003, P-004 (SAQ C; tokens only), P-005 (POS segment holds the reader)
@@ -559,7 +562,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Evidence:** `pos-device-list.csv` (new reader; Toast terminal row marked retired, not deleted); evidence matrix and index rows; POAM-020 closed when Toast is offboarded (or closed as superseded, with a note)
 - [ ] **IAM lab:** Toast stays in the Q1 matrix (history); the next review covers register sign-in and the Stripe Dashboard team members
 - [ ] **Vendor lab:** V-001 status entry (offboarded, exit evidence: account closure and terminal return); new Stripe assessment folder
-- [ ] **Checker:** remove the CR-005 Stripe exception (CR-002 is approved by then); add aliases for the register and reader
+- [ ] **Checker:** ~~remove the CR-005 Stripe exception~~ (made conditional on CR-002's approval, 2026-11-05); add aliases for the register and reader
 
 ### T4. SharePoint available (Business Premium trial, D-8 and D-9)
 - [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist
@@ -695,3 +698,5 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 34 | 2026-11-02 | Internet provider (V-008) assessed (VRA #15) and rolled up: every vendor that needs an assessment now has one |
 | 35 | 2026-11-02 | Checker check 2: retired-systems rule with `--as-of` preview; flags exactly the 16 current-state files on `main` as of the cutover, and passes on the draft 3b PR |
 | 36 | 2026-11-02 | Final alignment audit: hub README brought up to date (repositories table, scenario, 16 families, change management, monitoring, vendors, skills); stale plan lines fixed (vendor lab role, V-002 and V-003 status, SharePoint via the trial, P3 and P5 status); Toast conditions deferred by EXC-007 because Toast exits under CR-005 (T9a rewritten); offboarding vendors marked "Not Required" for assessment; GitHub descriptions and topics refreshed |
+
+| 37 | 2026-11-05 | CR-002 raised and approved (online ordering website, staff portal and counter register; the public site was already live with fictional content and no company data). V-013 Stripe (planned) and V-014 Cloudflare (active) added; SYS-020 and SYS-021; vendor inventory, company profile, asset register, timeline and CR-005 log updated; the checker's Stripe rule is now keyed to CR-002's approval in the register |

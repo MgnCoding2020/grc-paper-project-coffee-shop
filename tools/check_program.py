@@ -440,6 +440,15 @@ def check_counts(hub, org):
 STRIPE_ALLOWED = {"09-change-management/CR-005-toast-pos-replacement.md"}
 
 
+def cr002_approved(hub_root):
+    """Stripe may be named anywhere once the change register shows CR-002 approved (2026-11-05)."""
+    register = Path(hub_root) / "09-change-management" / "README.md"
+    if not register.exists():
+        return False
+    row = next((line for line in read_text(register).splitlines() if line.startswith("| CR-002 |")), "")
+    return "Approved" in row
+
+
 def without_revision_history(text):
     """Drop '## Revision History' sections: they record what was removed, which is allowed."""
     return re.sub(r"^#+ Revision History.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
@@ -447,6 +456,8 @@ def without_revision_history(text):
 
 def check_forbidden(repos):
     findings = []
+    hub_root = dict(repos).get("hub")
+    stripe_ok = bool(hub_root) and cr002_approved(hub_root)
     for repo, root in repos:
         for path in tracked_files(root):
             if path.suffix not in SCANNED_SUFFIXES or path.name == "CLAUDE.md":
@@ -457,8 +468,9 @@ def check_forbidden(repos):
                 continue
             text = without_revision_history(read_text(path))
             where = f"{repo} {rel(path, root)}"
-            # CR-005 (approved, blocked on CR-002) is the one record allowed to name Stripe early
-            if re.search(r"\bstripe\b", text, re.I) and rel(path, root) not in STRIPE_ALLOWED:
+            # Before CR-002 was approved, CR-005 was the one record allowed to name Stripe
+            if (not stripe_ok and re.search(r"\bstripe\b", text, re.I)
+                    and rel(path, root) not in STRIPE_ALLOWED):
                 findings.append(f"{where}: mentions Stripe before CR-002")
             if path.suffix == ".md" and re.search(r"\bTODO\b", text):
                 findings.append(f"{where}: contains TODO")

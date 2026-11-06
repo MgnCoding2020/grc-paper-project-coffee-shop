@@ -116,6 +116,7 @@ The first access review after cutover confirms that register sign-in follows the
 | Date | Entry |
 |---|---|
 | 2026-10-30 | Raised and approved by the Owner, blocked until the CR-002 register passes acceptance testing. Toast remains the store's POS until cutover, and its assessment conditions (VRA-V001:F-01 to F-04, POAM-020) still apply because Toast processes the shop's card payments until then. |
+| 2026-11-05 | CR-002 raised and approved ([CR-002](CR-002-online-ordering-website.md)). Stripe gets vendor ID V-013 and system ID SYS-021 (implementation step 1). This change stays blocked until the register passes the §6 acceptance tests. |
 
 ---
 
