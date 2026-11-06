@@ -46,6 +46,7 @@ A dated history of the Burn and Churn Coffee security program: policies, reviews
 | 2026-10-30 | Contingency and outage plan (PR-005), POS device inspection procedure (PR-006) and security awareness training program (PR-007) take effect; CP-2 moves to Partially Implemented | [05-procedures/](../../05-procedures/) |
 | 2026-10-30 | Network Security Policy (P-005) takes effect, with the current POS segmentation gap recorded as a time-limited exception (POAM-015); P-001 and P-002 v1.2 point to documents that exist | [P-005](../../04-policies/P-005-network-security.md) |
 | 2026-10-30 | Change-control process established; CR-001 and CR-003 raised and approved by the Owner | [Change register](../../09-change-management/README.md) |
+| 2026-11-05 | CR-002 approved: the online ordering website, staff portal and counter register (SYS-020); Stripe (V-013, planned) and Cloudflare (V-014) added. The public site was already live with fictional content | [CR-002](../../09-change-management/CR-002-online-ordering-website.md) |
 | 2026-11-15 | **Planned:** CR-001 migration from Google Workspace to Microsoft 365 (QuickBooks retired into an Excel workbook in SharePoint) | [CR-001](../../09-change-management/CR-001-google-workspace-to-microsoft-365.md) |
 | 2026-11-15 | **Planned:** CR-003 IT brought in-house: IT Technician hired, Vertex IT Support offboarded | [CR-003](../../09-change-management/CR-003-it-support-in-house.md) |
 | 2026 Q4 | **Planned:** Q4 2026 access review, the first run in Microsoft Entra ID | IAM Access Review Lab |

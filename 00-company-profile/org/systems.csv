@@ -15,3 +15,5 @@ SYS-015,Password manager (Bitwarden organization),Shared credential storage,V-00
 SYS-016,Camera system (cloud recording),Video surveillance,V-010,Confidential,Store cameras and the vendor's cloud,Simulation,2026-02-01,,Two cameras (CAM-01/02); footage is DATA-005; rules in PR-011 §5
 SYS-017,Espresso machine service portal,Equipment telemetry and remote diagnostics,V-011,Internal,Store machine and the vendor's cloud,Simulation,2026-02-01,,ESP-01; vendor remote access (MA-4; PR-011 §4)
 SYS-018,Temperature monitoring service,Food-safety temperature log and alerts,V-012,Internal,Store sensors and the vendor's cloud,Simulation,2026-03-01,,TMP-01/02
+SYS-020,Online ordering website,Public website; staff portal; counter register,V-014,Internal,Cloud (Cloudflare Workers),Test,2026-11-05,,From CR-002; public pages live with fictional content; staff sign-in next; repository burn-and-churn-website
+SYS-021,Stripe (Checkout and Terminal),Online and card-present payments,V-013,Restricted,Stripe cloud and the counter reader,Test,,,From CR-002 and CR-005; test mode only with the simulated reader; no real card data anywhere
