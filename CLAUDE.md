@@ -378,7 +378,7 @@ The order of work for the pilot and the 2026-11-15 cutover. Each step names the 
 
 **Pilot (on or before 2026-11-15)**
 - [ ] Hub PR: Riley Morgan `Planned` → `Active` with a start date in `people.csv` (CR-003 step 1)
-- [ ] `provision-users.ps1 -DryRun`, then the real run → `provisioning-log` (AC-2 evidence)
+- [ ] `provision-users.ps1 -PersonId EMP-001,EMP-002,EMP-022 -DryRun`, then the real run (pilot accounts only) → `provisioning-log` (AC-2 evidence); the rest of the roster on cutover with a full run
 - [ ] `provision-users.ps1 -IncludeAdminAccounts`: `adm-olivia.carter` and `adm-riley.morgan` with exactly the roles in `admin-accounts.csv`; turn on their MFA first; document the tenant's existing break-glass accounts → screenshot of role assignments (AC-6)
 - [ ] Apply the tenant baseline (PR-013 §2): confirm the tenant-wide settings first (shared tenant), then screenshot each setting page → `artifacts/tenant/<date>-tenant-baseline/` (E-28, CM-6)
 - [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free; Conditional Access comes with the trial, D-9) → MFA status export (IA-2)
@@ -698,5 +698,5 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 34 | 2026-11-02 | Internet provider (V-008) assessed (VRA #15) and rolled up: every vendor that needs an assessment now has one |
 | 35 | 2026-11-02 | Checker check 2: retired-systems rule with `--as-of` preview; flags exactly the 16 current-state files on `main` as of the cutover, and passes on the draft 3b PR |
 | 36 | 2026-11-02 | Final alignment audit: hub README brought up to date (repositories table, scenario, 16 families, change management, monitoring, vendors, skills); stale plan lines fixed (vendor lab role, V-002 and V-003 status, SharePoint via the trial, P3 and P5 status); Toast conditions deferred by EXC-007 because Toast exits under CR-005 (T9a rewritten); offboarding vendors marked "Not Required" for assessment; GitHub descriptions and topics refreshed |
-
 | 37 | 2026-11-05 | CR-002 raised and approved (online ordering website, staff portal and counter register; the public site was already live with fictional content and no company data). V-013 Stripe (planned) and V-014 Cloudflare (active) added; SYS-020 and SYS-021; vendor inventory, company profile, asset register, timeline and CR-005 log updated; the checker's Stripe rule is now keyed to CR-002's approval in the register |
+| 38 | 2026-11-06 | `provision-users.ps1 -PersonId` added for the CR-001 pilot (only the named people, their groups and their admin accounts; guests skipped; unknown IDs refused; dry-run verified). Build-day pilot step uses it. The website's `setup-staff-app.ps1` (website ADR-0026) assigns app roles from the same roster |
