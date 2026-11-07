@@ -3,7 +3,7 @@ Burn and Churn Coffee
 
 | | |
 |---|---|
-| **Status** | Approved (scheduled) |
+| **Status** | Approved (in progress) |
 | **Requested by** | IT administrator (Vertex IT Support; implemented by the IT Technician under CR-003) |
 | **Approved by** | Olivia Carter (Owner) |
 | **Approved on** | 2026-10-30 |
@@ -132,6 +132,7 @@ The **Q4 2026 access review** in the IAM Access Review Lab is the formal check: 
 | Date | Entry |
 |---|---|
 | 2026-10-30 | Raised and approved by the Owner. Scheduled for 2026-11-15. |
+| 2026-11-07 | **Step 3 (accounts) done early, by the Owner's decision**, so the website's staff sign-in (CR-002 step 3) can be tested against the real roster. `provision-users.ps1 -PersonId EMP-001..EMP-020` created the 20 Active staff, the five groups they need (`grp-bc-all-staff`, `-owners`, `-managers`, `-shift-leads`, `-baristas`) and 40 memberships, each with a temporary password to be changed at first sign-in ([provisioning log](../07-evidence-pack/artifacts/tenant/2026-11-07-provisioning-log.csv), Lab-verified 2026-11-07). **Not yet done:** Riley Morgan (IT Technician, still Planned; CR-003), the `adm-` admin accounts, MFA registration, the audit-log check, and the tenant baseline. The step 2 pilot as written (Owner, Manager, IT Technician with MFA first) was not run separately. Google Workspace stays in service; the 2026-11-15 cutover date is unchanged. |
 
 ---
 

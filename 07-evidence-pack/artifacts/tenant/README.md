@@ -6,7 +6,7 @@ Redacted exports from the real Microsoft Entra tenant where Burn and Churn Coffe
 2. Redact with [`tools/tenant/redact_export.py`](../../../tools/tenant/redact_export.py): fictional domain, no GUIDs, IP addresses, tokens or real email addresses.
 3. Run the consistency checker, then commit here with the date in the file name, and add a `Lab-verified <date>` row to the [evidence index](../../evidence-index.md).
 
-Nothing is in this folder yet. The table lists each file the builds will produce, so each one has a place before it exists.
+The table lists each file the builds will produce, so each one has a place before it exists. **Captured so far:** [`2026-11-07-provisioning-log.csv`](2026-11-07-provisioning-log.csv) (E-33; the 20 Active staff and their groups, CR-001 step 3 run early).
 
 ---
 
