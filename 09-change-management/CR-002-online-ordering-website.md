@@ -61,7 +61,7 @@ Burn and Churn Coffee
 |---|---|---|
 | 1 | Foundations: hosting, CI security checks, security headers, test-mode guard, threat model | Done (website PRs #1–#10, 2026-11-02) |
 | 2 | Public site: design system, homepage, menu, information pages, error and maintenance pages; mobile Lighthouse Performance 97 | Done (website PRs #11–#21, 2026-11-02 to 2026-11-05) |
-| 3 | Staff sign-in with Entra ID (app registration `bc-website-staff`, app roles, server-side sessions, staff portal, audit log) | Next |
+| 3 | Staff sign-in with Entra ID (app registration `bc-website-staff`, app roles, server-side sessions, staff portal, audit log) | In progress (app registered 2026-11-07) |
 | 4 | Counter register and order board; cash orders; separation of duties on refunds | Planned |
 | 5 | Stripe Terminal with the simulated reader; refunds; decline handling (CR-005 §6 tests) | Planned |
 | 6 | Customer accounts (Entra External ID), cart and Stripe Checkout; signed webhooks | Planned |
@@ -97,6 +97,7 @@ The first access review after staff sign-in goes live covers the website's app r
 | Date | Entry |
 |---|---|
 | 2026-11-05 | Raised and approved by the Owner. Raised **before the first change to company systems** (the Entra ID app registration in step 3). Steps 1 and 2 were already built (2026-11-02 to 2026-11-05) as a public site with fictional content: no company data, no tenant changes and no payments, so no company system had changed yet. Recording them here so the whole website sits under one change record. |
+| 2026-11-07 | **First change to company systems.** Entra ID app `bc-website-staff` registered by the website's `scripts/tenant/setup-staff-app.ps1` (website ADR-0026): single tenant; certificate credential only (expires 2027-11-07), no client secret; delegated `openid` and `profile` only, admin consent granted; four app roles; Assignment required = Yes; 20 per-user role assignments from `people.csv` (1 Owner, 1 Manager, 3 Shift Leads, 15 Baristas; group assignment needs Entra ID P1, step 7). Accounts came from CR-001 the same day. Evidence: website `docs/evidence/2026-11-07-entra-staff-app/` (Lab-verified 2026-11-07). Sign-in itself is tested when the routes are built. |
 
 ---
 

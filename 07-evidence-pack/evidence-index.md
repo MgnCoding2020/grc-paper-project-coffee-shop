@@ -60,6 +60,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-30 | SI-12, MP-6 | Disposal log | [disposal-log.csv](artifacts/assets/disposal-log.csv) | 2026-11-02 | Simulation | POAM-033 |
 | E-31 | RA-7 | Exception register | [risk-exceptions.md](../02-risk-management/risk-exceptions.md) | 2026-11-02 | Simulation | POAM-034 |
 | E-32 | PE-2, PE-8 | Key register and visitor log | [key-register.csv](artifacts/physical/key-register.csv), [visitor-log.csv](artifacts/physical/visitor-log.csv) | 2026-11-02 | Simulation | POAM-035 |
+| E-33 | AC-2 | Provisioning log: 20 Active staff, five `grp-bc-` groups and 40 memberships created in Entra ID from `people.csv` (CR-001 step 3, run early) | [2026-11-07-provisioning-log.csv](artifacts/tenant/2026-11-07-provisioning-log.csv) | 2026-11-07 | Lab-verified 2026-11-07 | — |
 
 ---
 
@@ -77,6 +78,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | Vendor lab | SA-9 | Toast (V-001) assessment against PCI DSS 12.8: six-factor inherent risk (18/18), due diligence against Toast's public information, findings VRA-V001:F-01 to F-04, final report | [assessments/V-001-toast](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-001-toast) | 2026-10-30 | Simulation (sources checked 2026-10-30) | POAM-020, POAM-006 |
 | Vendor lab | SA-9 | Northwind Payroll (V-002) assessment: intake, inherent risk, due diligence, findings VRA-V002:F-01 to F-04, final report | [assessments/V-002-northwind](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-002-northwind) | 2026-06-23 | Simulation | POAM-013 |
 | Vendor lab | SA-9 | Microsoft 365 (V-003) assessment before onboarding: six-factor inherent risk (16/18), due diligence against Microsoft's public documentation, findings VRA-V003:F-01 to F-05, final report | [assessments/V-003-microsoft](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-003-microsoft) | 2026-10-30 | Simulation (sources checked 2026-10-30) | POAM-018 |
+| Website | AC-2, AC-3, AC-6, IA-5 | Staff sign-in app `bc-website-staff` in Entra ID: single tenant, certificate only, openid and profile only, four app roles, assignment required, 20 role assignments (CR-002 step 3); redacted screenshots and the setup script's log | [docs/evidence/2026-11-07-entra-staff-app](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-07-entra-staff-app) | 2026-11-07 | Lab-verified 2026-11-07 | — |
 
 ---
 
@@ -99,7 +101,7 @@ Evidence the CR-001 build will produce (see the build-day runbook in `CLAUDE.md`
 
 | Control(s) | Evidence | Status |
 |---|---|---|
-| AC-2 | Provisioning log from `provision-users.ps1` | Planned (2026-11-15) |
+| AC-2 | Provisioning log from `provision-users.ps1` | Captured for the 20 Active staff (E-33, 2026-11-07); Riley Morgan and the admin accounts still to come |
 | AC-2, AC-6 | Entra users, group memberships and admin role assignments | Planned (2026-11-15) |
 | IA-2 | Per-user MFA status and sign-in log details | Planned (2026-11-15) |
 | IA-2, AC-2 | Conditional Access policies, report-only then on | Planned (Business Premium trial, D-9) |
