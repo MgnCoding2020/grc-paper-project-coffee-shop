@@ -51,6 +51,12 @@
 .PARAMETER AssignLicenses
     Also assign the licence named by BC_LICENSE_SKU in .env to every provisioned person.
 
+.PARAMETER PersonId
+    Provision only these people (person_id values, e.g. EMP-001,EMP-002,EMP-022), for the
+    CR-001 pilot. Only their groups are created; with -IncludeAdminAccounts, only their admin
+    accounts. Vendor guests are skipped. Run again without it for everyone else: people
+    already created are skipped.
+
 .EXAMPLE
     .\tools\tenant\provision-users.ps1 -DryRun
 
@@ -59,12 +65,16 @@
 
 .EXAMPLE
     .\tools\tenant\provision-users.ps1 -IncludeAdminAccounts -AssignLicenses
+
+.EXAMPLE
+    .\tools\tenant\provision-users.ps1 -PersonId EMP-001,EMP-002,EMP-022 -IncludeAdminAccounts -DryRun
 #>
 [CmdletBinding()]
 param(
     [switch]$DryRun,
     [switch]$IncludeAdminAccounts,
-    [switch]$AssignLicenses
+    [switch]$AssignLicenses,
+    [string[]]$PersonId
 )
 
 $ErrorActionPreference = 'Stop'
@@ -117,6 +127,15 @@ $allContacts = @(Import-Csv $ContactsCsv)
 $guests = @($allContacts | Where-Object { $_.status -in 'Approved', 'Active' })
 $waiting = @($allContacts | Where-Object { $_.status -notin 'Approved', 'Active' })
 if ($IncludeAdminAccounts) { $admins = @(Import-Csv $AdminsCsv) } else { $admins = @() }
+if ($PersonId) {
+    $unknown = @($PersonId | Where-Object { (Import-Csv $PeopleCsv).person_id -notcontains $_ })
+    if ($unknown.Count) { throw "Not in people.csv: $($unknown -join ', ')" }
+    $people  = @($people | Where-Object { $PersonId -contains $_.person_id })
+    $skipped = @($skipped | Where-Object { $PersonId -contains $_.person_id })
+    $admins  = @($admins | Where-Object { $PersonId -contains $_.person_id })
+    $waiting = @($waiting + $guests)
+    $guests  = @()
+}
 $groupNames = @((@($people | ForEach-Object { $_.groups -split ';' }) + @($guests | ForEach-Object { $_.access_groups -split ';' }) +
     @($admins | ForEach-Object { $_.groups -split ';' })) | Where-Object { $_ } | Sort-Object -Unique)
 $licenseSku = $envValues['BC_LICENSE_SKU']
@@ -125,6 +144,7 @@ if ($AssignLicenses -and -not $licenseSku) { throw "BC_LICENSE_SKU is not set in
 Write-Host "Burn and Churn provisioning from people.csv and vendor-contacts.csv"
 Write-Host ("  {0} people to provision, {1} terminated (skipped), {2} guests to invite, {3} admin accounts, {4} groups" -f $people.Count, $skipped.Count, $guests.Count, $admins.Count, $groupNames.Count)
 if ($AssignLicenses) { Write-Host "  licence $licenseSku for each of the $($people.Count) people (not admin accounts or guests)" }
+if ($PersonId) { Write-Host "  pilot run (-PersonId $($PersonId -join ',')): everyone else, and every vendor guest, waits for a full run" }
 foreach ($p in $skipped) { Write-Host "  skip  $($p.display_name) (Terminated: no account is created)" }
 foreach ($c in $waiting) { Write-Host "  skip  $($c.contact_id) $($c.display_name) (vendor contact, status $($c.status): not invited)" }
 
