@@ -45,6 +45,7 @@ This POA&M documents identified security weaknesses within the coffee shop syste
 | POAM-033 | SI-12, MP-6 | No retention schedule was applied and no disposal has ever been recorded | Retention schedule in force (P-010); every disposal logged from now on; first yearly review by 2027-01-31 | IT Technician | Low | Open |
 | POAM-034 | RA-7 | Exceptions were accepted informally across many documents with no single register or expiry dates | Exception register with six exceptions approved 2026-11-02 (PR-014); first six-monthly review by 2027-05-02 | Owner | Low | Open |
 | POAM-035 | PE-2, PE-8 | Keys never inventoried; one alarm code shared by every key holder; a back-office key unaccounted for; no visitor log | Personal alarm codes for each key holder; key register completed and checked quarterly; decide on re-keying the back office; visitor log in use (P-011) | Store Manager | Medium | Open |
+| POAM-036 | SA-9 | Cloudflare (V-014) has hosted the website since 2026-11-02 and holds staff data since 2026-11-07, without the assessment P-008 requires (step 5: a vendor in use but never assessed is assessed as soon as found) | Full assessment VRA-V014 (intake, due diligence, findings, Owner decision) before website Phase 3 puts orders in D1; Stripe VRA-V013 before website Phase 4 | Owner | Medium | Open |
 
 
 ---
