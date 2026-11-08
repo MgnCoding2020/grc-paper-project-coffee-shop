@@ -84,7 +84,7 @@ Burn and Churn Coffee
 ## 7. Exit Criteria
 
 - [ ] All acceptance tests passed and evidenced
-- [ ] V-013 Stripe and V-014 Cloudflare assessed; SAQ type for the new payment channels confirmed against current PCI SSC and Stripe documents
+- [ ] V-013 Stripe and V-014 Cloudflare assessed; SAQ type for the new payment channels confirmed against current PCI SSC and Stripe documents **V-014 done 2026-11-08** (continue with conditions, VRA-V014); V-013 still to do
 - [ ] P-004, the control matrix and crosswalk updated for online and counter payments through Stripe
 - [ ] Evidence index rows for the website's evidence
 
@@ -100,6 +100,7 @@ The first access review after staff sign-in goes live covers the website's app r
 | 2026-11-07 | **First change to company systems.** Entra ID app `bc-website-staff` registered by the website's `scripts/tenant/setup-staff-app.ps1` (website ADR-0026): single tenant; certificate credential only (expires 2027-11-07), no client secret; delegated `openid` and `profile` only, admin consent granted; four app roles; Assignment required = Yes; 20 per-user role assignments from `people.csv` (1 Owner, 1 Manager, 3 Shift Leads, 15 Baristas; group assignment needs Entra ID P1, step 7). Accounts came from CR-001 the same day. Evidence: website `docs/evidence/2026-11-07-entra-staff-app/` (Lab-verified 2026-11-07). Sign-in itself is tested when the routes are built. |
 | 2026-11-07 | **Go-live of step 3 (staff sign-in) in production.** The Owner approved the merge of website PR #26 ("please merge"), which deployed it; this entry records that approval, made the same day. Before it, the Owner created the production and preview D1 databases and set the production Worker secrets (website secrets inventory). First live sign-in: a barista, role shown correctly, sign-out working (website evidence `2026-11-07-staff-sign-in`). Follow-ups the same day: website PR #27 (evidence), PR #28 (sign-out warning for WCAG 2.2.1, hourly clean-up of expired sessions, privacy and security pages corrected for live sign-in). |
 | 2026-11-07 | **Website repository audit** (website evidence `2026-11-07-repo-audit`, PR #29). Found: this go-live had not been logged here (entry above); the website's accepted risk "no rate limiting" expired with this step and was not revisited, so the public sign-in start can be used to exhaust the free daily D1 writes. Reopened in the website threat model (v1.4); the Owner chose a Cloudflare rate limiter, to follow in its own change. PR-004 weekly log review of the website's audit log begins **2026-11-14**, by direct D1 query until the Manager audit-log view exists (step 4). |
+| 2026-11-08 | **V-014 Cloudflare assessed** (VRA-V014), late: in use since 2026-11-02, staff data since 2026-11-07. Moderate (13/18), **continue with conditions**; five findings under POAM-036, none blocking. Compensating control already in place: no anonymous request writes to the database (website ADR-0030), because Cloudflare's rate limiter doesn't enforce on this account (website ADR-0029). Re-scored High when the register replaces Toast (CR-005). |
 
 ---
 
