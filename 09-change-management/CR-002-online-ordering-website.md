@@ -61,7 +61,7 @@ Burn and Churn Coffee
 |---|---|---|
 | 1 | Foundations: hosting, CI security checks, security headers, test-mode guard, threat model | Done (website PRs #1–#10, 2026-11-02) |
 | 2 | Public site: design system, homepage, menu, information pages, error and maintenance pages; mobile Lighthouse Performance 97 | Done (website PRs #11–#21, 2026-11-02 to 2026-11-05) |
-| 3 | Staff sign-in with Entra ID (app registration `bc-website-staff`, app roles, server-side sessions, staff portal, audit log) | In progress (app registered 2026-11-07) |
+| 3 | Staff sign-in with Entra ID (app registration `bc-website-staff`, app roles, server-side sessions, staff portal, audit log) | Live in production 2026-11-07 (website PRs #23–#28); tests for the other roles and one open finding to close |
 | 4 | Counter register and order board; cash orders; separation of duties on refunds | Planned |
 | 5 | Stripe Terminal with the simulated reader; refunds; decline handling (CR-005 §6 tests) | Planned |
 | 6 | Customer accounts (Entra External ID), cart and Stripe Checkout; signed webhooks | Planned |
@@ -72,7 +72,7 @@ Burn and Churn Coffee
 
 ## 6. Acceptance Tests (test mode)
 
-- [ ] A barista signs in with their work account and lands on the staff portal with the Barista role; a non-member is refused by Entra ID
+- [ ] A barista signs in with their work account and lands on the staff portal with the Barista role; a non-member is refused by Entra ID. **Partly met:** the barista half is Lab-verified 2026-11-07 in production. The non-member half is an **open finding**: Entra issued a token to an account with no app role despite Assignment required, and the site's own role check refused it (website `docs/evidence/2026-11-07-staff-sign-in/`)
 - [ ] A refund by the person who took the payment is refused and the refusal is in the audit log
 - [ ] A counter sale through the simulated reader and an online order both appear on the order board (CR-005 §6)
 - [ ] A replayed or wrongly signed Stripe webhook is ignored
@@ -98,6 +98,8 @@ The first access review after staff sign-in goes live covers the website's app r
 |---|---|
 | 2026-11-05 | Raised and approved by the Owner. Raised **before the first change to company systems** (the Entra ID app registration in step 3). Steps 1 and 2 were already built (2026-11-02 to 2026-11-05) as a public site with fictional content: no company data, no tenant changes and no payments, so no company system had changed yet. Recording them here so the whole website sits under one change record. |
 | 2026-11-07 | **First change to company systems.** Entra ID app `bc-website-staff` registered by the website's `scripts/tenant/setup-staff-app.ps1` (website ADR-0026): single tenant; certificate credential only (expires 2027-11-07), no client secret; delegated `openid` and `profile` only, admin consent granted; four app roles; Assignment required = Yes; 20 per-user role assignments from `people.csv` (1 Owner, 1 Manager, 3 Shift Leads, 15 Baristas; group assignment needs Entra ID P1, step 7). Accounts came from CR-001 the same day. Evidence: website `docs/evidence/2026-11-07-entra-staff-app/` (Lab-verified 2026-11-07). Sign-in itself is tested when the routes are built. |
+| 2026-11-07 | **Go-live of step 3 (staff sign-in) in production.** The Owner approved the merge of website PR #26 ("please merge"), which deployed it; this entry records that approval, made the same day. Before it, the Owner created the production and preview D1 databases and set the production Worker secrets (website secrets inventory). First live sign-in: a barista, role shown correctly, sign-out working (website evidence `2026-11-07-staff-sign-in`). Follow-ups the same day: website PR #27 (evidence), PR #28 (sign-out warning for WCAG 2.2.1, hourly clean-up of expired sessions, privacy and security pages corrected for live sign-in). |
+| 2026-11-07 | **Website repository audit** (website evidence `2026-11-07-repo-audit`, PR #29). Found: this go-live had not been logged here (entry above); the website's accepted risk "no rate limiting" expired with this step and was not revisited, so the public sign-in start can be used to exhaust the free daily D1 writes. Reopened in the website threat model (v1.4); the Owner chose a Cloudflare rate limiter, to follow in its own change. PR-004 weekly log review of the website's audit log begins **2026-11-14**, by direct D1 query until the Manager audit-log view exists (step 4). |
 
 ---
 
