@@ -81,6 +81,7 @@ Burn and Churn Coffee relies on several third-party vendors, each with a stable 
 - Espresso machine service company (including remote diagnostics), V-011
 - Temperature monitoring service, V-012
 - Cloudflare (website hosting), V-014, with CR-002
+- Google (the Owner's password manager, for emergency and recovery credentials only), V-015
 
 Planned: Microsoft (Microsoft 365), V-003, with the CR-001 migration; Bitwarden (password manager), V-009, with CR-003; Stripe (online and counter payments, test mode in the lab), V-013, with CR-002 and CR-005.
 

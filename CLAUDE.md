@@ -187,6 +187,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-018 | Temperature monitoring service | Simulation | Food-safety temperature log |
 | SYS-020 | Online ordering website | Test | **CR-002** (approved 2026-11-05); public site live; staff sign-in next |
 | SYS-021 | Stripe (Checkout and Terminal) | Test | CR-002 and CR-005; test mode with the simulated reader; planned |
+| SYS-022 | Owner's password manager (Google Password Manager) | Live | Owner-held credentials only: break-glass, admin recovery codes, backup-drive keys (PR-009 §3a). EXC-009; V-015 assessment due 2026-11-25 (POAM-038) |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
 
@@ -210,7 +211,8 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | V-012 | Temperature monitoring service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
 | V-013 | Stripe, Inc. | **Planned** (CR-002, CR-005); assessment not started (before payments go live) |
 | V-014 | Cloudflare, Inc. | **Active** (CR-002, hosts the test website); assessment not started |
-| Next free | V-015: the AI provider (T11) | Get the next free `V-###` when added |
+| V-015 | Google LLC (Google Password Manager) | **Active** since 2026-11-11 (the Owner's password manager, SYS-022); High; assessment due 2026-11-25 (POAM-038) |
+| Next free | V-016: the AI provider (T11) | Get the next free `V-###` when added |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
 
@@ -707,3 +709,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 40 | 2026-11-07 | CR-002 step 3 live in production: go-live approval logged (it had been missed), acceptance test 1 partly met with the open Entra assignment finding, website repository audit logged (expired rate-limit acceptance reopened; Cloudflare rate limiter chosen), PR-004 weekly review of the website audit log from 2026-11-14; two website evidence rows |
 | 41 | 2026-11-07 | Alignment pass after the website go-live and audit: AL-28 (vendor lab README), AL-29 (IAM scope: website app roles, assignment enforcement), AL-30 (V-014 data and overdue assessment); POAM-036 (VRA-V014 before website Phase 3, VRA-V013 before Phase 4) |
 | 42 | 2026-11-08 | V-014 Cloudflare assessed (VRA-V014, late): Moderate 13/18, continue with conditions, F-01 to F-05 under POAM-036 (now In Progress); vendors.csv, inventory, evidence index, CR-002 exit criterion and log; AL-28 to AL-30 resolved |
+| 43 | 2026-11-11 | The Owner's password manager recorded: Google Password Manager (V-015, SYS-022) holds owner-only credentials (break-glass, Stripe and Cloudflare recovery codes, backup-drive keys); Bitwarden (V-009, SYS-015) stays the planned shared vault for the Owner and IT Technician. PR-009 v1.1 §3a, PR-012 §4, IRP-006, EXC-009 (Microsoft's sealed-storage guidance), POAM-038 (assessment by 2026-11-25), CR-001 log correction |

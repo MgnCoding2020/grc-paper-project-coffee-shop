@@ -48,7 +48,7 @@ Retention periods for financial and food-safety records are business decisions b
   - Two **encrypted USB drives** (BitLocker To Go), used in turn. One is kept in the store safe; the other goes home with the Owner, so a fire or theft can't take both.
   - Each month the IT Technician writes the month's exports (§3) to the drive in the store, checks the files open, then **disconnects it**. A drive that isn't connected can't be encrypted by ransomware.
   - The drives are swapped each month.
-  - Drive encryption keys and the password-manager export password are stored in the password manager, and also sealed with the break-glass credentials kept by the Owner, so a lost password manager doesn't lock away its own backup.
+  - Drive encryption keys and the password-manager export password are stored in the password manager, and also in the Owner's password manager with the break-glass credentials (SYS-022, PR-009 §3a), so a lost shared vault doesn't lock away its own backup.
   - Before a vendor account is closed (Google under CR-001, Toast and xtraCHEF under CR-005), its data is exported to both drives.
 
 **Option the Owner may choose later:** Microsoft 365 Backup, a paid pay-as-you-go service from Microsoft that keeps frequent restore points for SharePoint, OneDrive and Exchange (it needs an Azure subscription). For now, the monthly offline copy is the accepted approach.
