@@ -4,7 +4,7 @@ Burn and Churn Coffee
 ---
 
 ## Document Control
-**Owner:** Business Owner | **Performed by:** IT Technician | **Approved by:** Business Owner | **Effective:** 2026-10-30 | **Review:** Annually | **Version:** 1.0
+**Owner:** Business Owner | **Performed by:** IT Technician | **Approved by:** Business Owner | **Effective:** 2026-10-30 | **Review:** Annually | **Version:** 1.1 (2026-11-11: §3a, the Owner's password manager)
 
 ---
 
@@ -33,11 +33,21 @@ This procedure puts those shared credentials in a company password manager, limi
 |---|---|
 | Router, firewall and access-point admin logins | Any employee's personal password or MFA codes |
 | Staff and guest Wi-Fi passphrases | Card numbers or any cardholder data (P-004) |
-| Internet provider account | Break-glass account credentials: sealed and kept by the Owner, per Microsoft's emergency-access guidance |
+| Internet provider account | Break-glass account credentials and the Owner's own admin-account recovery codes: kept in the **Owner's password manager** (§3a), not the shared vault |
 | Camera system, espresso machine and sensor vendor portals | Anything for a system that supports individual accounts: those get individual accounts instead |
 | Vendor support account numbers and PINs | |
 
 ---
+
+### 3a. The Owner's Password Manager (added 2026-11-11)
+
+Some credentials belong to the Owner alone and must never be shared with the IT Technician: the two break-glass accounts, the two-factor recovery codes for accounts only the Owner holds (Stripe, Cloudflare), and the backup-drive keys (PR-012 §4). These live in the **Owner's password manager**, Google Password Manager on the Owner's Google account (system SYS-022, vendor V-015), not in the shared vault.
+
+| | |
+|---|---|
+| **Why a separate vault** | The shared vault is for credentials two people need. Emergency credentials need the opposite: one holder, so a departing IT Technician never had them |
+| **Protection** | Sign-in with a passkey, unlocked by face or PIN on the Owner's phone (as stated by the Owner, 2026-11-11; to be evidenced in VRA-V015). Passwords are encrypted at rest; with on-device encryption on, only the Owner's devices hold the key (Google, checked 2026-11-11) |
+| **Known gap** | Microsoft's guidance is sealed, fireproof storage in separate locations, not tied to one person or phone. In the lab one person holds everything: accepted as **EXC-009**, alongside EXC-008 for the break-glass MFA |
 
 ## 4. Rules
   1. **Individual accounts first.** A shared credential is only stored when the system can't give each person their own login.
@@ -91,6 +101,8 @@ Redaction: committed screenshots show no email addresses, no master passwords an
   - [IT Administration and Coverage Procedure (PR-008)](PR-008-it-administration.md)
   - [CR-003: Bring IT Support In-House](../09-change-management/CR-003-it-support-in-house.md)
   - [Bitwarden: Organizations overview](https://bitwarden.com/help/about-organizations/)
+  - [Google: Get started with on-device encryption](https://support.google.com/accounts/answer/11350823)
+  - [Microsoft: Manage emergency access admin accounts](https://learn.microsoft.com/entra/identity/role-based-access-control/security-emergency-access)
 
 ---
 

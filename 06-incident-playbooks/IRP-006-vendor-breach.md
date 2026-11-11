@@ -42,6 +42,7 @@ How quickly each vendor has promised to tell the shop, from the vendor assessmen
 | V-002 Northwind | Payroll and staff personal data | **Not defined** in the contract | VRA-V002:F-03 (open) |
 | V-003 Microsoft | Email, files, staff accounts | 72 hours, in the Data Protection Addendum | VRA-V003 assessment |
 | V-009 Bitwarden | Shared admin credentials (end-to-end encrypted; the vendor can't read them) | Standard terms only; no negotiated timeline | VRA-V009:F-05 (open) |
+| V-015 Google (the Owner's password manager) | Break-glass passwords and admin recovery codes | Consumer terms only; no negotiated timeline. **On any notice: rotate both break-glass passwords and regenerate the recovery codes the same day** | VRA-V015 (due 2026-11-25, POAM-038) |
 | V-011 Espresso machine service company | Machine telemetry; remote access to the machine | **No timeline:** "without undue delay" | VRA-V011:F-04 (open; 72-hour clause at renewal, 2027-01-15) |
 | V-010 Cloud camera service | Video of customers and staff | 72 hours, in the terms of service | VRA-V010 assessment |
 | V-012 Temperature monitoring service | Temperature log | **No timeline:** "prompt" | VRA-V012:F-04 (open) |
