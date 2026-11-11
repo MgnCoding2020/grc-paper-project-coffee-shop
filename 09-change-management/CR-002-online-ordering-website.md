@@ -84,7 +84,7 @@ Burn and Churn Coffee
 ## 7. Exit Criteria
 
 - [ ] All acceptance tests passed and evidenced
-- [ ] V-013 Stripe and V-014 Cloudflare assessed; SAQ type for the new payment channels confirmed against current PCI SSC and Stripe documents **V-014 done 2026-11-08** (continue with conditions, VRA-V014); V-013 still to do
+- [ ] V-013 Stripe and V-014 Cloudflare assessed; SAQ type for the new payment channels confirmed against current PCI SSC and Stripe documents. **Assessments done:** V-014 2026-11-08 (VRA-V014), V-013 2026-11-10 (VRA-V013, a day after use, POAM-037), both continue with conditions. **Still open:** the SAQ type (VRA-V013:F-02)
 - [ ] P-004, the control matrix and crosswalk updated for online and counter payments through Stripe
 - [ ] Evidence index rows for the website's evidence
 
