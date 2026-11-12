@@ -43,6 +43,7 @@ Each asset is categorized and assigned a sensitivity rating based on the **Confi
 | SYS-020  | Online Ordering Website (public site, staff portal, counter register) | Web Application | Owner | Cloud (Cloudflare Workers) | Internal | M-H-M | Test | Fictional content; staff sign-in next; CR-002 |
 | SYS-021  | Stripe (Checkout and Terminal) | SaaS Platform | Owner | Cloud and counter reader | Restricted | H-H-H | Planned | Test mode only, simulated reader; CR-002, CR-005 |
 | SYS-022  | Owner's Password Manager (Google Password Manager) | SaaS Platform | Owner | Cloud | Restricted | H-H-M | Live | Owner-held credentials only: break-glass, admin recovery codes, backup-drive keys; PR-009 §3, EXC-009 |
+| SYS-023  | Customer Directory (Entra External ID) | SaaS Platform | Owner | Cloud | Confidential | M-H-M | Test | Separate tenant for customer accounts; fictional demo customers only; CR-002 step 6, website ADR-0041 |
 | HW-001   | POS Terminals                | Hardware        | Store Manager | Store          | Restricted     | H-H-H      | Active | Used for customer transactions           |
 | HW-002   | Company Tablets              | Hardware        | Store Manager | Store          | Internal       | M-M-M      | Active | Inventory and operational tasks          |
 | HW-003   | Manager Laptop               | Hardware        | Store Manager | Store          | Confidential   | M-M-M      | Active | Business network; shares Wi-Fi with POS terminals (POAM-015) |
@@ -74,6 +75,7 @@ The canonical system list, with each system's vendor and evidence mode, is [syst
 |---|---|---|
 | 2026-10-30 | Added PER-004, PER-005, SYS-004 to SYS-007, planned SYS-010 to SYS-014 and HW-003; noted planned retirements; fixed a typo | Assets named in the access review, vendor inventory and network evidence were missing from the register (AL-06) |
 | 2026-11-11 | Added SYS-022 (the Owner's password manager, live) | PR-009 §3, EXC-009 |
+| 2026-11-12 | Added SYS-023 (the customer directory, test) | CR-002 step 6 |
 | 2026-11-05 | Added SYS-020 (website, test) and SYS-021 (Stripe, planned) | CR-002 |
 | 2026-11-01 | Added SYS-016 to SYS-018, HW-004 to HW-007, NET-006 (planned) and DATA-005 | Connected devices were in the store but not in the register (PR-011) |
 | 2026-10-30 | SYS-006 Active → Pending | Northwind's pre-go-live conditions are open; onboarding has not proceeded (AL-24) |
