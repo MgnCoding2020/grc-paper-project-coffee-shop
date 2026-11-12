@@ -188,6 +188,7 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-020 | Online ordering website | Test | **CR-002** (approved 2026-11-05); public site live; staff sign-in next |
 | SYS-021 | Stripe (Checkout and Terminal) | Test | CR-002 and CR-005; test mode with the simulated reader; planned |
 | SYS-022 | Owner's password manager (Google Password Manager) | Live | Owner-held credentials only: break-glass, admin recovery codes, backup-drive keys (PR-009 §3a). EXC-009; V-015 assessment due 2026-11-25 (POAM-038) |
+| SYS-023 | Customer directory (Entra External ID) | Test | CR-002 step 6, created 2026-11-12 by the website's script (ADR-0041); separate tenant, fictional customers only; V-003 scope addendum POAM-039 |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
 
@@ -710,3 +711,4 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 41 | 2026-11-07 | Alignment pass after the website go-live and audit: AL-28 (vendor lab README), AL-29 (IAM scope: website app roles, assignment enforcement), AL-30 (V-014 data and overdue assessment); POAM-036 (VRA-V014 before website Phase 3, VRA-V013 before Phase 4) |
 | 42 | 2026-11-08 | V-014 Cloudflare assessed (VRA-V014, late): Moderate 13/18, continue with conditions, F-01 to F-05 under POAM-036 (now In Progress); vendors.csv, inventory, evidence index, CR-002 exit criterion and log; AL-28 to AL-30 resolved |
 | 43 | 2026-11-11 | The Owner's password manager recorded: Google Password Manager (V-015, SYS-022) holds owner-only credentials (break-glass, Stripe and Cloudflare recovery codes, backup-drive keys); Bitwarden (V-009, SYS-015) stays the planned shared vault for the Owner and IT Technician. PR-009 v1.1 §3a, PR-012 §4, IRP-006, EXC-009 (Microsoft's sealed-storage guidance), POAM-038 (assessment by 2026-11-25), CR-001 log correction |
+| 44 | 2026-11-12 | Customer directory recorded: SYS-023 (Entra External ID, separate tenant on the pay-as-you-go Azure subscription, $5 budget alert), CR-002 step 6 in progress with a log entry, V-003 scope extended, POAM-039 for the VRA-V003 scope addendum |
