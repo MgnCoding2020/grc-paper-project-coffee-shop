@@ -129,6 +129,22 @@ Note also that the e-commerce-focused requirements added in v4.0 (e.g., 6.4.3 an
 scripts) are generally **not applicable** to a card-present-only environment — recording that
 applicability decision is itself part of good scoping.
 
+### Stripe: SAQ type determined 2026-11-14
+
+With Stripe replacing Toast (CR-005) and online ordering added (CR-002), the scope is set out in the
+website's [PCI scope document](https://github.com/MgnCoding2020/burn-and-churn-website/blob/main/docs/pci-scope.md) (VRA-V013:F-02), checked against PCI SSC and
+Stripe sources on 2026-11-14:
+
+- **Online (Stripe Checkout, a redirect to Stripe's page): SAQ A.** The script criterion and
+  Requirements 6.4.3 and 11.6.1 don't apply to a redirect (PCI SSC FAQ 1588); quarterly ASV scans
+  (11.3.2) still do (FAQ 1604): POAM-040.
+- **Counter (Stripe Terminal, end-to-end encrypted, server-driven): SAQ C** (Stripe's guidance), or
+  SAQ P2PE if enrolled in Stripe's Terminal P2PE. SAQ C needs the payment system isolated from other
+  systems; the store network has no payment segment yet: POAM-041.
+- **Cash:** out of PCI scope (cash-handling controls instead).
+
+Everything runs in Stripe test mode with a simulated reader; no SAQ has been completed or signed.
+
 ---
 
 ## Related documents
@@ -152,6 +168,7 @@ standard by a Qualified Security Assessor (QSA) or via the appropriate SAQ.
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-11-14 | Scope note: Stripe SAQ A (online) and SAQ C (counter) determined | VRA-V013:F-02; website `docs/pci-scope.md` |
 | 2026-10-30 | AC-2, AC-6 and SC-7: Implemented → Partially Implemented; PCI DSS Requirements 1 and 7 marked "Covered (partial impl)" | Kept in step with the control matrix (AL-16, AL-19) |
 | 2026-10-30 | Added PS-4, PS-5, CM-3, CM-4; Requirements 6, 7 and 8 updated | PCI DSS v4.0.1 numbers 8.2.5 and 6.5.1 checked against secondary sources on 2026-10-30; confirm against the PCI SSC standard text. PS-5 → 7.2 is a loose mapping |
 | 2026-11-02 | Added PE-2 and PE-8; CM-6 → Partially Implemented; Part B row 2 updated | Physical Security Policy (P-011); device baselines (PR-015); 9.3.1 and 9.3.4 from secondary sources |
