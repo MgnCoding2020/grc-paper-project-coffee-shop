@@ -210,5 +210,5 @@ This charter supports the following governance artifacts within the security pro
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Program scope and architecture diagram show Microsoft 365 instead of Google Workspace | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Program scope and architecture diagram show Microsoft 365 instead of Google Workspace | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices added to the program scope | Registered under PR-011 |

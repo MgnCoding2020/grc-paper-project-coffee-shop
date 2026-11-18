@@ -104,7 +104,7 @@ Updates may be made following:
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Scope: Google Workspace replaced by Microsoft 365 | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Scope: Google Workspace replaced by Microsoft 365 | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices in scope; camera footage (Confidential) and the temperature log (Internal) added to the examples | Connected devices registered under PR-011; camera footage is asset DATA-005 |
 
 ----

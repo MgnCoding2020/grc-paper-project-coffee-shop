@@ -34,9 +34,9 @@
 |---|---|---|
 | **`grc-paper-project-coffee-shop`** (this repo) | **Program hub and system of record.** Company profile, canonical org data, policies, procedures, risk register, control matrix, crosswalk, POA&M, change records, evidence index | "He can run a security program." |
 | **`IAM-Access-Review-Lab`** | Operational: quarterly access reviews (AC-2, AC-6). Q1 2026 (pre-migration) plus Q4 2026 (post-migration, in Entra ID) | "He can execute and evidence an access certification." |
-| **`Vendor-Risk-Assessment-Lab`** | Operational: third-party assessments (SA-9). V-002 Northwind Payroll done; next, V-003 Microsoft (assessment) and V-004 Vertex IT Support (offboarding record, CR-003) | "He can assess a vendor end to end." |
+| **`Vendor-Risk-Assessment-Lab`** | Operational: third-party assessments (SA-9). Eight assessments (V-001, V-002, V-003, V-008 to V-012) and the V-004 Vertex offboarding record (CR-003); every vendor that needs an assessment has one | "He can assess a vendor end to end." |
 | **Microsoft 365 tenant** (not a repo) | **Live evidence source.** Burn and Churn's staff accounts, groups, Conditional Access, MFA, audit log and SharePoint intranet are built in Michael's own tenant (D-4). Redacted exports are committed to the hub as `Lab-verified` evidence | "He can build and run M365 for a real-shaped business, and prove it." |
-| **`burn-and-churn`** (future) | The online ordering website: `CR-002`, a separate later project with its own plan. Where the technologies connect: Entra sign-in, least privilege, Stripe test mode | "He can build a system to the controls." |
+| **[`burn-and-churn-website`](https://github.com/MgnCoding2020/burn-and-churn-website)** (active, CR-002) | The online ordering website, staff portal and counter register: `CR-002` (approved 2026-11-05), with its own plan. Public site live with fictional content; staff sign-in next. Where the technologies connect: Entra sign-in, least privilege, Stripe test mode | "He can build a system to the controls." |
 
 **Skill sources, not part of the program:** `workspace` (SharePoint-shaped intranet engine) and `cyber-homelab` (Entra, Conditional Access, audit log, eDiscovery labs) are where Michael practised the techniques this program now applies. They are not linked as companions, not changed by this plan, and their case studies stay about Michael's own labs. Lessons carried over are credited in prose where useful (e.g. "the break-glass exclusion pattern from the Cyber Home Lab").
 
@@ -101,6 +101,9 @@ These are the alignment problems found in the current repos. IDs are `AL-##` (al
 | AL-25 | POA&M claimed bi-weekly review; none was recorded, so stalls went unnoticed | Hub PR: POA&M review log, new control CA-5 with POAM-019, R-12, E-18 | 2026-10-30 |
 | AL-26 | P-001 and P-002 referenced documents that didn't exist (network policy, onboarding procedure, incident plan) | Network Security Policy P-005 written; P-001 and P-002 v1.2 point to P-005, PR-001, P-003 and the playbooks | 2026-10-30 |
 | AL-27 | Hub story review: PR-001 removal deadline ("last working day") contradicted P-001 §5.4 (24 hours), and POAM-016 misquoted it as "same day"; PR-003 lacked the sign-off the IAM copy requires; IRP-003 had no tamper steps although P-004 treats tampering as an incident; IRP-003/004 lacked document control; assessment scope omitted xtraCHEF and QuickBooks and contradicted the RACI | All aligned to the policies and RACI, with revision history on each document | 2026-10-30 |
+| AL-28 | Vendor lab README said nothing awaited assessment although V-013 and V-014 did | VRA PR #17 (list); VRA PR #18 (Cloudflare assessed; Stripe remains) | 2026-11-08 |
+| AL-29 | IAM review scope lacked the website's app roles and an "Assignment required" enforcement check | IAM PR #15 | 2026-11-07 |
+| AL-30 | V-014 Cloudflare described as holding staff data "later" and its overdue assessment as merely planned | Hub PR #51 (data, POAM-036); VRA PR #18 (assessment, 2026-11-08) | 2026-11-08 |
 
 **Already fixed** (confirmed in git history, no action): the duplicate evidence scripts (hub PR #1, merged); the control count of 15 across 11 families (hub PRs #2 and #3).
 
@@ -175,14 +178,17 @@ All company facts live in **`00-company-profile/org/`** in the hub, as small mac
 | SYS-007 | Store network | Simulation | Router, firewall, staff and guest Wi-Fi (existing NET-00x assets) |
 | SYS-010 | Microsoft Entra ID | Live | Identity, from CR-001 |
 | SYS-011 | Exchange Online | Live | Email, from CR-001 (licence-dependent) |
-| SYS-012 | SharePoint Online + Teams | Planned → Live | Files, intranet lists and libraries, chat, from CR-001. Live once the SharePoint licence is reactivated (D-8) |
+| SYS-012 | SharePoint Online + Teams | Planned → Live | Files, intranet lists and libraries, chat, from CR-001. Live once SharePoint is available with the Business Premium trial (D-8, D-9) |
 | SYS-013 | Microsoft Intune + Defender for Business | Simulation unless licensed | Device management and endpoint protection, from CR-001 |
 | SYS-014 | Bookkeeping workbook (Excel for the web, in SharePoint) | Planned → Live | Sales, expenses and payroll reconciliation in a restricted Finance library, from CR-001. Permissions, versioning and audit-log entries are the live evidence |
 | SYS-015 | Password manager (Bitwarden organization) | Planned → Live | Shared admin credentials only (PR-009). Live once Michael's lab test (test entries only) is recorded |
 | SYS-016 | Camera system (cloud recording) | Simulation | Two cameras; footage DATA-005, 30-day retention; never pointed at the keypad (PR-011) |
 | SYS-017 | Espresso machine service portal | Simulation | Vendor remote diagnostics (MA-4) |
 | SYS-018 | Temperature monitoring service | Simulation | Food-safety temperature log |
-| SYS-020 | Online ordering website | Test | **CR-002, later**; with Stripe (test mode) |
+| SYS-020 | Online ordering website | Test | **CR-002** (approved 2026-11-05); public site live; staff sign-in next |
+| SYS-021 | Stripe (Checkout and Terminal) | Test | CR-002 and CR-005; test mode with the simulated reader; planned |
+| SYS-022 | Owner's password manager (Google Password Manager) | Live | Owner-held credentials only: break-glass, admin recovery codes, backup-drive keys (PR-009 §3a). EXC-009; V-015 assessment due 2026-11-25 (POAM-038) |
+| SYS-023 | Customer directory (Entra External ID) | Test | CR-002 step 6, created 2026-11-12 by the website's script (ADR-0041); separate tenant, fictional customers only; V-003 scope addendum POAM-039 |
 
 Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they already exist; renumber only where needed, and record the old ID in `notes`.
 
@@ -193,18 +199,21 @@ Keep the existing `SYS-`, `HW-`, `NET-`, `DATA-` and `PER-` asset IDs where they
 | ID | Vendor | Status |
 |---|---|---|
 | V-001 | Toast, Inc. (POS, and xtraCHEF) | Active; High; assessed 2026-10-30 (continue with conditions); **exit approved under CR-005**, offboarded at cutover |
-| V-002 | Northwind Payroll Services | Active; High; **assessed 2026-06-23** (vendor lab) |
-| V-003 | Microsoft (Microsoft 365) | Active from CR-001; assessment in P5 |
+| V-002 | Northwind Payroll Services | High; **assessed 2026-06-23** (vendor lab); **onboarding pending** until its pre-go-live conditions close (AL-24) |
+| V-003 | Microsoft (Microsoft 365) | Assessed 2026-10-30 (High, approve with conditions); Active from CR-001 |
 | V-004 | Vertex IT Support (MSP) | **Offboarded** by CR-003 (IT brought in-house) after a handover; access removal and knowledge-transfer sign-off are the exit evidence (offboarding record in P5) |
 | V-005 | NorthPeak Systems | **Offboarded**; access removal is IAM F-003 |
 | V-006 | Intuit (QuickBooks Online) | **Offboarded** by CR-001 (replaced by SYS-014); data export and subscription cancellation are CR-001 exit steps |
 | V-007 | Google (Workspace) | **Offboarded** by CR-001; data-deletion confirmation is a CR-001 exit step |
-| V-008 | Internet service provider (unnamed) | Active; not scored |
-| V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician) |
-| V-010 | Cloud camera service (unnamed) | Active; not scored |
-| V-011 | Espresso machine service company (unnamed) | Active; not scored; remote access to the machine |
-| V-012 | Temperature monitoring service (unnamed) | Active; not scored |
-| Next free | Stripe, Cloudflare (CR-002), the AI provider (T11) | Get the next free `V-###` when added |
+| V-008 | Internet service provider (unnamed) | Active; provider-managed router; assessed 2026-11-02, Moderate, continue with conditions |
+| V-009 | Bitwarden, Inc. (password manager) | Planned with CR-003; Free organization plan, two members (Owner, IT Technician); assessed 2026-11-02, Moderate, approve with conditions |
+| V-010 | Cloud camera service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
+| V-011 | Espresso machine service company (unnamed) | Active; remote access to the machine; assessed 2026-11-01, Moderate, continue with conditions |
+| V-012 | Temperature monitoring service (unnamed) | Active; assessed 2026-11-02, Moderate, continue with conditions |
+| V-013 | Stripe, Inc. | **Planned** (CR-002, CR-005); assessment not started (before payments go live) |
+| V-014 | Cloudflare, Inc. | **Active** (CR-002, hosts the test website); assessment not started |
+| V-015 | Google LLC (Google Password Manager) | **Active** since 2026-11-11 (the Owner's password manager, SYS-022); High; assessment due 2026-11-25 (POAM-038) |
+| Next free | V-016: the AI provider (T11) | Get the next free `V-###` when added |
 
 Existing IDs V-001 and V-002 **do not change**, because the vendor lab references them.
 
@@ -259,7 +268,7 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
   - **Needs P2:** PIM, risk-based policies, Entra access reviews.
   - **MFA approach on Free:** per-user MFA scoped to the Burn and Churn accounts. Security defaults are tenant-wide and would hit Michael's lab users too. The lack of P1 is recorded as a POA&M item or accepted risk, with per-user MFA as the interim control.
   - **MFA evidence on Free:** the per-user MFA status page plus sign-in log details, exported within the 7-day window.
-  - **When SharePoint is reactivated (D-8):** sites, lists, libraries, Excel for the web and the Purview audit log (180 days by default) become available. Confirm which plan includes Purview Audit (Standard) once the licence is chosen.
+  - **When SharePoint is available (Business Premium trial, D-8 and D-9):** sites, lists, libraries, Excel for the web and the Purview audit log (180 days by default) become available. Confirm which plan includes Purview Audit (Standard) once the licence is chosen.
 - **Licensing on paper** (what the fictional company would buy): Microsoft 365 **Business Premium** for the Owner, Manager and Shift Leaders, and Microsoft 365 **F1/F3 frontline** licences for baristas. Business Premium includes Entra ID P1 (Conditional Access), Intune and Defender for Business; PIM needs P2, which Business Premium doesn't include. **Every price or licence claim must be checked against Microsoft's current pages when written, and dated.**
 - **Conditional Access baseline:** require MFA for all users; block legacy authentication; require phishing-resistant MFA for admins; exclude break-glass. Report-only first, then enforce, the same pattern as the Cyber Home Lab.
 - **Joiner/mover/leaver:** access requests are submitted on the intranet (People site, Access Requests list), approved by the Owner or Manager, and fulfilled by the IT Technician. Termination disables accounts within 24 hours, immediately for involuntary terminations (P-001 §5.4; PS-4, AC-2(3)). That's exactly what Q1's F-001 (Aiden Scott) shows went wrong.
@@ -270,7 +279,7 @@ Existing IDs V-001 and V-002 **do not change**, because the vendor lab reference
 - **In store today: Toast** (card-present). Toast is the PCI service provider; the shop's obligations are SA-9 / PCI DSS 12.8 vendor management plus device inspection (PE-3 / 9.5.1).
 - **In store after CR-005: Stripe Terminal (D-11).** The website's register screen takes counter payments through a Stripe reader (in the lab, Stripe's simulated reader, server-driven). Stripe states Terminal payments are validated with SAQ C. No offline card payments (Stripe's offline mode needs its mobile SDKs), so outages go to cash. Toast stays in use, and its conditions stay due, until cutover. Facts checked 2026-10-30.
 - **Online, later: Stripe Checkout in test mode**, via `CR-002`, because Toast's ordering platform has no public sandbox a portfolio project can integrate with. Two processors is a normal small-business pattern; the program must say so explicitly, and give each processor its own vendor entry, crosswalk rows and PCI scope statement.
-- Until CR-002 is approved, **no document mentions Stripe** (AL-07), except CR-005 and this file. The checker allows exactly that one record.
+- Until CR-002 was approved, **no document mentioned Stripe** (AL-07), except CR-005 and this file. CR-002 was approved on 2026-11-05; the checker now allows Stripe once the change register shows CR-002 approved. Current-state documents still describe Stripe as **planned** until the register goes live (T12).
 
 ### 5.4 Store network (target design, AL-19)
 
@@ -359,7 +368,7 @@ All 23 files mentioning Google, grouped:
 - **Sites:** Home; **Operations** (opening and closing checklists, food-safety SOPs, equipment issues); **People** (onboarding and offboarding, an **Access Requests** list that drives PR-001, the training tracker for AT-2, timesheets feeding the payroll export); **Finance** (the bookkeeping workbook SYS-014, restricted to `grp-bc-owners` and `grp-bc-managers`); **Security & Compliance** (the published policies, the POA&M tracker, the incident log, the vendor inventory, access review sign-offs).
 - **Permissions** are granted to the §5.2 groups only, never to individuals: least privilege is evidenced by the site permission pages themselves.
 - **Content:** every person, system and vendor comes from `00-company-profile/org/` in the hub. Provisioning scripts (users, groups, sites, lists) read `people.csv` and the other org files, so the tenant can't drift from the program. Scripts live in the hub under `tools/tenant/`; any tenant-specific value comes from `.env`.
-- **Until SharePoint is reactivated** (D-8), the sites are `Planned` and documented as design; Entra work (users, groups, Conditional Access, MFA, audit log) can go ahead first.
+- **Until SharePoint is available** (Business Premium trial, D-8 and D-9), the sites are `Planned` and documented as design; Entra work (users, groups, Conditional Access, MFA, audit log) can go ahead first.
 
 ---
 
@@ -375,8 +384,9 @@ The order of work for the pilot and the 2026-11-15 cutover. Each step names the 
 
 **Pilot (on or before 2026-11-15)**
 - [ ] Hub PR: Riley Morgan `Planned` → `Active` with a start date in `people.csv` (CR-003 step 1)
-- [ ] `provision-users.ps1 -DryRun`, then the real run → `provisioning-log` (AC-2 evidence)
+- [x] ~~Pilot accounts only~~ **Done differently, 2026-11-07:** the Owner chose to create all 20 Active staff at once (`provision-users.ps1 -PersonId EMP-001..EMP-020`) for the website's sign-in tests → E-33 (CR-001 log). Still to run: Riley Morgan once Active (`-PersonId EMP-022`)
 - [ ] `provision-users.ps1 -IncludeAdminAccounts`: `adm-olivia.carter` and `adm-riley.morgan` with exactly the roles in `admin-accounts.csv`; turn on their MFA first; document the tenant's existing break-glass accounts → screenshot of role assignments (AC-6)
+- [ ] Apply the tenant baseline (PR-013 §2): confirm the tenant-wide settings first (shared tenant), then screenshot each setting page → `artifacts/tenant/<date>-tenant-baseline/` (E-28, CM-6)
 - [ ] MFA: per-user MFA for `grp-bc-` users (Entra Free; Conditional Access comes with the trial, D-9) → MFA status export (IA-2)
 - [ ] Verify the audit log returns records → audit log export (AU-2)
 
@@ -415,9 +425,9 @@ Each phase is a set of PRs. **One repo per PR.** Hub PRs merge before the compan
 | **P0. Baseline** ✅ PR #4, 2026-10-29 | 1 | All three | Tag the current state `v1-pre-alignment` in each repo; add this file to the hub | Tags pushed; this file merged |
 | **P1. Links and IDs** ✅ hub #5, IAM #9, VRA #3, 2026-10-30 | 2 | All three | Fix AL-09 (two-way links) and AL-11 (global finding IDs); add `identifiers.md` | Every companion README links the hub, and the hub links every companion |
 | **P2. Canonical data and corrections** ✅ hub #6–#9, IAM #10, VRA #4, 2026-10-30 | 8 | Hub, IAM | Create `00-company-profile/org/*`; fix AL-01 to AL-08, AL-10 and AL-12 (decisions D-1 and D-2 first); add the consistency checker (§10) | The checker passes on all three repos |
-| **P3. CR-001 migration** (3a: change records and new controls, now; 3b: M365 rewrite of current-state documents, merged on the cutover date) | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
-| **P4. Q4 2026 access review** | 6 | IAM | Restructure into `reviews/2026-Q1/` (history, unchanged) and `reviews/2026-Q4/`. Q4 runs against Entra groups and roles: confirm Q1 remediation, raise **AL-13 (generic vendor accounts)** as the "what Q1 missed" finding, check the break-glass and vendor-delegation design | Q4 findings roll up to hub POAM-014 |
-| **P5. Vendor assessments** (in progress: per-vendor folders and V-003 Microsoft done in VRA PR #5; V-001 Toast in VRA PR #7; V-004 Vertex offboarding record due with CR-003) | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
+| **P3. CR-001 migration** (3a ✅ hub PRs to #11; 3b drafted as PR #35, merged on the cutover date) | 10 | Hub | Write CR-001; update the current-state documents (§7.3); update the risk register, control matrix and crosswalk; add the PS-4, PS-5, CM-3 and CM-4 rows | No Google mention outside dated records and CR-001; the crosswalk covers every control |
+| **P4. Q4 2026 access review** (structure done: IAM #13, 2026-11-02; the review runs after the cutover) | 6 | IAM | Restructure into `reviews/2026-Q1/` (history, unchanged) and `reviews/2026-Q4/`. Q4 runs against Entra groups and roles: confirm Q1 remediation, raise **AL-13 (generic vendor accounts)** as the "what Q1 missed" finding, check the break-glass and vendor-delegation design | Q4 findings roll up to hub POAM-014 |
+| **P5. Vendor assessments** ✅ structure and every assessment done (VRA PRs #5 to #15, 2026-11-02); the V-004 offboarding record is completed at the CR-003 handover | 6 | Vendor | Restructure into `assessments/V-002-northwind/` (move with redirect notes) plus `assessments/V-003-microsoft/` and `offboarding/V-004-vertex-msp/` (CR-003) | Inventory statuses updated; findings roll up to POAM-0xx |
 | **P6. Live tenant build** | 15–25 | Hub (`tools/tenant/`, evidence) + tenant | Create the 20 staff, vendor technician and break-glass accounts and the `grp-` groups from `people.csv`; Conditional Access (report-only, then enforce); MFA registration; verify the unified audit log; then the SharePoint sites (§7.4) once licensed. Commit redacted exports as `Lab-verified` evidence | Real sign-in and MFA evidence in the evidence index; every name matches the hub; no secret or tenant identifier committed |
 | **P7. Portfolio** | 3 | Portfolio repo | Update the GRC case study to tell the multi-repo story; link the evidence index | Case study verified against the merged repos |
 | **P8. Online ordering** | — | New repo | `CR-002` and the website plan (revised for M365 staff identity), including the counter register on Stripe Terminal that CR-005 depends on. **Out of scope for this file** | — |
@@ -441,12 +451,12 @@ python tools/check_program.py --hub . --iam ../IAM-Access-Review-Lab --vra ../Ve
 4. **Links:** every companion README links the hub; every relative link in the hub resolves.
 5. **Controls:** every control in the matrix appears in the crosswalk, and the reverse; control counts in the README match the matrix (the earlier 11-vs-15 bug becomes impossible).
 6. **Counts:** the headcount in the company profile matches `people.csv`.
-7. **Forbidden terms:** no Stripe before CR-002 (CR-005 excepted); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
+7. **Forbidden terms:** no Stripe before CR-002 is approved in the change register (CR-005 excepted; satisfied since 2026-11-05); no `TODO` in published files; no real-looking personal data (phone numbers, SSNs).
 8. **Secrets and tenant identifiers:** no `.env` file tracked; no GUIDs in tenant-ID or client-secret shape, no `*.onmicrosoft.com` domain, no IP addresses and no access tokens in committed files.
 9. **Evidence agrees across repos** (added 2026-10-30): for the same person and system, hub `mfa-status.csv` and `user-access-review.csv` match the IAM access matrix (MFA state, access level).
 10. **CSV files are well formed** (added 2026-11-01): every row has as many fields as its header, so an unquoted comma can't silently shift columns.
 
-Not yet implemented: the "retired systems only in files dated before `retired_on`" part of check 2; it arrives with CR-001 in P3. The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
+The retired-systems part of check 2 was added 2026-11-02: once a system's `retired_on` date has passed, any current-state document that still names it fails, except dated records, registers, change records, revision history and lines that describe it as history. `--as-of YYYY-MM-DD` previews a future date (run against the draft 3b PR #35 as of 2026-11-16: passes; against `main`: the 16 files the rewrite covers). The first full run is saved as `07-evidence-pack/artifacts/consistency/2026-10-30-baseline.txt`.
 
 **CI:** the hub's GitHub Action runs the checks that need only the hub. Full cross-repo runs are local, and their output is committed as evidence (`07-evidence-pack/artifacts/consistency/YYYY-MM-DD.txt`). That's continuous monitoring of the program itself, worth one line in the portfolio case study.
 
@@ -525,7 +535,8 @@ Changes we already know will be needed, grouped by the event that triggers them.
 - [ ] `vendors.csv` and vendor inventory: V-003 → Active; V-006 and V-007 → offboarding, then Offboarded when the data deletion is confirmed
 - [ ] Asset register: SYS-010 to SYS-014 statuses; SYS-002, SYS-003, SYS-005 → Retired
 - [ ] IAM lab: procedure scope → Entra ID; README review history
-- [ ] Checker: add system aliases for the Microsoft 365 services used in evidence; implement the "retired systems only in older files" part of check 2
+- [x] Checker: "retired systems only in older files" part of check 2 (2026-11-02; run `--as-of` the cutover date before merging #35)
+- [ ] Checker: add system aliases for the Microsoft 365 services used in evidence
 
 ### T3. Vertex offboarded (CR-003 steps 3–6)
 - [ ] V-004 → Offboarded (`vendors.csv`, inventory); offboarding record in the Vendor lab (`offboarding/V-004-vertex-msp/`)
@@ -538,7 +549,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 ### T3b. Password manager set up and tested (PR-009, POAM-021)
 - [ ] Michael's lab test (PR-009 §6) with test entries only; Bitwarden test emails in `.env` only; redacted screenshots → `artifacts/credentials/vault-test-record.md` marked `Lab-verified <date>`
 - [ ] E-19 present; SYS-015 → Live; V-009 → Active; IA-5 re-rated on the evidence (matrix, crosswalk, README counts); R-13 residual reviewed
-- [ ] Vendor lab: V-009 Bitwarden assessment (encryption model, security reports, breach history) on the 6-factor worksheet
+- [x] Vendor lab: V-009 Bitwarden assessment (VRA #12, 2026-11-02: Moderate, approve with conditions)
 - [ ] IAM lab: the Q4 review checks password manager membership (exactly the Owner and the IT Technician)
 
 ### T3a. Network segmentation implemented (POAM-015)
@@ -548,7 +559,7 @@ Changes we already know will be needed, grouped by the event that triggers them.
 
 ### T12. Toast replaced by Stripe Terminal (CR-005 cutover)
 Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in the same PR set as the cutover; Toast mentions in dated records stay.
-- [ ] **Before:** Stripe gets its `V-###` and `SYS-###`; Stripe vendor assessment in the Vendor lab (AOC, responsibility matrix, SAQ C); sandbox evidence for every CR-005 §6 test, marked `Lab-verified <date>`; Stripe test keys in `.env` only
+- [ ] **Before:** ~~Stripe gets its `V-###` and `SYS-###`~~ (done 2026-11-05 with CR-002: V-013, SYS-021); Stripe vendor assessment in the Vendor lab (AOC, responsibility matrix, SAQ C); sandbox evidence for every CR-005 §6 test, marked `Lab-verified <date>`; Stripe test keys in `.env` only
 - [ ] **Org data:** `systems.csv` SYS-001 and SYS-004 `retired_on`; new register and reader rows; `vendors.csv` V-001 → Offboarded; `roles.md` Toast PIN section becomes register sign-in rules; `identifiers.md`, `timeline.md`
 - [ ] **Current-state documents** (each with a revision line naming CR-005): `company_profile.md`, `assessment_scope.md`, `security-program-overview.md`, `glossary.md`, `assets.md` (HW-001 becomes the Stripe reader; SYS-001/004 retired), `data-classification.md`, `continuous-monitoring.md`, `vendor-inventory.md`, `system-architecture.md` (and diagrams), README
 - [ ] **Policies:** P-001, P-002 (register sign-in rules), P-003, P-004 (SAQ C; tokens only), P-005 (POS segment holds the reader)
@@ -557,7 +568,7 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Evidence:** `pos-device-list.csv` (new reader; Toast terminal row marked retired, not deleted); evidence matrix and index rows; POAM-020 closed when Toast is offboarded (or closed as superseded, with a note)
 - [ ] **IAM lab:** Toast stays in the Q1 matrix (history); the next review covers register sign-in and the Stripe Dashboard team members
 - [ ] **Vendor lab:** V-001 status entry (offboarded, exit evidence: account closure and terminal return); new Stripe assessment folder
-- [ ] **Checker:** remove the CR-005 Stripe exception (CR-002 is approved by then); add aliases for the register and reader
+- [ ] **Checker:** ~~remove the CR-005 Stripe exception~~ (made conditional on CR-002's approval, 2026-11-05); add aliases for the register and reader
 
 ### T4. SharePoint available (Business Premium trial, D-8 and D-9)
 - [ ] SYS-012 and SYS-014 → Live once sites and the Finance library exist
@@ -573,7 +584,8 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] F-01 and F-04 closed → POAM-013 can close
 
 ### T7. Q4 2026 access review completed (P4)
-- [ ] IAM lab: `reviews/2026-Q1/` (history) and `reviews/2026-Q4/`; raise AL-13 (generic vendor accounts) as the "what Q1 missed" finding; **record management sign-off** (missing in Q1)
+- [x] IAM lab: `reviews/2026-Q1/` (history) and `reviews/2026-Q4/` structure (IAM #13, 2026-11-02)
+- [ ] Q4 review: raise AL-13 (generic vendor accounts) as the "what Q1 missed" finding; **record management sign-off** (missing in Q1)
 - [ ] Close or update POAM-014 and POAM-016 with evidence; re-rate AC-2, AC-6, IA-2 and PS-4 on the new evidence (matrix, crosswalk, README counts)
 - [ ] CR-001 and CR-003 → Closed (post-implementation review); POAM-017
 - [ ] POA&M review-log entry (CA-5); evidence index; timeline
@@ -586,16 +598,18 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 ### T9. Microsoft audit reports obtained (VRA-V003:F-02, within 30 days of onboarding)
 - [ ] Review recorded (report period, exceptions, customer responsibilities); F-02 and F-05 closed; POAM-018 updated
 
-### T9a. Toast conditions due (VRA-V001)
-- [ ] By 2026-11-30: AOC, responsibility guide and SOC 2 Type II obtained; responsibility matrix built (F-01, F-04); service agreement located (F-03)
-- [ ] By 2026-12-31: SAQ type confirmed and SAQ completed and signed by the Owner (F-02); the SAQ becomes new evidence and may change PCI-mapped control ratings
-- [ ] Missed dates → status check and POA&M review-log entry (CA-5), as with the Q1 findings; POAM-020 and POAM-006 updated
+### T9a. Toast conditions (VRA-V001), deferred by exception EXC-007
+Decided 2026-11-02: Toast leaves under CR-005, so its documents (F-01, F-03, F-04) and a Toast-era SAQ (F-02) are not pursued. The Owner accepted the risk until Toast exits (EXC-007).
+- [ ] Within 30 days of the CR-005 cutover: the shop's SAQ for the new register (SAQ C, per Stripe) completed and signed by the Owner; it becomes new evidence and may change PCI-mapped control ratings
+- [ ] By 2027-01-31: if the CR-005 cutover hasn't happened, EXC-007 lapses and the Toast conditions resume (AOC, responsibility matrix, agreement, SOC 2, Toast-era SAQ), with a POA&M review-log entry
 
 ### T9b. Pre-build procedures come due (PR-005, PR-006, PR-007)
 - [ ] November 2026: first monthly POS inspection under PR-006, starting with Tablet 2's open 2026-02-01 issue; log results; update E-07 and POAM-004
 - [ ] Confirm the $50 offline limit is set in Toast Web and record it (PR-005 §9); Owner decides on cellular failover (if installed: P-005 segmentation applies, assets and vendors updated)
 - [ ] By 2026-11-30: first all-staff training session (PR-007), including Microsoft 365 sign-in and MFA; training log updated; AT-2 re-rated only once staff are actually trained
 - [ ] December 2026: first tabletop: the contingency plan (PR-005 §8) plus the incident playbooks, at least ransomware (IRP-005) and payroll fraud (IRP-007); record it in `tabletop-log.csv` → E-27, POAM-030, POAM-005; consider adding CP-4 to the control matrix
+- [ ] By 2026-11-30: existing staff sign the acceptable use and confidentiality agreements (P-009 §5) in the first training session; personnel files started → POAM-032, E-29
+- [ ] By 2026-11-30: staff acknowledge the personal phone policy (P-007) in the first training session; security keys bought for anyone who declines → POAM-031
 - [ ] Missed dates → status check and POA&M review-log entry (CA-5)
 
 ### T9c. IT operations first cycles (P-006, PR-002, PR-010)
@@ -604,6 +618,8 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] First technician visit handled under PR-010 §4 (confirmed with the vendor, supervised, logged) → POAM-024; MA-5 re-rated only on real records
 - [ ] Connected devices (PR-011): default passwords changed into the password manager; vendor accounts company-owned with MFA; espresso remote sessions logged; checklist re-run → POAM-026, E-23
 - [ ] December 2026: first monthly encrypted offline backup copy (PR-012 §4); backup log row → POAM-029, E-26
+- [ ] By 2027-02-15: first quarterly device baseline check (PR-015 §9) → baseline-checks.csv, E-12, POAM-009
+- [ ] By 2026-11-30: personal alarm codes for each key holder; key register completed; decision on re-keying the back office (P-011) → POAM-035, E-32
 - [ ] By 2027-02-28: first restore test from the offline drive (PR-012 §5) → CP-10 re-rated only on a passed test
 - [ ] Cameras: each view checked against the keypad rule; entrance sign; 30-day retention; individual accounts → POAM-027, E-24
 
@@ -614,8 +630,9 @@ Trigger: CR-002 approved and the register passes CR-005 §6. Work these rows in 
 - [ ] **Monthly update window (PR-002)**, **quarterly equipment register check** and **November end-of-support review (PR-010)**
 - [ ] **Monthly POS inspections (PR-006)** and **daily opening checks**; **annual training (PR-007)**; **annual contingency tabletop (PR-005)**
 - [ ] **Annual vendor re-checks:** Toast's PCI DSS compliance status every 12 months (PCI DSS 12.8.4); reassess V-001, V-002 and V-003 annually
+- [ ] **Every January:** records retention review and disposals logged (P-010 §4). **Every six months:** exception register review (PR-014); expiring exceptions appear in the monitor
 - [ ] **Annual policy reviews:** P-001, P-002, P-003 due 2027-02; P-004, IRP-001, IRP-002 due 2027-03
-- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1 and 7.2 in the crosswalk
+- [ ] **PCI DSS text verified against the official PCI SSC standard:** remove the "secondary sources" notes for 8.2.5, 6.5.1, 7.2, 9.3.1, 9.3.4, 9.4.6 and 9.4.7 in the crosswalk
 - [ ] **Before publishing the portfolio case study (P7):** full checker run saved; no `Planned` or `Simulation` item described as live
 
 ### T11. AI introduced (likely with the website, CR-002, or the intranet)
@@ -678,3 +695,21 @@ AI is planned but not yet part of the company. When it is added, the whole progr
 | 25 | 2026-11-01 | Batch E, incident playbooks: IRP-005 malware and ransomware, IRP-006 vendor breach (vendor notification commitments from the assessments), IRP-007 payment and payroll fraud (prevention rules: callback, two people, no gift cards); P-003 v1.2 mapped to NIST CSF 2.0 / SP 800-61 Rev. 3 with a playbook index; IR-4 and IR-8 (33 controls, 15 families); R-20; POAM-030; E-27 tabletop log; due-date monitor tracks the yearly tabletop |
 | 26 | 2026-11-01 | Program monitor commits each report as a dated file in `artifacts/monitoring/program-monitor/` (workflow needs contents: write); branch runs skip the issue for testing; checker treats saved reports like saved consistency runs |
 | 27 | 2026-11-01 | Company profile, assessment scope, program overview and data classification now include the connected devices and vendors V-010 to V-012 (missed in batch C); checker check 2 confirms the profile lists every current vendor |
+| 28 | 2026-11-01 | Build-day documents: P-007 Mobile Device and Personal Phone Policy (Authenticator on personal phones, no downloads, security-key alternative) and PR-013 Microsoft 365 Tenant Security Baseline (per-user MFA, user and guest settings, consent, admin roles, logging; tenant-wide items flagged for the shared tenant); AC-19 (34 controls); R-21; POAM-031; POAM-009 In Progress; E-28; runbook applies the baseline |
+| 29 | 2026-11-02 | IAM lab reorganised into `reviews/2026-Q1/` and a `reviews/2026-Q4/` plan (IAM #13); checker and monitor read per-review folders (hub #38); hub links updated; V-004 Vertex offboarding record prepared (VRA #11) |
+| 30 | 2026-11-02 | Policies batch A: P-008 Third-Party Risk Management (tiers and reassessment cadence, required contract clauses incl. 72-hour breach notice, PCI DSS 12.8.1–12.8.5, offboarding records) and P-009 Personnel Security (position risk, screening within local law, agreements before access, role change, leaving, external personnel, sanctions); personnel file checklist; PS-3 and PS-6 (36 controls); R-22; POAM-032; E-29 |
+| 31 | 2026-11-02 | Policies batch B: P-010 Records Retention and Disposal (schedule for every record type, legal hold, NIST SP 800-88 Rev. 2 disposal methods, disposal log, yearly review) and PR-014 Risk Acceptance and Exception Procedure with the exception register (`EXC-###`; six existing exceptions approved, each expiring within 12 months); SI-12, MP-6, RA-7 (39 controls, 16 families); R-23; POAM-033/034; E-30/E-31; monitor reads exception expiries and the yearly records review |
+| 32 | 2026-11-02 | Policies batch C: P-011 Physical Security (areas, personal keys and alarm codes, opening and closing, escorted and logged visitors) and PR-015 Device Configuration Baselines (laptop, tablets, POS, firewall, access points, router; quarterly checks; Intune later); key register, visitor log and baseline check log; PE-2, PE-8 (41 controls); CM-6 → Partially Implemented; R-24; POAM-035; E-32; monitor tracks the quarterly baseline check. The gap list's missing-policy items are complete except vulnerability scanning, which waits for the SAQ type |
+| 33 | 2026-11-02 | Vendor assessments V-009 Bitwarden (before onboarding), V-010 cameras and V-012 temperature monitoring (VRA #12–#14) rolled up: vendors.csv, inventory, IRP-006 notification table, P-008 status, POAM-021/026/027; only the ISP (V-008) remains unscored |
+| 34 | 2026-11-02 | Internet provider (V-008) assessed (VRA #15) and rolled up: every vendor that needs an assessment now has one |
+| 35 | 2026-11-02 | Checker check 2: retired-systems rule with `--as-of` preview; flags exactly the 16 current-state files on `main` as of the cutover, and passes on the draft 3b PR |
+| 36 | 2026-11-02 | Final alignment audit: hub README brought up to date (repositories table, scenario, 16 families, change management, monitoring, vendors, skills); stale plan lines fixed (vendor lab role, V-002 and V-003 status, SharePoint via the trial, P3 and P5 status); Toast conditions deferred by EXC-007 because Toast exits under CR-005 (T9a rewritten); offboarding vendors marked "Not Required" for assessment; GitHub descriptions and topics refreshed |
+| 37 | 2026-11-05 | CR-002 raised and approved (online ordering website, staff portal and counter register; the public site was already live with fictional content and no company data). V-013 Stripe (planned) and V-014 Cloudflare (active) added; SYS-020 and SYS-021; vendor inventory, company profile, asset register, timeline and CR-005 log updated; the checker's Stripe rule is now keyed to CR-002's approval in the register |
+| 38 | 2026-11-06 | `provision-users.ps1 -PersonId` added for the CR-001 pilot (only the named people, their groups and their admin accounts; guests skipped; unknown IDs refused; dry-run verified). Build-day pilot step uses it. The website's `setup-staff-app.ps1` (website ADR-0026) assigns app roles from the same roster |
+| 39 | 2026-11-07 | First live tenant build: the 20 Active staff, five `grp-bc-` groups and 40 memberships created (CR-001 step 3 run early, by the Owner's decision; E-33, Lab-verified); the website's `bc-website-staff` app registered with 20 role assignments (CR-002 log; website evidence row). CR-001 now "Approved (in progress)"; the Google cutover date is unchanged. Still open: Riley Morgan, admin accounts, MFA, audit log, tenant baseline |
+| 40 | 2026-11-07 | CR-002 step 3 live in production: go-live approval logged (it had been missed), acceptance test 1 partly met with the open Entra assignment finding, website repository audit logged (expired rate-limit acceptance reopened; Cloudflare rate limiter chosen), PR-004 weekly review of the website audit log from 2026-11-14; two website evidence rows |
+| 41 | 2026-11-07 | Alignment pass after the website go-live and audit: AL-28 (vendor lab README), AL-29 (IAM scope: website app roles, assignment enforcement), AL-30 (V-014 data and overdue assessment); POAM-036 (VRA-V014 before website Phase 3, VRA-V013 before Phase 4) |
+| 42 | 2026-11-08 | V-014 Cloudflare assessed (VRA-V014, late): Moderate 13/18, continue with conditions, F-01 to F-05 under POAM-036 (now In Progress); vendors.csv, inventory, evidence index, CR-002 exit criterion and log; AL-28 to AL-30 resolved |
+| 43 | 2026-11-11 | The Owner's password manager recorded: Google Password Manager (V-015, SYS-022) holds owner-only credentials (break-glass, Stripe and Cloudflare recovery codes, backup-drive keys); Bitwarden (V-009, SYS-015) stays the planned shared vault for the Owner and IT Technician. PR-009 v1.1 §3a, PR-012 §4, IRP-006, EXC-009 (Microsoft's sealed-storage guidance), POAM-038 (assessment by 2026-11-25), CR-001 log correction |
+| 44 | 2026-11-12 | Customer directory recorded: SYS-023 (Entra External ID, separate tenant on the pay-as-you-go Azure subscription, $5 budget alert), CR-002 step 6 in progress with a log entry, V-003 scope extended, POAM-039 for the VRA-V003 scope addendum |
+| 45 | 2026-11-14 | PCI scope determined (VRA-V013:F-02, website `docs/pci-scope.md`): SAQ A online (Checkout redirect), SAQ C counter (Terminal); crosswalk scope note; POAM-040 (ASV scans) and POAM-041 (payment network segment) |

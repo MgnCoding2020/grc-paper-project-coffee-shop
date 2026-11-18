@@ -172,6 +172,6 @@ Enforcement actions shall be applied consistently and in accordance with company
 
 | Version | Date | Change |
 |---|---|---|
-| 1.4 | 2026-11-15 | Microsoft 365 replaces Google Workspace throughout (CR-001); MFA required on every Microsoft 365 account; group-based access (`grp-bc-*`); break-glass accounts in §5.6 |
+| 1.4 | 2026-11-18 | Microsoft 365 replaces Google Workspace throughout (CR-001); MFA required on every Microsoft 365 account; group-based access (`grp-bc-*`); break-glass accounts in §5.6 |
 | 1.3 | 2026-10-30 | §5.5: shared credentials kept in the company password manager (PR-009); admin account holders sign the Privileged User Agreement. Added with the in-house IT role (CR-003) |
 | 1.2 | 2026-10-30 | Related documents point to documents that exist: the Network Security Policy (P-005, new), PR-001 for onboarding and offboarding, P-003 and the playbooks for incidents (alignment item AL-26). No requirement changed |

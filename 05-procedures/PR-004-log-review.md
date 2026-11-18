@@ -144,7 +144,7 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Log sources move to Microsoft Entra ID and the Microsoft 365 audit log, with the 7-day export rule | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Log sources move to Microsoft Entra ID and the Microsoft 365 audit log, with the 7-day export rule | Microsoft 365 cutover (CR-001) |
 
 ---
 

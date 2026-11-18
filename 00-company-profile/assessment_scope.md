@@ -78,6 +78,6 @@ The findings from this assessment will inform the organization's risk management
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Google Workspace and QuickBooks Online replaced in scope by Microsoft 365 and the bookkeeping workbook | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Google Workspace and QuickBooks Online replaced in scope by Microsoft 365 and the bookkeeping workbook | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Connected devices and their vendor portals added | Registered under PR-011; they share the store network with the POS until the Devices segment exists |
 | 2026-10-30 | xtraCHEF, QuickBooks Online and Northwind added to scope; inventory out-of-scope wording clarified; account-administration assumption aligned with the RACI | The scope omitted systems in the canonical system list and contradicted the RACI (AL-27). The Microsoft 365 systems join the scope with CR-001 |

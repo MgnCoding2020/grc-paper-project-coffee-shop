@@ -39,7 +39,7 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-09 | SA-9 | Vendor assessment summary (Toast POS) | [vendor-assessment-summary.md](artifacts/vendor/vendor-assessment-summary.md) | Undated | Simulation | POAM-006 |
 | E-10 | SI-3 | Endpoint protection status | — | — | Planned | POAM-007 |
 | E-11 | SI-7 | Change and integrity monitoring logs | — | — | Planned | POAM-008 |
-| E-12 | CM-6 | Secure configuration baselines | — | — | Planned | POAM-009 |
+| E-12 | CM-6 | Baseline check log (tenant and device baselines) | [baseline-checks.csv](artifacts/assets/baseline-checks.csv) | 2026-11-02 | Simulation | POAM-009 |
 | E-13 | SC-8 | Encryption-in-transit evidence | — | — | Planned | POAM-010 |
 | E-14 | RA-5 | Vulnerability scan and penetration test reports | — | — | Planned | POAM-011 |
 | E-15 | SC-28 | Data-at-rest protection and storage scope | — | — | Planned | POAM-012 |
@@ -55,6 +55,12 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 | E-25 | CA-7 | Monthly program monitor issues | [Saved reports](artifacts/monitoring/program-monitor/README.md) and [issues labelled program-monitor](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues?q=label%3Aprogram-monitor) | 2026-11-01 (first run: [issue #30](https://github.com/MgnCoding2020/grc-paper-project-coffee-shop/issues/30)) | Automated (reads the records) | POAM-028 |
 | E-26 | CP-9, CP-10 | Backup log | [backup-log.csv](artifacts/backup/backup-log.csv) | 2026-11-01 | Simulation | POAM-029 |
 | E-27 | IR-8, CP-2 | Tabletop exercise log | [tabletop-log.csv](artifacts/monitoring/tabletop-log.csv) | — | Planned | POAM-030, POAM-005 |
+| E-28 | CM-6, IA-2 | Microsoft 365 tenant baseline screenshots | Planned: `artifacts/tenant/<date>-tenant-baseline/` ([PR-013](../05-procedures/PR-013-m365-tenant-baseline.md)) | — | Planned | POAM-009 |
+| E-29 | PS-3, PS-6 | Personnel files | [Template](examples/personnel-file-checklist.md) | — | Planned | POAM-032 |
+| E-30 | SI-12, MP-6 | Disposal log | [disposal-log.csv](artifacts/assets/disposal-log.csv) | 2026-11-02 | Simulation | POAM-033 |
+| E-31 | RA-7 | Exception register | [risk-exceptions.md](../02-risk-management/risk-exceptions.md) | 2026-11-02 | Simulation | POAM-034 |
+| E-32 | PE-2, PE-8 | Key register and visitor log | [key-register.csv](artifacts/physical/key-register.csv), [visitor-log.csv](artifacts/physical/visitor-log.csv) | 2026-11-02 | Simulation | POAM-035 |
+| E-33 | AC-2 | Provisioning log: 20 Active staff, five `grp-bc-` groups and 40 memberships created in Entra ID from `people.csv` (CR-001 step 3, run early) | [2026-11-07-provisioning-log.csv](artifacts/tenant/2026-11-07-provisioning-log.csv) | 2026-11-07 | Lab-verified 2026-11-07 | — |
 
 ---
 
@@ -62,16 +68,24 @@ Committed evidence uses the fictional domain `burnandchurncoffee.com`. Where evi
 
 | Source | Control(s) | Description | Path | Date | Status | Related POA&M |
 |---|---|---|---|---|---|---|
-| IAM lab | AC-2, AC-6 | Q1 2026 user access matrix (all systems, all staff) | [user-access-matrix.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/user-access-matrix.csv) | 2026-03-25 | Simulation | POAM-014 |
-| IAM lab | AC-2, AC-6 | Q1 2026 access review findings IAM:F-001 to F-005 | [access-review-findings.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/findings/access-review-findings.md) | 2026-03-25 | Simulation | POAM-014 |
-| IAM lab | AC-2, AC-6 | Remediation tracker | [remediation-tracker.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/remediation/remediation-tracker.csv) | Targets 2026-03-31 to 2026-04-05; status check 2026-10-30 (Overdue) | Simulation | POAM-014 |
-| IAM lab | AC-2, AC-6, CA-5 | Remediation status checks (overdue findings found and escalated) | [status-checks.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/remediation/status-checks.md) | 2026-10-30 | Simulation | POAM-014, POAM-019 |
-| IAM lab | AC-2, AC-6 | Quarterly access review summary | [quarterly-access-review-summary.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/review-summary/quarterly-access-review-summary.md) | Q1 2026 | Simulation | POAM-014 |
-| IAM lab | AC-2, AC-6 | Local access review of a Windows lab VM (redacted) | [vm-local-access-review-REDACTED.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-local-access-review-REDACTED.md) | 2026-03-08 | Lab-verified 2026-03-08 | — (lab demonstration, outside the company boundary) |
-| IAM lab | IA-5 (technique) | Password policy before and after hardening (`net accounts` output), IAM:F-005 | [before](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-password-policy-before.txt) · [after](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/evidence/vm-password-policy-after.txt) | 2026-03-09 | Lab-verified 2026-03-09 | — (lab demonstration, outside the company boundary) |
+| IAM lab | AC-2, AC-6 | Q1 2026 user access matrix (all systems, all staff) | [user-access-matrix.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/evidence/user-access-matrix.csv) | 2026-03-25 | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6 | Q1 2026 access review findings IAM:F-001 to F-005 | [access-review-findings.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/findings/access-review-findings.md) | 2026-03-25 | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6 | Remediation tracker | [remediation-tracker.csv](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/remediation/remediation-tracker.csv) | Targets 2026-03-31 to 2026-04-05; status check 2026-10-30 (Overdue) | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6, CA-5 | Remediation status checks (overdue findings found and escalated) | [status-checks.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/remediation/status-checks.md) | 2026-10-30 | Simulation | POAM-014, POAM-019 |
+| IAM lab | AC-2, AC-6 | Quarterly access review summary | [quarterly-access-review-summary.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/review-summary/quarterly-access-review-summary.md) | Q1 2026 | Simulation | POAM-014 |
+| IAM lab | AC-2, AC-6 | Local access review of a Windows lab VM (redacted) | [vm-local-access-review-REDACTED.md](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/evidence/vm-local-access-review-REDACTED.md) | 2026-03-08 | Lab-verified 2026-03-08 | — (lab demonstration, outside the company boundary) |
+| IAM lab | IA-5 (technique) | Password policy before and after hardening (`net accounts` output), IAM:F-005 | [before](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/evidence/vm-password-policy-before.txt) · [after](https://github.com/MgnCoding2020/IAM-Access-Review-Lab/blob/main/reviews/2026-Q1/evidence/vm-password-policy-after.txt) | 2026-03-09 | Lab-verified 2026-03-09 | — (lab demonstration, outside the company boundary) |
 | Vendor lab | SA-9 | Toast (V-001) assessment against PCI DSS 12.8: six-factor inherent risk (18/18), due diligence against Toast's public information, findings VRA-V001:F-01 to F-04, final report | [assessments/V-001-toast](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-001-toast) | 2026-10-30 | Simulation (sources checked 2026-10-30) | POAM-020, POAM-006 |
 | Vendor lab | SA-9 | Northwind Payroll (V-002) assessment: intake, inherent risk, due diligence, findings VRA-V002:F-01 to F-04, final report | [assessments/V-002-northwind](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-002-northwind) | 2026-06-23 | Simulation | POAM-013 |
 | Vendor lab | SA-9 | Microsoft 365 (V-003) assessment before onboarding: six-factor inherent risk (16/18), due diligence against Microsoft's public documentation, findings VRA-V003:F-01 to F-05, final report | [assessments/V-003-microsoft](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-003-microsoft) | 2026-10-30 | Simulation (sources checked 2026-10-30) | POAM-018 |
+| Vendor lab | SA-9 | Cloudflare (V-014) assessment, late (in use since 2026-11-02): six-factor inherent risk (13/18, High once the register replaces Toast), due diligence against Cloudflare's public documentation and the service's behaviour in use, findings VRA-V014:F-01 to F-05, final report | [assessments/V-014-cloudflare](https://github.com/MgnCoding2020/Vendor-Risk-Assessment-Lab/tree/main/assessments/V-014-cloudflare) | 2026-11-08 | Simulation (sources checked 2026-11-08) | POAM-036 |
+| Website | AC-2, AC-3, AC-6, IA-5 | Staff sign-in app `bc-website-staff` in Entra ID: single tenant, certificate only, openid and profile only, four app roles, assignment required, 20 role assignments (CR-002 step 3); redacted screenshots and the setup script's log | [docs/evidence/2026-11-07-entra-staff-app](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-07-entra-staff-app) | 2026-11-07 | Lab-verified 2026-11-07 | — |
+| Website | IA-2, AC-3, AU-2 | First live staff sign-in in production (barista, role shown, sign-out); Entra sign-in and audit logs, redacted (CR-002 step 3, acceptance test 1 partly met) | [docs/evidence/2026-11-07-staff-sign-in](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-07-staff-sign-in) | 2026-11-07 | Lab-verified 2026-11-07 | — |
+| Website | CA-2, CA-7 | Repository audit after the staff sign-in go-live: what the repository claims checked against code, tests and evidence; 9 findings with resolutions | [docs/evidence/2026-11-07-repo-audit](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-07-repo-audit) | 2026-11-07 | Lab-verified 2026-11-07 | — |
+| Website | AC-3, AC-5, AC-6, AU-6 | Staff roles in production: one sign-in per role (Barista, Shift Lead, Manager, Owner), activity visible by role, and the restock chain (a manager can't decide their own request); a restock bug found and fixed (CR-002 steps 3 and 4) | [docs/evidence/2026-11-08-role-tests](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-08-role-tests) | 2026-11-09 | Lab-verified 2026-11-08 and 2026-11-09 | — |
+| Website | AC-6, CM-8, IA-5, SC-8 | Stripe test-mode set-up: Terminal location, simulated reader, production webhook endpoint created by script with a one-time key; signing secret never shown; unsigned and forged webhooks refused (CR-002 step 5) | [docs/evidence/2026-11-09-stripe-setup](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-09-stripe-setup) | 2026-11-09 | Lab-verified 2026-11-09 | — |
+| Website | AC-3, AU-2, SA-9, SI-10 | Card payments at the counter in production: a declined test card, another card on the same payment, the order on the board as COUNTER · CARD, no cash refund of a card sale, matching Stripe record (CR-002 step 5, acceptance test 3 counter half) | [docs/evidence/2026-11-09-card-payments](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-09-card-payments) | 2026-11-09 | Lab-verified 2026-11-09 | — |
+| Website | AC-5, AU-2, AU-6, SA-9 | Card refunds with separation of duties in production: the Manager who took the payment refused, the refusal in the Owner's activity, the Owner's refund to the card, Stripe showing it refunded (CR-002 acceptance test 2) | [docs/evidence/2026-11-10-card-refunds](https://github.com/MgnCoding2020/burn-and-churn-website/tree/main/docs/evidence/2026-11-10-card-refunds) | 2026-11-10 | Lab-verified 2026-11-10 | — |
 
 ---
 
@@ -94,7 +108,7 @@ Evidence the CR-001 build will produce (see the build-day runbook in `CLAUDE.md`
 
 | Control(s) | Evidence | Status |
 |---|---|---|
-| AC-2 | Provisioning log from `provision-users.ps1` | Planned (2026-11-15) |
+| AC-2 | Provisioning log from `provision-users.ps1` | Captured for the 20 Active staff (E-33, 2026-11-07); Riley Morgan and the admin accounts still to come |
 | AC-2, AC-6 | Entra users, group memberships and admin role assignments | Planned (2026-11-15) |
 | IA-2 | Per-user MFA status and sign-in log details | Planned (2026-11-15) |
 | IA-2, AC-2 | Conditional Access policies, report-only then on | Planned (Business Premium trial, D-9) |

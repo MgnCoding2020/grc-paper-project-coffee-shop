@@ -1,9 +1,9 @@
 system_id,name,category,vendor_id,data_classification,boundary,evidence_mode,in_scope_since,retired_on,notes
 SYS-001,Toast POS,Point of sale and payments,V-001,Restricted,Store (card-present) and Toast cloud,Simulation,2026-02-01,,No public sandbox; no real card data anywhere in the program; staff use personal PINs (roles.md); to be retired by CR-005
-SYS-002,Google Workspace,Email and collaboration,V-007,Confidential,Cloud,Simulation,2026-02-01,2026-11-15,Retired by CR-001; kept for history
-SYS-003,Google Admin Console,Admin interface,V-007,Restricted,Cloud,Simulation,2026-02-01,2026-11-15,Retired with SYS-002
+SYS-002,Google Workspace,Email and collaboration,V-007,Confidential,Cloud,Simulation,2026-02-01,2026-11-18,Retired by CR-001; kept for history
+SYS-003,Google Admin Console,Admin interface,V-007,Restricted,Cloud,Simulation,2026-02-01,2026-11-18,Retired with SYS-002
 SYS-004,xtraCHEF,Inventory and invoices,V-001,Internal,Cloud,Simulation,2026-02-01,,Part of Toast; to be retired by CR-005 (inventory moves to a SharePoint list)
-SYS-005,QuickBooks Online,Accounting,V-006,Confidential,Cloud,Simulation,2026-02-01,2026-11-15,Retired by CR-001; bookkeeping moved to SYS-014
+SYS-005,QuickBooks Online,Accounting,V-006,Confidential,Cloud,Simulation,2026-02-01,2026-11-18,Retired by CR-001; bookkeeping moved to SYS-014
 SYS-006,Northwind Payroll Services,Payroll and HR,V-002,Restricted,Cloud,Simulation,,,Approved with conditions 2026-06-23 (VRA-V002); onboarding pending until F-02 and F-03 close; the shop's side (timesheets and payroll export) is Live in SYS-012 and SYS-014
 SYS-007,Store network,Network,V-008,Confidential,Store,Simulation,2026-02-01,,Router; firewall; staff and guest Wi-Fi (assets NET-001 to NET-005); target segmentation in CLAUDE.md section 5.4
 SYS-010,Microsoft Entra ID,Identity,V-003,Restricted,Cloud (Microsoft 365 tenant),Live,2026-11-15,,From CR-001; tenant on Entra ID Free
@@ -15,3 +15,7 @@ SYS-015,Password manager (Bitwarden organization),Shared credential storage,V-00
 SYS-016,Camera system (cloud recording),Video surveillance,V-010,Confidential,Store cameras and the vendor's cloud,Simulation,2026-02-01,,Two cameras (CAM-01/02); footage is DATA-005; rules in PR-011 §5
 SYS-017,Espresso machine service portal,Equipment telemetry and remote diagnostics,V-011,Internal,Store machine and the vendor's cloud,Simulation,2026-02-01,,ESP-01; vendor remote access (MA-4; PR-011 §4)
 SYS-018,Temperature monitoring service,Food-safety temperature log and alerts,V-012,Internal,Store sensors and the vendor's cloud,Simulation,2026-03-01,,TMP-01/02
+SYS-020,Online ordering website,Public website; staff portal; counter register,V-014,Internal,Cloud (Cloudflare Workers),Test,2026-11-05,,From CR-002; public pages live with fictional content; staff sign-in next; repository burn-and-churn-website
+SYS-021,Stripe (Checkout and Terminal),Online and card-present payments,V-013,Restricted,Stripe cloud and the counter reader,Test,,,From CR-002 and CR-005; test mode only with the simulated reader; no real card data anywhere
+SYS-022,Owner's password manager (Google Password Manager),Owner-held credential storage,V-015,Restricted,"Cloud (the Owner's Google account; passkey sign-in on the Owner's phone)",Live,2026-11-11,,"Holds only credentials that belong to the Owner alone: break-glass passwords, admin-account recovery codes, backup-drive keys (PR-009 §3, PR-012 §4). Shared admin credentials go to SYS-015. EXC-009"
+SYS-023,Customer directory (Entra External ID),Customer identity,V-003,Confidential,"Cloud (a separate external tenant, linked to the pay-as-you-go Azure subscription)",Test,2026-11-12,,"From CR-002 step 6; created by the website's setup-customer-directory.ps1 (website ADR-0041); separate from the staff tenant; fictional demo customers only (example.com); email one-time codes; $5 monthly budget alert; customer sign-in to the website next"

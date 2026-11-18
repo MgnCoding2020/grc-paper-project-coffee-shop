@@ -141,5 +141,5 @@ Acknowledgments shall be retained for documentation purposes.
 
 | Version | Date | Change |
 |---|---|---|
-| 1.3 | 2026-11-15 | Microsoft 365 replaces Google Workspace (CR-001) |
+| 1.3 | 2026-11-18 | Microsoft 365 replaces Google Workspace (CR-001) |
 | 1.2 | 2026-10-30 | The Network Security Policy reference now points to P-005 (new); the Access Management Policy is linked (alignment item AL-26). No requirement changed |

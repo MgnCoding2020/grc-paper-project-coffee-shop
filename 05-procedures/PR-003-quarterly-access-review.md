@@ -128,5 +128,5 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Review scope and evidence move to Microsoft Entra ID and the Finance library | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Review scope and evidence move to Microsoft Entra ID and the Finance library | Microsoft 365 cutover (CR-001) |
 | 2026-10-30 | Sign-off and separation of duties added to documentation; vendor, guest and network-admin accounts added to the manager review; dated status checks; role naming | The Q1 2026 review had no sign-off, and the IAM lab's copy of this procedure already required it (AL-27) |

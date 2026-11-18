@@ -82,7 +82,7 @@ R = Responsible, A = Accountable, C = Consulted, I = Informed.
 |---|---|---|---|
 | Everyday account | `first.last@burnandchurncoffee.com` | Every employee | No admin roles |
 | Admin account | `adm-first.last@burnandchurncoffee.com` | Owner, IT Technician (listed in [admin-accounts.csv](admin-accounts.csv)) | Least-privilege admin roles only; MFA required; member of `grp-bc-admins` only (the scope for admin sign-in rules), no licence and no site access |
-| Break-glass account | `bg-admin-01`, `bg-admin-02` | Emergency use only | Excluded from MFA enforcement policies; credentials sealed with the Owner; every sign-in reviewed |
+| Break-glass account | `bg-admin-01`, `bg-admin-02` | Emergency use only | Created 2026-11-11 (CR-001 log); Global Administrator, cloud-only on the default domain, members of `grp-bc-break-glass` only; excluded from every Conditional Access policy; credentials sealed with the Owner; every sign-in reviewed |
 | Vendor guest account | B2B guest, invited by email | Named vendor contacts in [vendor-contacts.csv](vendor-contacts.csv) | Member of `grp-bc-vendors` only; least privilege; time-bound (access_end); sponsored by the Owner; no generic vendor accounts (P-001 §5.7) |
 
 `burnandchurncoffee.com` is fictional. The live tenant uses its free default domain (`*.onmicrosoft.com`), which is kept out of this repository; account names are identical, only the part after the `@` differs. Every account's employee ID is its `person_id` (`EMP-###`); people sign in with their account name, not the ID.

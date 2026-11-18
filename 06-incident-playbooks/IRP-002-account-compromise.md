@@ -163,7 +163,7 @@ Review:
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Microsoft 365 replaces Google Workspace in scope | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Microsoft 365 replaces Google Workspace in scope | Microsoft 365 cutover (CR-001) |
 
 ---
 

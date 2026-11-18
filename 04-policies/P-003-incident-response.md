@@ -256,7 +256,7 @@ to and including termination of employment or contractual relationship.
 
 | Version | Date | Change |
 |---|---|---|
-| 1.3 | 2026-11-15 | Scope: Microsoft 365 replaces Google Workspace (CR-001) |
+| 1.3 | 2026-11-18 | Scope: Microsoft 365 replaces Google Workspace (CR-001) |
 | 1.2 | 2026-11-01 | §6 lifecycle mapped to the NIST CSF 2.0 functions used by NIST SP 800-61 Rev. 3; §6.7 playbook index with IRP-005 to IRP-007 and a yearly tabletop; High-severity examples for ransomware, vendor breach and payment fraud; §9 adds the bank, IC3 and the insurer |
 | 1.1 | Before 2026-10-30 | Earlier version (not dated) |
 

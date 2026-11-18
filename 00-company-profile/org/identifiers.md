@@ -26,6 +26,7 @@ Every risk, control, finding, POA&M item, change and piece of evidence in the Bu
 | Evidence | `E-##` | `E-02` | [Evidence matrix](../../07-evidence-pack/evidence-matrix.md) |
 | POA&M item | `POAM-###` | `POAM-013` | [POA&M](../../07-evidence-pack/poam/poam.md) (this repository only) |
 | Change record | `CR-###` | `CR-001` | [Change register](../../09-change-management/README.md) |
+| Risk exception | `EXC-###` | `EXC-001` | [Exception register](../../02-risk-management/risk-exceptions.md) (accepted risks; closed rows stay) |
 | Incident | `INC-###` | `INC-001` | [Incident log](../../07-evidence-pack/artifacts/monitoring/incident-log.md) (current entries to be renumbered from "Incident 001/002") |
 | Person | `EMP-###` | `EMP-001` | [people.csv](people.csv) (vendor and break-glass accounts are not people) |
 | Vendor contact | `VC-###` | `VC-001` | [vendor-contacts.csv](vendor-contacts.csv) (named vendor staff who may get guest access) |

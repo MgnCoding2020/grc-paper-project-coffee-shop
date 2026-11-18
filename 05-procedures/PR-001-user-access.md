@@ -149,5 +149,5 @@ This procedure should be reviewed annually or when significant changes occur to 
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Microsoft 365 replaces Google Workspace and the Finance library replaces QuickBooks Online in the joiner and leaver steps | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Microsoft 365 replaces Google Workspace and the Finance library replaces QuickBooks Online in the joiner and leaver steps | Microsoft 365 cutover (CR-001) |
 | 2026-10-30 | Removal deadline aligned with P-001 §5.4 (24 hours; immediately for involuntary terminations), replacing "last working day"; 3-business-day deadline for role changes (P-001 §5.3); Toast PIN and staff Wi-Fi passphrase added to removal; vendor access section; role naming | Story-level alignment review found the procedure contradicted the policy (AL-27) |

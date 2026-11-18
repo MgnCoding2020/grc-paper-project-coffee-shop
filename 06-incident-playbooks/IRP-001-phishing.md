@@ -154,7 +154,7 @@ After an incident, review:
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Microsoft 365 replaces Google Workspace; investigation uses Entra ID sign-in logs and mailbox rules | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Microsoft 365 replaces Google Workspace; investigation uses Entra ID sign-in logs and mailbox rules | Microsoft 365 cutover (CR-001) |
 
 ---
 

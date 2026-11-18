@@ -39,12 +39,12 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-04 | Network-based attack due to poor segmentation | High | Low | Medium | SC-7 | Medium |
 | R-05 | Internet or network outage impacting operations | Medium | Medium | Medium | CP-2 | Medium |
 | R-06 | Excessive privileges leading to misuse | High | Low | Medium | AC-6 | Medium |
-| R-07 | Vendor compromise or service disruption (Toast POS) | High | Low | Medium | SA-9, IR-4 | Medium |
+| R-07 | Vendor compromise, service disruption or a poorly managed exit, for any vendor in the inventory (Toast POS the most critical) | High | Low | Medium | SA-9, IR-4 | Medium |
 | R-08 | Malware infection on business systems | Medium | Medium | Medium | SI-3, SI-7, CP-9, IR-4 | Medium |
 | R-09 | Cardholder data exposure due to insufficient encryption in transit or at rest | High | Medium | High | SC-8, SC-28 | High |
 | R-10 | Former employees or vendors keep access after leaving, or staff keep access after changing roles | High | High | High | PS-4, PS-5, AC-2 | High |
 | R-11 | Unplanned or poorly controlled changes (such as the Microsoft 365 migration or the IT handover) disrupt operations or weaken security | Medium | Medium | Medium | CM-3, CM-4 | Medium |
-| R-12 | Known weaknesses stay open because remediation isn't tracked or reviewed | Medium | High | High | CA-5, CA-7 | Medium |
+| R-12 | Known weaknesses stay open because remediation isn't tracked or reviewed | Medium | High | High | CA-5, CA-7, RA-7 | Medium |
 | R-13 | Shared admin credentials (network devices, vendor portals) are undocumented, known to former providers, or lost when one person leaves | High | Medium | High | IA-5 | High |
 | R-14 | IT depends on one part-time technician (about 10 hours a week); problems outside those hours wait, or are handled without the right skills | Medium | Medium | Medium | CP-2, AC-6, IA-5 | Medium |
 | R-15 | Known weaknesses stay unpatched, or equipment runs past its maker's support, because updates and equipment details aren't tracked | High | Medium | High | SI-2, CM-8, SA-22 | High |
@@ -53,6 +53,10 @@ The overall risk level is determined based on the combination of likelihood and 
 | R-18 | Camera footage captures customers entering card PINs, or is viewed or shared without a reason | High | Low | Medium | PE-6 | Medium |
 | R-19 | Data or settings are lost to deletion, ransomware, a dead device or a closed vendor account, with no copy to restore from | High | Medium | High | CP-9, CP-10 | High |
 | R-20 | An impersonation email or text tricks staff into changing bank details or sending money (payroll diversion, fake invoice, boss impersonation) | High | Medium | High | AT-2, IR-4, IR-8 | High |
+| R-21 | A lost, stolen or shared personal phone lets someone approve MFA prompts or read company data; or staff copy company files to personal phones | Medium | Medium | Medium | AC-19, IA-2 | Medium |
+| R-22 | Someone with access to the register, cash, payroll records or admin accounts misuses it, with no screening or signed agreements on file | High | Low | Medium | PS-3, PS-6 | Medium |
+| R-23 | Records are kept longer than needed and leak, are destroyed too early to prove something, or are recovered from a disposed device or drive | Medium | Medium | Medium | SI-12, MP-6 | Medium |
+| R-24 | Someone gets into the back office, network cabinet or stock room unnoticed: keys never inventoried, one shared alarm code, visitors unrecorded | High | Low | Medium | PE-2, PE-8, PE-6 | Medium |
 
 ----
 
@@ -70,6 +74,12 @@ During reviews, risk may be:
 
 ---------------------
 
+## Accepted Risks
+
+Risks the Owner has accepted rather than reduced, with their compensating controls and expiry dates, are in the [exception register](risk-exceptions.md) ([PR-014](../05-procedures/PR-014-risk-acceptance.md)).
+
+---
+
 ## Related Policies
   - Access Management Policy
   - Acceptable Use Policy
@@ -84,6 +94,10 @@ During reviews, risk may be:
 |---|---|---|
 | 2026-10-30 | R-04 residual risk Low → Medium; R-06 residual risk Low → Medium | Program alignment review: SC-7 segmentation is not validated (POAM-015) and the Q1 access review left excess-privilege findings open (IAM:F-002, POAM-014), so the controls don't yet reduce these risks as far as recorded (AL-16, AL-19) |
 | 2026-10-30 | Added R-10 (access kept after leaving or changing roles) and R-11 (uncontrolled change) | R-10 already happened (IAM:F-001, IAM:F-003); R-11 arises from CR-001 and CR-003 |
+| 2026-11-02 | Added R-24 (physical access) | Physical Security Policy (P-011); keys never inventoried and the alarm code is shared |
+| 2026-11-02 | Added R-23 (retention and disposal); R-12 lists RA-7 | Records Retention and Disposal Policy (P-010); accepted risks now recorded in the exception register (PR-014) |
+| 2026-11-02 | Added R-22 (personnel); R-07 widened to every vendor | Personnel Security (P-009) and Third-Party Risk Management (P-008) policies |
+| 2026-11-01 | Added R-21 (personal phones) | Staff will use personal phones for MFA from the cutover (P-007) |
 | 2026-11-01 | Added R-20 (payment and payroll fraud); R-07 and R-08 list IR-4, R-08 also CP-9 | Playbooks IRP-005 to IRP-007; R-20 residual stays High until staff are trained on the prevention rules (IRP-007 §9) |
 | 2026-11-01 | Added R-19 (no backups) | The shop relied on vendors' own backups and has no copy of its own data or network settings (PR-012); residual stays High until the first restore test (POAM-029) |
 | 2026-11-01 | R-12 controls: CA-7 added | The monthly program monitor reports overdue items automatically |

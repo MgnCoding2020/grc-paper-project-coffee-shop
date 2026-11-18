@@ -47,6 +47,6 @@ Findings identified through monitoring activities are documented and tracked in 
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Access review scope moves to Microsoft Entra ID and the systems added since Q1 | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Access review scope moves to Microsoft Entra ID and the systems added since Q1 | Microsoft 365 cutover (CR-001) |
 | 2026-11-01 | Added the automated program monitor; patching scope widened | Monthly checks of the program's own records (CA-7); IT Operations Policy (P-006) |
 | 2026-10-30 | Access review scope: Stripe removed; xtraCHEF, QuickBooks Online and network administration interfaces added | Stripe is not used by the company; scope now matches the systems actually reviewed (AL-07) |

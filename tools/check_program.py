@@ -17,6 +17,7 @@ import csv
 import re
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 
 HUB_URL = "github.com/MgnCoding2020/grc-paper-project-coffee-shop"
@@ -143,6 +144,12 @@ def tracked_files(repo):
         return [p for p in Path(repo).rglob("*") if p.is_file() and ".git" not in p.parts]
 
 
+def iam_file(iam, *parts):
+    """A Q1 2026 review file in the IAM lab: reviews/2026-Q1/ once restructured (P4), else the old top-level path."""
+    moved = Path(iam) / "reviews" / "2026-Q1" / Path(*parts)
+    return moved if moved.exists() else Path(iam) / Path(*parts)
+
+
 def rel(path, root):
     return Path(path).relative_to(root).as_posix()
 
@@ -209,7 +216,7 @@ def check_people(hub, iam, org):
             check_identity(match.group(1), "hub monitoring/incident-log.md")
 
     if iam:
-        matrix = Path(iam) / "evidence" / "user-access-matrix.csv"
+        matrix = iam_file(iam, "evidence", "user-access-matrix.csv")
         for i, row in enumerate(read_csv(matrix), start=2):
             name, role, status = row["User_Name"], row["Role"], row["Employment_Status"]
             where = f"IAM evidence/user-access-matrix.csv:{i}"
@@ -222,7 +229,7 @@ def check_people(hub, iam, org):
                 findings.append(f"{where}: {name} has role '{role}', people.csv says '{person['role']}'")
             if status != person["employment_status"]:
                 findings.append(f"{where}: {name} is '{status}', people.csv says '{person['employment_status']}'")
-        findings_doc = Path(iam) / "findings" / "access-review-findings.md"
+        findings_doc = iam_file(iam, "findings", "access-review-findings.md")
         for match in re.finditer(r"\*\*User:\*\*\s*(.+)", read_text(findings_doc)):
             check_identity(match.group(1), "IAM findings/access-review-findings.md")
     return findings
@@ -234,7 +241,7 @@ def check_systems_and_vendors(hub, iam, vra, org):
     sources = [(access / "user-access-review.csv", "hub", "System"),
                (access / "mfa-status.csv", "hub", "System")]
     if iam:
-        sources.append((Path(iam) / "evidence" / "user-access-matrix.csv", "IAM", "System"))
+        sources.append((iam_file(iam, "evidence", "user-access-matrix.csv"), "IAM", "System"))
     for path, repo, column in sources:
         if not path.exists():
             continue
@@ -275,6 +282,37 @@ def check_systems_and_vendors(hub, iam, vra, org):
     return findings
 
 
+# Where a retired system may still be named: dated records, registers and change records
+RETIRED_OK_PATHS = ("07-evidence-pack/artifacts/", "07-evidence-pack/poam/", "07-evidence-pack/evidence-",
+                    "09-change-management/", "00-company-profile/org/", "01-asset-inventory/assets.md",
+                    "02-risk-management/vendor-risk-management/", "tools/")
+# A line that describes the system as history is fine anywhere
+HISTORY_WORDS = re.compile(r"retired|replac|former|until|migrat|offboard|CR-001|history|Q1 2026|cutover|used to", re.I)
+
+
+def check_retired_systems(hub, org, as_of):
+    """Once a system's retired_on date has passed, current-state documents must not still describe it."""
+    findings = []
+    retired = [s for s in org.systems if s["retired_on"] and date.fromisoformat(s["retired_on"]) <= as_of]
+    names = {}
+    for s in retired:
+        for name in {s["name"], re.sub(r" Online$", "", s["name"])}:
+            names[name] = s["system_id"]
+    if not names:
+        return findings
+    pattern = re.compile("|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)))
+    for path in tracked_files(hub):
+        relpath = rel(path, hub)
+        if path.suffix != ".md" or path.name == "CLAUDE.md" or relpath.startswith(RETIRED_OK_PATHS):
+            continue
+        hits = [line for line in without_revision_history(read_text(path)).splitlines()
+                if pattern.search(line) and not HISTORY_WORDS.search(line)]
+        if hits:
+            first = pattern.search(hits[0]).group(0)
+            findings.append(f"hub {relpath}: still names retired {first} ({names[first]}) as current, {len(hits)} line(s)")
+    return findings
+
+
 def access_level(value):
     """Normalise access levels from different exports to admin / standard / cashier."""
     value = value.lower()
@@ -291,7 +329,7 @@ def check_evidence_agrees(hub, iam, org):
     """Hub evidence and the IAM access matrix must agree on the same person and system."""
     findings = []
     matrix = {}
-    for row in read_csv(Path(iam) / "evidence" / "user-access-matrix.csv"):
+    for row in read_csv(iam_file(iam, "evidence", "user-access-matrix.csv")):
         matrix[(row["User_Name"], row["System"])] = row
     access = Path(hub) / "07-evidence-pack" / "artifacts" / "access"
 
@@ -402,6 +440,15 @@ def check_counts(hub, org):
 STRIPE_ALLOWED = {"09-change-management/CR-005-toast-pos-replacement.md"}
 
 
+def cr002_approved(hub_root):
+    """Stripe may be named anywhere once the change register shows CR-002 approved (2026-11-05)."""
+    register = Path(hub_root) / "09-change-management" / "README.md"
+    if not register.exists():
+        return False
+    row = next((line for line in read_text(register).splitlines() if line.startswith("| CR-002 |")), "")
+    return "Approved" in row
+
+
 def without_revision_history(text):
     """Drop '## Revision History' sections: they record what was removed, which is allowed."""
     return re.sub(r"^#+ Revision History.*?(?=^## |\Z)", "", text, flags=re.M | re.S)
@@ -409,6 +456,8 @@ def without_revision_history(text):
 
 def check_forbidden(repos):
     findings = []
+    hub_root = dict(repos).get("hub")
+    stripe_ok = bool(hub_root) and cr002_approved(hub_root)
     for repo, root in repos:
         for path in tracked_files(root):
             if path.suffix not in SCANNED_SUFFIXES or path.name == "CLAUDE.md":
@@ -419,8 +468,9 @@ def check_forbidden(repos):
                 continue
             text = without_revision_history(read_text(path))
             where = f"{repo} {rel(path, root)}"
-            # CR-005 (approved, blocked on CR-002) is the one record allowed to name Stripe early
-            if re.search(r"\bstripe\b", text, re.I) and rel(path, root) not in STRIPE_ALLOWED:
+            # Before CR-002 was approved, CR-005 was the one record allowed to name Stripe
+            if (not stripe_ok and re.search(r"\bstripe\b", text, re.I)
+                    and rel(path, root) not in STRIPE_ALLOWED):
                 findings.append(f"{where}: mentions Stripe before CR-002")
             if path.suffix == ".md" and re.search(r"\bTODO\b", text):
                 findings.append(f"{where}: contains TODO")
@@ -476,7 +526,9 @@ def main():
     parser.add_argument("--hub", default=".", help="path to grc-paper-project-coffee-shop")
     parser.add_argument("--iam", help="path to IAM-Access-Review-Lab")
     parser.add_argument("--vra", help="path to Vendor-Risk-Assessment-Lab")
+    parser.add_argument("--as-of", help="check as if today were this date (YYYY-MM-DD), e.g. to preview a cutover")
     args = parser.parse_args()
+    as_of = date.fromisoformat(args.as_of) if args.as_of else date.today()
 
     hub = Path(args.hub).resolve()
     iam = Path(args.iam).resolve() if args.iam else None
@@ -489,7 +541,8 @@ def main():
     print()
     report = Report()
     report.add(1, "People match people.csv", check_people(hub, iam, org))
-    report.add(2, "Systems and vendors match systems.csv and vendors.csv", check_systems_and_vendors(hub, iam, vra, org))
+    report.add(2, "Systems and vendors match systems.csv and vendors.csv",
+               check_systems_and_vendors(hub, iam, vra, org) + check_retired_systems(hub, org, as_of))
     report.add(3, "IDs are unique and resolve", check_ids(hub))
     report.add(4, "Links resolve and companions link the hub", check_links(hub, iam, vra))
     report.add(5, "Control matrix, crosswalk and README agree", check_controls(hub))

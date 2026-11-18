@@ -125,7 +125,7 @@ This is a simplified architecture intended for educational and portfolio demonst
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Cloud services list: Microsoft 365 replaces Google Workspace; connected-device clouds added. The PNG diagrams are generic and show no Google service, so they are unchanged | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Cloud services list: Microsoft 365 replaces Google Workspace; connected-device clouds added. The PNG diagrams are generic and show no Google service, so they are unchanged | Microsoft 365 cutover (CR-001) |
 
 ---
 

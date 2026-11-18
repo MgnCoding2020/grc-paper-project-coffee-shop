@@ -13,5 +13,6 @@ evidence under `../artifacts/`.
 | [security-training-acknowledgement-form.md](security-training-acknowledgement-form.md) | AT-2 | E-06 | Record employee completion of security awareness training |
 | [vendor-security-documentation-summary.md](vendor-security-documentation-summary.md) | SA-9 | E-09 | Summarize security documentation collected from vendors |
 | [privileged-user-agreement.md](privileged-user-agreement.md) | AC-6 (PS-6) | E-20 | Rules for admin accounts, signed before admin access and every year |
+| [personnel-file-checklist.md](personnel-file-checklist.md) | PS-3, PS-6, PS-4 | E-29 | Screening, signed agreements and leaving steps for each person |
 
 > These are simulation artifacts for educational and portfolio purposes only.

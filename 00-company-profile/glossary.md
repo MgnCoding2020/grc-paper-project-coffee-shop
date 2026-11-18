@@ -114,7 +114,7 @@ The process of verifying that controls are implemented and functioning as intend
 
 | Date | Change | Reason |
 |---|---|---|
-| 2026-11-15 | Vendor example updated to Microsoft 365 | Microsoft 365 cutover (CR-001) |
+| 2026-11-18 | Vendor example updated to Microsoft 365 | Microsoft 365 cutover (CR-001) |
 
 ---
 

@@ -103,14 +103,19 @@ def register_deadlines(hub):
 
 
 def iam_deadlines(iam):
-    path = iam / "remediation/remediation-tracker.csv"
-    if not path.exists():
-        return
-    with open(path, encoding="utf-8-sig", newline="") as f:
-        for r in csv.DictReader(f):
-            if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Target_Date"]):
-                continue
-            yield f"IAM:{r['Finding_ID']} {r['Issue']}", "IAM remediation tracker", date.fromisoformat(r["Target_Date"])
+    # One tracker per review under reviews/<period>/ (P4), or the original top-level tracker.
+    # Global IDs follow identifiers.md: IAM:F-### for Q1 2026, IAM-Q4:F-### for later reviews.
+    trackers = sorted(iam.glob("reviews/*/remediation/remediation-tracker.csv"))
+    if not trackers and (iam / "remediation/remediation-tracker.csv").exists():
+        trackers = [iam / "remediation/remediation-tracker.csv"]
+    for path in trackers:
+        period = path.parts[-3] if "reviews" in path.parts else "2026-Q1"
+        prefix = "IAM" if period == "2026-Q1" else f"IAM-{period.split('-')[-1]}"
+        with open(path, encoding="utf-8-sig", newline="") as f:
+            for r in csv.DictReader(f):
+                if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Target_Date"]):
+                    continue
+                yield f"{prefix}:{r['Finding_ID']} {r['Issue']}", f"IAM tracker ({period})", date.fromisoformat(r["Target_Date"])
 
 
 def vra_deadlines(vra):
@@ -120,6 +125,16 @@ def vra_deadlines(vra):
             due = first_due(r["Target"])
             if due and not r["Status"].lower().startswith(CLOSED):
                 yield f"VRA-V{vendor}:{r['Finding ID']} {r.get('Remediation Action', '')[:60]}", "Vendor lab tracker", due
+
+
+def exception_expiries(hub):
+    path = hub / "02-risk-management/risk-exceptions.md"
+    if not path.exists():
+        return
+    for r in md_rows(path, ("ID", "Expires", "Status")):
+        if r["Status"].lower().startswith(CLOSED) or not ISO.search(r["Expires"]):
+            continue
+        yield f"{r['ID']} expires: {r['Requirement not met'][:70]}", "exception register", to_date(ISO.search(r["Expires"]))
 
 
 # ---------------------------------------------------------------- recurring
@@ -164,6 +179,10 @@ def recurring(hub, iam):
            latest(csv_dates(backup_log, "date", lambda r: r["activity"] == "Restore test")), 92, date(2027, 2, 28))
     yield ("Tabletop exercise (P-003 §6.7, PR-005 §8)", "tabletop log",
            latest(csv_dates(hub / "07-evidence-pack/artifacts/monitoring/tabletop-log.csv", "date")), 365, date(2026, 12, 31))
+    yield ("Records retention review (P-010 §4)", "disposal log",
+           latest(csv_dates(hub / "07-evidence-pack/artifacts/assets/disposal-log.csv", "date", lambda r: r["item"] == "Yearly review")), 365, date(2027, 1, 31))
+    yield ("Device baseline check (PR-015 §9)", "baseline check log",
+           latest(csv_dates(hub / "07-evidence-pack/artifacts/assets/baseline-checks.csv", "date", lambda r: r["result"] != "Not checked")), 92, date(2027, 2, 15))
     yield ("Firewall rule review (P-005 §6)", "no record kept yet", None, 182, date(2027, 4, 30))
 
 
@@ -188,7 +207,7 @@ def main():
     today = date.fromisoformat(args.today) if args.today else date.today()
     horizon = today + timedelta(days=args.window)
 
-    deadlines = list(poam_deadlines(hub)) + list(register_deadlines(hub))
+    deadlines = list(poam_deadlines(hub)) + list(register_deadlines(hub)) + list(exception_expiries(hub))
     if iam:
         deadlines += list(iam_deadlines(iam))
     if vra:
