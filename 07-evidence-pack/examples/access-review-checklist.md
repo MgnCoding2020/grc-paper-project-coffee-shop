@@ -11,7 +11,7 @@
 ## 1. Scope
 Systems reviewed this cycle:
 
-- [ ] Google Workspace
+- [ ] Microsoft Entra ID (users, groups, admin roles, guests)
 - [ ] Toast POS
 - [ ] Other: ____________________
 

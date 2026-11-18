@@ -36,7 +36,7 @@ Contact details for Toast support, the internet service provider (V-008) and the
 | 2 | **Toast cloud outage** | Same as 1: Offline Mode. Check Toast's status page; don't troubleshoot the terminals |
 | 3 | **Power or local network outage** | Terminals on battery keep working offline if possible; otherwise **cash only** with handwritten order slips (no card data on them) |
 | 4 | **One terminal fails** | Use the remaining device; contact Toast support for a replacement; follow PR-006 before any replacement terminal goes into service |
-| 5 | **Email and documents unavailable** (Google Workspace now; Microsoft 365 after CR-001) | Store keeps trading (sales don't depend on it). Use the printed outage card for contacts |
+| 5 | **Email and documents unavailable** (Microsoft 365) | Store keeps trading (sales don't depend on it). Use the printed outage card for contacts |
 | 6 | **Key person unavailable** (Owner or IT administrator) | Store Manager acts; break-glass accounts exist for emergency admin access after CR-001 |
 
 ---

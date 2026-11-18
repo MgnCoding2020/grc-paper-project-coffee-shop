@@ -14,7 +14,7 @@
 | Date/Time detected | |
 | Date/Time reported | |
 | Reported by | |
-| Affected system(s) | (e.g., Google Workspace, Toast POS) |
+| Affected system(s) | (e.g., Microsoft 365, Toast POS) |
 | Classification | Phishing / Account Compromise / POS Suspicious Activity / Lost-Stolen Device / Other |
 | Severity | Low / Medium / High |
 | Status | Open / In Progress / Resolved |
